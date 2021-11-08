@@ -1,7 +1,6 @@
 import React from 'react';
 import './Styles/App.scss';
 import Header from './Components/Header';
-import useScript from './Hooks/useScript';
 import Projects from './Components/Projects';
 
 export interface LanguageIcons {
@@ -16,8 +15,6 @@ export enum Theme {
 }
 
 function App() {
-  useScript({src: 'https://kit.fontawesome.com/79326f38c4.js', crossOrigin: 'anonymous'})
-
   var currentTheme: Theme;
 
   const setTheme = (theme: Theme): void => {
