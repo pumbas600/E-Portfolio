@@ -1,0 +1,164 @@
+@import 'Base.scss';
+@import 'Variables.scss';
+
+.centred-body {
+  width: 1200px;
+  left: 50%;
+  margin-left: -600px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &-background {
+    width: 100%;
+    background-color: var(--highlight-primary);
+  }
+
+  &-group {
+    margin-bottom: 50px;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+
+    h1 {
+      font-size: 80px;
+      margin-block-end: 0;
+      margin-block-start: 0.1em;
+    }
+  }
+
+  &-secondary {
+    background: var(--highlight-primary-lightened);
+    padding: 8px;
+    position: relative;
+  }
+}
+
+.profile-image {
+  margin-top: 30px;
+  margin-bottom: -50%;
+  height: min-content;
+  z-index: 1;
+
+  img {
+    height: 220px;
+    border-radius: 50%;
+  }
+}
+
+.profile-links {
+  top: -10px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+
+  a {
+    margin-left: 20px;
+    color: var(--text-primary) !important;
+    transition: transform .2s ease;
+
+    &:hover {
+      transform: translate3d(0, -0.2em, 0);
+    }
+  }
+}
+
+.navigation-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.nav-button {
+  color: var(--text-primary);
+  font-weight: bold;
+  margin-left: 50px;
+
+  &::after {
+    background-color: var(--text-primary);
+  }
+
+  &.btn:hover {
+    color: var(--text-primary-hover);
+  }
+}
+
+.github-link::after {
+  background-color: var(--link-colour);
+}
+
+// Project Content
+
+.content {
+  background-color: var(--primary-background);
+  position: relative;
+  width: calc(60% - 60px);
+  z-index: 2;
+
+  &-title {
+    color: var(--text-primary);
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  &-date {
+    font-size: 20px;
+    float: right;
+  }
+
+  &-footer {
+    display: flex;
+  }
+  
+  &-link {
+    flex: auto;
+    display: flex;
+    justify-content: right;
+    white-space: nowrap;
+    align-items: flex-end;
+    
+    i {
+      font-size: 18px;
+      padding: 5px;
+    }
+  }
+
+  &-description b {
+    color: var(--text-primary)
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+
+  &-display {
+    padding: 15px 30px 15px 30px;
+    border-radius: 10px;
+  }
+}
+
+.right .content {
+  box-shadow: -8px 8px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.left .content {
+  box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.language-icon {
+  margin-right: 5px;
+  margin-bottom: 1px;
+  margin-top: 2px;
+}

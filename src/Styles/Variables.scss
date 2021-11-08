@@ -1,0 +1,26 @@
+Body {
+    &.dark {
+        --primary-background: #1f2129;
+        --secondary-background: rgb(39, 41, 52);
+        --highlight-primary: rgb(129, 91, 233);
+        --highlight-primary-lightened: rgb(170, 147, 255);
+        --highlight-secondary: rgb(255, 164, 0);
+        --highlight-secondary-hover: #db8f00;
+        --text-primary: rgb(242, 244, 251);
+        --text-primary-hover: rgb(226, 226, 226);
+        --text-secondary: #bdbdbd;
+        --link-colour: #9cd3ff;
+    }
+
+    &.light {
+        --primary-background: #e1e3ec;
+        --secondary-background: rgb(255, 255, 255);
+        --highlight-primary: rgb(129, 91, 233);
+        --highlight-primary-lightened: rgb(170, 147, 255);
+        --highlight-secondary: rgb(255, 164, 0);
+        --highlight-secondary-hover: #db8f00;
+        --text-primary: rgb(20, 20, 20);
+        --text-secondary: #464646;
+        --link-colour: #0079db;
+    }
+}
