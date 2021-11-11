@@ -15,7 +15,7 @@ export enum Theme {
 }
 
 function App() {
-  var currentTheme: Theme;
+  let currentTheme: Theme;
 
   const setTheme = (theme: Theme): void => {
     if (currentTheme !== undefined) {

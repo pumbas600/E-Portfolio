@@ -18,7 +18,7 @@ interface RawLanguages {
     [language: string]: number;
 }
 
-var gitProjects: GitProject[] = [];
+let gitProjects: GitProject[] = [];
 
 async function getLanguages(project: RawProject): Promise<string[]> {
     return fetch(project.languages_url)
