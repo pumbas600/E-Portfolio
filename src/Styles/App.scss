@@ -1,10 +1,13 @@
 @import 'Base.scss';
 @import 'Variables.scss';
 
+$body-width: 1100px;
+$content-width: 72%;
+
 .centred-body {
-  width: 1200px;
+  width: $body-width;
   left: 50%;
-  margin-left: -600px;
+  margin-left: calc(-1 * #{$body-width} / 2);
   position: relative;
 }
 
@@ -103,7 +106,7 @@
 .content {
   background-color: var(--primary-background);
   position: relative;
-  width: calc(60% - 60px);
+  width: calc(#{$content-width} - 60px);
   z-index: 2;
 
   &-title {
@@ -145,7 +148,7 @@
   &-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 
     &.right {
       justify-content: right;
@@ -160,14 +163,33 @@
     padding: 15px 30px 15px 30px;
     border-radius: 10px;
   }
+
+  &-sidebar {
+    background-color: var(--highlight-primary-lightened);
+    position: relative;
+    width: calc(105% - #{$content-width} - 60px);
+    bottom: -10px;
+    z-index: 1;
+    padding-right: calc(5% + 30px);
+  }
 }
 
 .right .content {
   box-shadow: -8px 8px 10px 0px rgba(0, 0, 0, 0.5);
+
+  &-sidebar {
+    margin-left: 0 !important;
+    margin-right: -5%;
+  }
 }
 
 .left .content {
   box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.5);
+
+  &-sidebar {
+    margin-left: -5%;
+    margin-right: 0 !important;
+  }
 }
 
 .language-icon {

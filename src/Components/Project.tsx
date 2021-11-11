@@ -19,10 +19,13 @@ const Project:React.FC<IProps> = (props) => {
 
     return (
         <div id={props.project.name} className={"content-container " + (props.isLeft ? "left" : "right")}>
+            {!props.isLeft ? <div className="content-sidebar content-display"/> : null}
             <div className="content content-display">
                 <div className="content-header">
                     <span className="content-title">{props.project.name}</span>
-                    <span className="content-date">{props.project.created.getFullYear()}</span>
+                    <span className="content-date">
+                        {props.project.created.toLocaleString('default', { month: 'long', year: 'numeric'})}
+                    </span>
                 </div>
                 <hr/>
                 <div className="content-description" dangerouslySetInnerHTML={{__html: props.project.description}}>
@@ -39,6 +42,7 @@ const Project:React.FC<IProps> = (props) => {
                     </div>
                 </div>
             </div>
+            {props.isLeft ? <div className="content-sidebar content-display"/> : null}
         </div>
     )
 }
