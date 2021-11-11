@@ -2,7 +2,7 @@ export interface GitProject {
     name: string;
     link: string;
     description?: string;
-    languages: string[];
+    technologies: string[];
     created: Date;
 }
 
@@ -18,19 +18,40 @@ interface RawLanguages {
     [language: string]: number;
 }
 
+interface GitProjectFilters {
+    ignoreLanguages?: string[];
+    addTechnologies?: string[];
+}
+
+interface IntegrationFilters {
+    ignoreProjects: string[];
+    ignoreLanguages: string[];
+    projectFilters: { [project: string]: GitProjectFilters };
+}
+
+const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilters.json");
+
 let gitProjects: GitProject[] = [];
 
-async function getLanguages(project: RawProject): Promise<string[]> {
+async function getTechnologies(project: RawProject, gitProjectFilters?: GitProjectFilters): Promise<string[]> {
     return fetch(project.languages_url)
         .then((response: Response): Promise<RawLanguages> => {
             return response.json();
         })
         .then((rawLanguages: RawLanguages): string[] => {
-            const languages: string[] = [];
+            const technologies: string[] = [];
             Object.keys(rawLanguages).forEach((language: string) => {
-                languages.push(language);
-            }); 
-            return languages;
+                if (!integrationFilters.ignoreLanguages.includes(language) &&
+                    !gitProjectFilters?.ignoreLanguages?.includes(language))
+                {
+                    technologies.push(language);
+                }
+            });
+            if (gitProjectFilters?.addTechnologies) {
+                technologies.push(...gitProjectFilters?.addTechnologies);
+            }
+
+            return technologies;
         });
 }
 
@@ -41,27 +62,38 @@ async function fetchGitProjects(): Promise<GitProject[]> {
         })
         .then((rawProjects: RawProject[]): Promise<GitProject[]> => {
             return Promise.all(
-                rawProjects.map((project: RawProject): Promise<GitProject> => {
-                    return getLanguages(project)
+                rawProjects.filter((project: RawProject): boolean => {
+                    // Make sure the project isn't meant to be ignored
+                    return !integrationFilters.ignoreProjects.includes(project.name);
+                })
+                .map(async (project: RawProject): Promise<GitProject> => {
+                    const gitProjectFilters: GitProjectFilters | undefined = integrationFilters.projectFilters[project.name];
+
+                    return getTechnologies(project, gitProjectFilters)
                         .then((languages: string[]): GitProject => {
                             return {
                                 name: project.name,
                                 link: project.html_url,
                                 description: project.description,
-                                languages: languages,
+                                technologies: languages,
                                 created: new Date(project.created_at),
                             };
                         });
-                }))  
+                }));
         });
 }
 
 export async function getGitProjects(): Promise<GitProject[]> {
     if (gitProjects.length === 0)
         gitProjects = await fetchGitProjects();
-    gitProjects.forEach((gitProject: GitProject) => {
-        console.log(gitProject.name);
-        console.log(gitProject.languages);
-    })
     return gitProjects;
-}       
+}
+
+export function logGitProjects(): void {
+    getGitProjects().then((gitProjects:GitProject[]): void => {
+        console.log("\n\n\nFetched git projects");
+        gitProjects.forEach((gitProject: GitProject) => {
+            console.log(gitProject);
+        });
+    });
+}

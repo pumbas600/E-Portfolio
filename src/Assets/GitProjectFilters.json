@@ -1,0 +1,37 @@
+{
+  "ignoreProjects": [
+    "ENGGEN121GroupAssignment2", "pumbas600", "Athena", "AlgebraGenerator", "FactoryMethod", "Minesweeper", "Network"
+  ],
+  "ignoreLanguages": [
+    "PowerShell", "Batchfile", "Shell", "ShaderLab", "Mathematica", "HLSL", "Fortran", "Smarty"
+  ],
+  "projectFilters": {
+    "CriticalPath": {
+      "ignoreLanguages": ["C", "C++"],
+      "addTechnologies": ["TKinter"]
+    },
+    "DiscordBot": {
+      "ignoreLanguages": ["C"]
+    },
+    "JavaSnake": {
+      "ignoreLanguages": ["HTML"],
+      "addTechnologies": ["JavaFX"]
+    },
+    "PathFindingVisualiser": {
+      "ignoreLanguages": ["HTML"],
+      "addTechnologies": ["JavaFX"]
+    },
+    "Gravity": {
+      "addTechnologies": ["Unity"]
+    },
+    "ShieldBuilder": {
+      "addTechnologies": ["Unity"]
+    },
+    "HalpBotDashboard": {
+      "addTechnologies": ["Spring Boot", "Gradle", "Derby", "Thymeleaf", "JQuery"]
+    },
+    "WeatherPlugin": {
+      "addTechnologies": ["Gradle"]
+    }
+  }
+}

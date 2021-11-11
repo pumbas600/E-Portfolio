@@ -2,7 +2,7 @@ import React from 'react';
 import './Styles/App.scss';
 import Header from './Components/Header';
 import Projects from './Components/Projects';
-import { getGitProjects } from "./Components/GithubIntegration";
+import { logGitProjects } from "./Components/GithubIntegration";
 
 export interface LanguageIcons {
   [key: string]: string
@@ -14,6 +14,8 @@ export enum Theme {
   Light = 'light',
   Dark = 'dark'
 }
+
+logGitProjects();
 
 function App() {
   let currentTheme: Theme;
@@ -34,8 +36,6 @@ function App() {
   }
 
   setTheme(Theme.Dark);
-
-  getGitProjects();
 
   return (
     <div className="App">
