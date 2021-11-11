@@ -36,6 +36,9 @@
     },
     "WeatherPlugin": {
       "addTechnologies": ["gradle"]
+    },
+    "e-portfolio": {
+      "addTechnologies": ["react", "npm"]
     }
   }
 }
