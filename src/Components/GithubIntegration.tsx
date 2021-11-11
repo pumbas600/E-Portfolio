@@ -90,7 +90,10 @@ async function fetchGitProjects(): Promise<GitProject[]> {
 
 export async function getGitProjects(): Promise<GitProject[]> {
     if (gitProjects.length === 0)
-        gitProjects = await fetchGitProjects();
+        gitProjects = (await fetchGitProjects())
+                .sort((a: GitProject, b: GitProject): number => {
+                    return b.created.getTime() - a.created.getTime();
+                });
     return gitProjects;
 }
 

@@ -82,7 +82,8 @@
 .nav-button {
   color: var(--text-primary);
   font-weight: bold;
-  margin-left: 50px;
+  font-size: 22px;
+  margin: -5px 0px -5px 50px;
 
   &::after {
     background-color: var(--text-primary);

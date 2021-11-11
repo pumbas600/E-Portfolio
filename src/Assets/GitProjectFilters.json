@@ -1,6 +1,7 @@
 {
   "ignoreProjects": [
-    "ENGGEN121GroupAssignment2", "pumbas600", "Athena", "AlgebraGenerator", "FactoryMethod", "Minesweeper", "Network"
+    "Portfolio", "ENGGEN121GroupAssignment2", "pumbas600", "Athena", "AlgebraGenerator", "FactoryMethod",
+    "Minesweeper", "Network"
   ],
   "ignoreLanguages": [
     "PowerShell", "Batchfile", "Shell", "ShaderLab", "Mathematica", "HLSL", "Fortran", "Smarty"
@@ -29,6 +30,9 @@
     },
     "HalpBotDashboard": {
       "addTechnologies": ["spring boot", "gradle", "derby", "thymeleaf", "jquery"]
+    },
+    "HalpBot": {
+      "addTechnologies": ["gradle"]
     },
     "WeatherPlugin": {
       "addTechnologies": ["gradle"]
