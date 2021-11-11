@@ -57,7 +57,11 @@ async function fetchGitProjects(): Promise<GitProject[]> {
 }
 
 export async function getGitProjects(): Promise<GitProject[]> {
-    if (gitProjects.length == 0)
-        gitProjects = await fetchGitProjects(); 
+    if (gitProjects.length === 0)
+        gitProjects = await fetchGitProjects();
+    gitProjects.forEach((gitProject: GitProject) => {
+        console.log(gitProject.name);
+        console.log(gitProject.languages);
+    })
     return gitProjects;
 }       

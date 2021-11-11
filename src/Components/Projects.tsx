@@ -19,12 +19,12 @@ const JsonProjects: IJsonProject[] = require('../Assets/Projects.json');
 const Projects:React.FC = () => {
 
     const renderProjects = (): JSX.Element[] => {
-        var index: number = 0;
+        let index: number = 0;
         return JsonProjects.map(project => {
             return(
-                <Project project={project} isLeft={index++ % 2 === 0}/>
-            )
-        })
+                <Project key={project.name} project={project} isLeft={index++ % 2 === 0}/>
+            );
+        });
     }
 
     return (

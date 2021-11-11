@@ -11,9 +11,9 @@ const Project:React.FC<IProps> = (props) => {
     const renderLanguages = (): JSX.Element[] => {
         return props.project.languages.map(language => {
             return (
-                <img src={LanguageIcons[language]} className="language-icon" alt={language}/>
-            )
-        })
+                <img key={language} src={LanguageIcons[language]} className="language-icon" alt={language}/>
+            );
+        });
     }
 
     return (
@@ -32,7 +32,7 @@ const Project:React.FC<IProps> = (props) => {
                     </div>
                     <div className="content-link">
                         <a target="_blank" rel="noreferrer" href="https://github.com/pumbas600/HalpBot" className="github-link horizontal-link-hover-effect">
-                            <i className="fab fa-github"></i>
+                            <i className="fab fa-github"/>
                             <span>GitHub</span>
                         </a>
                     </div>
