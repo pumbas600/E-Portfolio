@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Project from "./Project";
+import {getGitProjects, GitProject} from "./GithubIntegration";
 
 export interface IJsonProject {
     name: string,
@@ -9,22 +10,34 @@ export interface IJsonProject {
     languages: string[]
 }
 
-export interface ILanguageIcons {
+export interface TechnologyIcons {
     [key: string]: string;
 }
 
-export const LanguageIcons: ILanguageIcons = require('../Assets/LanguageIcons.json');
-const JsonProjects: IJsonProject[] = require('../Assets/Projects.json');
+export const technologyIcons: TechnologyIcons = require('../Assets/TechnologyIcons.json');
+//const JsonProjects: IJsonProject[] = require('../Assets/Projects.json');
 
 const Projects:React.FC = () => {
 
+    const [gitProjects, setGitProjects] = useState<GitProject[]>([]);
+
+    useEffect(() => {
+        if(gitProjects.length === 0)
+            getProjects();
+    }, [gitProjects.length])
+
+    const getProjects = async (): Promise<void> => {
+        setGitProjects(await getGitProjects());
+    }
+
     const renderProjects = (): JSX.Element[] => {
         let index: number = 0;
-        return JsonProjects.map(project => {
-            return(
+        return gitProjects.map((project: GitProject): JSX.Element => {
+            return (
                 <Project key={project.name} project={project} isLeft={index++ % 2 === 0}/>
             );
         });
+
     }
 
     return (

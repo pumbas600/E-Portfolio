@@ -133,14 +133,26 @@
     }
   }
 
-  &-description b {
-    color: var(--text-primary)
+  &-description {
+    margin-bottom: 10px;
+
+    b {
+      color: var(--text-primary);
+    }
   }
 
   &-container {
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
+
+    &.right {
+      justify-content: right;
+    }
+
+    &.left {
+      justify-content: left;
+    }
   }
 
   &-display {

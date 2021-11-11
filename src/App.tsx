@@ -2,20 +2,17 @@ import React from 'react';
 import './Styles/App.scss';
 import Header from './Components/Header';
 import Projects from './Components/Projects';
-import { logGitProjects } from "./Components/GithubIntegration";
 
 export interface LanguageIcons {
   [key: string]: string
 }
 
-export const LanguageIconLinks:LanguageIcons = require("./Assets/LanguageIcons.json");
+export const LanguageIconLinks:LanguageIcons = require("./Assets/TechnologyIcons.json");
 
 export enum Theme {
   Light = 'light',
   Dark = 'dark'
 }
-
-logGitProjects();
 
 function App() {
   let currentTheme: Theme;

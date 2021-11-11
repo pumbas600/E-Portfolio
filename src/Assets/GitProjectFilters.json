@@ -8,30 +8,30 @@
   "projectFilters": {
     "CriticalPath": {
       "ignoreLanguages": ["C", "C++"],
-      "addTechnologies": ["TKinter"]
+      "addTechnologies": ["tkinter"]
     },
     "DiscordBot": {
       "ignoreLanguages": ["C"]
     },
     "JavaSnake": {
       "ignoreLanguages": ["HTML"],
-      "addTechnologies": ["JavaFX"]
+      "addTechnologies": ["javafx"]
     },
     "PathFindingVisualiser": {
       "ignoreLanguages": ["HTML"],
-      "addTechnologies": ["JavaFX"]
+      "addTechnologies": ["javafx"]
     },
     "Gravity": {
-      "addTechnologies": ["Unity"]
+      "addTechnologies": ["unity"]
     },
     "ShieldBuilder": {
-      "addTechnologies": ["Unity"]
+      "addTechnologies": ["unity"]
     },
     "HalpBotDashboard": {
-      "addTechnologies": ["Spring Boot", "Gradle", "Derby", "Thymeleaf", "JQuery"]
+      "addTechnologies": ["spring boot", "gradle", "derby", "thymeleaf", "jquery"]
     },
     "WeatherPlugin": {
-      "addTechnologies": ["Gradle"]
+      "addTechnologies": ["gradle"]
     }
   }
 }

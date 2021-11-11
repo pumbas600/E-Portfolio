@@ -45,7 +45,7 @@ async function getTechnologies(project: RawProject, gitProjectFilters?: GitProje
                 if (!integrationFilters.ignoreLanguages.includes(language) &&
                     !gitProjectFilters?.ignoreLanguages?.includes(language))
                 {
-                    technologies.push(language);
+                    technologies.push(language.toLowerCase());
                 }
             });
             if (gitProjectFilters?.addTechnologies) {
