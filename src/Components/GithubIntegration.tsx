@@ -1,7 +1,7 @@
 export interface GitProject {
     name: string;
     link: string;
-    description?: string;
+    description: string;
     technologies: string[];
     created: Date;
 }
@@ -21,6 +21,7 @@ interface RawLanguages {
 interface GitProjectFilters {
     ignoreLanguages?: string[];
     addTechnologies?: string[];
+    appendDescription?: string;
 }
 
 interface IntegrationFilters {
@@ -69,12 +70,16 @@ async function fetchGitProjects(): Promise<GitProject[]> {
                 .map(async (project: RawProject): Promise<GitProject> => {
                     const gitProjectFilters: GitProjectFilters | undefined = integrationFilters.projectFilters[project.name];
 
+                    let description: string = project.description ? project.description : '';
+                    if (gitProjectFilters?.appendDescription)
+                        description += gitProjectFilters.appendDescription;
+
                     return getTechnologies(project, gitProjectFilters)
                         .then((languages: string[]): GitProject => {
                             return {
                                 name: project.name,
                                 link: project.html_url,
-                                description: project.description,
+                                description: description,
                                 technologies: languages,
                                 created: new Date(project.created_at),
                             };
