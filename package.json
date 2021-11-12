@@ -2,7 +2,7 @@
   "name": "e-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pumbas600.github.io/e-portfolio/",
+  "homepage": "https://pumbas600.github.io/E-Portfolio/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
