@@ -28,16 +28,16 @@
     "ShieldBuilder": {
       "addTechnologies": ["unity"]
     },
-    "HalpBotDashboard": {
+    "HalpbotDashboard": {
       "addTechnologies": ["spring boot", "gradle", "derby", "thymeleaf", "jquery"]
     },
-    "HalpBot": {
+    "Halpbot": {
       "addTechnologies": ["gradle"]
     },
     "WeatherPlugin": {
       "addTechnologies": ["gradle"]
     },
-    "e-portfolio": {
+    "E-Portfolio": {
       "addTechnologies": ["react", "npm"]
     }
   }

@@ -24,7 +24,10 @@ const Project:React.FC<IProps> = (props) => {
                 <div className="content-header">
                     <span className="content-title">{props.project.name}</span>
                     <span className="content-date">
-                        {props.project.created.toLocaleString('default', { month: 'long', year: 'numeric'})}
+                        <span className="content-month">
+                            {props.project.created.toLocaleString('default', { month: 'long'})}
+                        </span>
+                        <span className="content-year">{props.project.created.getFullYear()}</span>
                     </span>
                 </div>
                 <hr/>
