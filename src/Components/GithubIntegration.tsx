@@ -12,6 +12,7 @@ interface RawProject {
     description?: string;
     languages_url: string;
     created_at: string;
+    fork: boolean;
 }
 
 interface RawLanguages {
@@ -29,6 +30,8 @@ interface IntegrationFilters {
     ignoreLanguages: string[];
     projectFilters: { [project: string]: GitProjectFilters };
 }
+
+const splitPascalCase: RegExp = new RegExp('([a-z])([A-Z])', 'g');
 
 const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilters.json");
 
@@ -65,7 +68,8 @@ async function fetchGitProjects(): Promise<GitProject[]> {
             return Promise.all(
                 rawProjects.filter((project: RawProject): boolean => {
                     // Make sure the project isn't meant to be ignored
-                    return !integrationFilters.ignoreProjects.includes(project.name);
+                    return !integrationFilters.ignoreProjects.includes(project.name)
+                        && !project.fork;
                 })
                 .map(async (project: RawProject): Promise<GitProject> => {
                     const gitProjectFilters: GitProjectFilters | undefined = integrationFilters.projectFilters[project.name];
@@ -77,7 +81,7 @@ async function fetchGitProjects(): Promise<GitProject[]> {
                     return getTechnologies(project, gitProjectFilters)
                         .then((languages: string[]): GitProject => {
                             return {
-                                name: project.name,
+                                name: project.name.replaceAll(splitPascalCase, '$1 $2'),
                                 link: project.html_url,
                                 description: description,
                                 technologies: languages,

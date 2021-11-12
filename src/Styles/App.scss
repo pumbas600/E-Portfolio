@@ -1,13 +1,16 @@
 @import 'Base.scss';
 @import 'Variables.scss';
 
-$body-width: 1100px;
-$content-width: 72%;
+* {
+  --body-width: 1100px;
+  --content-width: 72%;
+}
+
 
 .centred-body {
-  width: $body-width;
+  width: var(--body-width);
   left: 50%;
-  margin-left: calc(-1 * #{$body-width} / 2);
+  margin-left: calc(-1 * var(--body-width) / 2);
   position: relative;
 }
 
@@ -106,7 +109,7 @@ $content-width: 72%;
 .content {
   background-color: var(--primary-background);
   position: relative;
-  width: calc(#{$content-width} - 60px);
+  width: calc(var(--content-width) - 60px);
   z-index: 2;
 
   &-title {
@@ -123,14 +126,14 @@ $content-width: 72%;
   &-footer {
     display: flex;
   }
-  
+
   &-link {
     flex: auto;
     display: flex;
     justify-content: right;
     white-space: nowrap;
     align-items: flex-end;
-    
+
     i {
       font-size: 18px;
       padding: 5px;
@@ -167,7 +170,7 @@ $content-width: 72%;
   &-sidebar {
     background-color: var(--highlight-primary-lightened);
     position: relative;
-    width: calc(105% - #{$content-width} - 60px);
+    width: calc(105% - var(--content-width) - 60px);
     bottom: -10px;
     z-index: 1;
     padding-right: calc(5% + 30px);
@@ -196,4 +199,29 @@ $content-width: 72%;
   margin-right: 5px;
   margin-bottom: 1px;
   margin-top: 2px;
+}
+
+@media only screen and (max-width: 1099px) {
+  * {
+    --body-width: 95%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  * {
+    --content-width: 90%;
+  }
+
+  .profile-image img {
+    display: none;
+  }
+
+  .content {
+    &-title {
+      font-size: 22px;
+    }
+    &-date {
+      font-size: 18px;
+    }
+  }
 }
