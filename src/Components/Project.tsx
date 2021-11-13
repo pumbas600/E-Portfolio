@@ -36,14 +36,19 @@ const Project:React.FC<IProps> = (props) => {
             <p className="dark:text-gray-300 text-gray-700 text-base py-5">
                 {props.project.description}
             </p>
+            {state.showTechnologies &&
+                <div className="flex flex-row flex-wrap pb-5">
+                    {renderTechnologies()}    
+                </div>
+            }
             <div className="flex justify-between">
                 <div>
-                    <button className="drop-shadow-md rounded-md bg-purple-500 p-2 w-24 mr-5 hover:bg-purple-600">
+                    <button className="drop-shadow-md rounded-md bg-purple-500 p-2 w-24 mr-5 hover:bg-purple-600 transition-colors">
                         <a className="text-white font-semibold">
                             More Info
                         </a>
                     </button>
-                    <a target="_blank" rel="noreferrer" href={props.project.link} className="dark:text-white text-purple-500 font-semibold text-base github-link horizontal-link-hover-effect">
+                    <a target="_blank" rel="noreferrer" href={props.project.link} className="dark:text-white text-purple-500 font-semibold text-base github-link horizontal-link-hover-effect transition-colors">
                         <i className="fab fa-github mr-2"/>
                         GitHub
                     </a>
@@ -53,18 +58,13 @@ const Project:React.FC<IProps> = (props) => {
                         {state.showTechnologies ? 'Hide technologies' : 'Show technologies' }
                     </p>
                     <button onClick={() => setState({ showTechnologies: !state.showTechnologies })}
-                        className={"drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center rounded-full hover:bg-purple-600 transform active:rotate-45 transition-transform " + (state.showTechnologies && 'rotate-45')}>
+                        className={"drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all" + (state.showTechnologies && 'rotate-45')}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                     </button>
                 </div>
             </div> 
-            {state.showTechnologies &&
-                <div className="flex flex-row flex-wrap pt-5">
-                    {renderTechnologies()}    
-                </div>
-            }
         </div>
     )
 }

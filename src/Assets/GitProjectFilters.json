@@ -39,6 +39,7 @@
       "addTechnologies": ["gradle"]
     },
     "E-Portfolio": {
+      "ignoreLanguages": ["JavaScript"],
       "addTechnologies": ["tailwind", "react", "npm"]
     }
   }
