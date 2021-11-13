@@ -39,7 +39,7 @@
       "addTechnologies": ["gradle"]
     },
     "E-Portfolio": {
-      "addTechnologies": ["react", "npm"]
+      "addTechnologies": ["tailwind", "react", "npm"]
     }
   }
 }
