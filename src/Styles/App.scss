@@ -43,7 +43,7 @@
   }
 
   &-secondary {
-    background: var(--highlight-primary-lightened);
+    background: var(--highlight-primary-accent);
     padding: 8px;
     position: relative;
   }
@@ -173,7 +173,7 @@
   }
 
   &-sidebar {
-    background-color: var(--highlight-primary-lightened);
+    background-color: var(--highlight-primary-accent);
     position: relative;
     width: calc(100% - var(--background-offset));
     top: var(--background-offset);

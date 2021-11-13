@@ -1,4 +1,5 @@
 {
+  "ignoreForks": true,
   "ignoreProjects": [
     "Portfolio", "ENGGEN121GroupAssignment2", "pumbas600", "Athena", "AlgebraGenerator", "FactoryMethod",
     "Minesweeper", "Network"

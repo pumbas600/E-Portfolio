@@ -9,6 +9,14 @@ export interface LanguageIcons {
 
 export const LanguageIconLinks:LanguageIcons = require("./Assets/TechnologyIcons.json");
 
+/**
+ * TODO:
+ *  - Dark theme changer using toggle button
+ *  - Sticky header
+ *  - Github requests for weekly commit data
+ *  - Github project descriptions
+ */
+
 export enum Theme {
   Light = 'light',
   Dark = 'dark'

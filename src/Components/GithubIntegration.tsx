@@ -26,6 +26,7 @@ interface GitProjectFilters {
 }
 
 interface IntegrationFilters {
+    ignoreForks: boolean;
     ignoreProjects: string[];
     ignoreLanguages: string[];
     projectFilters: { [project: string]: GitProjectFilters };
@@ -38,58 +39,58 @@ const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilt
 let gitProjects: GitProject[] = [];
 
 async function getTechnologies(project: RawProject, gitProjectFilters?: GitProjectFilters): Promise<string[]> {
-    return fetch(project.languages_url)
-        .then((response: Response): Promise<RawLanguages> => {
-            return response.json();
-        })
-        .then((rawLanguages: RawLanguages): string[] => {
-            const technologies: string[] = [];
-            Object.keys(rawLanguages).forEach((language: string) => {
-                if (!integrationFilters.ignoreLanguages.includes(language) &&
-                    !gitProjectFilters?.ignoreLanguages?.includes(language))
-                {
-                    technologies.push(language.toLowerCase());
-                }
-            });
-            if (gitProjectFilters?.addTechnologies) {
-                technologies.push(...gitProjectFilters?.addTechnologies);
-            }
+    const response: Response = await fetch(project.languages_url);
+    if (!response.ok) {
+        console.error(`There was an error trying to fetch the languages for ${project.name}`);
+        return [];
+    }
 
-            return technologies;
-        });
+    const rawLanguages: RawLanguages = await response.json();
+    const technologies: string[] = [];
+    Object.keys(rawLanguages).forEach((language: string) => {
+        if (!integrationFilters.ignoreLanguages.includes(language) &&
+            !gitProjectFilters?.ignoreLanguages?.includes(language))
+        {
+            technologies.push(language.toLowerCase());
+        }
+    });
+    if (gitProjectFilters?.addTechnologies) {
+        technologies.push(...gitProjectFilters?.addTechnologies);
+    }
+
+    return technologies;
 }
 
 async function fetchGitProjects(): Promise<GitProject[]> {
-    return fetch('https://api.github.com/users/pumbas600/repos')
-        .then((response: Response): Promise<RawProject[]> => {
-            return response.json();
+    const response: Response = await fetch('https://api.github.com/users/pumbas600/repos');
+    if (!response.ok) {
+        console.error('There was an error trying to fetch the projects from the Github API');
+        return [];
+    }
+
+    const rawProjects: RawProject[] = await response.json();
+    return Promise.all(
+        rawProjects.filter((project: RawProject): boolean => {
+            // Check if this project is meant to be ignored
+            return !integrationFilters.ignoreProjects.includes(project.name)
+                && (!integrationFilters.ignoreForks || !project.fork);
         })
-        .then((rawProjects: RawProject[]): Promise<GitProject[]> => {
-            return Promise.all(
-                rawProjects.filter((project: RawProject): boolean => {
-                    // Make sure the project isn't meant to be ignored
-                    return !integrationFilters.ignoreProjects.includes(project.name)
-                        && !project.fork;
-                })
-                .map(async (project: RawProject): Promise<GitProject> => {
-                    const gitProjectFilters: GitProjectFilters | undefined = integrationFilters.projectFilters[project.name];
+        .map(async (project: RawProject): Promise<GitProject> => {
+            const gitProjectFilters: GitProjectFilters | undefined = integrationFilters.projectFilters[project.name];
 
-                    let description: string = project.description ? project.description : '';
-                    if (gitProjectFilters?.appendDescription)
-                        description += gitProjectFilters.appendDescription;
+            let description: string = project.description ? project.description : '';
+            if (gitProjectFilters?.appendDescription)
+                description += gitProjectFilters.appendDescription;
 
-                    return getTechnologies(project, gitProjectFilters)
-                        .then((languages: string[]): GitProject => {
-                            return {
-                                name: project.name.replaceAll(splitPascalCase, '$1 $2'),
-                                link: project.html_url,
-                                description: description,
-                                technologies: languages,
-                                created: new Date(project.created_at),
-                            };
-                        });
-                }));
-        });
+            const languages: string[] = await getTechnologies(project, gitProjectFilters)
+            return {
+                name: project.name.replaceAll(splitPascalCase, '$1 $2'),
+                link: project.html_url,
+                description: description,
+                technologies: languages,
+                created: new Date(project.created_at),
+            };
+        }));
 }
 
 export async function getGitProjects(): Promise<GitProject[]> {
