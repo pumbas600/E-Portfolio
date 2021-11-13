@@ -36,10 +36,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="app-header">
         <Header toggleTheme={toggleTheme} />
-        <Projects />
       </header>
+      <Projects />
     </div>
   );
 }

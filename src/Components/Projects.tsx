@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Project from "./Project";
 import {getGitProjects, GitProject} from "./GithubIntegration";
+import SectionTitle from "./SectionTitle";
 
 export interface IJsonProject {
     name: string,
@@ -31,10 +32,9 @@ const Projects:React.FC = () => {
     }
 
     const renderProjects = (): JSX.Element[] => {
-        let index: number = 0;
         return gitProjects.map((project: GitProject): JSX.Element => {
             return (
-                <Project key={project.name} project={project} isLeft={index++ % 2 === 0}/>
+                <Project key={project.name} project={project}/>
             );
         });
 
@@ -42,10 +42,12 @@ const Projects:React.FC = () => {
 
     return (
         <section id="projects" className="centred-body">
-            <h1>Projects</h1>
-            {renderProjects()}
+            <SectionTitle title={'Projects'} description={'My public works fetched from Github via their REST API'}/>
+            <div className="section-content">
+                {renderProjects()}
+            </div>
         </section>
-    )
+    );
 } 
 
 export default Projects;
