@@ -104,7 +104,7 @@
 }
 
 .github-link::after {
-  background-color: var(--link-colour);
+  @apply dark:bg-white bg-purple-500;
 }
 
 // Project Content

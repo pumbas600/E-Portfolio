@@ -28,7 +28,13 @@ const Projects:React.FC = () => {
     }, [gitProjects.length])
 
     const getProjects = async (): Promise<void> => {
-        setGitProjects(await getGitProjects());
+        const gitProjects: GitProject[] = await getGitProjects();
+        if (gitProjects) {
+            setGitProjects(gitProjects);
+        }
+        else {
+            console.error('There was an error fetching the projects!')
+        }
     }
 
     const renderProjects = (): JSX.Element[] => {
@@ -43,7 +49,7 @@ const Projects:React.FC = () => {
     return (
         <section id="projects" className="centred-body">
             <SectionTitle title={'Projects'} description={'My public works fetched from Github via their REST API'}/>
-            <div className="section-content">
+            <div className="section-content grid grid-cols-1 gap-3">
                 {renderProjects()}
             </div>
         </section>
