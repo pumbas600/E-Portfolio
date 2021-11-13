@@ -13,8 +13,9 @@ export const LanguageIconLinks:LanguageIcons = require("./Assets/TechnologyIcons
  * TODO:
  *  - Dark theme changer using toggle button
  *  - Sticky header
- *  - Github requests for weekly commit data
+ *  - Github requests for weekly commit data (https://medium.com/@quynh.totuan/how-to-get-the-current-week-in-javascript-9e64d45a9a08)
  *  - Github project descriptions
+ *  - Language percent graph for projects
  */
 
 export enum Theme {

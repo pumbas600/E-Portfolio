@@ -1,11 +1,17 @@
 import React from 'react';
 import selfie from '../../src/Assets/Selfie.jpg';
+import ToggleSwitch from "./ToggleSwitch";
 
 interface IProps {
     toggleTheme: () => void;
 }
 
 const Header:React.FC<IProps> = (props) => {
+
+    const onToggle = (isChecked: boolean): void => {
+        props.toggleTheme();
+    }
+
     return (
         <div className="header-group">
             <div className="header-background">
@@ -17,18 +23,20 @@ const Header:React.FC<IProps> = (props) => {
                         <h1>Josh Jeffers</h1>
                         <div className="profile-links">
                             <a target="_blank" rel="noreferrer" href="https://github.com/pumbas600">
-                                <i className="fab fa-github"></i>
+                                <i className="fab fa-github"/>
                             </a>
                             <a href="mailto:joshjeffers600@gmail.com">
-                                <i className="far fa-envelope"></i>
+                                <i className="far fa-envelope"/>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="header-secondary">
-                <div className="navigation-buttons centred-body"> 
-                    <i onClick={() => props.toggleTheme()} className="btn nav-button fas fa-adjust"></i>
+                <div className="navigation-buttons centred-body">
+                    <input type="checkbox"/>
+                    <ToggleSwitch onToggle={onToggle} shape={'round'}/>
+                    <i onClick={() => props.toggleTheme()} className="btn nav-button fas fa-adjust"/>
                     <a href="#about-me"  className="nav-button link-hover-effect">About Me</a>
                     <a href="#education" className="nav-button link-hover-effect">Education</a>
                     <a href="#projects"  className="nav-button link-hover-effect">Projects</a>
