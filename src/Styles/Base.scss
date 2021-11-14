@@ -1,4 +1,5 @@
 @import 'Variables.scss';
+@use "sass:string";
 
 // html {
 //     scroll-behavior: smooth;
@@ -171,4 +172,33 @@ input:checked + .slider:before {
   -webkit-transform: translateX(18px);
   -ms-transform: translateX(18px);
   transform: translateX(18px);
+}
+
+// Tooltip
+
+.tooltip {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: attr(tooltip-text);
+    bottom: 20%;
+    right: 50%;
+    transition: width ease-in-out 400ms;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @apply invisible w-0 opacity-0 dark:bg-gray-800 bg-white dark:text-gray-300 text-gray-700 text-sm rounded-md;
+    @apply px-5 py-2 absolute filter drop-shadow-lg;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    visibility: visible;
+    $width: string.unquote(attr(tooltip-width));
+    width: $width;
+  }
+
+
 }

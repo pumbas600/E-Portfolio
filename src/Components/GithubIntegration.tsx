@@ -97,7 +97,13 @@ async function fetchGitProjects(): Promise<GitProject[]> {
         }));
 }
 
-export async function getGitProjects(): Promise<GitProject[]> {
+export async function getGitProjectsList(): Promise<GitProject[]> {
+    await getGitProjects();
+    return Object.entries(gitProjects)
+        .map(([name, gitProject]: [string, GitProject]): GitProject => gitProject);
+}
+
+export async function getGitProjects(): Promise<GitProjects> {
     if (!gitProjects) {
         gitProjects = {};
         (await fetchGitProjects())
@@ -108,12 +114,11 @@ export async function getGitProjects(): Promise<GitProject[]> {
                 gitProjects[gitProject.name] = gitProject;
             });
     }
-    return Object.entries(gitProjects)
-        .map(([name, gitProject]: [string, GitProject]): GitProject => gitProject);
+    return gitProjects;
 }
 
 export function logGitProjects(): void {
-    getGitProjects().then((gitProjects:GitProject[]): void => {
+    getGitProjectsList().then((gitProjects:GitProject[]): void => {
         console.log("\n\n\nFetched git projects");
         gitProjects.forEach((gitProject: GitProject) => {
             console.log(gitProject);

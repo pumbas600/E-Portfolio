@@ -1,7 +1,7 @@
 import React from 'react';
 import './Styles/App.scss';
 import Header from './Components/Header';
-import Projects from './Components/Projects';
+import ProjectHighlights from './Components/ProjectHighlights';
 
 export interface LanguageIcons {
   [key: string]: string
@@ -44,7 +44,7 @@ function App() {
       <header className="app-header">
         <Header toggleTheme={toggleTheme} />
       </header>
-      <Projects />
+      <ProjectHighlights />
     </div>
   );
 }

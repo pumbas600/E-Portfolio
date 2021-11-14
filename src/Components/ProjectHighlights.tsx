@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Project from "./Project";
-import {getGitProjects, GitProject} from "./GithubIntegration";
+import {getGitProjectsList, GitProject} from "./GithubIntegration";
 import SectionTitle from "./SectionTitle";
 
 export interface IJsonProject {
@@ -18,7 +18,7 @@ export interface TechnologyIcons {
 export const technologyIcons: TechnologyIcons = require('../Assets/TechnologyIcons.json');
 //const JsonProjects: IJsonProject[] = require('../Assets/Projects.json');
 
-const Projects:React.FC = () => {
+const ProjectHighlights:React.FC = () => {
 
     const [gitProjects, setGitProjects] = useState<GitProject[]>([]);
 
@@ -28,7 +28,7 @@ const Projects:React.FC = () => {
     }, [gitProjects.length])
 
     const getProjects = async (): Promise<void> => {
-        const gitProjects: GitProject[] = await getGitProjects();
+        const gitProjects: GitProject[] = await getGitProjectsList();
         if (gitProjects) {
             setGitProjects(gitProjects);
         }
@@ -56,4 +56,4 @@ const Projects:React.FC = () => {
     );
 } 
 
-export default Projects;
+export default ProjectHighlights;

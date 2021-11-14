@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { technologyIcons } from "./Projects";
+import { technologyIcons } from "./ProjectHighlights";
 import { GitProject } from "./GithubIntegration";
 
 interface IProps {
@@ -14,12 +14,16 @@ const Project:React.FC<IProps> = (props) => {
 
     const [state, setState] = useState<IState>( {showTechnologies: false} )
 
-    const renderTechnologies = (): JSX.Element[] => {
-        return props.project.technologies.map(technology => {
-            return (
-                <img key={technology} src={technologyIcons[technology]} className="language-icon" alt={technology}/>
-            );
-        });
+    function renderTechnologies(): JSX.Element[] {
+        if (props.project.technologies && props.project.technologies.length !== 0)
+            return props.project.technologies.map(technology => {
+                return (
+                    <img key={technology} src={technologyIcons[technology]} className="language-icon" alt={technology}/>
+                );
+            });
+        else return (
+            [<p className="dark:text-gray-300 text-gray-700 text-base">There are no technologies used for this project yet.</p>]
+        );
     }
 
     return (
@@ -33,11 +37,26 @@ const Project:React.FC<IProps> = (props) => {
                 </p>           
             </div>
             <hr className="dark:border-white border-black"/>
-            <p className="dark:text-gray-300 text-gray-700 text-base py-5">
-                {props.project.description}
-            </p>
+            <div className="flex flex-row justify-between">
+                <p className="dark:text-gray-300 text-gray-700 text-base py-5">
+                    {props.project.description}
+                </p>
+                <div className="group flex items-center tooltip"
+                     tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}
+                     tooltip-width="180px">
+
+                    <button onClick={() => setState({showTechnologies: !state.showTechnologies})}
+                            className={`filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center
+                                        rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all 
+                                        ${state.showTechnologies && 'rotate-45'}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
             {state.showTechnologies &&
-                <div className="flex flex-row flex-wrap pb-5">
+                <div className="flex flex-row flex-wrap ml-2 mb-5 py-1 pl-3 border-purple-500 border-l-4">
                     {renderTechnologies()}    
                 </div>
             }
@@ -52,17 +71,6 @@ const Project:React.FC<IProps> = (props) => {
                         <i className="fab fa-github mr-2"/>
                         GitHub
                     </a>
-                </div>
-                <div className="group flex flex-row items-center">
-                    <p className="dark:text-gray-300 text-gray-700 hidden group-hover:block mr-2">
-                        {state.showTechnologies ? 'Hide technologies' : 'Show technologies' }
-                    </p>
-                    <button onClick={() => setState({ showTechnologies: !state.showTechnologies })}
-                        className={"filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all " + (state.showTechnologies && 'rotate-45')}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                    </button>
                 </div>
             </div> 
         </div>
