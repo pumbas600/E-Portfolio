@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 interface IProps {
     onClick?: (isExpanded: boolean) => void;
-    hoverMessage?: string;
-    hoverWidthClass?: string;
+    tooltipText?: string;
+    tooltipWidthClass?: string;
     initiallyExpanded?: boolean;
 }
 
@@ -18,9 +18,9 @@ const ExpandButton:React.FC<IProps> = (props) => {
     }
 
     return (
-        <div className={`hidden md:flex items-center ${props.hoverMessage && 'tooltip'}
-                        ${props.hoverWidthClass || 'default-tooltip-width'}`}
-             tooltip-text={props.hoverMessage}>
+        <div className={`hidden md:flex items-center ${props.tooltipText && 'tooltip'}
+                        ${props.tooltipWidthClass || 'default-tooltip-width'}`}
+             tooltip-text={props.tooltipText}>
 
             <button onClick={onClick}
                     className={`filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center

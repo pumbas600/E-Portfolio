@@ -43,7 +43,7 @@ const Project:React.FC<IProps> = (props) => {
                     {props.project.description ? props.project.description : "This project doesn't have a description."}
                 </p>
                 <ExpandButton onClick={(isExpanded: boolean): void => setState({showTechnologies: isExpanded})}
-                    tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}/>
+                    tooltipText={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}/>
                 {/*<div className="hidden md:flex items-center tooltip project-tooltip"*/}
                 {/*     tooltip-text={}>*/}
 
