@@ -36,6 +36,14 @@ interface IntegrationFilters {
     projectFilters: { [project: string]: GitProjectFilters };
 }
 
+export const emptyGitProject: GitProject = {
+    name: '',
+    link: '',
+    description: '',
+    technologies: [],
+    created: new Date()
+};
+
 const splitPascalCase: RegExp = new RegExp('([a-z])([A-Z])', 'g');
 
 const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilters.json");

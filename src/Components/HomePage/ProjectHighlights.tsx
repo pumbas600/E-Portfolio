@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Project from "./Project";
-import {getGitProjectsList, GitProject} from "../GithubIntegration";
+import {emptyGitProject, getGitProjects, GitProject, GitProjects} from "../GithubIntegration";
 import SectionTitle from "../Utils/SectionTitle";
 
 export interface IJsonProject {
@@ -16,7 +16,8 @@ export interface TechnologyIcons {
 }
 
 export const technologyIcons: TechnologyIcons = require('../../Assets/TechnologyIcons.json');
-//const JsonProjects: IJsonProject[] = require('../Assets/Projects.json');
+
+const projectHighlights: string[] = ['E-Portfolio', 'Halpbot Dashboard', 'Halpbot'];
 
 const ProjectHighlights:React.FC = () => {
 
@@ -28,9 +29,16 @@ const ProjectHighlights:React.FC = () => {
     }, [gitProjects.length])
 
     const getProjects = async (): Promise<void> => {
-        const gitProjects: GitProject[] = await getGitProjectsList();
+        const gitProjects: GitProjects = await getGitProjects();
         if (gitProjects) {
-            setGitProjects(gitProjects);
+            setGitProjects(projectHighlights
+                .map((projectName: string): GitProject => {
+                    if (!gitProjects[projectName]) {
+                        console.error(`There was an error loading the project ${projectName}`);
+                        return { ...emptyGitProject, name: projectName };
+                    }
+                    else return gitProjects[projectName];
+                }));
         }
         else {
             console.error('There was an error fetching the projects!')
@@ -47,9 +55,9 @@ const ProjectHighlights:React.FC = () => {
     }
 
     return (
-        <section id="projects" className="centred-body">
+        <section id="projects" className="centred-body flex md:flex-row flex-col justify-between">
             <SectionTitle title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}/>
-            <div className="section-content grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-1 gap-5">
                 {renderProjects()}
             </div>
         </section>

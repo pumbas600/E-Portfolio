@@ -40,7 +40,7 @@ function App() {
     setTheme('dark');
 
   return (
-    <div className="App dark:bg-gray-800">
+    <div className="App">
       <header className="app-header">
         <Header toggleTheme={toggleTheme} />
       </header>

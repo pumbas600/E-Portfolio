@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { technologyIcons } from "./ProjectHighlights";
 import { GitProject } from "../GithubIntegration";
+import ExpandButton from "../Utils/ExpandButton";
 
 interface IProps {
     project: GitProject;
@@ -18,7 +19,7 @@ const Project:React.FC<IProps> = (props) => {
         if (props.project.technologies && props.project.technologies.length !== 0)
             return props.project.technologies.map(technology => {
                 return (
-                    <img key={technology} src={technologyIcons[technology]} className="language-icon" alt={technology}/>
+                    <img key={technology} src={technologyIcons[technology]} className="my-1 mr-2" alt={technology}/>
                 );
             });
         else return (
@@ -27,33 +28,34 @@ const Project:React.FC<IProps> = (props) => {
     }
 
     return (
-        <div id={props.project.name} className="filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 p-5 drop-shadow-lg">
+        <div id={props.project.name} className="filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 pt-4 p-5 drop-shadow-lg">
             <div className="flex items-baseline justify-between pb-2">
-                <h2 className="dark:text-white text-black font-semibold text-2xl">
+                <h2 className="dark:text-white text-black font-semibold text-xl md:text-2xl">
                     {props.project.name}
                 </h2>
-                <p className="dark:text-gray-300 text-gray-700 md:text-base text-sm">
+                <p className="dark:text-gray-300 text-gray-700 md:text-base text-xs">
                     {props.project.created.toLocaleString('default', { month: 'long', year: 'numeric'}) }
                 </p>           
             </div>
             <hr className="dark:border-white border-black"/>
             <div className="flex flex-row justify-between">
-                <p className="dark:text-gray-300 text-gray-700 text-base py-5">
+                <p className="dark:text-gray-300 text-gray-700 text-sm md:text-base py-3 md:py-5">
                     {props.project.description ? props.project.description : "This project doesn't have a description."}
                 </p>
-                <div className="group flex items-center tooltip project-tooltip"
-                     tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}>
+                <ExpandButton onClick={(isExpanded: boolean): void => setState({showTechnologies: isExpanded})}
+                    tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}/>
+                {/*<div className="hidden md:flex items-center tooltip project-tooltip"*/}
+                {/*     tooltip-text={}>*/}
 
-                    <button onClick={() => setState({showTechnologies: !state.showTechnologies})}
-                            className={`filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center
-                                        rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all 
-                                        ${state.showTechnologies && 'rotate-45'}`}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-
-                    </button>
-                </div>
+                {/*    <button onClick={() => setState({showTechnologies: !state.showTechnologies})}*/}
+                {/*            className={`filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center*/}
+                {/*                        rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all */}
+                {/*                        ${state.showTechnologies && 'rotate-45'}`}>*/}
+                {/*        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">*/}
+                {/*            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />*/}
+                {/*        </svg>*/}
+                {/*    </button>*/}
+                {/*</div>*/}
             </div>
             {state.showTechnologies &&
                 <div className="flex flex-row flex-wrap ml-2 mb-5 py-1 pl-3 border-purple-500 border-l-4">

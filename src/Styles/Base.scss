@@ -197,3 +197,7 @@ input:checked + .slider:before {
     visibility: visible;
   }
 }
+
+.default-tooltip-width:hover::before {
+  width: 180px;
+}
