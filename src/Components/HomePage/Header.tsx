@@ -34,8 +34,6 @@ const Header:React.FC<IProps> = (props) => {
             </div>
             <div className="header-secondary">
                 <div className="navigation-buttons centred-body">
-                    <input type="checkbox"/>
-                    <ToggleSwitch onToggle={onToggle} shape={'round'}/>
                     <i onClick={() => props.toggleTheme()} className="btn nav-button fas fa-adjust"/>
                     <a href="#about-me"  className="nav-button link-hover-effect">About Me</a>
                     <a href="#education" className="nav-button link-hover-effect">Education</a>
