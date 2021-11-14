@@ -1,4 +1,4 @@
-My personal digital [portfolio](https://pumbas600.github.io/e-portfolio/). Note this is currently still in development
+My personal digital [portfolio](https://pumbas600.github.io/E-Portfolio/). Note this is currently still in development
 
 # Getting Started with Create React App
 
