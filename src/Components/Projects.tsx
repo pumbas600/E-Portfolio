@@ -48,8 +48,8 @@ const Projects:React.FC = () => {
 
     return (
         <section id="projects" className="centred-body">
-            <SectionTitle title={'Projects'} description={'My public works fetched from Github via their REST API'}/>
-            <div className="section-content grid grid-cols-1 gap-3">
+            <SectionTitle title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}/>
+            <div className="section-content grid grid-cols-1 gap-5">
                 {renderProjects()}
             </div>
         </section>

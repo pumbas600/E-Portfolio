@@ -23,7 +23,7 @@ const Project:React.FC<IProps> = (props) => {
     }
 
     return (
-        <div id={props.project.name} className="rounded-xl w-full dark:bg-gray-900 bg-gray-100 p-5 drop-shadow-lg">
+        <div id={props.project.name} className="filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 p-5 drop-shadow-lg">
             <div className="flex items-baseline justify-between pb-2">
                 <h2 className="dark:text-white text-black font-semibold text-2xl">
                     {props.project.name}
@@ -43,12 +43,12 @@ const Project:React.FC<IProps> = (props) => {
             }
             <div className="flex justify-between">
                 <div>
-                    <button className="drop-shadow-md rounded-md bg-purple-500 p-2 w-24 mr-5 hover:bg-purple-600 transition-colors">
-                        <a className="text-white font-semibold">
+                    <button className="filter drop-shadow-md rounded-md bg-purple-500 p-2 w-24 mr-5 hover:bg-purple-600 transition-colors">
+                        <a href="#projects" className="text-white font-semibold">
                             More Info
                         </a>
                     </button>
-                    <a target="_blank" rel="noreferrer" href={props.project.link} className="dark:text-white text-purple-500 font-semibold text-base github-link horizontal-link-hover-effect transition-colors">
+                    <a target="_blank" rel="noreferrer" href={props.project.link} className="dark:text-white text-purple-500 font-semibold text-base github-link horizontal-link-hover-effect">
                         <i className="fab fa-github mr-2"/>
                         GitHub
                     </a>
@@ -58,7 +58,7 @@ const Project:React.FC<IProps> = (props) => {
                         {state.showTechnologies ? 'Hide technologies' : 'Show technologies' }
                     </p>
                     <button onClick={() => setState({ showTechnologies: !state.showTechnologies })}
-                        className={"drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all" + (state.showTechnologies && 'rotate-45')}>
+                        className={"filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all " + (state.showTechnologies && 'rotate-45')}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
@@ -70,36 +70,3 @@ const Project:React.FC<IProps> = (props) => {
 }
 
 export default Project;
-
-/*
-<div id={props.project.name} className="content-container">
-            <div className="content">
-                <div className="content-display">
-                    <div className="content-header">
-                        <span className="content-title">{props.project.name}</span>
-                        <span className="content-date">
-                            <span className="content-month">
-                                {props.project.created.toLocaleString('default', { month: 'long'})}
-                            </span>
-                            <span className="content-year">{props.project.created.getFullYear()}</span>
-                        </span>
-                    </div>
-                    <hr/>
-                    <div className="content-description" dangerouslySetInnerHTML={{__html: props.project.description}}>
-                    </div>
-                    <div className="content-footer">
-                        <div className="content-language">
-                            {renderLanguages()}
-                        </div>
-                        <div className="content-link">
-                            <a target="_blank" rel="noreferrer" href={props.project.link} className="github-link horizontal-link-hover-effect">
-                                <i className="fab fa-github"/>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="content-sidebar"/>
-        </div>
- */

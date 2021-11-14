@@ -6,6 +6,10 @@ export interface GitProject {
     created: Date;
 }
 
+export interface GitProjects {
+    [project: string]: GitProject;
+}
+
 interface RawProject {
     name: string;
     html_url: string;
@@ -36,7 +40,7 @@ const splitPascalCase: RegExp = new RegExp('([a-z])([A-Z])', 'g');
 
 const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilters.json");
 
-let gitProjects: GitProject[] = [];
+let gitProjects: GitProjects;
 
 async function getTechnologies(project: RawProject, gitProjectFilters?: GitProjectFilters): Promise<string[]> {
     const response: Response = await fetch(project.languages_url);
@@ -94,12 +98,18 @@ async function fetchGitProjects(): Promise<GitProject[]> {
 }
 
 export async function getGitProjects(): Promise<GitProject[]> {
-    if (gitProjects.length === 0)
-        gitProjects = (await fetchGitProjects())
-                .sort((a: GitProject, b: GitProject): number => {
-                    return b.created.getTime() - a.created.getTime();
-                });
-    return gitProjects;
+    if (!gitProjects) {
+        gitProjects = {};
+        (await fetchGitProjects())
+            .sort((a: GitProject, b: GitProject): number => {
+                return b.created.getTime() - a.created.getTime();
+            })
+            .forEach((gitProject: GitProject): void => {
+                gitProjects[gitProject.name] = gitProject;
+            });
+    }
+    return Object.entries(gitProjects)
+        .map(([name, gitProject]: [string, GitProject]): GitProject => gitProject);
 }
 
 export function logGitProjects(): void {

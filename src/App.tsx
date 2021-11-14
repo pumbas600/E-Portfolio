@@ -18,33 +18,29 @@ export const LanguageIconLinks:LanguageIcons = require("./Assets/TechnologyIcons
  *  - Language percent graph for projects
  */
 
-export enum Theme {
-  Light = 'light',
-  Dark = 'dark'
-}
-
 function App() {
-  let currentTheme: Theme;
+  const setTheme = (theme: 'light' | 'dark'): void => {
+    if (localStorage.theme)
+      document.body.classList.remove(localStorage.theme);
 
-  const setTheme = (theme: Theme): void => {
-    if (currentTheme !== undefined) {
-      document.body.classList.remove(currentTheme);
-    }
     document.body.classList.add(theme);
-    currentTheme = theme;
+    localStorage.theme = theme;
   }
 
   const toggleTheme = (): void => {
-    if (currentTheme === Theme.Dark)
-      setTheme(Theme.Light);
+    if (localStorage.theme === 'dark')
+      setTheme('light');
     else 
-      setTheme(Theme.Dark);
+      setTheme('dark');
   }
-
-  setTheme(Theme.Dark);
+  
+  if (localStorage.theme)
+    setTheme(localStorage.theme);
+  else 
+    setTheme('dark');
 
   return (
-    <div className="App">
+    <div className="App dark:bg-gray-800">
       <header className="app-header">
         <Header toggleTheme={toggleTheme} />
       </header>
