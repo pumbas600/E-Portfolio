@@ -39,7 +39,7 @@ const Project:React.FC<IProps> = (props) => {
             <hr className="dark:border-white border-black"/>
             <div className="flex flex-row justify-between">
                 <p className="dark:text-gray-300 text-gray-700 text-base py-5">
-                    {props.project.description ? props.project.description : "This project doesn't have a description"}
+                    {props.project.description ? props.project.description : "This project doesn't have a description."}
                 </p>
                 <div className="group flex items-center tooltip project-tooltip"
                      tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}>
