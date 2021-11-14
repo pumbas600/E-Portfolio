@@ -1,6 +1,6 @@
 import React from 'react';
-import selfie from '../../src/Assets/Selfie.jpg';
-import ToggleSwitch from "./ToggleSwitch";
+import selfie from '../../Assets/Selfie.jpg';
+import ToggleSwitch from "../ToggleSwitch";
 
 interface IProps {
     toggleTheme: () => void;

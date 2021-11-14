@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Project from "./Project";
-import {getGitProjectsList, GitProject} from "./GithubIntegration";
-import SectionTitle from "./SectionTitle";
+import {getGitProjectsList, GitProject} from "../GithubIntegration";
+import SectionTitle from "../Utils/SectionTitle";
 
 export interface IJsonProject {
     name: string,
@@ -15,7 +15,7 @@ export interface TechnologyIcons {
     [key: string]: string;
 }
 
-export const technologyIcons: TechnologyIcons = require('../Assets/TechnologyIcons.json');
+export const technologyIcons: TechnologyIcons = require('../../Assets/TechnologyIcons.json');
 //const JsonProjects: IJsonProject[] = require('../Assets/Projects.json');
 
 const ProjectHighlights:React.FC = () => {

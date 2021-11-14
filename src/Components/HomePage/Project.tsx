@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { technologyIcons } from "./ProjectHighlights";
-import { GitProject } from "./GithubIntegration";
+import { GitProject } from "../GithubIntegration";
 
 interface IProps {
     project: GitProject;
@@ -39,11 +39,10 @@ const Project:React.FC<IProps> = (props) => {
             <hr className="dark:border-white border-black"/>
             <div className="flex flex-row justify-between">
                 <p className="dark:text-gray-300 text-gray-700 text-base py-5">
-                    {props.project.description}
+                    {props.project.description ? props.project.description : "This project doesn't have a description"}
                 </p>
-                <div className="group flex items-center tooltip"
-                     tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}
-                     tooltip-width="180px">
+                <div className="group flex items-center tooltip project-tooltip"
+                     tooltip-text={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}>
 
                     <button onClick={() => setState({showTechnologies: !state.showTechnologies})}
                             className={`filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center
@@ -52,6 +51,7 @@ const Project:React.FC<IProps> = (props) => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
+
                     </button>
                 </div>
             </div>

@@ -212,6 +212,10 @@ section {
   }
 }
 
+.project-tooltip:hover::before {
+  width: 180px;
+}
+
 .language-icon {
   margin-right: 5px;
   margin-bottom: 1px;

@@ -178,27 +178,22 @@ input:checked + .slider:before {
 
 .tooltip {
   position: relative;
-  display: flex;
   justify-content: center;
 
   &::before {
     content: attr(tooltip-text);
-    bottom: 20%;
     right: 50%;
-    transition: width ease-in-out 400ms;
+    transition: all ease-in-out 400ms;
     white-space: nowrap;
     overflow: hidden;
+    display: inherit;
 
-    @apply invisible w-0 opacity-0 dark:bg-gray-800 bg-white dark:text-gray-300 text-gray-700 text-sm rounded-md;
-    @apply px-5 py-2 absolute filter drop-shadow-lg;
+    @apply invisible w-0 opacity-0 dark:bg-opacity-95 bg-opacity-95 dark:bg-gray-800 bg-white dark:text-gray-300 text-gray-700 text-sm;
+    @apply rounded-md px-5 py-2 absolute filter drop-shadow-lg;
   }
 
   &:hover::before {
     opacity: 1;
     visibility: visible;
-    $width: string.unquote(attr(tooltip-width));
-    width: $width;
   }
-
-
 }

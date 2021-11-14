@@ -1,7 +1,7 @@
 import React from 'react';
 import './Styles/App.scss';
-import Header from './Components/Header';
-import ProjectHighlights from './Components/ProjectHighlights';
+import Header from './Components/HomePage/Header';
+import ProjectHighlights from './Components/HomePage/ProjectHighlights';
 
 export interface LanguageIcons {
   [key: string]: string
