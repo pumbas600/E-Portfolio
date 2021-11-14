@@ -44,18 +44,6 @@ const Project:React.FC<IProps> = (props) => {
                 </p>
                 <ExpandButton onClick={(isExpanded: boolean): void => setState({showTechnologies: isExpanded})}
                     tooltipText={state.showTechnologies ? 'Hide Technologies' : 'Show Technologies'}/>
-                {/*<div className="hidden md:flex items-center tooltip project-tooltip"*/}
-                {/*     tooltip-text={}>*/}
-
-                {/*    <button onClick={() => setState({showTechnologies: !state.showTechnologies})}*/}
-                {/*            className={`filter drop-shadow-md bg-purple-500 w-9 h-9 flex justify-center items-center*/}
-                {/*                        rounded-full hover:bg-purple-600 transform active:rotate-45 transition-all */}
-                {/*                        ${state.showTechnologies && 'rotate-45'}`}>*/}
-                {/*        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">*/}
-                {/*            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />*/}
-                {/*        </svg>*/}
-                {/*    </button>*/}
-                {/*</div>*/}
             </div>
             {state.showTechnologies &&
                 <div className="flex flex-row flex-wrap ml-2 mb-5 py-1 pl-3 border-purple-500 border-l-4">
