@@ -28,7 +28,7 @@ const Project:React.FC<IProps> = (props) => {
     }
 
     return (
-        <div id={props.project.name} className="filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 pt-4 p-5 drop-shadow-lg">
+        <div id={props.project.name} className="project filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 pt-4 p-5 drop-shadow-lg">
             <div className="flex items-baseline justify-between pb-2">
                 <h2 className="dark:text-white text-black font-semibold text-xl md:text-2xl">
                     {props.project.name}
