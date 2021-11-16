@@ -49,6 +49,17 @@ const splitPascalCase: RegExp = new RegExp('([a-z])([A-Z])', 'g');
 const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilters.json");
 
 let gitProjects: GitProjects;
+let pinnedRepos: string[];
+
+function splitPascalCaseText(pascalCase: string): string {
+    return pascalCase.replaceAll(splitPascalCase, '$1 $2');
+}
+
+function sortProjectsNewestToOldest(projects: GitProject[]): GitProject[] {
+    return projects.sort((a: GitProject, b: GitProject): number => {
+        return b.created.getTime() - a.created.getTime();
+    })
+}
 
 async function getTechnologies(project: RawProject, gitProjectFilters?: GitProjectFilters): Promise<string[]> {
     const response: Response = await fetch(project.languages_url);
@@ -96,7 +107,7 @@ async function fetchGitProjects(): Promise<GitProject[]> {
 
             const languages: string[] = await getTechnologies(project, gitProjectFilters)
             return {
-                name: project.name.replaceAll(splitPascalCase, '$1 $2'),
+                name: splitPascalCaseText(project.name),
                 link: project.html_url,
                 description: description,
                 technologies: languages,
@@ -105,19 +116,35 @@ async function fetchGitProjects(): Promise<GitProject[]> {
         }));
 }
 
+async function fetchPinnedRepositories(): Promise<string[]> {
+    const response: Response = await fetch('https://gh-pinned-repos-5l2i19um3.vercel.app/?username=pumbas600');
+    if (!response.ok) {
+        console.error('There was an error fetching the pinned repositories');
+        return [];
+    }
+
+    return (await response.json()).map((repository: {repo: string}) => splitPascalCaseText(repository.repo));
+}
+
 export async function getGitProjectsList(): Promise<GitProject[]> {
     await getGitProjects();
     return Object.entries(gitProjects)
         .map(([name, gitProject]: [string, GitProject]): GitProject => gitProject);
 }
 
+export async function getPinnedRepositories(): Promise<GitProject[]> {
+    await getGitProjects();
+    if (!pinnedRepos) {
+        pinnedRepos = await fetchPinnedRepositories();
+    }
+    return sortProjectsNewestToOldest(
+        pinnedRepos.map((repositoryName: string) => gitProjects[repositoryName]));
+}
+
 export async function getGitProjects(): Promise<GitProjects> {
     if (!gitProjects) {
         gitProjects = {};
-        (await fetchGitProjects())
-            .sort((a: GitProject, b: GitProject): number => {
-                return b.created.getTime() - a.created.getTime();
-            })
+        sortProjectsNewestToOldest(await fetchGitProjects())
             .forEach((gitProject: GitProject): void => {
                 gitProjects[gitProject.name] = gitProject;
             });

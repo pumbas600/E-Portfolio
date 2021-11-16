@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Project from "./Project";
-import {emptyGitProject, getGitProjects, GitProject, GitProjects} from "../GithubIntegration";
+import { getPinnedRepositories, GitProject } from "../GithubIntegration";
 import SectionTitle from "../Utils/SectionTitle";
 
 export interface IJsonProject {
@@ -17,28 +17,18 @@ export interface TechnologyIcons {
 
 export const technologyIcons: TechnologyIcons = require('../../Assets/TechnologyIcons.json');
 
-const projectHighlights: string[] = ['E-Portfolio', 'Halpbot Dashboard', 'Halpbot'];
-
 const ProjectHighlights:React.FC = () => {
 
     const [gitProjects, setGitProjects] = useState<GitProject[]>([]);
 
     useEffect(() => {
-        if(gitProjects.length === 0)
-            getProjects();
-    }, [gitProjects.length])
+        getProjects();
+    }, [])
 
     const getProjects = async (): Promise<void> => {
-        const gitProjects: GitProjects = await getGitProjects();
-        if (gitProjects) {
-            setGitProjects(projectHighlights
-                .map((projectName: string): GitProject => {
-                    if (!gitProjects[projectName]) {
-                        console.error(`There was an error loading the project ${projectName}`);
-                        return { ...emptyGitProject, name: projectName };
-                    }
-                    else return gitProjects[projectName];
-                }));
+        const gitProjects: GitProject[] = await getPinnedRepositories();
+        if (gitProjects.length !== 0) {
+            setGitProjects(gitProjects);
         }
         else {
             console.error('There was an error fetching the projects!')
@@ -51,7 +41,6 @@ const ProjectHighlights:React.FC = () => {
                 <Project key={project.name} project={project}/>
             );
         });
-
     }
 
     return (
