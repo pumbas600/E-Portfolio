@@ -7,8 +7,6 @@
   --background-offset: 15px;
   --sidebar-width: 18%;
 }
-
-
 .centred-body {
   width: var(--body-width);
   left: 50vw;
@@ -80,11 +78,6 @@
   }
 }
 
-.project {
-  -webkit-transition: -webkit-transform 0.5s linear;
-  transition: height 0.5s linear;
-}
-
 .navigation-buttons {
   display: flex;
   flex-direction: row;
@@ -108,10 +101,18 @@
   }
 }
 
+.vertical {
+  writing-mode: vertical-rl;
+}
+
 .section-title {
   max-width: 20%;
   min-width: 20%;
   width: 20%;
+}
+
+.technology {
+  height: 28px;
 }
 
 .github-link::after {

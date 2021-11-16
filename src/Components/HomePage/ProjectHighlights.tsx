@@ -27,12 +27,7 @@ const ProjectHighlights:React.FC = () => {
 
     const getProjects = async (): Promise<void> => {
         const gitProjects: GitProject[] = await getPinnedRepositories();
-        if (gitProjects.length !== 0) {
-            setGitProjects(gitProjects);
-        }
-        else {
-            console.error('There was an error fetching the projects!')
-        }
+        setGitProjects(gitProjects);
     }
 
     const renderProjects = (): JSX.Element[] => {

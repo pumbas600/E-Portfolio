@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { technologyIcons } from "./ProjectHighlights";
 import { GitProject } from "../GithubIntegration";
 import ExpandButton from "../Utils/ExpandButton";
+import {renderTechnologies} from "../Utils/ProjectUtils";
 
 interface IProps {
     project: GitProject;
@@ -15,31 +15,19 @@ const Project:React.FC<IProps> = (props) => {
 
     const [state, setState] = useState<IState>( {showTechnologies: false} )
 
-    function renderTechnologies(): JSX.Element[] {
-        if (props.project.technologies && props.project.technologies.length !== 0)
-            return props.project.technologies.map(technology => {
-                return (
-                    <img key={technology} src={technologyIcons[technology]} className="my-1 mr-2" alt={technology}/>
-                );
-            });
-        else return (
-            [<p className="dark:text-gray-300 text-gray-700 text-base">There are no technologies used for this project yet.</p>]
-        );
-    }
-
     return (
-        <div id={props.project.name} className="project filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 pt-4 p-5 drop-shadow-lg">
+        <div id={props.project.name} className="filter rounded-xl w-full dark:bg-gray-900 bg-gray-100 pt-4 p-5 drop-shadow-lg">
             <div className="flex items-baseline justify-between pb-2">
-                <h2 className="dark:text-white text-black font-semibold text-xl md:text-2xl">
+                <h3>
                     {props.project.name}
-                </h2>
-                <p className="dark:text-gray-300 text-gray-700 md:text-base text-xs">
+                </h3>
+                <p>
                     {props.project.created.toLocaleString('default', { month: 'long', year: 'numeric'}) }
                 </p>           
             </div>
             <hr className="dark:border-white border-black"/>
             <div className="flex flex-row justify-between">
-                <p className="dark:text-gray-300 text-gray-700 text-sm md:text-base py-3 md:py-5">
+                <p className="py-3 md:py-5">
                     {props.project.description ? props.project.description : "This project doesn't have a description."}
                 </p>
                 <ExpandButton onClick={(isExpanded: boolean): void => setState({showTechnologies: isExpanded})}
@@ -47,7 +35,7 @@ const Project:React.FC<IProps> = (props) => {
             </div>
             {state.showTechnologies &&
                 <div className="flex flex-row flex-wrap ml-2 mb-5 py-1 pl-3 border-purple-500 border-l-4">
-                    {renderTechnologies()}    
+                    {renderTechnologies(props.project.technologies)}
                 </div>
             }
             <div className="flex justify-between">

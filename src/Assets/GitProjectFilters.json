@@ -40,7 +40,7 @@
     },
     "E-Portfolio": {
       "ignoreLanguages": ["JavaScript"],
-      "addTechnologies": ["tailwind", "react", "npm"]
+      "addTechnologies": ["tailwindcss", "react", "npm"]
     }
   }
 }

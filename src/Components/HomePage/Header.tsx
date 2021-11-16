@@ -1,17 +1,11 @@
 import React from 'react';
 import selfie from '../../Assets/Selfie.jpg';
-import ToggleSwitch from "../ToggleSwitch";
 
 interface IProps {
     toggleTheme: () => void;
 }
 
 const Header:React.FC<IProps> = (props) => {
-
-    const onToggle = (isChecked: boolean): void => {
-        props.toggleTheme();
-    }
-
     return (
         <div className="header-group">
             <div className="header-background">

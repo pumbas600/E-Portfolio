@@ -11,7 +11,7 @@ const Section:React.FC<IProps> = (props) => {
     return (
         <section id={props.id || ''} className="centred-body flex md:flex-row flex-col justify-between">
             <SectionTitle title={props.title} description={props.description}/>
-            <div className="grid grid-cols-1 gap-5">
+            <div className="mb-8 grid grid-cols-1 gap-5">
                 {props.children}
             </div>
         </section>
