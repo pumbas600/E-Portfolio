@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Project from "./Project";
 import { getPinnedRepositories, GitProject } from "../GithubIntegration";
-import SectionTitle from "../Utils/SectionTitle";
+import Section from "../Utils/Section";
 
 export interface IJsonProject {
     name: string,
@@ -44,12 +44,9 @@ const ProjectHighlights:React.FC = () => {
     }
 
     return (
-        <section id="projects" className="centred-body flex md:flex-row flex-col justify-between">
-            <SectionTitle title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}/>
-            <div className="grid grid-cols-1 gap-5">
-                {renderProjects()}
-            </div>
-        </section>
+        <Section id={'projects'} title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}>
+            {renderProjects()}
+        </Section>
     );
 } 
 
