@@ -23,7 +23,7 @@ const ProjectHighlights:React.FC = () => {
 
     useEffect(() => {
         getProjects();
-    }, [])
+    }, []);
 
     const getProjects = async (): Promise<void> => {
         const gitProjects: GitProject[] = await getPinnedRepositories();
