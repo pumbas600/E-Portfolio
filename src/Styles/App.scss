@@ -105,16 +105,6 @@
   writing-mode: vertical-rl;
 }
 
-.section-title {
-  max-width: 20%;
-  min-width: 20%;
-  width: 20%;
-}
-
-.technology {
-  height: 28px;
-}
-
 .github-link::after {
   @apply dark:bg-white bg-purple-500;
 }

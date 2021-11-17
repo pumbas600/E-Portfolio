@@ -5,6 +5,7 @@ interface IProps {
     tooltipText?: string;
     tooltipWidthClass?: string;
     initiallyExpanded?: boolean;
+    backgroundClasses?: string;
 }
 
 const ExpandButton:React.FC<IProps> = (props) => {

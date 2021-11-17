@@ -20,6 +20,10 @@ p {
   @apply dark:text-gray-300 text-gray-700 md:text-base text-xs
 }
 
+hr {
+  @apply dark:border-white border-black;
+}
+
 /* Animations */
 
 .inline-link {

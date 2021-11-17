@@ -25,7 +25,7 @@ const Project:React.FC<IProps> = (props) => {
                     {props.project.created.toLocaleString('default', { month: 'long', year: 'numeric'}) }
                 </p>           
             </div>
-            <hr className="dark:border-white border-black"/>
+            <hr/>
             <div className="flex flex-row justify-between">
                 <p className="py-3 md:py-5">
                     {props.project.description ? props.project.description : "This project doesn't have a description."}

@@ -9,26 +9,24 @@ interface IProps {
 
 const TechnologyGroup:React.FC<IProps> = (props) => {
     return (
-        <div>
+        <div className="my-2">
             <h4>{props.title}</h4>
-            <table>
-                {props.proficientTechnologies && props.proficientTechnologies.length !== 0 &&
-                    <tr className="flex items-center mb-0">
-                        <td><h5
-                            className="text-right w-24 py-2 pr-2 mr-2 border-solid border-r-2 border-white">Proficient</h5>
-                        </td>
-                        <td className="flex flex-row items-center">{renderTechnologies(props.proficientTechnologies)}</td>
-                    </tr>
-                }
-                {props.familiarTechnologies && props.familiarTechnologies.length !== 0 &&
-                    <tr className="flex items-center mt-0">
-                        <td><h5
-                            className="text-right w-24 py-2 pr-2 mr-2 border-solid border-r-2 border-white">Familiar</h5>
-                        </td>
-                        <td className="flex flex-row">{renderTechnologies(props.familiarTechnologies)}</td>
-                    </tr>
-                }
-            </table>
+            {props.proficientTechnologies && props.proficientTechnologies.length !== 0 &&
+                <div className="flex md:flex-row flex-col">
+                    <p className="italic md:text-right md:w-24 w-full mr-2">Proficient</p>
+                    <div className="flex flex-row flex-wrap">
+                        {renderTechnologies(props.proficientTechnologies)}
+                    </div>
+                </div>
+            }
+            {props.familiarTechnologies && props.familiarTechnologies.length !== 0 &&
+                <div className="flex md:flex-row flex-col">
+                    <p className="italic md:text-right md:w-24 w-full mr-2">Familiar</p>
+                    <div className="flex flex-row flex-wrap ">
+                        {renderTechnologies(props.familiarTechnologies)}
+                    </div>
+                </div>
+            }
         </div>
     );
 }
