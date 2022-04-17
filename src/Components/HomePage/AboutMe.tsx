@@ -5,12 +5,18 @@ import GithubContributions from "./GithubContributions";
 
 const AboutMe:React.FC = () => {
 
+    const today = new Date();
+
     function calculateAge(): number {
         // Modified from: https://stackoverflow.com/questions/8152426/how-can-i-calculate-the-number-of-years-between-two-dates
         const birthday = new Date("25 June 2002");
-        const ageDiffMs = Date.now() - birthday.getTime();
+        const ageDiffMs = today.getTime() - birthday.getTime();
         const ageDate = new Date(ageDiffMs);
         return ageDate.getFullYear() - 1970;
+    }
+
+    function isBirthday(): boolean {
+        return today.getMonth() === 5 && today.getDay() === 25;
     }
 
     return (
@@ -23,6 +29,9 @@ const AboutMe:React.FC = () => {
                     I love when I develop software that helps meet some need, which is one of the reason's why I'm so proud
                     of `} <span className="inline-link horizontal-link-hover-effect"><a href="#Halpbot"> Halpbot</a></span>.
                 </p>
+                {isBirthday() && <p className="mt-3">
+                    🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
+                </p>}
                 <h3 className="my-3">Technical Skills</h3>
                 <TechnologyGroup
                     title="Web Development"
