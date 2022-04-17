@@ -4,11 +4,20 @@ import TechnologyGroup from "../Utils/TechnologyGroup";
 import GithubContributions from "./GithubContributions";
 
 const AboutMe:React.FC = () => {
+
+    function calculateAge(): number {
+        // Modified from: https://stackoverflow.com/questions/8152426/how-can-i-calculate-the-number-of-years-between-two-dates
+        const birthday = new Date("25 June 2002");
+        const ageDiffMs = Date.now() - birthday.getTime();
+        const ageDate = new Date(ageDiffMs);
+        return ageDate.getFullYear() - 1970;
+    }
+
     return (
         <Section id="about-me" title="About Me">
             <div>
                 <p>
-                    {`Hey there, I'm Josh, a 19 year old first year engineering student at the University of Auckland 
+                    {`Hey there, I'm Josh, a ${calculateAge()} year old first year engineering student at the University of Auckland 
                     intending to specialise in software engineering in 2022. I have a passion for programming which has 
                     driven me to complete numerous self-driven projects in an attempt to expand my programming knowledge.
                     I love when I develop software that helps meet some need, which is one of the reason's why I'm so proud
