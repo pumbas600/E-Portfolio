@@ -132,6 +132,14 @@
   @apply dark:bg-white bg-purple-500;
 }
 
+//...
+
+.project-title-link::after {
+  @apply dark:bg-teal-200 bg-teal-200
+}
+
+// ...
+
 @media only screen and (max-width: 1099px) {
   * {
     --body-width: 90%;

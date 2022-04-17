@@ -3,6 +3,7 @@ import Project from "./Project";
 import { getPinnedRepositories, GitProject } from "../GithubIntegration";
 import Section from "../Utils/Section";
 import ProjectCard from "./ProjectCard";
+import ExternalLink from "./ExternalLink";
 
 export interface IJsonProject {
     name: string,
@@ -46,12 +47,7 @@ const ProjectHighlights:React.FC = () => {
                 description={<>
                     {`Halpbot is a comprehensive `}
                     <span className="inline-link horizontal-link-hover-effect">
-                        <a target="_blank"
-                           rel="noreferrer"
-                           href="https://github.com/DV8FromTheWorld/JDA"
-                        >
-                            JDA
-                        </a>
+                        <ExternalLink href="https://github.com/DV8FromTheWorld/JDA">JDA</ExternalLink>
                     </span>
                     {` utility framework that provides a unique, annotation based approach to handling actions when
                     creating discord bots in Java. It's key purpose is to alleviate as much unnecessary boilerplate
