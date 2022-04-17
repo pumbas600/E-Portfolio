@@ -42,7 +42,20 @@ const ProjectHighlights:React.FC = () => {
                 `}
                 date = "November 2021"
                 githubUrl="https://github.com/pumbas600/E-Portfolio"
-                technologies={['react', 'tailwindcss', 'typescript']}
+                technologies={['react', 'typescript', 'tailwindcss']}
+            />
+            <ProjectCard
+                name="Deadline API"
+                description={`
+                    This project consists of both a backend, built using Java, Spring Boot and MongoDB, along with a
+                    small supporting frontend built in React and Typescript is used to manage users upcoming university
+                    deadlines. It allows you to specify which courses you want to track and if you want the course to
+                    be publicly subscribable, allowing others to get notifications about those events without having to
+                    set it up themselves.
+                `}
+                date="March 2022"
+                githubUrl="https://github.com/pumbas600/DeadlineBot"
+                technologies={['java', 'spring boot', 'mongodb', 'typescript', 'react']}
             />
         </div>
     );
