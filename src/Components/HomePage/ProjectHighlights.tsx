@@ -55,7 +55,7 @@ const ProjectHighlights:React.FC = () => {
                 </>}
                 date = "March 2021"
                 githubUrl="https://github.com/pumbas600/Halpbot"
-                technologies={[]}
+                technologies={['java', 'gradle']}
             />
             <Section id={'projects'} title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}>
                 {renderProjects()}

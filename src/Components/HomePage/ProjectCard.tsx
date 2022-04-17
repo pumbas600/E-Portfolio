@@ -1,6 +1,7 @@
 import React from "react";
 import '../../Styles/App.scss'
 import ExternalLink from "./ExternalLink";
+import Badge from "./Badge";
 
 interface Props {
     name: string;
@@ -11,6 +12,13 @@ interface Props {
 }
 
 const ProjectCard: React.FC<Props> = (props) => {
+
+    function renderTechnologies(): JSX.Element[] {
+        return props.technologies.map(technology => {
+            return <Badge key={technology} name={technology}/>
+        });
+    }
+
     return (
         <div className="bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 w-1/3 py-3 px-5 m-5">
             <div className="flex flex-col">
@@ -28,10 +36,13 @@ const ProjectCard: React.FC<Props> = (props) => {
                 <p className="text-gray-300 my-2">
                     {props.description}
                 </p>
-                <div className="flex flex-row">
+                <div className="flex flex-row justify-between">
                     <ExternalLink href={props.githubUrl} className="text-xl text-teal-200 hover:text-teal-100">
                         <i className="fab fa-github"/>
                     </ExternalLink>
+                    <div className="flex flex-row">
+                        {renderTechnologies()}
+                    </div>
                 </div>
             </div>
         </div>
