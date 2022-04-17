@@ -27,12 +27,12 @@ hr {
 /* Animations */
 
 .inline-link {
-  @apply dark:text-blue-300 text-blue-700;
+  @apply dark:text-sky-300 text-blue-700;
 }
 
 .inline-link::after {
   height: 2px !important;
-  @apply dark:bg-blue-300 bg-blue-700
+  @apply dark:bg-sky-300 bg-blue-700
 }
 
 .link-hover-effect, .horizontal-link-hover-effect {

@@ -43,7 +43,21 @@ const ProjectHighlights:React.FC = () => {
         <div>
             <ProjectCard
                 name = "Halpbot"
-                description="Desc"
+                description={<>
+                    {`Halpbot is a comprehensive `}
+                    <span className="inline-link horizontal-link-hover-effect">
+                        <a target="_blank"
+                           rel="noreferrer"
+                           href="https://github.com/DV8FromTheWorld/JDA"
+                        >
+                            JDA
+                        </a>
+                    </span>
+                    {` utility framework that provides a unique, annotation based approach to handling actions when
+                    creating discord bots in Java. It's key purpose is to alleviate as much unnecessary boilerplate
+                    code while simultaneously being both intuitive and customisable.`}
+                </>}
+                date = "March 2021"
                 githubUrl="https://github.com/pumbas600/Halpbot"
                 technologies={[]}
             />
