@@ -1,6 +1,9 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: 'class', // or 'media' or 'class'
+  content: [
+    "./public/**/*.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       minWidth: {
@@ -18,12 +21,6 @@ module.exports = {
       height: {
         '28': '28px'
       }
-    },
-  },
-  variants: {
-    extend: {
-      display: ['group-hover'],
-      rotate: ['active']
     },
   },
   plugins: [],

@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../Utils/Section";
 import TechnologyGroup from "../Utils/TechnologyGroup";
+import GithubContributions from "./GithubContributions";
 
 const AboutMe:React.FC = () => {
     return (
@@ -35,6 +36,7 @@ const AboutMe:React.FC = () => {
                     familiarTechnologies={['unity']}
                 />
             </div>
+            <GithubContributions/>
         </Section>
     )    
 }

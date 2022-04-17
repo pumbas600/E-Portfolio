@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Project from "./Project";
 import { getPinnedRepositories, GitProject } from "../GithubIntegration";
 import Section from "../Utils/Section";
+import ProjectCard from "./ProjectCard";
 
 export interface IJsonProject {
     name: string,
@@ -39,9 +40,17 @@ const ProjectHighlights:React.FC = () => {
     }
 
     return (
-        <Section id={'projects'} title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}>
-            {renderProjects()}
-        </Section>
+        <div>
+            <ProjectCard
+                name = "Halpbot"
+                description="Desc"
+                githubUrl="https://github.com/pumbas600/Halpbot"
+                technologies={[]}
+            />
+            <Section id={'projects'} title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}>
+                {renderProjects()}
+            </Section>
+        </div>
     );
 } 
 

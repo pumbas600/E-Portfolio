@@ -10,6 +10,11 @@ export interface GitProjects {
     [project: string]: GitProject;
 }
 
+export interface GithubContribution {
+    date: Date;
+    contributions: number;
+}
+
 interface RawProject {
     name: string;
     html_url: string;
@@ -21,6 +26,15 @@ interface RawProject {
 
 interface RawLanguages {
     [language: string]: number;
+}
+
+interface RawContributions {
+    contributions: RawContribution[];
+}
+
+interface RawContribution {
+    week: number;
+    days: { count: number }[]
 }
 
 interface GitProjectFilters {
@@ -50,6 +64,7 @@ const integrationFilters: IntegrationFilters = require("../Assets/GitProjectFilt
 
 let gitProjects: GitProjects;
 let pinnedRepos: string[];
+const contributions: { [year: number]: GithubContribution[] } = {};
 
 function splitPascalCaseText(pascalCase: string): string {
     return pascalCase.replaceAll(splitPascalCase, '$1 $2');
@@ -116,8 +131,72 @@ async function fetchGitProjects(): Promise<GitProject[]> {
         }));
 }
 
+function daysInMonth(year: number, month: number): number {
+    return new Date(year, month + 1, 0).getDate();
+}
+
+async function fetchContributions(year: number): Promise<GithubContribution[]> {
+    try {
+        const response: Response = await fetch(`https://skyline.github.com/pumbas600/${year}.json`, { mode: "no-cors" });
+        if (!response.ok) {
+            console.error(`There was an error trying to fetch the contributions for ${year}`);
+            return [];
+        }
+
+        const rawContributions: RawContributions = await response.json();
+        let currentDay = 1;
+        let currentMonth = 0;
+        let daysInCurrentMonth = daysInMonth(year, currentMonth);
+
+        const contributions: GithubContribution[] = [];
+
+        rawContributions.contributions.forEach((weeklyContributions: RawContribution): void => {
+            weeklyContributions.days.forEach((dailyContributions: { count: number }): void => {
+                const githubContribution: GithubContribution = {
+                    date: new Date(year, currentMonth, currentDay),
+                    contributions: dailyContributions.count
+                }
+
+                contributions.push(githubContribution);
+                currentDay++;
+                if (currentDay > daysInCurrentMonth) {
+                    currentDay = 1;
+                    currentMonth++;
+                    daysInCurrentMonth = daysInMonth(year, currentMonth);
+                }
+            });
+        });
+        return contributions;
+    } catch (error) {
+        console.error(`There was an error trying to fetch the contributions for ${year}`);
+        return [];
+    }
+}
+
+export async function getContributionsBetween(from: Date, to: Date): Promise<GithubContribution[]> {
+    const targetContributions: GithubContribution[] = [];
+
+    function addIfBetweenDates(contribution: GithubContribution): void {
+        if (contribution.date >= from && contribution.date <= to) {
+            targetContributions.push(contribution);
+        }
+    }
+    //TODO: Optimise using index slicing / indexes
+    if (contributions[from.getFullYear()] === undefined) {
+        contributions[from.getFullYear()] = await fetchContributions(from.getFullYear());
+        contributions[from.getFullYear()].forEach(addIfBetweenDates);
+    }
+    if (from.getFullYear() !== to.getFullYear() && contributions[to.getFullYear()] === undefined) {
+        contributions[to.getFullYear()] = await fetchContributions(to.getFullYear());
+        contributions[to.getFullYear()].forEach(addIfBetweenDates);
+    }
+
+    return targetContributions;
+}
+
 async function fetchPinnedRepositories(): Promise<string[]> {
-    const response: Response = await fetch('https://gh-pinned-repos-5l2i19um3.vercel.app/?username=pumbas600');
+    const response: Response = await fetch('https://gh-pinned-repos-5l2i19um3.vercel.app/?username=pumbas600',
+        { mode: "no-cors" });
     if (!response.ok) {
         console.error('There was an error fetching the pinned repositories');
         return [];
