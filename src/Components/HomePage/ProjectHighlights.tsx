@@ -1,7 +1,4 @@
-import React, {useEffect, useState} from "react";
-import Project from "./Project";
-import { getPinnedRepositories, GitProject } from "../GithubIntegration";
-import Section from "../Utils/Section";
+import React from "react";
 import ProjectCard from "./ProjectCard";
 import ExternalLink from "./ExternalLink";
 
@@ -20,28 +17,8 @@ export interface TechnologyIcons {
 export const technologyIcons: TechnologyIcons = require('../../Assets/TechnologyIcons.json');
 
 const ProjectHighlights:React.FC = () => {
-
-    const [gitProjects, setGitProjects] = useState<GitProject[]>([]);
-
-    useEffect(() => {
-        getProjects();
-    }, []);
-
-    const getProjects = async (): Promise<void> => {
-        const gitProjects: GitProject[] = await getPinnedRepositories();
-        setGitProjects(gitProjects);
-    }
-
-    const renderProjects = (): JSX.Element[] => {
-        return gitProjects.map((project: GitProject): JSX.Element => {
-            return (
-                <Project key={project.name} project={project}/>
-            );
-        });
-    }
-
     return (
-        <div>
+        <div className="flex flex-row">
             <ProjectCard
                 name = "Halpbot"
                 description={<>
@@ -57,9 +34,16 @@ const ProjectHighlights:React.FC = () => {
                 githubUrl="https://github.com/pumbas600/Halpbot"
                 technologies={['java', 'gradle']}
             />
-            <Section id={'projects'} title={'Project Highlights'} description={'Fetched from GitHub via their REST API'}>
-                {renderProjects()}
-            </Section>
+            <ProjectCard
+                name = "Portfolio"
+                description={`
+                    This digital portfolio was created as a way for me to develop my front-end knowledge using modern
+                    functional React components, Typescript and Tailwindcss. 
+                `}
+                date = "November 2021"
+                githubUrl="https://github.com/pumbas600/E-Portfolio"
+                technologies={['react', 'tailwindcss', 'typescript']}
+            />
         </div>
     );
 } 
