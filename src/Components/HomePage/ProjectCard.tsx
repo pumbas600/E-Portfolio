@@ -20,7 +20,7 @@ const ProjectCard: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 w-1/2 py-3 px-5 m-5">
+        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 py-3 px-5">
             <div>
                 <div className="flex flex-row justify-between items-baseline">
                     <ExternalLink
@@ -33,11 +33,11 @@ const ProjectCard: React.FC<Props> = (props) => {
                         {props.date}
                     </div>
                 </div>
-                <p className="text-gray-300 my-2">
+                <p className="text-gray-300 my-3">
                     {props.description}
                 </p>
             </div>
-            <div className="mt-1 flex flex-row justify-between">
+            <div className="mt-2 flex flex-row justify-between">
                 <ExternalLink href={props.githubUrl} className="text-xl text-teal-200 hover:text-teal-100">
                     <i className="fab fa-github"/>
                 </ExternalLink>

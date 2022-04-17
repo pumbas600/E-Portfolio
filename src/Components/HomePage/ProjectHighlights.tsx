@@ -18,7 +18,7 @@ export const technologyIcons: TechnologyIcons = require('../../Assets/Technology
 
 const ProjectHighlights:React.FC = () => {
     return (
-        <div className="flex flex-row">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-5 centred-body">
             <ProjectCard
                 name = "Halpbot"
                 description={<>
@@ -48,10 +48,10 @@ const ProjectHighlights:React.FC = () => {
                 name="Deadline API"
                 description={`
                     This project consists of both a backend, built using Java, Spring Boot and MongoDB, along with a
-                    small supporting frontend built in React and Typescript is used to manage users upcoming university
-                    deadlines. It allows you to specify which courses you want to track and if you want the course to
-                    be publicly subscribable, allowing others to get notifications about those events without having to
-                    set it up themselves.
+                    small supporting frontend built in React and Typescript. This project allows users to manage
+                    upcoming university  deadlines. It allows you to specify which courses you want to track and if you
+                    want the course to be publicly subscribable, enabling others to add those courses and get their
+                    notifications without having to set it up themselves.
                 `}
                 date="March 2022"
                 githubUrl="https://github.com/pumbas600/DeadlineBot"
