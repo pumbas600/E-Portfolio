@@ -41,7 +41,7 @@ const ProjectCard: React.FC<Props> = (props) => {
                     {props.description}
                 </p>
             </div>
-            <div className="mt-2 flex flex-row">
+            <div className="mt-2 flex flex-row flex-wrap">
                 {renderBadges(props.technologies)}
             </div>
         </div>

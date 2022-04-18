@@ -31,6 +31,27 @@ const ProjectHighlights:React.FC = () => {
                 technologies={['react', 'typescript', 'tailwindcss', 'scss']}
             />
             <ProjectCard
+                name="Quiz Bot"
+                description={<div>
+                    {`A discord bot I made using Halpbot, my custom discord bot framework for JDA. It allowed users to
+                    quiz themselves on CHEMMAT-121; a part 1 engineering course questions. The bot included a vast
+                    range of questions, answer streaks, user statistics, leaderboards and helpful explanations. From
+                    feedback gained by my peers, users found the bot to be an extremely useful and accessible studying
+                    mechanism.`}
+                    <br/><br/>
+                    As of November 2021, there were:
+                    <ul>
+                        <li className="ml-3"><b>131</b> unique questions</li>
+                        <li className="ml-3"><b>115</b> unique users</li>
+                        <li className="ml-3"><b>1,256</b> quizzes started</li>
+                        <li className="ml-3"><b>5,088</b> questions answered</li>
+                    </ul>
+                </div>}
+                date="September 2021"
+                githubUrl="https://github.com/pumbas600/Halpbot"
+                technologies={['java', 'gradle', 'derby']}
+            />
+            <ProjectCard
                 wip
                 name="Deadline API"
                 description={`
