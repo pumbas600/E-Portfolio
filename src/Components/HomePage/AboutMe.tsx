@@ -1,7 +1,6 @@
 import React from "react";
-import Section from "../Utils/Section";
 import TechnologyGroup from "../Utils/TechnologyGroup";
-import GithubContributions from "./GithubContributions";
+import InlineLink from "../Utils/InlineLink";
 
 const AboutMe:React.FC = () => {
 
@@ -20,42 +19,39 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <Section id="about-me" title="About Me">
+        <div className="text-lg text-gray-200">
             <div>
-                <p>
-                    {`Hey there, I'm Josh, a ${calculateAge()} year old first year engineering student at the University of Auckland 
-                    intending to specialise in software engineering in 2022. I have a passion for programming which has 
-                    driven me to complete numerous self-driven projects in an attempt to expand my programming knowledge.
-                    I love when I develop software that helps meet some need, which is one of the reason's why I'm so proud
-                    of `} <span className="inline-link horizontal-link-hover-effect"><a href="#Halpbot"> Halpbot</a></span>.
-                </p>
-                {isBirthday() && <p className="mt-3">
-                    🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
-                </p>}
-                <h3 className="my-3">Technical Skills</h3>
-                <TechnologyGroup
-                    title="Web Development"
-                    proficientTechnologies={['html', 'css', 'scss', 'tailwindcss', 'jquery']}
-                    familiarTechnologies={['spring boot', 'thymeleaf', 'javascript', 'typescript', 'react', 'npm']}
-                />
-                <TechnologyGroup
-                    title="Object Oriented Programming"
-                    proficientTechnologies={['java', 'c#', 'gradle']}
-                    familiarTechnologies={['python', 'kotlin', 'javafx']}
-                />
-                <TechnologyGroup
-                    title="Databases"
-                    proficientTechnologies={['derby']}
-                    familiarTechnologies={['sqlite']}
-                />
-                <TechnologyGroup
-                    title="Other"
-                    proficientTechnologies={['c', 'git']}
-                    familiarTechnologies={['unity']}
-                />
+                {`Hey there, I'm Josh, a ${calculateAge()} year old Software Engineer at the University of Auckland. I
+                have a passion for programming which has 
+                driven me to complete numerous self-driven projects in an attempt to expand my programming knowledge.
+                I love when I develop software that manages to help others in some form, which is one of the reasons I'm
+                so proud of my`} <InlineLink href="#quiz-bot">Quiz Bot</InlineLink>.
             </div>
-            <GithubContributions/>
-        </Section>
+            {isBirthday() && <div className="mt-3">
+                🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
+            </div>}
+            <h3 className="my-3">Technical Skills</h3>
+            <TechnologyGroup
+                title="Web Development"
+                proficientTechnologies={['html', 'css', 'scss', 'tailwindcss', 'jquery']}
+                familiarTechnologies={['spring boot', 'thymeleaf', 'javascript', 'typescript', 'react', 'npm']}
+            />
+            <TechnologyGroup
+                title="Object Oriented Programming"
+                proficientTechnologies={['java', 'c#', 'gradle']}
+                familiarTechnologies={['python', 'kotlin', 'javafx']}
+            />
+            <TechnologyGroup
+                title="Databases"
+                proficientTechnologies={['derby']}
+                familiarTechnologies={['sqlite']}
+            />
+            <TechnologyGroup
+                title="Other"
+                proficientTechnologies={['c', 'git']}
+                familiarTechnologies={['unity']}
+            />
+        </div>
     )    
 }
 

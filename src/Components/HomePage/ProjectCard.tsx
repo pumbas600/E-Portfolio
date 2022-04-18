@@ -1,6 +1,6 @@
 import React from "react";
 import '../../Styles/App.scss'
-import ExternalLink from "../Utils/ExternalLink";
+import Link from "../Utils/Link";
 import {renderBadges} from "../Utils/ProjectUtils";
 
 interface Props {
@@ -18,7 +18,7 @@ const ProjectCard: React.FC<Props> = (props) => {
             <div>
                 <div className="flex flex-row justify-between items-baseline">
                     <div className="flex flex-row">
-                        <ExternalLink
+                        <Link
                             animate
                             textColour="text-teal-200"
                             bgColour="bg-teal-200"
@@ -28,7 +28,7 @@ const ProjectCard: React.FC<Props> = (props) => {
                         >
                             <i className="fab fa-github text-xl mr-1"/>
                             {props.name}
-                        </ExternalLink>
+                        </Link>
                         {props.wip && <div className="ml-0.5 text-xs text-teal-200 font-medium">
                             WIP*
                         </div>}

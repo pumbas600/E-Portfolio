@@ -45,8 +45,10 @@ function App() {
       <header className="app-header">
         <Header toggleTheme={toggleTheme}/>
       </header>
-      <AboutMe/>
-      <ProjectHighlights/>
+      <div className="centred-body">
+        <AboutMe/>
+        <ProjectHighlights/>
+      </div>
     </div>
   );
 }

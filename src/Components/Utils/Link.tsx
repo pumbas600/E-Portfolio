@@ -1,17 +1,19 @@
 import React from "react"
+import internal from "stream";
 
 interface Props {
     href: string;
     textColour: string;
+    internal?: boolean;
     bgColour?: string;
     className?: string;
     animate?: boolean;
     height?: string;
 }
 
-const ExternalLink: React.FC<Props> = (props) => {
+const Link: React.FC<Props> = (props) => {
     return (
-        <a target="_blank"
+        <a target={internal ? undefined : '_blank'}
            rel="noreferrer"
            href={props.href}
            className={`${props.className ?? ''} ${props.textColour} group inline-block relative`}
@@ -27,4 +29,4 @@ const ExternalLink: React.FC<Props> = (props) => {
     )
 }
 
-export default ExternalLink;
+export default Link;
