@@ -1,7 +1,7 @@
 import React from "react";
 import TechnologyGroup from "../Utils/TechnologyGroup";
 import InlineLink from "../Utils/InlineLink";
-import {renderBadges} from "../Utils/ProjectUtils";
+import Title from "../Utils/Title";
 
 const AboutMe:React.FC = () => {
 
@@ -31,8 +31,7 @@ const AboutMe:React.FC = () => {
             {isBirthday() && <div className="mt-3">
                 🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
             </div>}
-            <div className="text-2xl mt-3 font-bold">Technical Skills</div>
-
+            <Title>Technical Skills</Title>
             <TechnologyGroup
                 title="Frontend"
                 technologies={['tailwindcss', 'typescript', 'jquery', 'react', 'thymeleaf', 'javascript', 'scss']}

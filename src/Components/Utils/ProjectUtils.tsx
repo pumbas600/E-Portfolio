@@ -1,5 +1,5 @@
 import React from "react";
-import Badge from "../HomePage/Badge";
+import Badge from "./Badge";
 
 export function renderBadges(names: string[], classNames?: string): JSX.Element[] {
     if (names && names.length !== 0)
