@@ -1,5 +1,4 @@
 import React from "react"
-import internal from "stream";
 
 interface Props {
     href: string;
@@ -13,7 +12,7 @@ interface Props {
 
 const Link: React.FC<Props> = (props) => {
     return (
-        <a target={internal ? undefined : '_blank'}
+        <a target={props.internal ? undefined : '_blank'}
            rel="noreferrer"
            href={props.href}
            className={`${props.className ?? ''} ${props.textColour} group inline-block relative`}
