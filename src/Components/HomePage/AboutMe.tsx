@@ -25,7 +25,7 @@ const AboutMe:React.FC = () => {
                 have a passion for programming which has 
                 driven me to complete numerous self-driven projects in an attempt to expand my programming knowledge.
                 I love when I develop software that manages to help others in some form, which is one of the reasons I'm
-                so proud of my`} <InlineLink href="#quiz-bot">Quiz Bot</InlineLink>.
+                so proud of my`} <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink>.
             </div>
             {isBirthday() && <div className="mt-3">
                 🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
