@@ -2,6 +2,7 @@ import React from "react";
 
 interface Props {
     name: string;
+    className?: string;
 }
 
 const BadgeUrls: { [name: string]: string | undefined } = require('../../Assets/TechnologyIcons.json')
@@ -14,9 +15,7 @@ const Badge: React.FC<Props> = (props) => {
     }
 
     return (
-        <img alt={props.name} src={BadgeUrls[props.name] ?? fallbackUrl()}
-             className="ml-2"
-        />
+        <img alt={props.name} src={BadgeUrls[props.name] ?? fallbackUrl()} className={props.className}/>
     )
 }
 

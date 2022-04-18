@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GitProject } from "../GithubIntegration";
 import ExpandButton from "../Utils/ExpandButton";
-import {renderTechnologies} from "../Utils/ProjectUtils";
+import {renderBadges} from "../Utils/ProjectUtils";
 import {CSSTransition} from "react-transition-group";
 
 interface IProps {
@@ -32,7 +32,7 @@ const Project:React.FC<IProps> = (props) => {
             </div>
             <CSSTransition in={showTechnologies} timeout={300} classNames="project" unmountOnExit>
                 <div className="flex flex-row flex-wrap ml-2 mb-5 py-1 pl-3 border-purple-500 border-l-4">
-                    {renderTechnologies(props.project.technologies)}
+                    {renderBadges(props.project.technologies)}
                 </div>
             </CSSTransition>
             <div className="flex justify-between">

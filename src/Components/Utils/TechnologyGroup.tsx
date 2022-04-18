@@ -1,5 +1,5 @@
 import React from "react";
-import {renderTechnologies} from "./ProjectUtils";
+import {renderBadges} from "./ProjectUtils";
 
 interface IProps {
     title: string;
@@ -15,7 +15,7 @@ const TechnologyGroup:React.FC<IProps> = (props) => {
                 <div className="flex md:flex-row flex-col">
                     <p className="italic md:text-right md:w-24 w-full mr-2">Proficient</p>
                     <div className="flex flex-row flex-wrap">
-                        {renderTechnologies(props.proficientTechnologies)}
+                        {renderBadges(props.proficientTechnologies)}
                     </div>
                 </div>
             }
@@ -23,7 +23,7 @@ const TechnologyGroup:React.FC<IProps> = (props) => {
                 <div className="flex md:flex-row flex-col">
                     <p className="italic md:text-right md:w-24 w-full mr-2">Familiar</p>
                     <div className="flex flex-row flex-wrap ">
-                        {renderTechnologies(props.familiarTechnologies)}
+                        {renderBadges(props.familiarTechnologies)}
                     </div>
                 </div>
             }

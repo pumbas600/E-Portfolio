@@ -2,20 +2,6 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import ExternalLink from "./ExternalLink";
 
-export interface IJsonProject {
-    name: string,
-    date: string,
-    link: string,
-    description: string,
-    languages: string[]
-}
-
-export interface TechnologyIcons {
-    [key: string]: string;
-}
-
-export const technologyIcons: TechnologyIcons = require('../../Assets/TechnologyIcons.json');
-
 const ProjectHighlights:React.FC = () => {
     return (
         <div className="grid md:grid-cols-2 grid-cols-1 gap-5 centred-body">
@@ -23,9 +9,7 @@ const ProjectHighlights:React.FC = () => {
                 name = "Halpbot"
                 description={<>
                     {`Halpbot is a comprehensive `}
-                    <span className="inline-link horizontal-link-hover-effect">
-                        <ExternalLink href="https://github.com/DV8FromTheWorld/JDA">JDA</ExternalLink>
-                    </span>
+                    <ExternalLink animate colour="sky-300" href="https://github.com/DV8FromTheWorld/JDA">JDA</ExternalLink>
                     {` utility framework that provides a unique, annotation based approach to handling actions when
                     creating discord bots in Java. It's key purpose is to alleviate as much unnecessary boilerplate
                     code while simultaneously being both intuitive and customisable.`}
@@ -42,7 +26,7 @@ const ProjectHighlights:React.FC = () => {
                 `}
                 date = "November 2021"
                 githubUrl="https://github.com/pumbas600/E-Portfolio"
-                technologies={['react', 'typescript', 'tailwindcss']}
+                technologies={['react', 'typescript', 'tailwindcss', 'scss']}
             />
             <ProjectCard
                 name="Deadline API"
@@ -53,7 +37,7 @@ const ProjectHighlights:React.FC = () => {
                     want the course to be publicly subscribable, enabling others to add those courses and get their
                     notifications without having to set it up themselves.
                 `}
-                date="March 2022"
+                date="April 2022"
                 githubUrl="https://github.com/pumbas600/DeadlineBot"
                 technologies={['java', 'spring boot', 'mongodb', 'typescript', 'react']}
             />

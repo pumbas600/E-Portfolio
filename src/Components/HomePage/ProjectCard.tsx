@@ -1,7 +1,7 @@
 import React from "react";
 import '../../Styles/App.scss'
 import ExternalLink from "./ExternalLink";
-import Badge from "./Badge";
+import {renderBadges} from "../Utils/ProjectUtils";
 
 interface Props {
     name: string;
@@ -12,19 +12,15 @@ interface Props {
 }
 
 const ProjectCard: React.FC<Props> = (props) => {
-
-    function renderTechnologies(): JSX.Element[] {
-        return props.technologies.map(technology => {
-            return <Badge key={technology} name={technology}/>
-        });
-    }
-
     return (
         <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 py-3 px-5">
             <div>
                 <div className="flex flex-row justify-between items-baseline">
                     <ExternalLink
-                        className="font-semi-bold text-2xl text-teal-200 github-link horizontal-link-hover-effect project-title-link"
+                        animate
+                        colour="teal-200"
+                        height="h-1"
+                        className="font-semi-bold text-2xl"
                         href={props.githubUrl}
                     >
                         {props.name}
@@ -38,11 +34,11 @@ const ProjectCard: React.FC<Props> = (props) => {
                 </p>
             </div>
             <div className="mt-2 flex flex-row justify-between">
-                <ExternalLink href={props.githubUrl} className="text-xl text-teal-200 hover:text-teal-100">
+                <ExternalLink href={props.githubUrl} colour="teal-200 hover:teal-100" className="text-xl">
                     <i className="fab fa-github"/>
                 </ExternalLink>
                 <div className="flex flex-row">
-                    {renderTechnologies()}
+                    {renderBadges(props.technologies)}
                 </div>
             </div>
         </div>
