@@ -9,7 +9,9 @@ const ProjectHighlights:React.FC = () => {
                 name = "Halpbot"
                 description={<>
                     {`Halpbot is a comprehensive `}
-                    <ExternalLink animate colour="sky-300" href="https://github.com/DV8FromTheWorld/JDA">JDA</ExternalLink>
+                    <ExternalLink animate textColour="text-sky-300" bgColour="bg-sky-300" href="https://github.com/DV8FromTheWorld/JDA">
+                        JDA
+                    </ExternalLink>
                     {` utility framework that provides a unique, annotation based approach to handling actions when
                     creating discord bots in Java. It's key purpose is to alleviate as much unnecessary boilerplate
                     code while simultaneously being both intuitive and customisable.`}

@@ -20,7 +20,8 @@ const ProjectCard: React.FC<Props> = (props) => {
                     <div className="flex flex-row">
                         <ExternalLink
                             animate
-                            colour="teal-200"
+                            textColour="text-teal-200"
+                            bgColour="bg-teal-200"
                             height="h-1"
                             className="font-semi-bold text-2xl"
                             href={props.githubUrl}
