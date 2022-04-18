@@ -4,7 +4,7 @@ import InlineLink from "../Utils/InlineLink";
 
 const ProjectHighlights:React.FC = () => {
     return (
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 pb-5">
+        <div className="grid mt-5 lg:grid-cols-2 grid-cols-1 gap-5 pb-5">
             <ProjectCard
                 name = "Halpbot"
                 description={<>

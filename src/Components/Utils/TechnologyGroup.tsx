@@ -3,30 +3,16 @@ import {renderBadges} from "./ProjectUtils";
 
 interface IProps {
     title: string;
-    proficientTechnologies: string[];
-    familiarTechnologies: string[];
+    technologies: string[];
 }
 
 const TechnologyGroup:React.FC<IProps> = (props) => {
     return (
-        <div className="my-2">
-            <h4>{props.title}</h4>
-            {props.proficientTechnologies && props.proficientTechnologies.length !== 0 &&
-                <div className="flex md:flex-row flex-col">
-                    <p className="italic md:text-right md:w-24 w-full mr-2">Proficient</p>
-                    <div className="flex flex-row flex-wrap">
-                        {renderBadges(props.proficientTechnologies)}
-                    </div>
-                </div>
-            }
-            {props.familiarTechnologies && props.familiarTechnologies.length !== 0 &&
-                <div className="flex md:flex-row flex-col">
-                    <p className="italic md:text-right md:w-24 w-full mr-2">Familiar</p>
-                    <div className="flex flex-row flex-wrap ">
-                        {renderBadges(props.familiarTechnologies)}
-                    </div>
-                </div>
-            }
+        <div className="ml-3 mt-2">
+            <div className="text-lg font-semibold">{props.title}</div>
+            <div className="flex flex-row flex-wrap">
+                {renderBadges(props.technologies, 'mr-1.5 mt-1.5')}
+            </div>
         </div>
     );
 }

@@ -43,7 +43,7 @@ const ProjectCard: React.FC<Props> = (props) => {
                 </div>
             </div>
             <div className="flex flex-row justify-end flex-wrap-reverse">
-                {renderBadges(props.technologies, "mr-1.5 mt-1.5")}
+                {renderBadges(props.technologies, 'mr-1.5 mt-1.5')}
             </div>
         </div>
     );
