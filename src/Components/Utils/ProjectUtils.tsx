@@ -10,3 +10,7 @@ export function renderBadges(names: string[], classNames?: string): JSX.Element[
         [<p>There are no technologies used for this project yet.</p>]
     );
 }
+
+export function generateId(name: string): string {
+    return name.replaceAll(' ', '-').toLowerCase();
+}

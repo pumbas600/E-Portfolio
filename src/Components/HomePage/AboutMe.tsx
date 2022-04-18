@@ -20,7 +20,7 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <div className="md:text-lg text-base text-gray-200">
+        <div id="about-me" className="md:text-lg text-base text-gray-200">
             <div>
                 {`Hey there, I'm Josh, a ${calculateAge()} year old Software Engineer at the University of Auckland. I
                 have a passion for programming which has 
@@ -31,7 +31,7 @@ const AboutMe:React.FC = () => {
             {isBirthday() && <div className="mt-3">
                 🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
             </div>}
-            <Title>Technical Skills</Title>
+            <Title name="Technical Skills"/>
             <TechnologyGroup
                 title="Frontend"
                 technologies={['tailwindcss', 'typescript', 'jquery', 'react', 'thymeleaf', 'javascript', 'scss']}

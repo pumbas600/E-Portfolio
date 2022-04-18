@@ -6,7 +6,7 @@ import Title from "../Utils/Title";
 const ProjectHighlights:React.FC = () => {
     return (
         <div>
-            <Title>Projects</Title>
+            <Title name="Projects"/>
             <div className="grid mt-5 lg:grid-cols-2 grid-cols-1 md:gap-8 gap-5 pb-5">
                 <ProjectCard
                     name = "Halpbot"
