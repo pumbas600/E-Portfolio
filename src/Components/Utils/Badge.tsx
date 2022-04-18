@@ -15,7 +15,10 @@ const Badge: React.FC<Props> = (props) => {
     }
 
     return (
-        <img alt={props.name} src={BadgeUrls[props.name] ?? fallbackUrl()} className={props.className}/>
+        <img alt={props.name}
+             src={BadgeUrls[props.name] ?? fallbackUrl()}
+             className={`${props.className ?? ''} md:h-auto sm:h-6 h-5 md:rounded-xl rounded-lg`}
+        />
     )
 }
 

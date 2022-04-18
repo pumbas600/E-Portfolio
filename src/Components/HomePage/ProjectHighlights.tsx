@@ -7,15 +7,14 @@ const ProjectHighlights:React.FC = () => {
     return (
         <div>
             <Title>Projects</Title>
-            <div className="grid mt-5 lg:grid-cols-2 grid-cols-1 gap-5 pb-5">
+            <div className="grid mt-5 lg:grid-cols-2 grid-cols-1 md:gap-8 gap-5 pb-5">
                 <ProjectCard
                     name = "Halpbot"
                     description={<>
-                        {`Halpbot is a comprehensive `}
-                        <InlineLink href="https://github.com/DV8FromTheWorld/JDA">JDA</InlineLink>
-                        {` utility framework that provides a unique, annotation based approach to handling actions when
+                        Halpbot is a comprehensive <InlineLink href="https://github.com/DV8FromTheWorld/JDA">JDA</InlineLink>
+                        &nbsp;utility framework that provides a unique, annotation based approach to handling actions when
                         creating discord bots in Java. It's key purpose is to alleviate as much unnecessary boilerplate
-                        code while simultaneously being both intuitive and customisable.`}
+                        code while simultaneously being both intuitive and customisable.
                     </>}
                     date = "March 2021"
                     githubUrl="https://github.com/pumbas600/Halpbot"
@@ -35,13 +34,13 @@ const ProjectHighlights:React.FC = () => {
                 <ProjectCard
                     name="Quiz Bot"
                     description={<div>
-                        {`A discord bot I made using Halpbot, my custom discord bot framework for JDA. It allowed users to
-                        quiz themselves on CHEMMAT-121; a part 1 engineering course. The bot included a vast
+                        A discord bot I made using Halpbot, my custom discord bot framework for JDA. It allowed users to
+                        quiz themselves on CHEMMAT&nbsp;121; a part 1 engineering course. The bot included a vast
                         range of questions, answer streaks, leaderboards and helpful explanations. It also consisted of a
-                        a separate `} <InlineLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineLink>
-                        {` built using Spring Boot MVC and Thymeleaf which allowed users to easily add questions to the database. 
+                        a separate&nbsp;<InlineLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineLink>
+                        &nbsp;built using Spring Boot MVC and Thymeleaf which allowed users to easily add questions to the database.
                         From feedback gained by my peers, users found the bot to be an extremely useful and accessible
-                        studying mechanism.`}
+                        studying mechanism.
                         <br/><br/>
                         As of November 2021, there were:
                         <ul>

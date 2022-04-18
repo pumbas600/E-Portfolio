@@ -14,7 +14,7 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = (props) => {
     return (
-        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 py-3 px-5"
+        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 md:py-5 py-3 md:px-8 px-5"
              id={props.name.replaceAll(' ', '-').toLowerCase()}>
             <div>
                 <div className="flex flex-row justify-between items-baseline">
@@ -38,7 +38,7 @@ const ProjectCard: React.FC<Props> = (props) => {
                         {props.date}
                     </div>
                 </div>
-                <div className="text-gray-300 my-3 md:text-base text-sm">
+                <div className="md:leading-[1.4rem] text-gray-300 md:my-4 my-3 md:text-base text-sm">
                     {props.description}
                 </div>
             </div>
