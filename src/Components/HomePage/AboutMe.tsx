@@ -20,7 +20,7 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <div id="about-me" className="md:text-lg text-base text-gray-200">
+        <div id="about-me" className="md:pt-5 md:text-lg text-base text-gray-200">
             <div>
                 {`Hey there, I'm Josh, a ${calculateAge()} year old Software Engineer at the University of Auckland. I
                 have a passion for programming which has 
