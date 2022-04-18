@@ -42,7 +42,7 @@ const AboutMe:React.FC = () => {
                 technologies={['java', 'gradle', 'sqlite', 'spring boot', 'mongodb', 'derby']}
             />
             <TechnologyGroup
-                title="other"
+                title="Other"
                 technologies={['python', 'c', 'c#', 'git', 'unity']}
             />
         </div>
