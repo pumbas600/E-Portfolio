@@ -1,6 +1,6 @@
 import React from "react";
 import '../../Styles/App.scss'
-import ExternalLink from "./ExternalLink";
+import ExternalLink from "../Utils/ExternalLink";
 import {renderBadges} from "../Utils/ProjectUtils";
 
 interface Props {
@@ -37,12 +37,12 @@ const ProjectCard: React.FC<Props> = (props) => {
                         {props.date}
                     </div>
                 </div>
-                <p className="text-gray-300 my-3">
+                <div className="text-gray-300 my-3 md:text-base text-sm">
                     {props.description}
-                </p>
+                </div>
             </div>
-            <div className="mt-2 flex flex-row flex-wrap">
-                {renderBadges(props.technologies)}
+            <div className="flex flex-row flex-wrap">
+                {renderBadges(props.technologies, "mr-1.5 mt-1.5")}
             </div>
         </div>
     );

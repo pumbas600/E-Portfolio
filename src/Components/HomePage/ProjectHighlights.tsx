@@ -1,17 +1,15 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import ExternalLink from "./ExternalLink";
+import InlineExternalLink from "../Utils/InlineExternalLink";
 
 const ProjectHighlights:React.FC = () => {
     return (
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-5 centred-body">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 centred-body pb-5">
             <ProjectCard
                 name = "Halpbot"
                 description={<>
                     {`Halpbot is a comprehensive `}
-                    <ExternalLink animate textColour="text-sky-300" bgColour="bg-sky-300" href="https://github.com/DV8FromTheWorld/JDA">
-                        JDA
-                    </ExternalLink>
+                    <InlineExternalLink href="https://github.com/DV8FromTheWorld/JDA">JDA</InlineExternalLink>
                     {` utility framework that provides a unique, annotation based approach to handling actions when
                     creating discord bots in Java. It's key purpose is to alleviate as much unnecessary boilerplate
                     code while simultaneously being both intuitive and customisable.`}
@@ -21,6 +19,7 @@ const ProjectHighlights:React.FC = () => {
                 technologies={['java', 'gradle']}
             />
             <ProjectCard
+                wip
                 name = "Portfolio"
                 description={`
                     This digital portfolio was created as a way for me to develop my front-end knowledge using modern
@@ -34,10 +33,12 @@ const ProjectHighlights:React.FC = () => {
                 name="Quiz Bot"
                 description={<div>
                     {`A discord bot I made using Halpbot, my custom discord bot framework for JDA. It allowed users to
-                    quiz themselves on CHEMMAT-121; a part 1 engineering course questions. The bot included a vast
-                    range of questions, answer streaks, user statistics, leaderboards and helpful explanations. From
-                    feedback gained by my peers, users found the bot to be an extremely useful and accessible studying
-                    mechanism.`}
+                    quiz themselves on CHEMMAT-121; a part 1 engineering course. The bot included a vast
+                    range of questions, answer streaks, leaderboards and helpful explanations. It also consisted of a
+                    a separate `} <InlineExternalLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineExternalLink>
+                    {` built using Spring Boot MVC and Thymeleaf which allowed users to easily add questions to the database. 
+                    From feedback gained by my peers, users found the bot to be an extremely useful and accessible
+                    studying mechanism.`}
                     <br/><br/>
                     As of November 2021, there were:
                     <ul>
@@ -49,7 +50,7 @@ const ProjectHighlights:React.FC = () => {
                 </div>}
                 date="September 2021"
                 githubUrl="https://github.com/pumbas600/Halpbot"
-                technologies={['java', 'gradle', 'derby']}
+                technologies={['java', 'spring boot', 'thymeleaf', 'javascript', 'jquery', 'derby']}
             />
             <ProjectCard
                 wip
