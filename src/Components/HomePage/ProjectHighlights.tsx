@@ -29,6 +29,7 @@ const ProjectHighlights:React.FC = () => {
                 technologies={['react', 'typescript', 'tailwindcss', 'scss']}
             />
             <ProjectCard
+                wip
                 name="Deadline API"
                 description={`
                     This project consists of both a backend, built using Java, Spring Boot and MongoDB, along with a
