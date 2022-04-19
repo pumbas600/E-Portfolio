@@ -1,11 +1,10 @@
 import React from 'react';
-import selfie from '../../Assets/Selfie.jpg';
 
-interface IProps {
+interface Props {
     toggleTheme: () => void;
 }
 
-const Header:React.FC<IProps> = (props) => {
+const Header:React.FC<Props> = (props) => {
     return (
         <div className="header-group">
             <div className="header-secondary">
