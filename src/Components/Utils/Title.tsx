@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Title: React.FC<Props> = (props) => {
-    return <div id={generateId(props.name)} className="text-gray-200 text-2xl md:mt-12 md:mb-5 mt-7 mb-3 font-bold">
+    return <div id={generateId(props.name)} className="dark:text-gray-200 text-gray-800 text-2xl md:mt-12 md:mb-5 mt-7 mb-3 font-bold">
         {props.name}
     </div>
 }

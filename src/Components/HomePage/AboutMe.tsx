@@ -3,6 +3,7 @@ import TechnologyGroup from "../Utils/TechnologyGroup";
 import InlineLink from "../Utils/InlineLink";
 import Title from "../Utils/Title";
 import IconLink from "../Utils/IconLink";
+import selfie from '../../Assets/Selfie.jpg';
 
 const AboutMe:React.FC = () => {
 
@@ -21,26 +22,57 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <div id="about-me" className="md:pt-5 md:text-lg text-base text-gray-200">
-            <div>
-                <IconLink href="https://github.com/pumbas600">
-                    <i className="fab fa-github"/>
-                </IconLink>
-            </div>
-            <div>
-                <div className="md:text-xl text-lg font-semibold">Hey there!</div>
-                <br/>
-                <div>
-                    I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of Auckland. I
-                    have a deep passion for software development, which has driven me to start and complete numerous
-                    self-derived projects, in an attempt to expand my programming expertise. I particularly love it when
-                    I'm able to develop software that helps others. It is one of the many reasons why I'm so proud of my
-                    discord <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink> which was widely used by part 1
-                    Engineering Students.
+        <div id="about-me" className="md:pt-5 dark:text-gray-200 text-gray-800">
+            <div className="flex md:flex-row flex-col justify-center my-20">
+                <img className="w-[16rem] rounded-full" src={selfie} alt="Josh Jeffers"/>
+                <div className="hidden ml-5 flex justify-center flex-col font-bold text-[7rem] leading-[6rem]">
+                    <div>Josh</div>
+                    <div>Jeffers</div>
+                    <div className="mt-1 flex flex-row text-2xl">
+                        <IconLink href="https://github.com/pumbas600">
+                            <i className="mr-5 fab fa-github"/>
+                        </IconLink>
+                        <IconLink href="https://www.linkedin.com/in/josh-jeffers-657111233/">
+                            <i className="mr-5 fab fa-linkedin"></i>
+                        </IconLink>
+                        <IconLink internal href="mailto:joshjeffers600@gmail.com">
+                            <i className="mr-5 far fa-envelope"/>
+                        </IconLink>
+                    </div>
                 </div>
-                {isBirthday() && <div className="mt-3">
-                    🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
-                </div>}
+                <div className="ml-5 flex justify-center flex-col">
+                    <div className="font-bold text-8xl">Josh Jeffers</div>
+                    <div className="font-semibold text-2xl">Fullstack Software Engineering Student</div>
+                    <div className="mt-1 flex flex-row text-2xl">
+                        <IconLink href="https://github.com/pumbas600">
+                            <i className="mr-5 fab fa-github"/>
+                        </IconLink>
+                        <IconLink href="https://www.linkedin.com/in/josh-jeffers-657111233/">
+                            <i className="mr-5 fab fa-linkedin"></i>
+                        </IconLink>
+                        <IconLink internal href="mailto:joshjeffers600@gmail.com">
+                            <i className="mr-5 far fa-envelope"/>
+                        </IconLink>
+                    </div>
+                </div>
+
+            </div>
+            <div className="mt-5">
+                <div className="md:mx-8 mx-5 md:text-lg text-base dark:text-gray-200 text-gray-800">
+                    <div className="md:text-xl text-lg font-semibold">Hey there!</div>
+                    <br/>
+                    <div>
+                        I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of Auckland. I
+                        have a deep passion for software development, which has driven me to start and complete numerous
+                        self-derived projects, in an attempt to expand my programming expertise. I particularly love it when
+                        I'm able to develop software that helps others. It is one of the many reasons why I'm so proud of my
+                        discord <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink> which was widely used by part 1
+                        Engineering Students.
+                    </div>
+                    {isBirthday() && <div className="mt-3">
+                        🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
+                    </div>}
+                </div>
                 <Title name="Technical Skills"/>
                 <TechnologyGroup
                     title="Frontend"
