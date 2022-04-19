@@ -6,6 +6,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      animation: {
+        'bounce-slow': 'bounce 1.3s infinite'
+      },
       minWidth: {
         '1/5': '20%',
         '2/5': '40%',
@@ -18,9 +21,6 @@ module.exports = {
         '3/5': '60%',
         '4/5': '80%'
       },
-      height: {
-        '28': '28px'
-      }
     },
   },
   plugins: [],

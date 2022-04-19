@@ -60,7 +60,7 @@ const AboutMe:React.FC = () => {
                         </div>}
                     </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center animate-bounce-slow">
                     <Link internal href="#technical-skills" className="text-6xl">
                         <i className="fas fa-angle-double-down"/>
                     </Link>
