@@ -58,7 +58,7 @@ function App() {
       <header className="app-header">
         <Header
             toggleTheme={toggleTheme}
-            sections={['About Me', 'Technical Skills', 'Projects', 'Contact Me']}
+            sections={[['About Me', ''], ['Skills', 'technical-skills'], ['Projects', 'projects'], ['Contact Me', 'contact-me']]}
             currentTheme={theme}
         />
       </header>
