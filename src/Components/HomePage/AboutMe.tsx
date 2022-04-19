@@ -1,7 +1,5 @@
 import React from "react";
-import TechnologyGroup from "../Utils/TechnologyGroup";
 import InlineLink from "../Utils/InlineLink";
-import Title from "../Utils/Title";
 import IconLink from "../Utils/IconLink";
 import selfie from '../../Assets/Selfie.jpg';
 import Link from "../Utils/Link";
