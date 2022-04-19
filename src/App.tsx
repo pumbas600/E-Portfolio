@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Styles/App.scss';
 import Header from './Components/HomePage/Header';
 import ProjectHighlights from './Components/HomePage/ProjectHighlights';
@@ -20,31 +20,47 @@ export const LanguageIconLinks:LanguageIcons = require("./Assets/TechnologyIcons
  *  - Language percent graph for projects
  */
 
-function App() {
-  const setTheme = (theme: 'light' | 'dark'): void => {
-    if (localStorage.theme)
-      document.body.classList.remove(localStorage.theme);
+type Theme = 'light' | 'dark';
 
+function App() {
+
+  const [theme, setTheme] = useState<Theme>(getDefaultTheme());
+
+  useEffect(() => {
     document.body.classList.add(theme);
     localStorage.theme = theme;
+  }, [theme])
+
+
+
+  function getDefaultTheme(): Theme {
+    let theme: Theme = 'dark';
+
+    if (localStorage.theme)
+      theme = localStorage.theme;
+    return theme;
+  }
+
+  const updateTheme = (newTheme: Theme): void => {
+    document.body.classList.remove(theme); // Remove old theme class
+    setTheme(newTheme);
   }
 
   const toggleTheme = (): void => {
-    if (localStorage.theme === 'dark')
-      setTheme('light');
-    else 
-      setTheme('dark');
+    if (theme === 'dark')
+      updateTheme('light');
+    else
+      updateTheme('dark');
   }
-  
-  if (localStorage.theme)
-    setTheme(localStorage.theme);
-  else 
-    setTheme('dark');
 
   return (
     <div className="App">
       <header className="app-header">
-        <Header toggleTheme={toggleTheme} sections={['About Me', 'Technical Skills', 'Projects', 'Contact Me']}/>
+        <Header
+            toggleTheme={toggleTheme}
+            sections={['About Me', 'Technical Skills', 'Projects', 'Contact Me']}
+            currentTheme={theme}
+        />
       </header>
       <div className="centred-body dark:text-gray-200 text-gray-800 pb-32">
         <AboutMe/>

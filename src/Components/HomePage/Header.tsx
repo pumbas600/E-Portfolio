@@ -4,6 +4,7 @@ import {generateId} from "../Utils/ProjectUtils";
 
 interface Props {
     toggleTheme: () => void;
+    currentTheme: string;
     sections: string[];
 }
 
@@ -32,7 +33,9 @@ const Header:React.FC<Props> = (props) => {
     return (
         <nav className="md:block hidden w-full dark:bg-teal-200 bg-sky-600 py-3">
             <div className="flex flex-row justify-between centred-body items-center text-xl font-bold">
-                <i onClick={() => props.toggleTheme()} className="ml-5 text-gray-200 dark:text-gray-800 fas fa-adjust"/>
+                <div onClick={() => props.toggleTheme()} className="ml-5 text-gray-200 dark:text-gray-800">
+                    {props.currentTheme === 'dark' ? <i className="fas fa-sun"/> : <i className="fas fa-moon"/>}
+                </div>
                 <div className="flex flex-row">
                     {renderLinks()}
                 </div>
