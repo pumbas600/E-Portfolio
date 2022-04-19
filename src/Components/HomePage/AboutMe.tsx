@@ -23,7 +23,7 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <div id="about-me" className="md:pt-5 dark:text-gray-200 text-gray-800">
+        <div id="about-me" className="md:pt-5">
             <div className="h-screen flex flex-col justify-center">
                 <div className="flex md:flex-row flex-col justify-center mb-32">
                     <img className="w-[16rem] rounded-full" src={selfie} alt="Josh Jeffers"/>
@@ -45,7 +45,7 @@ const AboutMe:React.FC = () => {
                 </div>
                 <div className="mb-16">
                     <div className="md:mx-8 mx-5 md:text-xl text-lg dark:text-gray-200 text-gray-800">
-                        <div className="md:text-2xl text-xl font-semibold">Hey there!</div>
+                        <div className="md:text-2xl text-xl font-semibold">Hello there!</div>
                         <br/>
                         <div>
                             I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of Auckland. I
@@ -65,21 +65,6 @@ const AboutMe:React.FC = () => {
                         <i className="fas fa-angle-double-down"/>
                     </Link>
                 </div>
-            </div>
-            <div>
-                <Title name="Technical Skills" className="pt-10" />
-                <TechnologyGroup
-                    title="Frontend"
-                    technologies={['tailwindcss', 'typescript', 'jquery', 'react', 'thymeleaf', 'javascript', 'scss']}
-                />
-                <TechnologyGroup
-                    title="Backend"
-                    technologies={['java', 'gradle', 'sqlite', 'spring boot', 'mongodb', 'derby']}
-                />
-                <TechnologyGroup
-                    title="Other"
-                    technologies={['python', 'c', 'c#', 'git', 'unity']}
-                />
             </div>
         </div>
     )    

@@ -3,6 +3,7 @@ import './Styles/App.scss';
 import Header from './Components/HomePage/Header';
 import ProjectHighlights from './Components/HomePage/ProjectHighlights';
 import AboutMe from './Components/HomePage/AboutMe';
+import TechnicalSkills from "./Components/HomePage/TechnicalSkills";
 
 export interface LanguageIcons {
   [key: string]: string
@@ -45,8 +46,9 @@ function App() {
       <header className="app-header">
         <Header toggleTheme={toggleTheme}/>
       </header>
-      <div className="centred-body">
+      <div className="centred-body dark:text-gray-200 text-gray-800">
         <AboutMe/>
+        <TechnicalSkills/>
         <ProjectHighlights/>
       </div>
     </div>
