@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "../Utils/Link";
-import {generateId} from "../Utils/ProjectUtils";
 
 interface Props {
     toggleTheme: () => void;
