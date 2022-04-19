@@ -52,7 +52,7 @@ const AboutMe:React.FC = () => {
                             have a deep passion for software development, which has driven me to start and complete numerous
                             self-derived projects, in an attempt to expand my programming expertise. I particularly love it when
                             I'm able to develop software that helps others. It is one of the many reasons why I'm so proud of my
-                            discord <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink> which was widely used by part 1
+                            discord <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink> which was widely used by Part I
                             Engineering Students.
                         </div>
                         {isBirthday() && <div className="mt-3">
@@ -62,7 +62,7 @@ const AboutMe:React.FC = () => {
                 </div>
                 <div className="flex justify-center">
                     <Link internal href="#technical-skills" className="text-6xl">
-                        <i className="p-3 fas fa-angle-double-down"/>
+                        <i className="fas fa-angle-double-down"/>
                     </Link>
                 </div>
             </div>

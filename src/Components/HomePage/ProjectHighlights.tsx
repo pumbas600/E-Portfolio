@@ -13,7 +13,7 @@ const ProjectHighlights:React.FC = () => {
                     description={<>
                         Halpbot is a comprehensive <InlineLink href="https://github.com/DV8FromTheWorld/JDA">JDA
                         </InlineLink> utility framework that provides a unique, annotation based approach to handling
-                        interactions when creating discord bots in Java. It's key purpose is to alleviate as much
+                        interactions when creating discord bots in Java. Its key purpose is to alleviate as much
                         unnecessary boilerplate code while simultaneously being both intuitive and highly customisable.
                     </>}
                     date = "March 2021"
@@ -36,12 +36,12 @@ const ProjectHighlights:React.FC = () => {
                     description={<div>
                         A discord bot I made using <InlineLink internal href={'#halpbot'}>Halpbot</InlineLink>, my
                         custom discord bot framework for JDA. The bot allowed users to quiz themselves on
-                        CHEMMAT&nbsp;121; a part 1 engineering course. The bot included a vast range of questions,
+                        CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast range of questions,
                         answer streaks, leaderboards and helpful explanations. It also consisted of a
                         separate <InlineLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineLink> built
                         using Spring Boot and Thymeleaf which allowed users to easily add questions to the database.
-                        From feedback gained by my peers, users found the bot to be an extremely useful and accessible
-                        studying mechanism.
+                        According to feedback collected from my peers, users found the bot to be an extremely useful
+                        and accessible studying mechanism.
                         <br/><br/>
                         As of November 2021, there were:
                         <ul className="list-disc">
@@ -59,7 +59,7 @@ const ProjectHighlights:React.FC = () => {
                     wip
                     name="Deadline API"
                     description={`
-                        This project consists of both a backend, built using Java, Spring Boot and MongoDB, along with a
+                        This project consists of both a backend — built using Java, Spring Boot and MongoDB — along with a
                         small supporting frontend built in React and Typescript. This project allows users to manage
                         upcoming university  deadlines. It allows you to specify which courses you want to track and if you
                         want the course to be publicly subscribable, enabling others to add those courses and get their
