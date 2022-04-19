@@ -15,7 +15,7 @@ const Link: React.FC<Props> = (props) => {
         <a target={props.internal ? undefined : '_blank'}
            rel="noreferrer"
            href={props.href}
-           className={`${props.className ?? ''} ${props.textColour} group inline-block relative`}
+           className={`${props.className ?? ''} ${props.textColour ?? ''} group inline-block relative`}
         >
             <span>{props.children}</span>
             {props.animate &&

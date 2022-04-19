@@ -22,7 +22,7 @@ const AboutMe:React.FC = () => {
 
     return (
         <div id="about-me" className="md:pt-8 pt-5">
-            <div className="min-h-screen flex flex-col  justify-evenly">
+            <div className="min-h-screen flex flex-col justify-evenly">
                 <div className="flex md:flex-row flex-col justify-center items-center mb-5">
                     <img className="md:w-[16rem] md:mb-0 mb-2 w-56 rounded-full" src={selfie} alt="Josh Jeffers"/>
                     <div className="md:ml-5 flex justify-center flex-col md:items-start items-center">
@@ -58,7 +58,7 @@ const AboutMe:React.FC = () => {
                         </div>}
                     </div>
                 </div>
-                <div className="md:flex hidden justify-center animate-bounce-slow">
+                <div className="md:block hidden mx-auto animate-bounce-slow">
                     <Link internal href="#technical-skills" className="text-6xl">
                         <i className="fas fa-angle-double-down"/>
                     </Link>

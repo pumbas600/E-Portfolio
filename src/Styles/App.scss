@@ -5,16 +5,14 @@
 @tailwind utilities;
 
 * {
-  --body-width: 1100px;
+  --body-width: 1000px;
   --section-width: 80%;
   --background-offset: 15px;
   --sidebar-width: 18%;
 }
 .centred-body {
   width: var(--body-width);
-  left: 50vw;
-  margin-left: calc(-1 * var(--body-width) / 2);
-  position: relative;
+  margin: 0 auto;
 }
 
 .header {
