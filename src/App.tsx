@@ -44,9 +44,9 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <Header toggleTheme={toggleTheme}/>
+        <Header toggleTheme={toggleTheme} sections={['About Me', 'Technical Skills', 'Projects', 'Contact Me']}/>
       </header>
-      <div className="centred-body dark:text-gray-200 text-gray-800">
+      <div className="centred-body dark:text-gray-200 text-gray-800 pb-32">
         <AboutMe/>
         <TechnicalSkills/>
         <ProjectHighlights/>

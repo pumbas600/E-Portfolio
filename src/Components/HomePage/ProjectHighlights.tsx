@@ -58,13 +58,13 @@ const ProjectHighlights:React.FC = () => {
                 <ProjectCard
                     wip
                     name="Deadline API"
-                    description={`
-                        This project consists of both a backend — built using Java, Spring Boot and MongoDB — along with a
-                        small supporting frontend built in React and Typescript. This project allows users to manage
+                    description={<>
+                        This project consists of both a backend&nbsp;— built using Java, Spring Boot and MongoDB&nbsp;— along
+                        with a small supporting frontend built in React and Typescript. This project allows users to manage
                         upcoming university  deadlines. It allows you to specify which courses you want to track and if you
                         want the course to be publicly subscribable, enabling others to add those courses and get their
                         notifications without having to set it up themselves.
-                    `}
+                    </>}
                     date="April 2022"
                     githubUrl="https://github.com/pumbas600/DeadlineBot"
                     technologies={['java', 'spring boot', 'mongodb', 'typescript', 'react']}

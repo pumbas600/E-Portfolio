@@ -4,19 +4,22 @@ import {generateId} from "../Utils/ProjectUtils";
 
 interface Props {
     toggleTheme: () => void;
+    sections: string[];
 }
 
 const Header:React.FC<Props> = (props) => {
 
-    function renderLinks(links: string[]) {
-        return links.map(link => {
+    function renderLinks() {
+        return props.sections.map(link => {
+            const id = generateId(link);
             return (
                 <Link
+                    key={id}
                     animate
                     internal
                     textColour="text-gray-200 dark:text-gray-800"
                     bgColour="bg-gray-200 dark:bg-gray-800"
-                    href={`#${generateId(link)}`}
+                    href={`#${id}`}
                     className="inline-block ml-5"
                     height="h-1"
                 >
@@ -27,10 +30,10 @@ const Header:React.FC<Props> = (props) => {
     }
 
     return (
-        <nav className="fixed top-0 w-full bg-teal-200 py-2">
+        <nav className="w-full dark:bg-teal-200 bg-sky-600 py-3">
             <div className="flex flex-row justify-end centred-body items-center text-xl font-bold">
                 <i onClick={() => props.toggleTheme()} className="ml-5 text-gray-200 dark:text-gray-800 fas fa-adjust"/>
-                {renderLinks(['About Me', 'Technical Skills', 'Projects', 'Contact Me'])}
+                {renderLinks()}
             </div>
         </nav>
     )
