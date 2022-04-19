@@ -22,7 +22,7 @@ const Link: React.FC<Props> = (props) => {
                 <span className={`
                     block absolute ${props.height ?? "h-0.5"} w-full ${props.bgColour ?? ''}
                     transition-transform ease-in-out scale-x-0 origin-right group-hover:scale-100
-                    group-hover:origin-left duration-500`}>
+                    group-hover:origin-left duration-500 opacity-95`}>
                 </span>}
         </a>
     )

@@ -12,7 +12,7 @@ const AboutMe:React.FC = () => {
         const birthday = new Date("25 June 2002");
         const ageDiffMs = today.getTime() - birthday.getTime();
         const ageDate = new Date(ageDiffMs);
-        return ageDate.getFullYear() - 1970;
+        return ageDate.getFullYear() - 1970; // Subtract year of Unix Epoch
     }
 
     function isBirthday(): boolean {
@@ -22,11 +22,14 @@ const AboutMe:React.FC = () => {
     return (
         <div id="about-me" className="md:pt-5 md:text-lg text-base text-gray-200">
             <div>
-                {`Hey there, I'm Josh, a ${calculateAge()} year old Software Engineer at the University of Auckland. I
-                have a passion for programming which has 
-                driven me to complete numerous self-driven projects in an attempt to expand my programming knowledge.
-                I love when I develop software that manages to help others in some form, which is one of the reasons I'm
-                so proud of my discord`} <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink>.
+                <div className="md:text-xl text-lg font-semibold">Hey there!</div>
+                <br/>
+                I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of Auckland. I
+                have a deep passion for software development, which has driven me to start and complete numerous
+                self-derived projects, in an attempt to expand my programming expertise. I particularly love it when
+                I'm able to develop software that helps others. It is one of the many reasons why I'm so proud of my
+                discord <InlineLink internal href="#quiz-bot">Quiz Bot</InlineLink> which was widely used by part 1
+                Engineering Students.
             </div>
             {isBirthday() && <div className="mt-3">
                 🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
