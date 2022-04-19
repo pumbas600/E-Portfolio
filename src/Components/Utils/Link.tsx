@@ -2,7 +2,7 @@ import React from "react"
 
 interface Props {
     href: string;
-    textColour: string;
+    textColour?: string;
     internal?: boolean;
     bgColour?: string;
     className?: string;
