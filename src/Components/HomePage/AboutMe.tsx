@@ -23,14 +23,14 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <div id="about-me" className="md:pt-5">
-            <div className="h-screen flex flex-col justify-center">
-                <div className="flex md:flex-row flex-col justify-center mb-32">
-                    <img className="w-[16rem] rounded-full" src={selfie} alt="Josh Jeffers"/>
-                    <div className="ml-5 flex justify-center flex-col">
-                        <div className="font-bold text-8xl">Josh Jeffers</div>
-                        <div className="font-semibold text-2xl">Fullstack Software Engineering Student</div>
-                        <div className="mt-1 flex flex-row text-2xl">
+        <div id="about-me" className="md:pt-8 pt-5">
+            <div className="min-h-screen flex flex-col  justify-evenly">
+                <div className="flex md:flex-row flex-col justify-center items-center mb-5">
+                    <img className="md:w-[16rem] md:mb-0 mb-2 w-56 rounded-full" src={selfie} alt="Josh Jeffers"/>
+                    <div className="md:ml-5 flex justify-center flex-col md:items-start items-center">
+                        <div className="font-bold md:text-8xl text-5xl">Josh Jeffers</div>
+                        <div className="font-semibold md:text-2xl text-base">Fullstack Software Engineering Student</div>
+                        <div className="mt-1 flex flex-row text-2xl md:justify-start justify-center">
                             <IconLink href="https://github.com/pumbas600">
                                 <i className="mr-5 fab fa-github"/>
                             </IconLink>
@@ -43,8 +43,8 @@ const AboutMe:React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mb-16">
-                    <div className="md:mx-8 mx-5 md:text-xl text-lg dark:text-gray-200 text-gray-800">
+                <div className="mb-5">
+                    <div className="md:mx-8 mx-2 md:text-xl text-base dark:text-gray-200 text-gray-800">
                         <div className="md:text-2xl text-xl font-semibold">Hello there!</div>
                         <br/>
                         <div>
@@ -60,7 +60,7 @@ const AboutMe:React.FC = () => {
                         </div>}
                     </div>
                 </div>
-                <div className="flex justify-center animate-bounce-slow">
+                <div className="md:flex hidden justify-center animate-bounce-slow">
                     <Link internal href="#technical-skills" className="text-6xl">
                         <i className="fas fa-angle-double-down"/>
                     </Link>
