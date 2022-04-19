@@ -14,7 +14,7 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = (props) => {
     return (
-        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 md:py-5 py-3 md:px-8 px-5"
+        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg from-gray-700 to-slate-600 md:py-5 py-4 md:px-8 px-5"
              id={generateId(props.name)}
         >
             <div>

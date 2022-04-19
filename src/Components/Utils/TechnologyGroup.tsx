@@ -8,7 +8,7 @@ interface IProps {
 
 const TechnologyGroup:React.FC<IProps> = (props) => {
     return (
-        <div className="ml-3 mt-2">
+        <div className="md:ml-8 ml-5 mt-2">
             <div className="text-lg font-semibold">{props.title}</div>
             <div className="flex flex-row flex-wrap">
                 {renderBadges(props.technologies, 'mr-1.5 mt-1.5')}
