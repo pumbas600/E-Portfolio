@@ -31,13 +31,16 @@ const Header:React.FC<Props> = (props) => {
     }
 
     return (
-        <nav className="md:block hidden w-full dark:bg-teal-200 bg-sky-600 py-3">
+        <nav className="w-full dark:bg-teal-200 bg-gray-800 md:py-3 py-2">
             <div className="flex flex-row justify-between centred-body items-center text-xl font-bold">
                 <div onClick={() => props.toggleTheme()} className="ml-5 text-gray-200 dark:text-gray-800">
                     {props.currentTheme === 'dark' ? <i className="fas fa-sun"/> : <i className="fas fa-moon"/>}
                 </div>
-                <div className="flex flex-row">
+                <div className="md:flex hidden flex-row">
                     {renderLinks()}
+                </div>
+                <div className="md:hidden">
+
                 </div>
             </div>
         </nav>
