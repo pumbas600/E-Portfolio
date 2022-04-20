@@ -43,7 +43,12 @@ const AboutMe:React.FC = () => {
                 </div>
                 <div className="mb-5">
                     <div className="md:mx-8 mx-2 md:text-xl text-base dark:text-gray-200 text-gray-800">
-                        <div className="md:text-2xl text-xl font-semibold">Hello there!</div>
+                        <div className="items-baseline md:text-2xl text-xl font-semibold">
+                            <span className="inline-block peer">Hello there!</span>
+                            <span className="ml-3 md:peer-hover:inline-block hidden text-base">
+                                <em className="text-sm mr-1">*In the distance*</em> General Kenobi!
+                            </span>
+                        </div>
                         <br/>
                         <div>
                             I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of Auckland. I
