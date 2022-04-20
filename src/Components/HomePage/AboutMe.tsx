@@ -1,8 +1,7 @@
 import React from "react";
 import InlineLink from "../Utils/InlineLink";
-import IconLink from "../Utils/IconLink";
-import selfie from '../../Assets/Selfie.jpg';
 import Link from "../Utils/Link";
+import Overview from "./Overview";
 
 const AboutMe:React.FC = () => {
 
@@ -23,26 +22,9 @@ const AboutMe:React.FC = () => {
     return (
         <div id="about-me" className="md:pt-8 pt-5">
             <div className="min-h-screen flex flex-col justify-evenly">
-                <div className="flex md:flex-row flex-col justify-center items-center mb-5">
-                    <img className="md:w-[16rem] md:mb-0 mb-2 w-56 rounded-full" src={selfie} alt="Josh Jeffers"/>
-                    <div className="md:ml-5 flex justify-center flex-col md:items-start items-center">
-                        <div className="font-bold md:text-8xl text-5xl">Josh Jeffers</div>
-                        <div className="font-semibold md:text-2xl text-base">Fullstack Software Engineering Student</div>
-                        <div className="mt-1 flex flex-row text-2xl md:justify-start justify-center">
-                            <IconLink href="https://github.com/pumbas600">
-                                <i className="mr-5 fab fa-github"/>
-                            </IconLink>
-                            <IconLink href="https://www.linkedin.com/in/josh-jeffers-657111233/">
-                                <i className="mr-5 fab fa-linkedin"></i>
-                            </IconLink>
-                            <IconLink internal href="mailto:joshjeffers600@gmail.com">
-                                <i className="mr-5 far fa-envelope"/>
-                            </IconLink>
-                        </div>
-                    </div>
-                </div>
+                <Overview/>
                 <div className="mb-5">
-                    <div className="md:mx-8 mx-2 md:text-xl text-base dark:text-gray-200 text-gray-800">
+                    <div className="md:mx-8 mx-2 dark:text-gray-200 text-gray-800">
                         <div className="items-baseline md:text-2xl text-xl font-semibold">
                             <span className="inline-block peer">Hello there!</span>
                             <span className="ml-3 md:peer-hover:inline-block hidden text-base">
@@ -50,7 +32,7 @@ const AboutMe:React.FC = () => {
                             </span>
                         </div>
                         <br/>
-                        <div>
+                        <div className="md:text-xl text-base">
                             I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of Auckland. I
                             have a deep passion for software development, which has driven me to start and complete numerous
                             self-derived projects, in an attempt to expand my programming expertise. I particularly love it when
@@ -63,7 +45,7 @@ const AboutMe:React.FC = () => {
                         </div>}
                     </div>
                 </div>
-                <div className="md:block hidden mx-auto animate-bounce-slow">
+                <div className="2xl:block hidden mx-auto animate-bounce-slow">
                     <Link internal href="#technical-skills" className="text-6xl">
                         <i className="fas fa-angle-double-down"/>
                     </Link>
