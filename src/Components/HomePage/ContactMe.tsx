@@ -33,36 +33,38 @@ const ContactMe: React.FC = () => {
     return (
         <div>
             <Title name="Contact Me"/>
-            <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
+            <form className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
                             md:py-5 py-4 px-10"
             >
                 <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
                     <div className="flex flex-row space-x-3">
                         <LabelledInput label="Email" className="w-1/2">
                             <input
-                                className="rounded-md ring-1 ring-gray-300 bg-transparent p-2 outline-none focus:ring-2
-                                           focus:ring-teal-200 ring-inset w-full"
+                                className="rounded-md border-gray-300 bg-transparent p-2 outline-none border-2
+                                           focus:border-teal-200 w-full invalid:border-red-500"
                                 placeholder="example@gmail.com"
-                                type="text"
+                                type="email"
                                 onChange={updateEmail}
                                 value={state.email}
+                                required
                             />
                         </LabelledInput>
                         <LabelledInput label="Name" className="w-1/2">
                             <input
-                                className="rounded-md ring-1 ring-gray-300 bg-transparent p-2 outline-none focus:ring-2
-                                           focus:ring-teal-200 ring-inset w-full"
+                                className="rounded-md border-gray-300 bg-transparent p-2 outline-none border-2
+                                           focus:border-teal-200 w-full invalid:border-red-500"
                                 placeholder="Josh Jeffers"
                                 type="text"
                                 onChange={updateName}
                                 value={state.name}
+                                required
                             />
                         </LabelledInput>
                     </div>
                     <LabelledInput label="Your Message">
                         <textarea
-                            className="rounded-md h-32 ring-1 ring-gray-300 bg-transparent p-2 outline-none focus:ring-2
-                                       focus:ring-teal-200 ring-inset w-full"
+                            className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
+                                       focus:border-teal-200 w-full"
                             placeholder="Hey there!"
                             onChange={updateMessage}
                             value={state.message}
@@ -72,8 +74,8 @@ const ContactMe: React.FC = () => {
                         <button
                             className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800
                                        bg-gradient-to-br from-teal-200 to-teal-300 transition-transform hover:scale-105"
-                            disabled={state.email === '' || state.name === ''}
-                            onClick={e => sendMessage()}
+                            type="submit"
+                            onClick={e => {}}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  className="bi bi-send mt-1" viewBox="0 0 16 16">
@@ -86,7 +88,7 @@ const ContactMe: React.FC = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
