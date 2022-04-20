@@ -22,7 +22,7 @@ const Overview: React.FC = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Overview;
