@@ -4,6 +4,7 @@ import Header from './Components/HomePage/Header';
 import ProjectHighlights from './Components/HomePage/ProjectHighlights';
 import AboutMe from './Components/HomePage/AboutMe';
 import TechnicalSkills from "./Components/HomePage/TechnicalSkills";
+import ContactMe from "./Components/HomePage/ContactMe";
 
 export interface LanguageIcons {
   [key: string]: string
@@ -66,6 +67,7 @@ function App() {
         <AboutMe/>
         <TechnicalSkills/>
         <ProjectHighlights/>
+        <ContactMe/>
       </div>
     </div>
   );
