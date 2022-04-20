@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Title from "../Utils/Title";
+import LabelledInput from "../Utils/LabelledInput";
 
 interface State {
     message: string;
@@ -23,14 +24,16 @@ const ContactMe: React.FC = () => {
             <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
                             md:py-5 py-4 px-10"
             >
-                <div className="mx-auto flex flex-col space-y-4 md:w-8/12 w-full text-sm text-gray-300">
-                    <textarea
-                        className="rounded-md h-32 ring-1 ring-gray-300 bg-transparent p-2 outline-none focus:ring-2
-                                   focus:ring-teal-200 ring-inset"
-                        onChange={updateMessage}
-                        placeholder="Hey there!"
-                        value={state.message}
-                    />
+                <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
+                    <LabelledInput label="Your Message">
+                        <textarea
+                            className="rounded-md h-32 ring-1 ring-gray-300 bg-transparent p-2 outline-none focus:ring-2
+                                   focus:ring-teal-200 ring-inset w-full"
+                            onChange={updateMessage}
+                            placeholder="Hey there!"
+                            value={state.message}
+                        />
+                    </LabelledInput>
                     <div className="flex justify-end">
                         <button
                             className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800 bg-gradient-to-br
