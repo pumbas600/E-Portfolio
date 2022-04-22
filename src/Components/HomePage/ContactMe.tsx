@@ -61,7 +61,7 @@ const ContactMe: React.FC = () => {
         <div>
             <Title name="Contact Me"/>
             <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
-                            md:py-5 py-4 px-10"
+                            md:py-5 py-4 sm:px-10 px-5"
             >
                 <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
                     <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
