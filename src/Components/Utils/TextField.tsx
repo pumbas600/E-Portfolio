@@ -9,18 +9,24 @@ interface Props {
 }
 
 const TextField: React.FC<Props> = (props) => {
+
+    const hasError = props.error !== '';
+
+    function styleBorder(error: boolean) {
+        return error ? 'border-red-500' : 'border-gray-300'
+    }
+
     return (
         <div className="w-full">
             <input
-                className={`${props.className ?? ''} rounded-md border-gray-300 bg-transparent p-2 outline-none
-                            border-2 focus:border-teal-200 w-full invalid:border-red-500`}
+                className={`${props.className ?? ''} rounded-md bg-transparent p-2 outline-none
+                            border-2 focus:border-teal-200 w-full ${styleBorder(hasError)}`}
                 placeholder={props.placeholder}
                 value={props.value}
                 onChange={props.onChange}
-                required={props.error !== ''}
                 type="text"
             />
-            {props.error !== '' && (
+            {hasError && (
                 <div className="text-red-500 text-sm px-2 overflow-ellipsis whitespace-nowrap overflow-hidden">
                     {props.error}
                 </div>
