@@ -7,12 +7,15 @@ type SendingState = 'SEND' | 'SENDING' | 'SENT';
 
 interface State {
     message: string;
-    subject: string;
-    subjectError: string;
-    sendingState: SendingState;
+    email: string;
+    name: string;
+    emailError: string;
+    nameError: string;
+    //sendingState: SendingState;
 }
 
-const EMPTY_STATE: State = { message: '', subject: '', subjectError: '', sendingState: 'SEND' };
+const EMPTY_STATE = { message: '', email: '', name: '', emailError: '', nameError: '' };
+const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/;
 
 const ContactMe: React.FC = () => {
 
@@ -22,18 +25,36 @@ const ContactMe: React.FC = () => {
         setState({ ...state, message: e.target.value });
     }
 
-    function updateSubject(e: React.ChangeEvent<HTMLInputElement>) {
-        setState({ ...state, subject: e.target.value, subjectError: '' });
+    function updateEmail(e: React.ChangeEvent<HTMLInputElement>) {
+        setState({ ...state, email: e.target.value, emailError: '' });
+    }
+
+    function updateName(e: React.ChangeEvent<HTMLInputElement>) {
+        setState({ ...state, name: e.target.value, nameError: '' });
     }
 
     function sendMessage() {
-        if (state.subject === '') {
-            setState({...state, subjectError: "This cannot be empty"});
+        var isValid = true;
+        var errorState = { ...state };
+
+        if (state.name === '') {
+            errorState = {...errorState, nameError: "This cannot be empty"};
+            isValid = false;
         }
-        else {
+        if (state.email === '') {
+            errorState = {...errorState, emailError: "This cannot be empty"};
+            isValid = false;
+        }
+        else if (!state.email.match(EMAIL_REGEX)) {
+            errorState = {...errorState, emailError: "You must enter a valid email"};
+            isValid = false;
+        }
+
+        if (isValid) {
             // Send email
             setState(EMPTY_STATE);
         }
+        else setState(errorState);
     }
 
     return (
@@ -43,14 +64,24 @@ const ContactMe: React.FC = () => {
                             md:py-5 py-4 sm:px-10 px-5"
             >
                 <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
-                    <LabelledInput label="Subject" className="w-full">
-                        <TextField
-                            error={state.subjectError}
-                            placeholder="Inquiry about..."
-                            onChange={updateSubject}
-                            value={state.subject}
-                        />
-                    </LabelledInput>
+                    <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
+                        <LabelledInput label="Email" className="md:w-1/2 w-full">
+                            <TextField
+                                error={state.emailError}
+                                placeholder="example@gmail.com"
+                                onChange={updateEmail}
+                                value={state.email}
+                            />
+                        </LabelledInput>
+                        <LabelledInput label="Name" className="md:w-1/2 w-full">
+                            <TextField
+                                error={state.nameError}
+                                placeholder="Josh Jeffers"
+                                onChange={updateName}
+                                value={state.name}
+                            />
+                        </LabelledInput>
+                    </div>
                     <LabelledInput label="Your Message">
                         <textarea
                             className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
@@ -65,7 +96,7 @@ const ContactMe: React.FC = () => {
                             className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800
                                        bg-gradient-to-br from-teal-200 to-teal-300 transition-transform hover:scale-105"
                             type="submit"
-                            onClick={_ => sendMessage()}
+                            onClick={e => sendMessage()}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  className="bi bi-send mt-1" viewBox="0 0 16 16">
