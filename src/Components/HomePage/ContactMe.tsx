@@ -1,14 +1,21 @@
 import React, {useState} from "react";
 import Title from "../Utils/Title";
 import LabelledInput from "../Utils/LabelledInput";
+import TextField from "../Utils/TextField";
+
+type SendingState = 'SEND' | 'SENDING' | 'SENT';
 
 interface State {
     message: string;
     email: string;
     name: string;
+    emailError: string;
+    nameError: string;
+    //sendingState: SendingState;
 }
 
-const EMPTY_STATE = { message: '', email: '', name: '' };
+const EMPTY_STATE = { message: '', email: '', name: '', emailError: '', nameError: '' };
+const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/;
 
 const ContactMe: React.FC = () => {
 
@@ -19,45 +26,59 @@ const ContactMe: React.FC = () => {
     }
 
     function updateEmail(e: React.ChangeEvent<HTMLInputElement>) {
-        setState({ ...state, email: e.target.value });
+        setState({ ...state, email: e.target.value, emailError: '' });
     }
 
     function updateName(e: React.ChangeEvent<HTMLInputElement>) {
-        setState({ ...state, name: e.target.value });
+        setState({ ...state, name: e.target.value, nameError: '' });
     }
 
     function sendMessage() {
-        setState(EMPTY_STATE);
+        var isValid = true;
+        var errorState = { ...state };
+
+        if (state.name === '') {
+            errorState = {...errorState, nameError: "This cannot be empty"};
+            isValid = false;
+        }
+        if (state.email === '') {
+            errorState = {...errorState, emailError: "This cannot be empty"};
+            isValid = false;
+        }
+        else if (!state.email.match(EMAIL_REGEX)) {
+            errorState = {...errorState, emailError: "You must enter a valid email"};
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Send email
+            setState(EMPTY_STATE);
+        }
+        else setState(errorState);
     }
 
     return (
         <div>
             <Title name="Contact Me"/>
-            <form className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
+            <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
                             md:py-5 py-4 px-10"
             >
                 <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
-                    <div className="flex flex-row space-x-3">
-                        <LabelledInput label="Email" className="w-1/2">
-                            <input
-                                className="rounded-md border-gray-300 bg-transparent p-2 outline-none border-2
-                                           focus:border-teal-200 w-full invalid:border-red-500"
+                    <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
+                        <LabelledInput label="Email" className="md:w-1/2 w-full">
+                            <TextField
+                                error={state.emailError}
                                 placeholder="example@gmail.com"
-                                type="email"
                                 onChange={updateEmail}
                                 value={state.email}
-                                required
                             />
                         </LabelledInput>
-                        <LabelledInput label="Name" className="w-1/2">
-                            <input
-                                className="rounded-md border-gray-300 bg-transparent p-2 outline-none border-2
-                                           focus:border-teal-200 w-full invalid:border-red-500"
+                        <LabelledInput label="Name" className="md:w-1/2 w-full">
+                            <TextField
+                                error={state.nameError}
                                 placeholder="Josh Jeffers"
-                                type="text"
                                 onChange={updateName}
                                 value={state.name}
-                                required
                             />
                         </LabelledInput>
                     </div>
@@ -75,7 +96,7 @@ const ContactMe: React.FC = () => {
                             className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800
                                        bg-gradient-to-br from-teal-200 to-teal-300 transition-transform hover:scale-105"
                             type="submit"
-                            onClick={e => {}}
+                            onClick={e => sendMessage()}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  className="bi bi-send mt-1" viewBox="0 0 16 16">
@@ -88,7 +109,7 @@ const ContactMe: React.FC = () => {
                         </button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }
