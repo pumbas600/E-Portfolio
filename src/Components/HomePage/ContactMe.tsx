@@ -78,8 +78,8 @@ const ContactMe: React.FC = () => {
         if (!validateInputs())
             return;
 
-        testSendingEmailStates()
-        return;
+        // testSendingEmailStates()
+        // return;
 
         const data = new FormData();
         data.append("email", state.email);
@@ -87,7 +87,6 @@ const ContactMe: React.FC = () => {
         data.append("message", state.message);
 
         setState(state => { return { ...state, sendingState: 'SENDING' } });
-
 
         const response = await fetch('https://formspree.io/f/xwkywegq', {
             method: 'POST',
@@ -201,47 +200,43 @@ const ContactMe: React.FC = () => {
             <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
                             md:py-5 py-4 sm:px-10 px-5"
             >
-                <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full ">
-
-                    <form onSubmit={sendEmail}>
-                        <div className="text-sm text-gray-300">
-                            <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
-                                <LabelledInput label="Email" className="md:w-1/2 w-full">
-                                    <InputField
-                                        name="email"
-                                        placeholder="example@gmail.com"
-                                        value={state.email}
-                                        onChange={updateEmail}
-                                        hasError={state.emailError !== ''}
-                                        error={state.emailError}
-                                    />
-                                </LabelledInput>
-                                <LabelledInput label="Name" className="md:w-1/2 w-full">
-                                    <InputField
-                                        name="name"
-                                        placeholder="Josh Jeffers"
-                                        value={state.name}
-                                        onChange={updateName}
-                                        hasError={state.nameError !== ''}
-                                        error={state.nameError}
-                                    />
-                                </LabelledInput>
-                            </div>
-                            <LabelledInput label="Your Message">
-                                <textarea
-                                    name="message"
-                                    className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
-                                               focus:border-teal-200 w-full"
-                                    placeholder="Hey there!"
-                                    onChange={updateMessage}
-                                    value={state.message}
+                <form onSubmit={sendEmail}>
+                    <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
+                        <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
+                            <LabelledInput label="Email" className="md:w-1/2 w-full">
+                                <InputField
+                                    name="email"
+                                    placeholder="example@gmail.com"
+                                    value={state.email}
+                                    onChange={updateEmail}
+                                    hasError={state.emailError !== ''}
+                                    error={state.emailError}
                                 />
                             </LabelledInput>
-                            {renderSubmitButton()}
+                            <LabelledInput label="Name" className="md:w-1/2 w-full">
+                                <InputField
+                                    name="name"
+                                    placeholder="Josh Jeffers"
+                                    value={state.name}
+                                    onChange={updateName}
+                                    hasError={state.nameError !== ''}
+                                    error={state.nameError}
+                                />
+                            </LabelledInput>
                         </div>
-                    </form>
-
-                </div>
+                        <LabelledInput label="Your Message">
+                            <textarea
+                                name="message"
+                                className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
+                                           focus:border-teal-200 w-full"
+                                placeholder="Hey there!"
+                                onChange={updateMessage}
+                                value={state.message}
+                            />
+                        </LabelledInput>
+                        {renderSubmitButton()}
+                    </div>
+                </form>
             </div>
         </div>
     );
