@@ -20,6 +20,7 @@ interface State {
     nameError: string;
     sendingState: SendingState;
     submitting: boolean;
+    generalError?: string;
 }
 
 const DEFAULT_STATE: State = { message: '', email: '', name: '', emailError: '', nameError: '', sendingState: 'UNSENT', submitting: false };
@@ -31,15 +32,15 @@ const ContactMe: React.FC = () => {
     const [state, setState] = useState<State>(DEFAULT_STATE);
 
     function updateMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        setState({ ...state, message: e.target.value });
+        setState({ ...state, message: e.target.value, generalError: '' });
     }
 
     function updateEmail(e: React.ChangeEvent<HTMLInputElement>) {
-        setState({ ...state, email: e.target.value, emailError: '' });
+        setState({ ...state, email: e.target.value, emailError: '', generalError: '' });
     }
 
     function updateName(e: React.ChangeEvent<HTMLInputElement>) {
-        setState({ ...state, name: e.target.value, nameError: '' });
+        setState({ ...state, name: e.target.value, nameError: '', generalError: '' });
     }
 
     function validateInputs(): boolean {
@@ -88,31 +89,40 @@ const ContactMe: React.FC = () => {
 
         setState({ ...state, sendingState: 'SENDING' });
 
-        const response = await fetch('https://formspree.io/f/xwkywegq', {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
+        try {
+            const response = await fetch('https://formspree.io/f/xwkywegq', {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-        if (response.ok) {
-            setState({ ...DEFAULT_STATE, sendingState: "SENT" });
-            setTimeout(() => {
-                setState(state => { return { ...state, sendingState: 'UNSENT' } });
-            }, 2000);
-        } else {
-            const formResponse: { errors?: FormError[] } = await response.json();
-            // Allows you to set the errors using newState[field] without it complaining
-            let newState = { ...state } as any;
+            if (response.ok) {
+                setState({ ...DEFAULT_STATE, sendingState: "SENT" });
+                setTimeout(() => {
+                    setState(state => { return { ...state, sendingState: 'UNSENT' } });
+                }, 2000);
+            } else {
+                const formResponse: { errors?: FormError[] } = await response.json();
+                // Allows you to set the errors using newState[field] without it complaining
+                let newState = { ...state } as any;
 
-            if (formResponse.errors) {
-                formResponse["errors"]?.filter(error => error.field)
-                    .forEach(error => {
-                        newState[error.field!] = error.message;
-                    });
+                if (formResponse.errors) {
+                    formResponse["errors"]?.filter(error => error.field)
+                        .forEach(error => {
+                            newState[error.field!] = error.message;
+                        });
+                }
+                setState({ ...newState, sendingState: 'UNSENT' });
             }
-            setState({ ...newState, sendingState: 'UNSENT' });
+        } catch (e) {
+            console.log(e);
+            setState({
+                ...state,
+                sendingState: 'UNSENT',
+                generalError: 'Something went wrong trying to send the message'
+            });
         }
     }
 
@@ -235,6 +245,9 @@ const ContactMe: React.FC = () => {
                                 onChange={updateMessage}
                                 value={state.message}
                             />
+                            {state.generalError && <div className="text-base text-red-500">
+                                {state.generalError}
+                            </div>}
                         </LabelledInput>
                         {renderSubmitButton()}
                     </div>

@@ -5,6 +5,7 @@ import ProjectHighlights from './Components/HomePage/ProjectHighlights';
 import AboutMe from './Components/HomePage/AboutMe';
 import TechnicalSkills from "./Components/HomePage/TechnicalSkills";
 import ContactMe from "./Components/HomePage/ContactMe";
+import Footer from "./Components/HomePage/Footer";
 
 type Theme = 'light' | 'dark';
 
@@ -48,7 +49,7 @@ function App() {
             currentTheme={theme}
         />
       </header>
-      <div className="centred-body dark:text-gray-200 text-gray-800 pb-32">
+      <div className="container dark:text-gray-200 text-gray-800 pb-32">
         <AboutMe/>
         <TechnicalSkills/>
         <ProjectHighlights/>

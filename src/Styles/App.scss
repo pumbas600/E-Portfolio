@@ -34,15 +34,13 @@ input:-webkit-autofill {
   }
 }
 
-.centred-body {
+.container {
   width: 1000px;
   margin: 0 auto;
 }
 
-// ...
-
 @media only screen and (max-width: 1099px) {
-  .centred-body {
+  .container {
     width: 95%;
   }
 }
