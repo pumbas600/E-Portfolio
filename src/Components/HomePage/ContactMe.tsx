@@ -20,7 +20,7 @@ const ContactMe: React.FC = () => {
             setTimeout(() => setSendingState('UNSENT'), 2000);
         }
         else setSendingState('UNSENT');
-    }, [formState])
+    }, [])
 
     // const [state, setState] = useState<State>(EMPTY_STATE);
     //

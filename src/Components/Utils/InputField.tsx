@@ -32,7 +32,7 @@ const InputField: React.FC<Props> = (props) => {
                 required={props.required}
                 name={props.name ?? props.id}
             />
-            {props.error !== '' && (
+            {props.error !== undefined && (
                 <div className="text-red-500 text-sm px-2 overflow-ellipsis whitespace-nowrap overflow-hidden">
                     {props.error}
                 </div>
