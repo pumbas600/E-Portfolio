@@ -41,27 +41,6 @@ input:-webkit-autofill {
   }
 }
 
-.form-animation {
-  &-enter {
-    opacity: 0;
-    transform: scale(0.8);
-
-    &-active {
-      opacity: 1;
-      transform: translateX(0);
-      transition: opacity 300ms, transform 300ms;
-    }
-  }
-
-  &-exit {
-    display: none;
-
-    &-active {
-      display: none;
-    }
-  }
-}
-
 .centred-body {
   width: var(--body-width);
   margin: 0 auto;

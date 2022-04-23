@@ -23,7 +23,7 @@ const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d
 const ContactMe: React.FC = () => {
 
     const [formState, handleSubmit, reset] = useForm("xwkywegq");
-    const [showForm, setShowForm] = useState<boolean>(true);
+    const [showButton, setShowButton] = useState<boolean>(true);
     const [state, setState] = useState<State>(DEFAULT_STATE);
 
     useEffect(() => {
@@ -83,12 +83,10 @@ const ContactMe: React.FC = () => {
         setState(state => {
             return { ...state, sendingState: 'SENDING' };
         });
-        setTimeout(() => setState(state =>  {
-            return { ...state, sendingState: 'SENT' };
-        }), 1000);
-        setTimeout(
-            () => setState({ ...DEFAULT_STATE, sendingState: 'UNSENT' }),
-            4000);
+        setTimeout(() => setState({ ...DEFAULT_STATE, sendingState: 'SENT' }), 1000);
+        setTimeout(() => setState(state => {
+            return { ...state, sendingState: 'UNSENT' }
+        }), 4000);
     }
 
     function sendEmail(e: React.FormEvent<HTMLFormElement>) {
@@ -100,7 +98,7 @@ const ContactMe: React.FC = () => {
         else e.preventDefault();
     }
 
-    function renderSendButton(): JSX.Element {
+    function renderSendText(): JSX.Element {
         switch(state.sendingState) {
             case 'UNSENT':
                 return (
@@ -148,6 +146,51 @@ const ContactMe: React.FC = () => {
         }
     }
 
+    function renderSubmitButton(): JSX.Element {
+        return (
+            <>
+                {showButton &&
+                    <div className="flex justify-end">
+                        <button
+                            className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800
+                                       bg-gradient-to-br from-teal-200 to-teal-300 transition-transform hover:scale-105"
+                            type="submit"
+                            disabled={formState.submitting}
+                        >
+                            {renderSendText()}
+                        </button>
+                    </div>
+                }
+                <CSSTransition
+                    in={state.sendingState === 'SENT'}
+                    timeout={300}
+                    classNames="sent-animation"
+                    unmountOnExit
+                    onEnter={() => setShowButton(false)}
+                    onExited={() => setShowButton(true)}
+                >
+                    <div className="w-full text-gray-800 py-5 px-10 rounded-md bg-gradient-to-br from-teal-200 to-teal-300">
+                        <div className="text-2xl font-bold flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 className="bi bi-send-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                                <path
+                                    d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+                            </svg>
+                            <div className="ml-2">
+                                Sent!
+                            </div>
+                        </div>
+                        <div className="text-lg">
+                            Thank you for your message! :)
+                        </div>
+                    </div>
+                </CSSTransition>
+            </>
+        )
+    }
+
     return (
         <div>
             <Title name="Contact Me"/>
@@ -155,100 +198,60 @@ const ContactMe: React.FC = () => {
                             md:py-5 py-4 sm:px-10 px-5"
             >
                 <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full ">
-                    <CSSTransition
-                        in={state.sendingState !== 'SENT' && showForm}
-                        timeout={300}
-                        classNames="form-animation"
-                        unmountOnExit
-                    >
-                        <form onSubmit={sendEmail}>
-                            <div className="text-sm text-gray-300">
-                                <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
-                                    <LabelledInput label="Email" className="md:w-1/2 w-full">
-                                        <InputField
-                                            name="email"
-                                            placeholder="example@gmail.com"
-                                            value={state.email}
-                                            onChange={updateEmail}
-                                            hasError={state.emailError !== ''}
-                                            error={state.emailError}
-                                        />
-                                        <ValidationError
-                                            prefix="Email"
-                                            field="email"
-                                            errors={formState.errors}
-                                        />
-                                    </LabelledInput>
-                                    <LabelledInput label="Name" className="md:w-1/2 w-full">
-                                        <InputField
-                                            name="name"
-                                            placeholder="Josh Jeffers"
-                                            value={state.name}
-                                            onChange={updateName}
-                                            hasError={state.nameError !== ''}
-                                            error={state.nameError}
-                                        />
-                                        <ValidationError
-                                            prefix="Name"
-                                            field="name"
-                                            errors={formState.errors}
-                                        />
-                                    </LabelledInput>
-                                </div>
-                                <LabelledInput label="Your Message">
-                                    <textarea
-                                        name="message"
-                                        className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
-                                                   focus:border-teal-200 w-full"
-                                        placeholder="Hey there!"
-                                        onChange={updateMessage}
-                                        value={state.message}
+
+                    <form onSubmit={sendEmail}>
+                        <div className="text-sm text-gray-300">
+                            <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
+                                <LabelledInput label="Email" className="md:w-1/2 w-full">
+                                    <InputField
+                                        name="email"
+                                        placeholder="example@gmail.com"
+                                        value={state.email}
+                                        onChange={updateEmail}
+                                        hasError={state.emailError !== ''}
+                                        error={state.emailError}
                                     />
                                     <ValidationError
-                                        prefix="Message"
-                                        field="message"
+                                        prefix="Email"
+                                        field="email"
                                         errors={formState.errors}
                                     />
                                 </LabelledInput>
-                                <div className="flex justify-end">
-                                    <button
-                                        className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800
-                                                   bg-gradient-to-br from-teal-200 to-teal-300 transition-transform hover:scale-105"
-                                        type="submit"
-                                        disabled={formState.submitting}
-                                    >
-                                        {renderSendButton()}
-                                    </button>
-                                </div>
+                                <LabelledInput label="Name" className="md:w-1/2 w-full">
+                                    <InputField
+                                        name="name"
+                                        placeholder="Josh Jeffers"
+                                        value={state.name}
+                                        onChange={updateName}
+                                        hasError={state.nameError !== ''}
+                                        error={state.nameError}
+                                    />
+                                    <ValidationError
+                                        prefix="Name"
+                                        field="name"
+                                        errors={formState.errors}
+                                    />
+                                </LabelledInput>
                             </div>
-                        </form>
-                    </CSSTransition>
-                    <CSSTransition
-                        in={state.sendingState === 'SENT'}
-                        timeout={300}
-                        classNames="sent-animation"
-                        unmountOnExit
-                        onEntering={() => setShowForm(false)}
-                        onExited={() => setShowForm(true)}
-                    >
-                        <div className="w-full text-gray-800 py-5 px-10 rounded-md bg-gradient-to-br from-teal-200 to-teal-300">
-                            <div className="text-2xl font-bold flex flex-row items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                     className="bi bi-send-check-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                                    <path
-                                        d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
-                                </svg>
-                                <div className="ml-2">
-                                    Sent!
-                                </div>
-                            </div>
-                            <div>
-                                Thank you for your message! :)
-                            </div>
+                            <LabelledInput label="Your Message">
+                                <textarea
+                                    name="message"
+                                    className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
+                                               focus:border-teal-200 w-full"
+                                    placeholder="Hey there!"
+                                    onChange={updateMessage}
+                                    value={state.message}
+                                />
+                                <ValidationError
+                                    prefix="Message"
+                                    field="message"
+                                    errors={formState.errors}
+                                />
+                            </LabelledInput>
+                            {renderSubmitButton()}
                         </div>
-                    </CSSTransition>
+                    </form>
+
                 </div>
             </div>
         </div>
