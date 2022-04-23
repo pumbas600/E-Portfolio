@@ -63,15 +63,15 @@ const ContactMe: React.FC = () => {
         return true;
     }
 
-    function testSendingEmailStates() {
-        setState(state => {
-            return { ...state, sendingState: 'SENDING' };
-        });
-        setTimeout(() => setState({ ...DEFAULT_STATE, sendingState: 'SENT' }), 1000);
-        setTimeout(() => setState(state => {
-            return { ...state, sendingState: 'UNSENT' }
-        }), 4000);
-    }
+    // function testSendingEmailStates() {
+    //     setState(state => {
+    //         return { ...state, sendingState: 'SENDING' };
+    //     });
+    //     setTimeout(() => setState({ ...DEFAULT_STATE, sendingState: 'SENT' }), 1000);
+    //     setTimeout(() => setState(state => {
+    //         return { ...state, sendingState: 'UNSENT' }
+    //     }), 4000);
+    // }
 
     async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -86,7 +86,7 @@ const ContactMe: React.FC = () => {
         data.append("name", state.name);
         data.append("message", state.message);
 
-        setState(state => { return { ...state, sendingState: 'SENDING' } });
+        setState({ ...state, sendingState: 'SENDING' });
 
         const response = await fetch('https://formspree.io/f/xwkywegq', {
             method: 'POST',
@@ -103,7 +103,9 @@ const ContactMe: React.FC = () => {
             }, 2000);
         } else {
             const formResponse: { errors?: FormError[] } = await response.json();
+            // Allows you to set the errors using newState[field] without it complaining
             let newState = { ...state } as any;
+
             if (formResponse.errors) {
                 formResponse["errors"]?.filter(error => error.field)
                     .forEach(error => {
@@ -144,7 +146,7 @@ const ContactMe: React.FC = () => {
                         </div>
                     </>
                 );
-            default:
+            default: // Should theoretically never be called
                 return <>How did you get here!?</>
         }
     }

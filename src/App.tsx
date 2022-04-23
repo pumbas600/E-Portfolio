@@ -6,21 +6,6 @@ import AboutMe from './Components/HomePage/AboutMe';
 import TechnicalSkills from "./Components/HomePage/TechnicalSkills";
 import ContactMe from "./Components/HomePage/ContactMe";
 
-export interface LanguageIcons {
-  [key: string]: string
-}
-
-export const LanguageIconLinks:LanguageIcons = require("./Assets/TechnologyIcons.json");
-
-/**
- * TODO:
- *  - Dark theme changer using toggle button
- *  - Sticky header
- *  - Github requests for weekly commit data (https://medium.com/@quynh.totuan/how-to-get-the-current-week-in-javascript-9e64d45a9a08)
- *  - Github project descriptions
- *  - Language percent graph for projects
- */
-
 type Theme = 'light' | 'dark';
 
 function App() {
