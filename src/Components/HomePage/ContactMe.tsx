@@ -6,62 +6,81 @@ import {useForm, ValidationError} from "@formspree/react";
 
 type SendingState = 'UNSENT' | 'SENDING' | 'SENT';
 
+interface State {
+    message: string;
+    email: string;
+    name: string;
+    emailError: string;
+    nameError: string;
+    sendingState: SendingState;
+}
+
+const DEFAULT_STATE: State = { message: '', email: '', name: '', emailError: '', nameError: '', sendingState: 'UNSENT' };
+const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/;
+
 const ContactMe: React.FC = () => {
 
     const [formState, handleSubmit, reset] = useForm("xwkywegq");
-    const [sendingState, setSendingState] = useState<SendingState>('UNSENT');
+    const [state, setState] = useState<State>(DEFAULT_STATE);
 
     useEffect(() => {
         if (formState.submitting) {
-            setSendingState('SENDING');
+            setState((state) => {
+                return { ...state, sendingState: 'SENDING' };
+            });
         }
         else if (formState.succeeded) {
-            setSendingState('SENT');
+            setState({ ...DEFAULT_STATE, sendingState: 'SENT' });
             setTimeout(() => reset(), 5000);
         }
-        else setSendingState('UNSENT');
+        else setState((state) => {
+            return (state.sendingState === 'UNSENT')
+                ? state : { ...state, sendingState: 'UNSENT' };
+        });
     }, [formState, reset])
 
-    // const [state, setState] = useState<State>(EMPTY_STATE);
-    //
-    // function updateMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    //     setState({ ...state, message: e.target.value });
-    // }
-    //
-    // function updateEmail(e: React.ChangeEvent<HTMLInputElement>) {
-    //     setState({ ...state, email: e.target.value, emailError: '' });
-    // }
-    //
-    // function updateName(e: React.ChangeEvent<HTMLInputElement>) {
-    //     setState({ ...state, name: e.target.value, nameError: '' });
-    // }
+    function updateMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
+        setState({ ...state, message: e.target.value });
+    }
 
-    // function sendMessage() {
-    //     var isValid = true;
-    //     var errorState = { ...state };
-    //
-    //     if (state.name === '') {
-    //         errorState = {...errorState, nameError: "This cannot be empty"};
-    //         isValid = false;
-    //     }
-    //     if (state.email === '') {
-    //         errorState = {...errorState, emailError: "This cannot be empty"};
-    //         isValid = false;
-    //     }
-    //     else if (!state.email.match(EMAIL_REGEX)) {
-    //         errorState = {...errorState, emailError: "You must enter a valid email"};
-    //         isValid = false;
-    //     }
-    //
-    //     if (isValid) {
-    //         // Send email
-    //         setState(EMPTY_STATE);
-    //     }
-    //     else setState(errorState);
-    // }
+    function updateEmail(e: React.ChangeEvent<HTMLInputElement>) {
+        setState({ ...state, email: e.target.value, emailError: '' });
+    }
+
+    function updateName(e: React.ChangeEvent<HTMLInputElement>) {
+        setState({ ...state, name: e.target.value, nameError: '' });
+    }
+
+    function validateInputs(): boolean {
+        let nameError = '';
+        let emailError = '';
+
+        if (state.name === '') {
+            nameError = 'This cannot be empty';
+        }
+        if (state.email === '') {
+            emailError = 'This cannot be empty';
+        }
+        else if (!state.email.match(EMAIL_REGEX)) {
+            emailError = 'You must enter a valid email';
+        }
+
+        if (nameError || emailError) {
+            setState({ ...state, nameError: nameError, emailError: emailError });
+            return false;
+        }
+        return true;
+    }
+
+    function sendEmail(e: React.FormEvent<HTMLFormElement>) {
+        if (validateInputs()) {
+            handleSubmit(e);
+        }
+        else e.preventDefault();
+    }
 
     function renderSendButton(): JSX.Element {
-        switch(sendingState) {
+        switch(state.sendingState) {
             case 'UNSENT':
                 return (
                     <>
@@ -114,16 +133,17 @@ const ContactMe: React.FC = () => {
             <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
                             md:py-5 py-4 sm:px-10 px-5"
             >
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={sendEmail}>
                     <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
                         <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
                             <LabelledInput label="Email" className="md:w-1/2 w-full">
                                 <InputField
-                                    id="email"
-                                    type="email"
                                     name="email"
                                     placeholder="example@gmail.com"
-                                    required
+                                    value={state.email}
+                                    onChange={updateEmail}
+                                    hasError={state.emailError !== ''}
+                                    error={state.emailError}
                                 />
                                 <ValidationError
                                     prefix="Email"
@@ -133,10 +153,12 @@ const ContactMe: React.FC = () => {
                             </LabelledInput>
                             <LabelledInput label="Name" className="md:w-1/2 w-full">
                                 <InputField
-                                    id="name"
                                     name="name"
                                     placeholder="Josh Jeffers"
-                                    required
+                                    value={state.name}
+                                    onChange={updateName}
+                                    hasError={state.nameError !== ''}
+                                    error={state.nameError}
                                 />
                                 <ValidationError
                                     prefix="Name"
@@ -147,11 +169,12 @@ const ContactMe: React.FC = () => {
                         </div>
                         <LabelledInput label="Your Message">
                             <textarea
-                                id="message"
                                 name="message"
                                 className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
                                            focus:border-teal-200 w-full"
                                 placeholder="Hey there!"
+                                onChange={updateMessage}
+                                value={state.message}
                             />
                             <ValidationError
                                 prefix="Message"
