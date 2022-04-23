@@ -8,7 +8,7 @@ type SendingState = 'UNSENT' | 'SENDING' | 'SENT';
 
 const ContactMe: React.FC = () => {
 
-    const [formState, handleSubmit] = useForm("xwkywegq");
+    const [formState, handleSubmit, reset] = useForm("xwkywegq");
     const [sendingState, setSendingState] = useState<SendingState>('UNSENT');
 
     useEffect(() => {
@@ -17,10 +17,10 @@ const ContactMe: React.FC = () => {
         }
         else if (formState.succeeded) {
             setSendingState('SENT');
-            setTimeout(() => setSendingState('UNSENT'), 2000);
+            setTimeout(() => reset(), 5000);
         }
         else setSendingState('UNSENT');
-    }, [])
+    }, [formState, reset])
 
     // const [state, setState] = useState<State>(EMPTY_STATE);
     //
