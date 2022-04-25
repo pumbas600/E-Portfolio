@@ -9,6 +9,30 @@ import Footer from "./Components/HomePage/Footer";
 
 type Theme = 'light' | 'dark';
 
+interface LinkItems {
+  name: string;
+  href: string;
+  icon: string;
+}
+
+const Links: LinkItems[] = [
+  {
+    name: 'Github',
+    href: 'https://github.com/pumbas600',
+    icon: 'fab fa-github'
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/josh-jeffers-657111233/',
+    icon: 'fab fa-linkedin'
+  },
+  {
+    name: 'Email',
+    href: 'mailto:joshjeffers600@gmail.com',
+    icon: 'far fa-envelope'
+  }
+];
+
 function App() {
 
   const [theme, setTheme] = useState<Theme>(getDefaultTheme());
@@ -49,7 +73,7 @@ function App() {
             currentTheme={theme}
         />
       </header>
-      <div className="container dark:text-gray-200 text-gray-800 pb-32">
+      <div className="container dark:text-gray-200 text-gray-800 pb-16">
         <AboutMe/>
         <TechnicalSkills/>
         <ProjectHighlights/>
@@ -61,3 +85,4 @@ function App() {
 }
 
 export default App;
+export { Links };
