@@ -11,8 +11,8 @@ const Footer: React.FC = () => {
             return <Link href={link.href}
                          animate
                          className="md:ml-10 ml-5"
-                         textColour="text-gray-200 dark:text-gray-800"
-                         bgColour="bg-gray-200 dark:bg-gray-800"
+                         textColour="text-gray-200 dark:text-gray-300"
+                         bgColour="bg-gray-200 dark:bg-gray-300"
             >
                 {link.name}
             </Link>
@@ -20,9 +20,9 @@ const Footer: React.FC = () => {
     }
 
     return (
-        <div className="w-full dark:bg-teal-200 bg-gray-800 md:py-3 py-2">
+        <div className="w-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 bg-gray-800 md:py-3 py-2">
             <div className="container flex md:flex-row flex-col-reverse md:justify-between items-center text-base">
-                <div className="text-gray-200 dark:text-gray-800">
+                <div className="text-gray-200 dark:text-gray-300">
                     {`Copyright © ${year} Joshua Alex Jeffers`}
                 </div>
                 <div className="font-semibold">
