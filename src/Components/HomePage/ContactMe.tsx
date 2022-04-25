@@ -18,12 +18,20 @@ interface State {
     name: string;
     emailError: string;
     nameError: string;
+    generalError: string;
     sendingState: SendingState;
-    submitting: boolean;
-    generalError?: string;
 }
 
-const DEFAULT_STATE: State = { message: '', email: '', name: '', emailError: '', nameError: '', sendingState: 'UNSENT', submitting: false };
+const DEFAULT_STATE: State = {
+    message: '',
+    email: '',
+    name: '',
+    emailError: '',
+    nameError: '',
+    generalError: '',
+    sendingState: 'UNSENT',
+};
+
 const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/;
 
 const ContactMe: React.FC = () => {
@@ -245,7 +253,7 @@ const ContactMe: React.FC = () => {
                                 onChange={updateMessage}
                                 value={state.message}
                             />
-                            {state.generalError && <div className="text-base text-red-500">
+                            {state.generalError.length !== 0 && <div className="text-base text-red-500">
                                 {state.generalError}
                             </div>}
                         </LabelledInput>
