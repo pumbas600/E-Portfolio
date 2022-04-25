@@ -55,6 +55,7 @@ function App() {
         <ProjectHighlights/>
         <ContactMe/>
       </div>
+      <Footer/>
     </div>
   );
 }
