@@ -8,7 +8,7 @@ const Overview: React.FC = () => {
     function renderLinks(): JSX.Element[] {
         return Links.map(link => {
             return (
-                <IconLink className="mr-5" href={link.href}>
+                <IconLink key={link.name} className="mr-5" href={link.href}>
                     <i className={link.icon}/>
                 </IconLink>
             );

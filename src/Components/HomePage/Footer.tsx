@@ -8,7 +8,8 @@ const Footer: React.FC = () => {
 
     function renderLinks(): JSX.Element[] {
         return Links.map(link => {
-            return <Link href={link.href}
+            return <Link key={link.name}
+                         href={link.href}
                          animate
                          className="md:ml-10 ml-5"
                          textColour="text-gray-200 dark:text-gray-300"
