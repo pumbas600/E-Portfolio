@@ -17,11 +17,10 @@ const Header:React.FC<Props> = (props) => {
                     key={name}
                     animate
                     internal
-                    textColour="text-gray-200 dark:text-gray-800"
-                    bgColour="bg-gray-200 dark:bg-gray-800"
+                    textColour="text-gray-800 dark:text-gray-200"
+                    bgColour="bg-gray-800 dark:bg-gray-200"
                     href={`#${link}`}
-                    className="inline-block ml-5"
-                    height="h-1"
+                    className="md:ml-10 ml-5"
                 >
                     {name}
                 </Link>
@@ -30,8 +29,8 @@ const Header:React.FC<Props> = (props) => {
     }
 
     return (
-        <nav className="w-full dark:bg-teal-200 bg-gray-800 md:py-3 py-2">
-            <div className="flex flex-row justify-between container items-center text-xl font-bold text-gray-200 dark:text-gray-800">
+        <nav className="w-full md:pb-1 md:pt-5 py-2">
+            <div className="flex flex-row justify-between container items-center text-lg font-semibold text-gray-800 dark:text-gray-200">
                 <div onClick={() => props.toggleTheme()} className="md:ml-0 ml-3">
                     {props.currentTheme === 'dark' ? <i className="fas fa-moon"/> : <i className="fas fa-sun"/>}
                 </div>

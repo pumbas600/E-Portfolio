@@ -20,7 +20,7 @@ const AboutMe:React.FC = () => {
     }
 
     return (
-        <div id="about-me" className="md:pt-8 pt-5">
+        <div id="about-me">
             <div className="min-h-screen flex flex-col justify-evenly">
                 <Overview/>
                 <div className="mb-5">
