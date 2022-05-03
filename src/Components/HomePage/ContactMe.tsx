@@ -34,7 +34,7 @@ const DEFAULT_STATE: State = {
 };
 
 const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/;
-const SEND_BUTTON_STYLE = `rounded-md bg-gradient-to-br dark:from-teal-200 dark:to-teal-300 from-gray-800 to-slate-800
+const SEND_BUTTON_STYLE = `rounded-md bg-gradient-to-br dark:from-teal-200 dark:to-teal-300 from-sky-500 to-blue-500
                            dark:text-gray-800 text-gray-200`
 
 const ContactMe: React.FC = () => {
@@ -249,8 +249,8 @@ const ContactMe: React.FC = () => {
                         <LabelledInput label="Your Message">
                             <textarea
                                 name="message"
-                                className="rounded-md h-32 border-2 dark:border-gray-300 border-gray-500 bg-transparent p-2 outline-none
-                                           dark:focus:border-teal-200 focus:border-gray-800 w-full"
+                                className="rounded-md h-32 border-2 dark:border-gray-300 border-gray-800 bg-transparent p-2 outline-none
+                                           dark:focus:border-teal-200 focus:border-sky-500 w-full"
                                 placeholder="Hey there!"
                                 onChange={updateMessage}
                                 value={state.message}
