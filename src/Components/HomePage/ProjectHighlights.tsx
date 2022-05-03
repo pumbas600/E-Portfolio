@@ -11,7 +11,7 @@ const ProjectHighlights:React.FC = () => {
                 <ProjectCard
                     name = "Halpbot"
                     description={<>
-                        Halpbot is a comprehensive <InlineLink theme="dark" href="https://github.com/DV8FromTheWorld/JDA">JDA
+                        Halpbot is a comprehensive <InlineLink href="https://github.com/DV8FromTheWorld/JDA">JDA
                         </InlineLink> utility framework that provides a unique, annotation based approach to handling
                         interactions when creating discord bots in Java. Its key purpose is to alleviate as much
                         unnecessary boilerplate code while simultaneously being both intuitive and highly customisable.
@@ -21,24 +21,23 @@ const ProjectHighlights:React.FC = () => {
                     technologies={['java', 'gradle']}
                 />
                 <ProjectCard
-                    wip
                     name = "Portfolio"
                     description={`
-                        This digital portfolio was created as a way for me to develop my front-end knowledge using modern
-                        functional React components, Typescript and Tailwindcss. 
+                        This digital portfolio was created as a way for me to develop my front-end knowledge by designing
+                        highly reusable functional React components, along with Typescript and Tailwindcss for styling. 
                     `}
                     date = "November 2021"
                     githubUrl="https://github.com/pumbas600/E-Portfolio"
-                    technologies={['react', 'typescript', 'tailwindcss', 'scss']}
+                    technologies={['react', 'typescript', 'tailwindcss']}
                 />
                 <ProjectCard
                     name="Quiz Bot"
                     description={<div>
-                        A discord bot I made using <InlineLink internal theme="dark" href={'#halpbot'}>Halpbot</InlineLink>, my
+                        A discord bot I made using <InlineLink internal href={'#halpbot'}>Halpbot</InlineLink>, my
                         custom discord bot framework for JDA. The bot allowed users to quiz themselves on
                         CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast range of questions,
                         answer streaks, leaderboards and helpful explanations. It also consisted of a
-                        separate <InlineLink theme="dark" href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineLink> built
+                        separate <InlineLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineLink> built
                         using Spring Boot and Thymeleaf which allowed users to easily add questions to the database.
                         According to feedback collected from my peers, users found the bot to be an extremely useful
                         and accessible studying mechanism.

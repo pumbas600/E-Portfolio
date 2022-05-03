@@ -2,6 +2,7 @@ import React from "react";
 import '../../Styles/App.scss'
 import Link from "../Utils/Link";
 import {generateId, renderBadges} from "../Utils/ProjectUtils";
+import Card from "../Utils/Card";
 
 interface Props {
     wip?: boolean;
@@ -14,16 +15,12 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = (props) => {
     return (
-        <div className="flex flex-col justify-between bg-gradient-to-r rounded-lg dark:from-gray-700 dark:to-slate-600
-                        from-gray-800 to-slate-800 md:py-5 py-4 md:px-8 px-5"
-             id={generateId(props.name)}
-        >
+        <Card className="flex flex-col" id={generateId(props.name)}>
             <div>
-                <div className="flex flex-row justify-between items-baseline">
+                <div className="flex flex-row justify-between items-baseline dark:text-teal-200 text-sky-600">
                     <div className="flex flex-row">
                         <Link
                             animate
-                            textColour="text-teal-200"
                             bgColour="bg-teal-200"
                             height="h-1"
                             className="font-semi-bold text-2xl"
@@ -32,22 +29,22 @@ const ProjectCard: React.FC<Props> = (props) => {
                             <i className="fab fa-github text-xl mr-1"/>
                             {props.name}
                         </Link>
-                        {props.wip && <div className="ml-0.5 text-xs text-teal-200 font-medium">
+                        {props.wip && <div className="ml-0.5 text-xs font-medium">
                             WIP*
                         </div>}
                     </div>
-                    <div className="text-md text-teal-200">
+                    <div className="text-md">
                         {props.date}
                     </div>
                 </div>
-                <div className="md:leading-[1.4rem] text-gray-300 md:my-4 my-3 md:text-base text-sm">
+                <div className="md:leading-[1.4rem] dark:text-gray-300 text-gray-800 md:my-4 my-3 md:text-base text-sm">
                     {props.description}
                 </div>
             </div>
             <div className="flex flex-row justify-end flex-wrap-reverse">
                 {renderBadges(props.technologies, 'mr-1.5 mt-1.5')}
             </div>
-        </div>
+        </Card>
     );
 }
 
