@@ -16,14 +16,14 @@ interface Props {
 const InputField: React.FC<Props> = (props) => {
 
     function styleBorder(error: boolean) {
-        return error ? 'border-red-500' : 'border-gray-300'
+        return error ? 'border-red-500' : 'dark:border-gray-300 border-gray-500'
     }
 
     return (
         <div className="w-full">
             <input
                 className={`${props.className ?? ''} rounded-md bg-transparent p-2 outline-none
-                            border-2 focus:border-teal-200 w-full ${styleBorder(props.hasError ?? false)}`}
+                            border-2 dark:focus:border-teal-200 focus:border-gray-800 w-full ${styleBorder(props.hasError ?? false)}`}
                 placeholder={props.placeholder}
                 value={props.value}
                 onChange={props.onChange}

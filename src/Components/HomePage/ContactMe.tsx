@@ -3,6 +3,7 @@ import Title from "../Utils/Title";
 import LabelledInput from "../Utils/LabelledInput";
 import InputField from "../Utils/InputField";
 import { CSSTransition } from "react-transition-group";
+import Card from "../Utils/Card";
 
 type SendingState = 'UNSENT' | 'SENDING' | 'SENT';
 
@@ -33,6 +34,8 @@ const DEFAULT_STATE: State = {
 };
 
 const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/;
+const SEND_BUTTON_STYLE = `rounded-md bg-gradient-to-br dark:from-teal-200 dark:to-teal-300 from-gray-800 to-slate-800
+                           dark:text-gray-800 text-gray-200`
 
 const ContactMe: React.FC = () => {
 
@@ -175,8 +178,8 @@ const ContactMe: React.FC = () => {
                 {showButton &&
                     <div className="flex justify-end">
                         <button
-                            className="flex flex-row items-center text-xl font-bold rounded-md py-1 px-8 text-gray-800
-                                       bg-gradient-to-br from-teal-200 to-teal-300 transition-transform hover:scale-105"
+                            className={`flex flex-row items-center text-xl font-bold py-1 px-8 transition-transform
+                                       hover:scale-105 ${SEND_BUTTON_STYLE}`}
                             type="submit"
                             disabled={state.sendingState !== 'UNSENT'}
                         >
@@ -192,7 +195,7 @@ const ContactMe: React.FC = () => {
                     onEnter={() => setShowButton(false)}
                     onExited={() => setShowButton(true)}
                 >
-                    <div className="w-full text-gray-800 py-5 px-10 rounded-md bg-gradient-to-br from-teal-200 to-teal-300">
+                    <div className={`w-full py-5 px-10 ${SEND_BUTTON_STYLE}`}>
                         <div className="text-2xl font-bold flex flex-row items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  className="bi bi-send-check-fill" viewBox="0 0 16 16">
@@ -217,11 +220,10 @@ const ContactMe: React.FC = () => {
     return (
         <div>
             <Title name="Contact Me"/>
-            <div className="rounded-lg bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 from-gray-800 to-slate-800
-                            md:py-5 py-4 sm:px-10 px-5"
+            <Card className="sm:px-10"
             >
                 <form onSubmit={sendEmail}>
-                    <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm text-gray-300">
+                    <div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm dark:text-gray-300 text-gray-800">
                         <div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
                             <LabelledInput label="Email" className="md:w-1/2 w-full">
                                 <InputField
@@ -247,8 +249,8 @@ const ContactMe: React.FC = () => {
                         <LabelledInput label="Your Message">
                             <textarea
                                 name="message"
-                                className="rounded-md h-32 border-2 border-gray-300 bg-transparent p-2 outline-none
-                                           focus:border-teal-200 w-full"
+                                className="rounded-md h-32 border-2 dark:border-gray-300 border-gray-500 bg-transparent p-2 outline-none
+                                           dark:focus:border-teal-200 focus:border-gray-800 w-full"
                                 placeholder="Hey there!"
                                 onChange={updateMessage}
                                 value={state.message}
@@ -260,7 +262,7 @@ const ContactMe: React.FC = () => {
                         {renderSubmitButton()}
                     </div>
                 </form>
-            </div>
+            </Card>
         </div>
     );
 }
