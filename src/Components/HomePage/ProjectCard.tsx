@@ -20,8 +20,7 @@ const ProjectCard: React.FC<Props> = (props) => {
                 <div className="flex flex-row justify-between items-baseline dark:text-teal-200 text-sky-600">
                     <div className="flex flex-row">
                         <Link
-                            animate
-                            bgColour="bg-teal-200"
+                            bgColour="dark:bg-teal-200 bg-sky-600"
                             height="h-1"
                             className="font-semi-bold text-2xl"
                             href={props.githubUrl}

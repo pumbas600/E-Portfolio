@@ -10,7 +10,6 @@ const Footer: React.FC = () => {
         return Links.map(link => {
             return <Link key={link.name}
                          href={link.href}
-                         animate
                          className="md:ml-10 ml-5"
                          textColour="text-gray-200 dark:text-gray-300"
                          bgColour="bg-gray-200 dark:bg-gray-300"

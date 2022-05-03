@@ -1,20 +1,15 @@
 import React from "react";
-import Link from "./Link";
+import LinkBase, { LinkBaseProps } from "./LinkBase";
 
-interface Props {
-    href: string;
-    className?: string;
-    internal?: boolean;
-}
-
-const IconLink: React.FC<Props> = (props) => {
+const IconLink: React.FC<LinkBaseProps> = (props) => {
     return (
-        <Link href={props.href}
-              className={`${props.className ?? ''} transition-transform duration-200 ease-in-out hover:-translate-y-1`}
-              internal={props.internal}
+        <LinkBase
+            href={props.href}
+            className={`${props.className ?? ''} transition-transform duration-200 ease-in-out hover:-translate-y-1`}
+            internal={props.internal}
         >
             {props.children}
-        </Link>
+        </LinkBase>
     );
 }
 

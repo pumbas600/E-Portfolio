@@ -15,7 +15,6 @@ const Header:React.FC<Props> = (props) => {
             return (
                 <Link
                     key={name}
-                    animate
                     internal
                     textColour="text-gray-800 dark:text-gray-200"
                     bgColour="bg-gray-800 dark:bg-gray-200"

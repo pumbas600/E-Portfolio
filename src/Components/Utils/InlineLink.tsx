@@ -1,10 +1,8 @@
 import Link from "./Link";
 import React from "react";
+import { LinkBaseProps } from "./LinkBase";
 
-interface Props {
-    href: string;
-    internal?: boolean;
-    className?: string;
+interface Props extends LinkBaseProps {
     theme?: 'light' | 'dark' | 'dynamic'
 }
 
@@ -25,7 +23,6 @@ const InlineLink: React.FC<Props> = (props) => {
     }
 
     return <Link
-        animate
         internal={props.internal}
         href={props.href}
         textColour={textColour}
