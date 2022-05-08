@@ -23,7 +23,7 @@ const Links: LinkItems[] = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/josh-jeffers-657111233/',
+    href: 'https://www.linkedin.com/in/josh-jeffers/',
     icon: 'fab fa-linkedin'
   },
   {
