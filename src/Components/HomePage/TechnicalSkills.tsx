@@ -9,18 +9,18 @@ const TechnicalSkills: React.FC = () => {
             <div className="md:ml-8 ml-5 flex flex-col gap-y-3 mt-2">
                 <TechnologyGroup
                     title="Frontend"
-                    technologies={['tailwindcss', 'typescript', 'jquery', 'react', 'thymeleaf', 'javascript', 'scss']}
+                    technologies={['react', 'jquery', 'typescript','tailwindcss', 'thymeleaf', 'javascript', 'scss']}
                 />
                 <TechnologyGroup
                     title="Backend"
-                    technologies={['java', 'gradle', 'sqlite', 'spring boot', 'mongodb', 'derby']}
+                    technologies={['gradle', 'sqlite', 'mongodb', 'spring boot', 'java', 'derby']}
                 />
                 <TechnologyGroup
                     title="Other*"
-                    technologies={['python', 'c', 'c#', 'git', 'unity']}
+                    technologies={['unity', 'c', 'python', 'c#', 'git']}
                 />
-                <em className="text-base">
-                    *Although some of these languages can be used for backend, I have not used them in such a manner.
+                <em className="md:text-base text-sm">
+                    *I have not used these languages/technologies for either frontend or backend work.
                 </em>
             </div>
         </div>
