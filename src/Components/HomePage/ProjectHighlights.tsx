@@ -18,7 +18,7 @@ const ProjectHighlights:React.FC = () => {
                     </>}
                     date = "March 2021"
                     githubUrl="https://github.com/pumbas600/Halpbot"
-                    technologies={['java', 'gradle']}
+                    technologies={['gradle', 'hartshorn', 'java']}
                 />
                 <ProjectCard
                     name = "Portfolio"
@@ -52,7 +52,7 @@ const ProjectHighlights:React.FC = () => {
                     </div>}
                     date="September 2021"
                     githubUrl="https://github.com/pumbas600/Halpbot"
-                    technologies={['java', 'spring boot', 'thymeleaf', 'javascript', 'jquery', 'derby']}
+                    technologies={['jquery', 'thymeleaf', 'spring boot', 'javascript', 'java', 'derby']}
                 />
                 <ProjectCard
                     wip
@@ -66,7 +66,7 @@ const ProjectHighlights:React.FC = () => {
                     </>}
                     date="April 2022"
                     githubUrl="https://github.com/pumbas600/DeadlineBot"
-                    technologies={['java', 'spring boot', 'mongodb', 'typescript', 'react']}
+                    technologies={['react', 'typescript', 'mongodb', 'spring boot', 'java']}
                 />
             </div>
         </div>
