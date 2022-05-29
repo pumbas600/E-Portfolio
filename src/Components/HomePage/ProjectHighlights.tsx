@@ -23,8 +23,9 @@ const ProjectHighlights:React.FC = () => {
                 <ProjectCard
                     name = "Portfolio"
                     description={`
-                        This digital portfolio was created as a way for me to develop my front-end knowledge by designing
-                        highly reusable functional React components, along with Typescript and Tailwindcss for styling. 
+                        This digital portfolio was created as a way for me to develop my frontend knowledge by designing
+                        highly reusable React components in Typescript. Tailwindcss was used for the styling, allowing
+                        me to easily make the website support devices of various sizes and dark/light modes. 
                     `}
                     date = "November 2021"
                     githubUrl="https://github.com/pumbas600/E-Portfolio"
