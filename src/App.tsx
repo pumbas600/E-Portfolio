@@ -7,6 +7,8 @@ import TechnicalSkills from "./Components/HomePage/TechnicalSkills";
 import ContactMe from "./Components/HomePage/ContactMe";
 import Footer from "./Components/HomePage/Footer";
 
+const Resume: string = require('./Assets/JoshJeffersCVPublic.pdf');
+
 type Theme = 'light' | 'dark';
 
 interface LinkItems {
@@ -30,6 +32,11 @@ const Links: LinkItems[] = [
     name: 'Email',
     href: 'mailto:joshjeffers600@gmail.com',
     icon: 'far fa-envelope'
+  },
+  {
+    name: 'Resume',
+    href: Resume,
+    icon: 'fas fa-file-pdf',
   }
 ];
 
