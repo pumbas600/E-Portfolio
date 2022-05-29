@@ -13,14 +13,18 @@ const TechnicalSkills: React.FC = () => {
                 />
                 <TechnologyGroup
                     title="Backend"
-                    technologies={['gradle', 'sqlite', 'mongodb', 'spring boot', 'java', 'derby']}
+                    technologies={['express', 'gradle', 'typescript', 'nodejs', 'spring boot', 'java']}
+                />
+                <TechnologyGroup
+                    title="Databases"
+                    technologies={['sqlite', 'mongodb', 'derby']}
                 />
                 <TechnologyGroup
                     title="Other*"
                     technologies={['unity', 'c', 'python', 'c#', 'git']}
                 />
                 <em className="md:text-base text-sm">
-                    *I have not used these languages/technologies for either frontend or backend work.
+                    *Non-web development related.
                 </em>
             </div>
         </div>
