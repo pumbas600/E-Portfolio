@@ -7,51 +7,24 @@ import Header from '../components/HomePage/Header';
 import ProjectHighlights from '../components/HomePage/ProjectHighlights';
 import TechnicalSkills from '../components/HomePage/TechnicalSkills';
 
-const Resume: string = require('./Assets/JoshJeffersCVPublic.pdf');
-
 type Theme = 'light' | 'dark';
 
-interface LinkItems {
-	name: string;
-	href: string;
-	icon: string;
-}
-
-const Links: LinkItems[] = [
-	{
-		name: 'Github',
-		href: 'https://github.com/pumbas600',
-		icon: 'fab fa-github',
-	},
-	{
-		name: 'LinkedIn',
-		href: 'https://www.linkedin.com/in/josh-jeffers/',
-		icon: 'fab fa-linkedin',
-	},
-	{
-		name: 'Email',
-		href: 'mailto:joshjeffers600@gmail.com',
-		icon: 'far fa-envelope',
-	},
-	{
-		name: 'Resume',
-		href: Resume,
-		icon: 'fas fa-file-pdf',
-	},
-];
-
 export default function Home() {
-	const [theme, setTheme] = useState<Theme>(getDefaultTheme());
+	const [theme, setTheme] = useState<Theme>('dark');
+
+	useEffect(() => {
+		const storedTheme = localStorage.getItem('theme');
+		if (storedTheme) {
+			setTheme(storedTheme as Theme);
+		}
+	}, []);
 
 	useEffect(() => {
 		document.body.classList.add(theme);
-		localStorage.theme = theme;
+		localStorage.setItem('theme', theme);
 	}, [theme]);
 
 	function getDefaultTheme(): Theme {
-		let theme: Theme = 'dark';
-
-		if (localStorage.theme) theme = localStorage.theme;
 		return theme;
 	}
 

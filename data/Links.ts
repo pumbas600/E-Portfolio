@@ -1,5 +1,3 @@
-const Resume: string = require('./assets/JoshJeffersCVPublic.pdf');
-
 interface LinkItems {
 	name: string;
 	href: string;
@@ -24,7 +22,7 @@ const Links: LinkItems[] = [
 	},
 	{
 		name: 'Resume',
-		href: Resume,
+		href: './JoshJeffersCVPublic.pdf',
 		icon: 'fas fa-file-pdf',
 	},
 ];
