@@ -46,7 +46,6 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="apple-touch-icon" href="/logo192.png" />
-				<script src="https://kit.fontawesome.com/79326f38c4.js" crossOrigin="anonymous" async />
 			</Head>
 			<div className="App">
 				<header className="app-header">

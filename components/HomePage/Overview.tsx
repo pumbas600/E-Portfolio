@@ -2,13 +2,14 @@ import selfie from '../../assets/Selfie.jpg';
 import IconLink from '../Utils/IconLink';
 import Links from '../../data/Links';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Overview: React.FC = () => {
 	function renderLinks(): JSX.Element[] {
 		return Links.map((link) => {
 			return (
 				<IconLink key={link.name} className="mr-5" href={link.href}>
-					<i className={link.icon} />
+					<FontAwesomeIcon icon={link.icon} />
 				</IconLink>
 			);
 		});
