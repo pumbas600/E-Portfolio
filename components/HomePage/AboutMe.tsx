@@ -34,11 +34,11 @@ const AboutMe: React.FC = () => {
 						</div>
 						<br />
 						<div className="md:text-xl text-base">
-							I'm Josh, a {calculateAge()} year old Software Engineering Student at the University of
+							{`I'm Josh, a ${calculateAge()} year old Software Engineering Student at the University of
 							Auckland. I have a deep passion for software development, which has driven me to start and
 							complete numerous self-derived projects, in an attempt to expand my programming expertise. I
 							particularly love it when I'm able to develop software that helps others. It is one of the
-							many reasons why I'm so proud of my discord{' '}
+							many reasons why I'm so proud of my discord `}
 							<InlineLink internal href="#quiz-bot">
 								Quiz Bot
 							</InlineLink>{' '}
@@ -46,7 +46,8 @@ const AboutMe: React.FC = () => {
 						</div>
 						{isBirthday() && (
 							<div className="mt-3">
-								🎉 It's actually my <b>birthday today</b>, I expect some Birthday wishes! 🎉
+								🎉 {`It's actually my `}
+								<b>birthday today</b>, I expect some Birthday wishes! 🎉
 							</div>
 						)}
 					</div>
