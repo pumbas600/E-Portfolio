@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	@apply scroll-smooth;
+}
+
+label {
+	@apply text-lg font-semibold mb-1;
+}
+
 // Prevent chrome autocomplete changing the background when it's transparent
 // From: https://stackoverflow.com/a/62624824/12643981
 input:-webkit-autofill {
@@ -40,10 +48,6 @@ input:-webkit-autofill {
 .container {
 	width: 1000px;
 	margin: 0 auto;
-}
-
-label {
-	@apply text-lg font-semibold mb-1;
 }
 
 @media only screen and (max-width: 1099px) {

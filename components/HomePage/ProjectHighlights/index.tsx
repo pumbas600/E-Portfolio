@@ -48,17 +48,17 @@ export default function ProjectHighlights() {
 							<br />
 							<br />
 							As of November 2021, there were:
-							<ul className="list-disc">
-								<li className="ml-5">
+							<ul className="list-disc [&>*]:ml-5">
+								<li>
 									<b>131</b> unique questions
 								</li>
-								<li className="ml-5">
+								<li>
 									<b>115</b> unique users
 								</li>
-								<li className="ml-5">
+								<li>
 									<b>1,256</b> quizzes started
 								</li>
-								<li className="ml-5">
+								<li>
 									<b>5,088</b> questions answered
 								</li>
 							</ul>
@@ -69,21 +69,41 @@ export default function ProjectHighlights() {
 					technologies={['jquery', 'thymeleaf', 'springboot', 'javascript', 'java', 'derby']}
 				/>
 				<ProjectCard
-					wip
-					name="Deadline API"
+					name="Cornercutter"
 					description={
-						<>
-							This project consists of both a backend&nbsp;— built using Java, Spring Boot and
-							MongoDB&nbsp;— along with a small supporting frontend built in React and Typescript. This
-							project allows users to manage upcoming university deadlines. It allows you to specify which
-							courses you want to track and if you want the course to be publicly subscribable, enabling
-							others to add those courses and get their notifications without having to set it up
-							themselves.
-						</>
+						<div>
+							Cornercutter is a modding tool for the game{' '}
+							<AnimatedLink href="https://aggrocrab.com/Going-Under">Going Under</AnimatedLink>, that
+							allows for complete customisation of skill spawns. The mods created within Cornercutter can
+							be easily shared between users as small strings which can be imported. From a development
+							perspective, the project consists of three different distinct sections:
+							<br />
+							<br />
+							<div className="flex flex-row gap-5">
+								<div className="flex flex-col">
+									<div>
+										1. <b>Frontend</b>
+									</div>
+									<div>
+										2. <b>Backend</b>
+									</div>
+									<div>
+										3. <b>Mod</b>
+									</div>
+								</div>
+								<div className="flex flex-col">
+									<div>React, Typescript, Chakra UI, Redux</div>
+									<div>Rust</div>
+									<div>C#</div>
+								</div>
+							</div>
+							<br />I developed the Frontend and the parts of the Backend which handled the persistance of
+							mods and global config.
+						</div>
 					}
-					date="April 2022"
-					githubUrl="https://github.com/pumbas600/DeadlineBot"
-					technologies={['react', 'typescript', 'mongodb', 'springboot', 'java']}
+					date="August 2022"
+					githubUrl="https://github.com/franomai/cornercutter"
+					technologies={['rust', 'react', 'redux', 'typescript', 'chakraui', 'c#']}
 				/>
 			</div>
 		</section>

@@ -27,7 +27,7 @@ export default function ProjectCard({ wip, name, description, date, githubUrl, t
 							className="font-semi-bold text-2xl"
 							colours={{ bg: 'dark:bg-teal-200 bg-sky-600', text: 'inherit' }}
 						>
-							<FontAwesomeIcon icon={faGithub} className="mr-1" />
+							<FontAwesomeIcon icon={faGithub} className="mr-2" />
 							{name}
 						</AnimatedLink>
 						{wip && <div className="ml-0.5 text-xs font-medium">WIP*</div>}
