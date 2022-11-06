@@ -1,11 +1,10 @@
-import React from 'react';
-import ProjectCard from './ProjectCard';
-import InlineLink from '../Utils/InlineLink';
-import Title from '../Utils/Title';
+import AnimatedLink from '../../Links/AnimatedLink';
+import ProjectCard from '../../Card/ProjectCard';
+import Title from '../../Title';
 
-const ProjectHighlights: React.FC = () => {
+export default function ProjectHighlights() {
 	return (
-		<div>
+		<section>
 			<Title name="Projects" />
 			<div className="grid mt-5 lg:grid-cols-2 grid-cols-1 md:gap-8 gap-5 pb-5">
 				<ProjectCard
@@ -13,10 +12,10 @@ const ProjectHighlights: React.FC = () => {
 					description={
 						<>
 							Halpbot is a comprehensive{' '}
-							<InlineLink href="https://github.com/DV8FromTheWorld/JDA">JDA</InlineLink> utility framework
-							that provides a unique, annotation based approach to handling interactions when creating
-							discord bots in Java. Its key purpose is to alleviate as much unnecessary boilerplate code
-							while simultaneously being both intuitive and highly customisable.
+							<AnimatedLink href="https://github.com/DV8FromTheWorld/JDA">JDA</AnimatedLink> utility
+							framework that provides a unique, annotation based approach to handling interactions when
+							creating discord bots in Java. Its key purpose is to alleviate as much unnecessary
+							boilerplate code while simultaneously being both intuitive and highly customisable.
 						</>
 					}
 					date="March 2021"
@@ -38,14 +37,11 @@ const ProjectHighlights: React.FC = () => {
 					name="Quiz Bot"
 					description={
 						<div>
-							A discord bot I made using{' '}
-							<InlineLink internal href={'#halpbot'}>
-								Halpbot
-							</InlineLink>
-							, my custom discord bot framework for JDA. The bot allowed users to quiz themselves on
-							CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast range of questions,
-							answer streaks, leaderboards and helpful explanations. It also consisted of a separate{' '}
-							<InlineLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</InlineLink>{' '}
+							A discord bot I made using <AnimatedLink href={'#halpbot'}>Halpbot</AnimatedLink>, my custom
+							discord bot framework for JDA. The bot allowed users to quiz themselves on CHEMMAT&nbsp;121;
+							a Part I Engineering course. The bot included a vast range of questions, answer streaks,
+							leaderboards and helpful explanations. It also consisted of a separate{' '}
+							<AnimatedLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</AnimatedLink>{' '}
 							built using Spring Boot and Thymeleaf which allowed users to easily add questions to the
 							database. According to feedback collected from my peers, users found the bot to be an
 							extremely useful and accessible studying mechanism.
@@ -90,8 +86,6 @@ const ProjectHighlights: React.FC = () => {
 					technologies={['react', 'typescript', 'mongodb', 'springboot', 'java']}
 				/>
 			</div>
-		</div>
+		</section>
 	);
-};
-
-export default ProjectHighlights;
+}

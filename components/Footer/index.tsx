@@ -1,21 +1,21 @@
-import React from 'react';
-import Link from '../Utils/Link';
 import Links from '../../data/Links';
 
-const Footer: React.FC = () => {
+import { ReactNode } from 'react';
+import AnimatedLink from '../Links/AnimatedLink';
+
+export default function Footer() {
 	const year = new Date().getFullYear();
 
-	function renderLinks(): JSX.Element[] {
+	function renderLinks(): ReactNode {
 		return Links.map((link) => {
 			return (
-				<Link
+				<AnimatedLink
 					key={link.name}
 					href={link.href}
-					textColour="text-gray-200 dark:text-gray-300"
-					bgColour="bg-gray-200 dark:bg-gray-300"
+					colours={{ text: 'text-gray-200 dark:text-gray-300', bg: 'bg-gray-200 dark:bg-gray-300' }}
 				>
 					{link.name}
-				</Link>
+				</AnimatedLink>
 			);
 		});
 	}
@@ -24,10 +24,8 @@ const Footer: React.FC = () => {
 		<footer className="w-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-slate-600 bg-gray-800 md:py-3 py-2">
 			<address className="container flex md:flex-row flex-col-reverse md:justify-between items-center text-base">
 				<div className="text-gray-200 dark:text-gray-300">{`Copyright © ${year} Joshua Alex Jeffers`}</div>
-				<div className="font-semibold md:space-x-10 space-x-5">{renderLinks()}</div>
+				<div className="font-semibold md:gap-x-10 gap-x-5 flex flex-row">{renderLinks()}</div>
 			</address>
 		</footer>
 	);
-};
-
-export default Footer;
+}

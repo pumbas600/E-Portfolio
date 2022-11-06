@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import Title from '../Utils/Title';
-import LabelledInput from '../Utils/LabelledInput';
-import InputField from '../Utils/InputField';
-import { CSSTransition } from 'react-transition-group';
-import Card from '../Utils/Card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import LabelledInput from '../../Forms/LabelledInput';
+import InputField from '../../Forms/InputField';
+import Title from '../../Title';
+import Card from '../../Card';
+
 import { faCircleNotch, faEnvelopeCircleCheck, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CSSTransition } from 'react-transition-group';
+import { useState } from 'react';
 
 type SendingState = 'UNSENT' | 'SENDING' | 'SENT';
 
@@ -39,7 +40,7 @@ const EMAIL_REGEX = /^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d
 const SEND_BUTTON_STYLE = `rounded-md bg-gradient-to-br dark:from-teal-200 dark:to-teal-300 from-sky-500 to-blue-500
                            dark:text-gray-800 text-gray-200`;
 
-const ContactMe: React.FC = () => {
+export default function ContactMe() {
 	const [showButton, setShowButton] = useState<boolean>(true);
 	const [state, setState] = useState<State>(DEFAULT_STATE);
 
@@ -111,9 +112,7 @@ const ContactMe: React.FC = () => {
 			if (response.ok) {
 				setState({ ...DEFAULT_STATE, sendingState: 'SENT' });
 				setTimeout(() => {
-					setState((state) => {
-						return { ...state, sendingState: 'UNSENT' };
-					});
+					setState((state) => ({ ...state, sendingState: 'UNSENT' }));
 				}, 2000);
 			} else {
 				const formResponse: { errors?: FormError[] } = await response.json();
@@ -164,10 +163,10 @@ const ContactMe: React.FC = () => {
 		return (
 			<>
 				{showButton && (
-					<div className="flex justify-end">
+					<div className="flex justify-end md:col-span-2 col-span-1">
 						<button
 							className={`flex flex-row items-center text-xl font-bold py-1 px-8 transition-transform
-                                       hover:scale-105 ${SEND_BUTTON_STYLE}`}
+                          hover:scale-105 ${SEND_BUTTON_STYLE}`}
 							type="submit"
 							disabled={state.sendingState !== 'UNSENT'}
 						>
@@ -183,7 +182,7 @@ const ContactMe: React.FC = () => {
 					onEnter={() => setShowButton(false)}
 					onExited={() => setShowButton(true)}
 				>
-					<div className={`w-full py-5 px-10 ${SEND_BUTTON_STYLE}`}>
+					<div className={`w-full py-5 px-10 md:col-span-2 col-span-1 ${SEND_BUTTON_STYLE}`}>
 						<div className="text-2xl font-bold flex flex-row items-center">
 							<FontAwesomeIcon icon={faEnvelopeCircleCheck} />
 							<div className="ml-2">Sent!</div>
@@ -196,38 +195,34 @@ const ContactMe: React.FC = () => {
 	}
 
 	return (
-		<div>
+		<section>
 			<Title name="Contact Me" />
 			<Card className="sm:px-10">
 				<form onSubmit={sendEmail}>
-					<div className="mx-auto flex flex-col space-y-3 md:w-8/12 w-full text-sm dark:text-gray-300 text-gray-800">
-						<div className="flex md:flex-row flex-col md:space-x-3 md:space-y-0 space-y-3">
-							<LabelledInput label="Email" className="md:w-1/2 w-full">
-								<InputField
-									name="email"
-									placeholder="example@gmail.com"
-									value={state.email}
-									onChange={updateEmail}
-									hasError={state.emailError !== ''}
-									error={state.emailError}
-								/>
-							</LabelledInput>
-							<LabelledInput label="Name" className="md:w-1/2 w-full">
-								<InputField
-									name="name"
-									placeholder="Josh Jeffers"
-									value={state.name}
-									onChange={updateName}
-									hasError={state.nameError !== ''}
-									error={state.nameError}
-								/>
-							</LabelledInput>
-						</div>
-						<LabelledInput label="Your Message">
+					<div className="grid md:grid-cols-2 grid-cols-1 gap-3 mx-auto md:w-8/12 w-full text-sm dark:text-gray-300 text-gray-800">
+						<LabelledInput label="Email">
+							<InputField
+								name="email"
+								placeholder="example@gmail.com"
+								value={state.email}
+								onChange={updateEmail}
+								error={state.emailError}
+							/>
+						</LabelledInput>
+						<LabelledInput label="Name">
+							<InputField
+								name="name"
+								placeholder="Josh Jeffers"
+								value={state.name}
+								onChange={updateName}
+								error={state.nameError}
+							/>
+						</LabelledInput>
+						<LabelledInput label="Your Message" className="md:col-span-2 col-span-1">
 							<textarea
 								name="message"
 								className="rounded-md min-h-[8rem] border-2 dark:border-gray-300 border-gray-800 bg-transparent p-2 outline-none
-                                           dark:focus:border-teal-200 focus:border-sky-500 w-full"
+                           dark:focus:border-teal-200 focus:border-sky-500 w-full"
 								placeholder="Hey there!"
 								onChange={updateMessage}
 								value={state.message}
@@ -240,8 +235,6 @@ const ContactMe: React.FC = () => {
 					</div>
 				</form>
 			</Card>
-		</div>
+		</section>
 	);
-};
-
-export default ContactMe;
+}

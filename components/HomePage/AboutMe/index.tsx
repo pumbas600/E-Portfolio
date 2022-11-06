@@ -1,11 +1,11 @@
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import InlineLink from '../Utils/InlineLink';
-import Link from '../Utils/Link';
+import AnimatedLink from '../../Links/AnimatedLink';
+import LinkBase from '../../Links/LinkBase';
 import Overview from './Overview';
 
-const AboutMe: React.FC = () => {
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+export default function AboutMe() {
 	const today = new Date();
 
 	function calculateAge(): number {
@@ -21,7 +21,7 @@ const AboutMe: React.FC = () => {
 	}
 
 	return (
-		<div id="about-me">
+		<section id="about-me">
 			<div className="min-h-screen flex flex-col justify-evenly">
 				<Overview />
 				<div className="mb-5">
@@ -39,10 +39,8 @@ const AboutMe: React.FC = () => {
 							complete numerous self-derived projects, in an attempt to expand my programming expertise. I
 							particularly love it when I'm able to develop software that helps others. It is one of the
 							many reasons why I'm so proud of my discord `}
-							<InlineLink internal href="#quiz-bot">
-								Quiz Bot
-							</InlineLink>{' '}
-							which was widely used by Part I Engineering Students.
+							<AnimatedLink href="#quiz-bot">Quiz Bot</AnimatedLink> which was widely used by Part I
+							Engineering Students.
 						</div>
 						{isBirthday() && (
 							<div className="mt-3">
@@ -53,13 +51,11 @@ const AboutMe: React.FC = () => {
 					</div>
 				</div>
 				<div className="2xl:block hidden mx-auto animate-bounce-slow">
-					<Link internal href="#technical-skills">
+					<LinkBase href="#technical-skills">
 						<FontAwesomeIcon icon={faAngleDoubleDown} size="4x" />
-					</Link>
+					</LinkBase>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
-};
-
-export default AboutMe;
+}

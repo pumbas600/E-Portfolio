@@ -1,14 +1,16 @@
-import selfie from '../../assets/Selfie.jpg';
-import IconLink from '../Utils/IconLink';
-import Links from '../../data/Links';
+import selfie from '../../../assets/Selfie.jpg';
+import IconLink from '../../Links/IconLink';
+import Links from '../../../data/Links';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Overview: React.FC = () => {
-	function renderLinks(): JSX.Element[] {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ReactNode } from 'react';
+
+export default function Overview() {
+	function renderLinks(): ReactNode {
 		return Links.map((link) => {
 			return (
-				<IconLink key={link.name} className="mr-5" href={link.href}>
+				<IconLink key={link.name} href={link.href}>
 					<FontAwesomeIcon icon={link.icon} />
 				</IconLink>
 			);
@@ -21,10 +23,8 @@ const Overview: React.FC = () => {
 			<div className="md:ml-5 flex justify-center flex-col md:items-start items-center">
 				<div className="font-bold lg:text-8xl md:text-6xl text-5xl">Josh Jeffers</div>
 				<div className="font-semibold md:text-2xl text-base">Fullstack Software Engineering Student</div>
-				<div className="mt-1 flex flex-row text-2xl md:justify-start justify-center">{renderLinks()}</div>
+				<div className="mt-1 flex flex-row text-2xl md:justify-start justify-center gap-5">{renderLinks()}</div>
 			</div>
 		</div>
 	);
-};
-
-export default Overview;
+}

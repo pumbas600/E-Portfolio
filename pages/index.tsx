@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import AboutMe from '../components/HomePage/AboutMe';
 import ContactMe from '../components/HomePage/ContactMe';
-import Footer from '../components/HomePage/Footer';
-import Header from '../components/HomePage/Header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import ProjectHighlights from '../components/HomePage/ProjectHighlights';
 import TechnicalSkills from '../components/HomePage/TechnicalSkills';
 
-type Theme = 'light' | 'dark';
+export type Theme = 'light' | 'dark';
 
 export default function Home() {
 	const [theme, setTheme] = useState<Theme>('dark');
@@ -24,19 +24,15 @@ export default function Home() {
 		localStorage.setItem('theme', theme);
 	}, [theme]);
 
-	function getDefaultTheme(): Theme {
-		return theme;
-	}
-
-	const updateTheme = (newTheme: Theme): void => {
+	function updateTheme(newTheme: Theme) {
 		document.body.classList.remove(theme); // Remove old theme class
 		setTheme(newTheme);
-	};
+	}
 
-	const toggleTheme = (): void => {
+	function toggleTheme() {
 		if (theme === 'dark') updateTheme('light');
 		else updateTheme('dark');
-	};
+	}
 
 	return (
 		<div>
@@ -47,8 +43,8 @@ export default function Home() {
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="apple-touch-icon" href="/logo192.png" />
 			</Head>
-			<div className="App">
-				<header className="app-header">
+			<div>
+				<header>
 					<Header
 						toggleTheme={toggleTheme}
 						sections={[
