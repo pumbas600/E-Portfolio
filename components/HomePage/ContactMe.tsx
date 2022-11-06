@@ -150,7 +150,6 @@ const ContactMe: React.FC = () => {
 				);
 			case 'SENDING':
 				return (
-					//"animate-spin -ml-1 mr-3 h-5 w-5 text-white"
 					<>
 						<FontAwesomeIcon icon={faCircleNotch} spin />
 						<div className="ml-2">Sending</div>
@@ -227,7 +226,7 @@ const ContactMe: React.FC = () => {
 						<LabelledInput label="Your Message">
 							<textarea
 								name="message"
-								className="rounded-md h-32 border-2 dark:border-gray-300 border-gray-800 bg-transparent p-2 outline-none
+								className="rounded-md min-h-[8rem] border-2 dark:border-gray-300 border-gray-800 bg-transparent p-2 outline-none
                                            dark:focus:border-teal-200 focus:border-sky-500 w-full"
 								placeholder="Hey there!"
 								onChange={updateMessage}
