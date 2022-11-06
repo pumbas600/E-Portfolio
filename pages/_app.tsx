@@ -1,5 +1,7 @@
-import '../styles/App.scss';
 import type { AppProps } from 'next/app';
+
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '../styles/App.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
