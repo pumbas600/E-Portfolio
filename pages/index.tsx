@@ -43,27 +43,25 @@ export default function Home() {
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="apple-touch-icon" href="/logo192.png" />
 			</Head>
-			<div>
-				<header>
-					<Header
-						toggleTheme={toggleTheme}
-						sections={[
-							['About Me', ''],
-							['Skills', 'technical-skills'],
-							['Projects', 'projects'],
-							['Contact Me', 'contact-me'],
-						]}
-						currentTheme={theme}
-					/>
-				</header>
-				<div className="container dark:text-gray-200 text-gray-800 pb-16">
-					<AboutMe />
-					<TechnicalSkills />
-					<ProjectHighlights />
-					<ContactMe />
-				</div>
-				<Footer />
+			<header>
+				<Header
+					toggleTheme={toggleTheme}
+					sections={[
+						['About Me', ''],
+						['Skills', 'technical-skills'],
+						['Projects', 'projects'],
+						['Contact Me', 'contact-me'],
+					]}
+					currentTheme={theme}
+				/>
+			</header>
+			<div className="container dark:text-gray-200 text-gray-800 pb-16">
+				<AboutMe />
+				<TechnicalSkills />
+				<ProjectHighlights />
+				<ContactMe />
 			</div>
+			<Footer />
 		</div>
 	);
 }
