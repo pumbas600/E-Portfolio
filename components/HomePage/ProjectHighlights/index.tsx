@@ -24,14 +24,18 @@ export default function ProjectHighlights() {
 				/>
 				<ProjectCard
 					name="Portfolio"
-					description={`
-                        This digital portfolio was created as a way for me to develop my frontend knowledge by designing
-                        highly reusable React components in Typescript. Tailwindcss was used for the styling, allowing
-                        me to easily make the website support devices of various sizes and dark/light modes. 
-                    `}
+					description={
+						<>
+							This digital portfolio was created as a way for me to develop my frontend knowledge by
+							designing highly reusable React components in Typescript. I leaveraged Next.js to enable
+							Static Generation, allowing the HTML to be generated at build time. Tailwindcss was used for
+							the styling, allowing me to easily make the website support devices of various sizes and
+							dark/light modes.
+						</>
+					}
 					date="November 2021"
 					githubUrl="https://github.com/pumbas600/E-Portfolio"
-					technologies={['react', 'typescript', 'tailwindcss']}
+					technologies={['nextjs', 'react', 'typescript', 'tailwindcss']}
 				/>
 				<ProjectCard
 					name="Quiz Bot"
@@ -72,11 +76,11 @@ export default function ProjectHighlights() {
 					name="Cornercutter"
 					description={
 						<div>
-							Cornercutter is a modding tool for the game{' '}
-							<AnimatedLink href="https://aggrocrab.com/Going-Under">Going Under</AnimatedLink>, that
-							allows for complete customisation of skill spawns. The mods created within Cornercutter can
-							be easily shared between users as small strings which can be imported. From a development
-							perspective, the project consists of three different distinct sections:
+							Cornercutter is a desktop application that acts as a modding tool for the game{' '}
+							<AnimatedLink href="https://aggrocrab.com/Going-Under">Going Under</AnimatedLink>. It allows
+							for complete customisation of skill spawns within the game as persisted mods. These mods can
+							be easily shared between users as small strings which others can easily import. From a
+							development perspective, the project consists of three different distinct sections:
 							<br />
 							<br />
 							<div className="flex flex-row gap-5">
@@ -93,12 +97,10 @@ export default function ProjectHighlights() {
 								</div>
 								<div className="flex flex-col">
 									<div>React, Typescript, Chakra UI, Redux</div>
-									<div>Rust</div>
+									<div>Tauri, Rust</div>
 									<div>C#</div>
 								</div>
 							</div>
-							<br />I developed the Frontend and the parts of the Backend which handled the persistance of
-							mods and global config.
 						</div>
 					}
 					date="August 2022"
