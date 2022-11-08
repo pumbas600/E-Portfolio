@@ -1,3 +1,5 @@
+'use client';
+
 import LabelledInput from '../../Forms/LabelledInput';
 import InputField from '../../Forms/InputField';
 import Title from '../../Title';

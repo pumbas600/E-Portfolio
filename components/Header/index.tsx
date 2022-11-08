@@ -1,5 +1,6 @@
+'use client';
+
 import AnimatedLink from '../Links/AnimatedLink';
-import Link from 'next/link';
 
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
