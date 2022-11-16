@@ -19,7 +19,7 @@ export default function ProjectHighlights() {
 						</>
 					}
 					date="March 2021"
-					githubUrl="https://github.com/pumbas600/Halpbot"
+					githubUrl="https://github.com/pumbas600/Halpbot-v1"
 					technologies={['gradle', 'hartshorn', 'java']}
 				/>
 				<ProjectCard
@@ -69,7 +69,7 @@ export default function ProjectHighlights() {
 						</div>
 					}
 					date="September 2021"
-					githubUrl="https://github.com/pumbas600/Halpbot"
+					githubUrl="https://github.com/pumbas600/Halpbot-v1"
 					technologies={['jquery', 'thymeleaf', 'springboot', 'javascript', 'java', 'derby']}
 				/>
 				<ProjectCard
