@@ -33,6 +33,7 @@ const BadgeUrls: Record<string, string> = {
 		'https://img.shields.io/badge/chakra%20ui-%23319795.svg?&style=for-the-badge&logo=chakra%20ui&logoColor=white',
 	redux: 'https://img.shields.io/badge/redux-%23764ABC.svg?&style=for-the-badge&logo=redux&logoColor=white',
 	nextjs: 'https://img.shields.io/badge/next.js-%23000000.svg?&style=for-the-badge&logo=next.js&logoColor=white',
+	firebase: 'https://img.shields.io/badge/firebase-%23FFCA28.svg?&style=for-the-badge&logo=firebase&logoColor=black',
 };
 
 export default BadgeUrls;
