@@ -11,7 +11,7 @@ interface LinkItems {
 
 const Links: LinkItems[] = [
 	{
-		name: 'Github',
+		name: 'GitHub',
 		href: 'https://github.com/pumbas600',
 		icon: faGithub,
 	},
