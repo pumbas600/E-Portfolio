@@ -10,25 +10,23 @@ import ProjectHighlights from '../components/HomePage/ProjectHighlights';
 import TechnicalSkills from '../components/HomePage/TechnicalSkills';
 
 export type Theme = 'light' | 'dark';
+const LocalStorageThemeKey = 'pumbas.net.theme';
 
 export default function Home() {
 	const [theme, setTheme] = useState<Theme>('dark');
 
 	useEffect(() => {
-		const storedTheme = localStorage.getItem('theme');
-		if (storedTheme) {
-			setTheme(storedTheme as Theme);
+		const storedTheme = localStorage.getItem(LocalStorageThemeKey);
+		if (storedTheme !== null) {
+			updateTheme(storedTheme as Theme);
 		}
 	}, []);
-
-	useEffect(() => {
-		document.body.classList.add(theme);
-		localStorage.setItem('theme', theme);
-	}, [theme]);
 
 	function updateTheme(newTheme: Theme) {
 		document.body.classList.remove(theme); // Remove old theme class
 		setTheme(newTheme);
+		document.body.classList.add(newTheme);
+		localStorage.setItem(LocalStorageThemeKey, newTheme);
 	}
 
 	function toggleTheme() {
