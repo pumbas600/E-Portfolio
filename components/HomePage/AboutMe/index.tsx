@@ -1,9 +1,5 @@
 import AnimatedLink from '../../Links/AnimatedLink';
-import LinkBase from '../../Links/LinkBase';
 import Overview from './Overview';
-
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function AboutMe() {
 	const today = new Date();
@@ -49,11 +45,6 @@ export default function AboutMe() {
 							</div>
 						)}
 					</div>
-				</div>
-				<div className="2xl:block hidden mx-auto animate-bounce-slow">
-					<LinkBase href="#technical-skills">
-						<FontAwesomeIcon icon={faAngleDoubleDown} size="4x" />
-					</LinkBase>
 				</div>
 			</div>
 		</section>
