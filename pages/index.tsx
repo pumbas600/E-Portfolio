@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ProjectHighlights from '../components/HomePage/ProjectHighlights';
 import TechnicalSkills from '../components/HomePage/TechnicalSkills';
+import Contributions from '../components/HomePage/Contributions';
 
 export type Theme = 'light' | 'dark';
 const LocalStorageThemeKey = 'pumbas.net.theme';
@@ -48,8 +49,8 @@ export default function Home() {
 					toggleTheme={toggleTheme}
 					sections={[
 						['About Me', ''],
-						['Skills', 'technical-skills'],
 						['Projects', 'projects'],
+						['Skills', 'technical-skills'],
 						['Contact Me', 'contact-me'],
 					]}
 					currentTheme={theme}
@@ -57,6 +58,7 @@ export default function Home() {
 			</header>
 			<div className="container dark:text-gray-200 text-gray-800 pb-16">
 				<AboutMe />
+				<Contributions />
 				<ProjectHighlights />
 				<TechnicalSkills />
 				<ContactMe />
