@@ -78,22 +78,9 @@ export default function ContactMe() {
 		return true;
 	}
 
-	// function testSendingEmailStates() {
-	//     setState(state => {
-	//         return { ...state, sendingState: 'SENDING' };
-	//     });
-	//     setTimeout(() => setState({ ...DEFAULT_STATE, sendingState: 'SENT' }), 1000);
-	//     setTimeout(() => setState(state => {
-	//         return { ...state, sendingState: 'UNSENT' }
-	//     }), 4000);
-	// }
-
 	async function sendEmail(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		if (!validateInputs()) return;
-
-		// testSendingEmailStates()
-		// return;
 
 		const data = new FormData();
 		data.append('email', state.email);
