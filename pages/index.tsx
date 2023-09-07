@@ -48,8 +48,8 @@ export default function Home() {
 					toggleTheme={toggleTheme}
 					sections={[
 						['About Me', ''],
+						['Contributions', 'contributions'],
 						['Projects', 'projects'],
-						['Skills', 'technical-skills'],
 						['Contact Me', 'contact-me'],
 					]}
 					currentTheme={theme}
