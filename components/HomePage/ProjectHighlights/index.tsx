@@ -38,6 +38,24 @@ export default function ProjectHighlights() {
 					technologies={['nextjs', 'react', 'typescript', 'tailwindcss']}
 				/>
 				<ProjectCard
+					name="Github Contributions"
+					description={
+						<>
+							GitHub Contributions is a simple API I made that can be used to generated dynamic graphs of
+							your recent GitHub contributions that can be used as image urls in markdown files. The API
+							supports a number of query parameters which allow the style of the graph to be completely
+							customised by users.
+							<br />
+							<br />
+							It utilises Next.JS for the API, React for rendering the contribution graph, Firestore for
+							tracking usage metrics and is hosted on an Oracle Cloud Infastructure compute instance.
+						</>
+					}
+					date="April 2023"
+					githubUrl="https://github.com/pumbas600/github-contributions"
+					technologies={['nextjs', 'react', 'typescript', 'firestore', 'oraclecloud']}
+				/>
+				<ProjectCard
 					name="Quiz Bot"
 					description={
 						<div>
