@@ -34,6 +34,10 @@ const BadgeUrls: Record<string, string> = {
 	redux: 'https://img.shields.io/badge/redux-%23764ABC.svg?&style=for-the-badge&logo=redux&logoColor=white',
 	nextjs: 'https://img.shields.io/badge/next.js-%23000000.svg?&style=for-the-badge&logo=next.js&logoColor=white',
 	firebase: 'https://img.shields.io/badge/firebase-%23FFCA28.svg?&style=for-the-badge&logo=firebase&logoColor=black',
+	postgresql:
+		'https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white',
+	jaxrs: 'https://img.shields.io/badge/JAX%20RS-ED8B00?style=for-the-badge',
+	oraclecloud: 'https://img.shields.io/badge/Oracle%20Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white',
 };
 
 export default BadgeUrls;
