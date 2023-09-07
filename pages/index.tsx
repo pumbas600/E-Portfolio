@@ -7,7 +7,6 @@ import ContactMe from '../components/HomePage/ContactMe';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ProjectHighlights from '../components/HomePage/ProjectHighlights';
-import TechnicalSkills from '../components/HomePage/TechnicalSkills';
 import Contributions from '../components/HomePage/Contributions';
 
 export type Theme = 'light' | 'dark';
@@ -60,7 +59,6 @@ export default function Home() {
 				<AboutMe />
 				<Contributions theme={theme} />
 				<ProjectHighlights />
-				<TechnicalSkills />
 				<ContactMe />
 			</div>
 			<Footer />
