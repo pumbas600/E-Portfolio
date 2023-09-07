@@ -1,6 +1,6 @@
 import AnimatedLink from '../Links/AnimatedLink';
 import Badges from '../Badges';
-import Card from '.';
+import Card from './index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';

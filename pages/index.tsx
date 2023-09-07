@@ -58,7 +58,7 @@ export default function Home() {
 			</header>
 			<div className="container dark:text-gray-200 text-gray-800 pb-16">
 				<AboutMe />
-				<Contributions />
+				<Contributions theme={theme} />
 				<ProjectHighlights />
 				<TechnicalSkills />
 				<ContactMe />
