@@ -192,7 +192,7 @@ export default function ContactMe() {
 						<LabelledInput label="Email">
 							<InputField
 								name="email"
-								placeholder="example@gmail.com"
+								placeholder="your.email@gmail.com"
 								value={state.email}
 								onChange={updateEmail}
 								error={state.emailError}
@@ -201,7 +201,7 @@ export default function ContactMe() {
 						<LabelledInput label="Name">
 							<InputField
 								name="name"
-								placeholder="Josh Jeffers"
+								placeholder="Your name"
 								value={state.name}
 								onChange={updateName}
 								error={state.nameError}
