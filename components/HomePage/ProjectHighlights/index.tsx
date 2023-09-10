@@ -12,35 +12,39 @@ export default function ProjectHighlights() {
 				<ProjectCard
 					name="Quiz Bot"
 					description={
-						<div>
-							A discord bot I made using{' '}
-							<AnimatedLink href={'https://github.com/pumbas600/Halpbot-v1'}>Halpbot</AnimatedLink>, my
-							custom annotation-based discord bot framework for JDA. The bot allowed users to quiz
-							themselves on CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast range
-							of questions, answer streaks, leaderboards and helpful explanations. It also consisted of a
-							separate{' '}
-							<AnimatedLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</AnimatedLink>{' '}
-							built using Spring Boot and Thymeleaf which allowed users to easily add questions to the
-							database. According to feedback collected from my peers, users found the bot to be an
-							extremely useful and accessible studying mechanism.
-							<br />
-							<br />
-							As of November 2021, there were:
-							<ul className="list-disc [&>*]:ml-5">
-								<li>
-									<b>131</b> unique questions
-								</li>
-								<li>
-									<b>115</b> unique users
-								</li>
-								<li>
-									<b>1,256</b> quizzes started
-								</li>
-								<li>
-									<b>5,088</b> questions answered
-								</li>
-							</ul>
-						</div>
+						<>
+							<div>
+								A discord bot I made using{' '}
+								<AnimatedLink href={'https://github.com/pumbas600/Halpbot-v1'}>Halpbot</AnimatedLink>,
+								my custom annotation-based discord bot framework for JDA. The bot allowed users to quiz
+								themselves on CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast
+								range of questions, answer streaks, leaderboards and helpful explanations. It also
+								consisted of a separate{' '}
+								<AnimatedLink href="https://github.com/pumbas600/HalpbotDashboard">
+									dashboard
+								</AnimatedLink>{' '}
+								built using Spring Boot and Thymeleaf which allowed users to easily add questions to the
+								database. According to feedback collected from my peers, users found the bot to be an
+								extremely useful and accessible studying mechanism.
+							</div>
+							<div>
+								As of November 2021, there were:
+								<ul className="list-disc [&>*]:ml-5">
+									<li>
+										<b>131</b> unique questions
+									</li>
+									<li>
+										<b>115</b> unique users
+									</li>
+									<li>
+										<b>1,256</b> quizzes started
+									</li>
+									<li>
+										<b>5,088</b> questions answered
+									</li>
+								</ul>
+							</div>
+						</>
 					}
 					date="September 2021"
 					githubUrl="https://github.com/pumbas600/Halpbot-v1"
@@ -49,14 +53,15 @@ export default function ProjectHighlights() {
 				<ProjectCard
 					name="Cornercutter"
 					description={
-						<div>
-							Cornercutter is a desktop application that acts as a modding tool for the game{' '}
-							<AnimatedLink href="https://aggrocrab.com/Going-Under">Going Under</AnimatedLink>. It allows
-							for complete customisation of skill spawns within the game as persisted mods. These mods can
-							be easily shared between users as small strings which others can easily import. From a
-							development perspective, the project consists of three different distinct sections:
-							<br />
-							<br />
+						<>
+							<div>
+								Cornercutter is a desktop application that acts as a modding tool for the game{' '}
+								<AnimatedLink href="https://aggrocrab.com/Going-Under">Going Under</AnimatedLink>. It
+								allows for complete customisation of skill spawns within the game as persisted mods.
+								These mods can be easily shared between users as small strings which others can easily
+								import. From a development perspective, the project consists of three different distinct
+								sections:
+							</div>
 							<div className="flex flex-row gap-5">
 								<div className="flex flex-col">
 									<div>
@@ -75,7 +80,7 @@ export default function ProjectHighlights() {
 									<div>C#</div>
 								</div>
 							</div>
-						</div>
+						</>
 					}
 					date="August 2022"
 					githubUrl="https://github.com/franomai/cornercutter"
