@@ -27,13 +27,19 @@ export default function GitHubContributionsCard() {
 						tracking usage metrics and is hosted on an Oracle Cloud Infastructure compute instance.
 					</p>
 					<div>
-						<b>Contribution Graphs Renderered</b>
-						<div className="flex flex-col gap-2">
+						<b>API usage metrics:</b>
+						<div className="flex flex-col">
 							<div>
-								<b>In total</b> {totalCalls === -1 ? '-' : totalCalls}
+								<b className="text-xl dark:text-teal-200 text-sky-600">
+									{pastWeekCalls === -1 ? '-' : pastWeekCalls}
+								</b>
+								&nbsp;graphs rendered in the past week.
 							</div>
 							<div>
-								<b>In the past week</b> {pastWeekCalls === -1 ? '-' : pastWeekCalls}
+								<b className="text-xl dark:text-teal-200 text-sky-600">
+									{totalCalls === -1 ? '-' : totalCalls}
+								</b>
+								&nbsp;graphs rendered since 4 September 2023.
 							</div>
 						</div>
 					</div>
