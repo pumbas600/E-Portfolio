@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { collection, getCountFromServer, getFirestore, query, where } from 'firebase/firestore';
 
 const app = initializeApp({
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,4 +10,19 @@ const app = initializeApp({
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 });
 
-export const db = getFirestore(app);
+const db = getFirestore(app);
+
+const OneWeekMs = 7 * 24 * 60 * 60 * 1000;
+const OneWeekAgo = new Date(Date.now() - OneWeekMs);
+
+export async function getTotalApiCalls(): Promise<number> {
+	const totalCallsQuery = collection(db, 'github_contribution_metrics');
+	const response = await getCountFromServer(totalCallsQuery);
+	return response.data().count;
+}
+
+export async function getPastWeekApiCalls(): Promise<number> {
+	const pastWeekCallsQuery = query(collection(db, 'github_contribution_metrics'), where('date', '>=', OneWeekAgo));
+	const response = await getCountFromServer(pastWeekCallsQuery);
+	return response.data().count;
+}
