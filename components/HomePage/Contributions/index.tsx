@@ -22,10 +22,10 @@ export default function Contributions({ theme }: ContributionsProps) {
 					src={`https://github.pumbas.net/api/contributions/pumbas600?width=1000&height=400&colour=${colour}&dotColour=FFFFFF`}
 					alt="My GitHub contributions over the past 30 days"
 				/>
-				<p className="">
+				<div>
 					This graph has been dynamically generated from my recent GitHub contributions using my{' '}
 					<AnimatedLink href="#github-contributions">GitHub Contributions</AnimatedLink> API.
-				</p>
+				</div>
 			</Card>
 		</section>
 	);

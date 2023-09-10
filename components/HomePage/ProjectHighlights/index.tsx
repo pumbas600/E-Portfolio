@@ -1,7 +1,7 @@
 import AnimatedLink from '../../Links/AnimatedLink';
 import ProjectCard from '../../Card/ProjectCard';
 import Title from '../../Title';
-import GitHubContributionsCard from '../../Card/GithubContributionsCard';
+import GitHubContributionsCard from '../../Card/GitHubContributionsCard';
 
 export default function ProjectHighlights() {
 	return (
