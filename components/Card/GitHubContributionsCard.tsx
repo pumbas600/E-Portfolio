@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import { getPastWeekApiCalls, getTotalApiCalls } from '../../firebase';
 
+function formatMetric(metric: number): string {
+	if (metric === -1) return '-';
+	if (metric < 1000) return metric.toString();
+	return `${(metric / 1000).toFixed(1)}k`;
+}
+
 export default function GitHubContributionsCard() {
 	const [totalCalls, setTotalCalls] = useState(-1);
 	const [pastWeekCalls, setPastWeekCalls] = useState(-1);
@@ -30,15 +36,11 @@ export default function GitHubContributionsCard() {
 						<b>API usage metrics:</b>
 						<div className="flex flex-col">
 							<div>
-								<b className="text-xl dark:text-teal-200 text-sky-600">
-									{pastWeekCalls === -1 ? '-' : pastWeekCalls}
-								</b>
+								<b className="text-xl dark:text-teal-200 text-sky-600">{formatMetric(pastWeekCalls)}</b>
 								&nbsp;graphs rendered in the past week.
 							</div>
 							<div>
-								<b className="text-xl dark:text-teal-200 text-sky-600">
-									{totalCalls === -1 ? '-' : totalCalls}
-								</b>
+								<b className="text-xl dark:text-teal-200 text-sky-600">{formatMetric(totalCalls)}</b>
 								&nbsp;graphs rendered since 4 September 2023.
 							</div>
 						</div>
