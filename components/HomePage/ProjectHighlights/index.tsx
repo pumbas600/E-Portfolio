@@ -8,36 +8,6 @@ export default function ProjectHighlights() {
 			<Title name="Projects" />
 			<div className="grid mt-5 lg:grid-cols-2 grid-cols-1 md:gap-8 gap-5 pb-5">
 				<ProjectCard
-					name="Halpbot"
-					description={
-						<>
-							Halpbot is a comprehensive{' '}
-							<AnimatedLink href="https://github.com/DV8FromTheWorld/JDA">JDA</AnimatedLink> utility
-							framework that provides a unique, annotation based approach to handling interactions when
-							creating discord bots in Java. Its key purpose is to alleviate as much unnecessary
-							boilerplate code while simultaneously being both intuitive and highly customisable.
-						</>
-					}
-					date="March 2021"
-					githubUrl="https://github.com/pumbas600/Halpbot-v1"
-					technologies={['gradle', 'hartshorn', 'java']}
-				/>
-				<ProjectCard
-					name="Portfolio"
-					description={
-						<>
-							This digital portfolio was created as a way for me to develop my frontend knowledge by
-							designing highly reusable React components in Typescript. I leaveraged Next.js to enable
-							Static Generation, allowing the HTML to be generated at build time. Tailwindcss was used for
-							the styling, allowing me to easily make the website support devices of various sizes and
-							dark/light modes.
-						</>
-					}
-					date="November 2021"
-					githubUrl="https://github.com/pumbas600/E-Portfolio"
-					technologies={['nextjs', 'react', 'typescript', 'tailwindcss']}
-				/>
-				<ProjectCard
 					name="GitHub Contributions"
 					description={
 						<>
@@ -59,10 +29,12 @@ export default function ProjectHighlights() {
 					name="Quiz Bot"
 					description={
 						<div>
-							A discord bot I made using <AnimatedLink href={'#halpbot'}>Halpbot</AnimatedLink>, my custom
-							discord bot framework for JDA. The bot allowed users to quiz themselves on CHEMMAT&nbsp;121;
-							a Part I Engineering course. The bot included a vast range of questions, answer streaks,
-							leaderboards and helpful explanations. It also consisted of a separate{' '}
+							A discord bot I made using{' '}
+							<AnimatedLink href={'https://github.com/pumbas600/Halpbot-v1'}>Halpbot</AnimatedLink>, my
+							custom annotation-based discord bot framework for JDA. The bot allowed users to quiz
+							themselves on CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast range
+							of questions, answer streaks, leaderboards and helpful explanations. It also consisted of a
+							separate{' '}
 							<AnimatedLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</AnimatedLink>{' '}
 							built using Spring Boot and Thymeleaf which allowed users to easily add questions to the
 							database. According to feedback collected from my peers, users found the bot to be an
@@ -123,7 +95,22 @@ export default function ProjectHighlights() {
 					}
 					date="August 2022"
 					githubUrl="https://github.com/franomai/cornercutter"
-					technologies={['rust', 'react', 'redux', 'typescript', 'chakraui', 'c#']}
+					technologies={['rust', 'react', 'redux', 'typescript', 'c#']}
+				/>
+				<ProjectCard
+					name="Portfolio"
+					description={
+						<>
+							This digital portfolio was created as a way for me to develop my frontend knowledge by
+							designing highly reusable React components in Typescript. I leaveraged Next.js to enable
+							Static Generation, allowing the HTML to be generated at build time. Tailwindcss was used for
+							the styling, allowing me to easily make the website support devices of various sizes and
+							dark/light modes.
+						</>
+					}
+					date="November 2021"
+					githubUrl="https://github.com/pumbas600/E-Portfolio"
+					technologies={['nextjs', 'react', 'typescript', 'tailwindcss']}
 				/>
 			</div>
 		</section>
