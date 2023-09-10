@@ -33,7 +33,7 @@ export default function GitHubContributionsCard() {
 						tracking usage metrics and is hosted on an Oracle Cloud Infastructure compute instance.
 					</p>
 					<div>
-						<b>API usage metrics:</b>
+						<p>API usage metrics:</p>
 						<div className="flex flex-col">
 							<div>
 								<b className="text-xl dark:text-teal-200 text-sky-600">{formatMetric(pastWeekCalls)}</b>

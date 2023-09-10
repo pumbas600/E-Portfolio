@@ -19,6 +19,8 @@ export default function Home() {
 		const storedTheme = localStorage.getItem(LocalStorageThemeKey);
 		if (storedTheme !== null) {
 			updateTheme(storedTheme as Theme);
+		} else {
+			updateTheme('dark'); // Call this so that it sets the theme in localStorage and the classlist.
 		}
 	}, []);
 
