@@ -24,9 +24,9 @@ export default function GitHubContributionsCard() {
 				<>
 					<p>
 						GitHub Contributions is a simple API I made that can generated dynamic graphs of your recent
-						GitHub contributions which can be used as image urls in markdown files. The API supports a
-						number of query parameters which allow the style of the graph to be completely customised to get
-						the style desired by users.
+						GitHub contributions which can be used as image urls in markdown files (Such as your public
+						profile README). The API supports a number of query parameters which allow the style of the
+						graph to be completely customised to get the style desired by users.
 					</p>
 					<p>
 						It utilises Next.JS for the API, React for rendering the contribution graph, Firestore for
