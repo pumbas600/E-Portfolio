@@ -1,3 +1,3 @@
 export function generateId(name: string): string {
-	return name.replaceAll(' ', '-').toLowerCase();
+  return name.replaceAll(' ', '-').toLowerCase();
 }
