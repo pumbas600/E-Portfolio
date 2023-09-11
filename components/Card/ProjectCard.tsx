@@ -34,7 +34,7 @@ export default function ProjectCard({ wip, name, description, date, githubUrl, t
           </div>
           <div className="text-md whitespace-nowrap">{date}</div>
         </div>
-        <div className="md:leading-[1.4rem] dark:text-gray-300 text-gray-800 md:my-4 my-3 md:text-base text-sm flex flex-col gap-4">
+        <div className="md:leading-[1.4rem] dark:text-gray-300 text-gray-800 md:my-4 my-3 flex flex-col gap-4">
           {description}
         </div>
       </div>

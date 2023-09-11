@@ -17,7 +17,7 @@ export default function ProjectHighlights() {
                 A discord bot I made using{' '}
                 <AnimatedLink href={'https://github.com/pumbas600/Halpbot-v1'}>Halpbot</AnimatedLink>, my custom
                 annotation-based discord bot framework for JDA. The bot allowed users to quiz themselves on
-                CHEMMAT&nbsp;121; a Part I Engineering course. The bot included a vast range of questions, answer
+                CHEMMAT&nbsp;121; a Part&nbsp;I Engineering course. The bot included a vast range of questions, answer
                 streaks, leaderboards and helpful explanations. It also consisted of a separate{' '}
                 <AnimatedLink href="https://github.com/pumbas600/HalpbotDashboard">dashboard</AnimatedLink> built using
                 Spring Boot and Thymeleaf which allowed users to easily add questions to the database. According to
@@ -92,9 +92,9 @@ export default function ProjectHighlights() {
           description={
             <>
               This digital portfolio was created as a way for me to develop my frontend knowledge by designing highly
-              reusable React components in Typescript. I leaveraged Next.js to enable Static Generation, allowing the
-              HTML to be generated at build time. Tailwindcss was used for the styling, allowing me to easily make the
-              website support devices of various sizes and dark/light modes.
+              reusable React components in Typescript. I leaveraged Next.JS to enable Static Generation, allowing the
+              HTML to be generated at build time. Tailwind&nbsp;CSS was used for the styling, allowing me to easily make
+              the website support devices of various sizes and dark/light modes.
             </>
           }
           date="November 2021"
