@@ -59,27 +59,29 @@ export default function ProjectHighlights() {
                 the project consists of three different distinct sections:
               </div>
               <table>
-                <tr>
-                  <td>1.</td>
-                  <td>
-                    <b>Frontend</b>
-                  </td>
-                  <td>React, TypeScript, Chakra UI, Redux.</td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>
-                    <b>Backend</b>
-                  </td>
-                  <td>Tauri, Rust.</td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>
-                    <b>Mod</b>
-                  </td>
-                  <td>C#.</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>1.</td>
+                    <td>
+                      <b>Frontend</b>
+                    </td>
+                    <td>React, TypeScript, Chakra UI, Redux.</td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>
+                      <b>Backend</b>
+                    </td>
+                    <td>Tauri, Rust.</td>
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td>
+                      <b>Mod</b>
+                    </td>
+                    <td>C#.</td>
+                  </tr>
+                </tbody>
               </table>
             </>
           }
