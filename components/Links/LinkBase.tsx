@@ -19,6 +19,7 @@ export default function LinkBase({ href, children }: LinkBaseProps) {
   }
 
   if (isAnchor) {
+    // Can't use a normal <a> tag because Next.JS doesn't smoothly scroll to it
     return (
       <div className="cursor-pointer" onClick={smoothScrollToAnchor}>
         {children}

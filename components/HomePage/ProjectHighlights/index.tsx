@@ -28,16 +28,16 @@ export default function ProjectHighlights() {
                 As of November 2021, there were:
                 <ul className="list-disc [&>*]:ml-5">
                   <li>
-                    <b>131</b> unique questions
+                    <b>131</b> unique questions.
                   </li>
                   <li>
-                    <b>115</b> unique users
+                    <b>115</b> unique users.
                   </li>
                   <li>
-                    <b>1,256</b> quizzes started
+                    <b>1,256</b> quizzes started.
                   </li>
                   <li>
-                    <b>5,088</b> questions answered
+                    <b>5,088</b> questions answered.
                   </li>
                 </ul>
               </div>
@@ -58,24 +58,29 @@ export default function ProjectHighlights() {
                 shared between users as small strings which others can easily import. From a development perspective,
                 the project consists of three different distinct sections:
               </div>
-              <div className="flex flex-row gap-5">
-                <div className="flex flex-col">
-                  <div>
-                    1. <b>Frontend</b>
-                  </div>
-                  <div>
-                    2. <b>Backend</b>
-                  </div>
-                  <div>
-                    3. <b>Mod</b>
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <div>React, Typescript, Chakra UI, Redux</div>
-                  <div>Tauri, Rust</div>
-                  <div>C#</div>
-                </div>
-              </div>
+              <table>
+                <tr>
+                  <td>1.</td>
+                  <td>
+                    <b>Frontend</b>
+                  </td>
+                  <td>React, Typescript, Chakra UI, Redux.</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>
+                    <b>Backend</b>
+                  </td>
+                  <td>Tauri, Rust.</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>
+                    <b>Mod</b>
+                  </td>
+                  <td>C#.</td>
+                </tr>
+              </table>
             </>
           }
           date="August 2022"
