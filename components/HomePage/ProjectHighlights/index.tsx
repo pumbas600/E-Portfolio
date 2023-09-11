@@ -64,7 +64,7 @@ export default function ProjectHighlights() {
                   <td>
                     <b>Frontend</b>
                   </td>
-                  <td>React, Typescript, Chakra UI, Redux.</td>
+                  <td>React, TypeScript, Chakra UI, Redux.</td>
                 </tr>
                 <tr>
                   <td>2.</td>
@@ -92,7 +92,7 @@ export default function ProjectHighlights() {
           description={
             <>
               This digital portfolio was created as a way for me to develop my frontend knowledge by designing highly
-              reusable React components in Typescript. I leaveraged Next.JS to enable Static Generation, allowing the
+              reusable React components in TypeScript. I leaveraged Next.JS to enable Static Generation, allowing the
               HTML to be generated at build time. Tailwind&nbsp;CSS was used for the styling, allowing me to easily make
               the website support devices of various sizes and dark/light modes.
             </>
