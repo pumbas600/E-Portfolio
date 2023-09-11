@@ -13,57 +13,57 @@ export type Theme = 'light' | 'dark';
 const LocalStorageThemeKey = 'pumbas.net.theme';
 
 export default function Home() {
-	const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>('dark');
 
-	useEffect(() => {
-		const storedTheme = localStorage.getItem(LocalStorageThemeKey);
-		if (storedTheme !== null) {
-			updateTheme(storedTheme as Theme);
-		} else {
-			updateTheme('dark'); // Call this so that it sets the theme in localStorage and the classlist.
-		}
-	}, []);
+  useEffect(() => {
+    const storedTheme = localStorage.getItem(LocalStorageThemeKey);
+    if (storedTheme !== null) {
+      updateTheme(storedTheme as Theme);
+    } else {
+      updateTheme('dark'); // Call this so that it sets the theme in localStorage and the classlist.
+    }
+  }, []);
 
-	function updateTheme(newTheme: Theme) {
-		document.body.classList.remove(theme); // Remove old theme class
-		setTheme(newTheme);
-		document.body.classList.add(newTheme);
-		localStorage.setItem(LocalStorageThemeKey, newTheme);
-	}
+  function updateTheme(newTheme: Theme) {
+    document.body.classList.remove(theme); // Remove old theme class
+    setTheme(newTheme);
+    document.body.classList.add(newTheme);
+    localStorage.setItem(LocalStorageThemeKey, newTheme);
+  }
 
-	function toggleTheme() {
-		if (theme === 'dark') updateTheme('light');
-		else updateTheme('dark');
-	}
+  function toggleTheme() {
+    if (theme === 'dark') updateTheme('light');
+    else updateTheme('dark');
+  }
 
-	return (
-		<div>
-			<Head>
-				<title>Josh Jeffers</title>
-				<meta name="description" content="Josh Jeffers' digital portfolio" />
-				<link rel="icon" href="/favicon.ico" />
-				<link rel="manifest" href="/manifest.json" />
-				<link rel="apple-touch-icon" href="/logo192.png" />
-			</Head>
-			<header>
-				<Header
-					toggleTheme={toggleTheme}
-					sections={[
-						['About Me', ''],
-						['Contributions', 'contributions'],
-						['Projects', 'projects'],
-						['Contact Me', 'contact-me'],
-					]}
-					currentTheme={theme}
-				/>
-			</header>
-			<div className="container dark:text-gray-200 text-gray-800 pb-16">
-				<AboutMe />
-				<Contributions theme={theme} />
-				<ProjectHighlights />
-				<ContactMe />
-			</div>
-			<Footer />
-		</div>
-	);
+  return (
+    <div>
+      <Head>
+        <title>Josh Jeffers</title>
+        <meta name="description" content="Josh Jeffers' digital portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+      </Head>
+      <header>
+        <Header
+          toggleTheme={toggleTheme}
+          sections={[
+            ['About Me', ''],
+            ['Contributions', 'contributions'],
+            ['Projects', 'projects'],
+            ['Contact Me', 'contact-me'],
+          ]}
+          currentTheme={theme}
+        />
+      </header>
+      <div className="container dark:text-gray-200 text-gray-800 pb-16">
+        <AboutMe />
+        <Contributions theme={theme} />
+        <ProjectHighlights />
+        <ContactMe />
+      </div>
+      <Footer />
+    </div>
+  );
 }

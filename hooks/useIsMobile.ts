@@ -5,37 +5,37 @@ import { useState, useEffect, useCallback } from 'react';
  * typescript compatible and to handle window being initially undefined.
  */
 const useIsMobile = (mobileScreenSize = 768) => {
-	const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-	const checkIsMobile = useCallback((event: MediaQueryListEvent) => {
-		setIsMobile(event.matches);
-	}, []);
+  const checkIsMobile = useCallback((event: MediaQueryListEvent) => {
+    setIsMobile(event.matches);
+  }, []);
 
-	useEffect(() => {
-		if (typeof window.matchMedia !== 'function') {
-			return;
-		}
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') {
+      return;
+    }
 
-		const mediaListener = window.matchMedia(`(max-width: ${mobileScreenSize}px)`);
-		setIsMobile(mediaListener.matches);
+    const mediaListener = window.matchMedia(`(max-width: ${mobileScreenSize}px)`);
+    setIsMobile(mediaListener.matches);
 
-		// try catch used to fallback for browser compatibility
-		try {
-			mediaListener.addEventListener('change', checkIsMobile);
-		} catch {
-			mediaListener.addListener(checkIsMobile);
-		}
+    // try catch used to fallback for browser compatibility
+    try {
+      mediaListener.addEventListener('change', checkIsMobile);
+    } catch {
+      mediaListener.addListener(checkIsMobile);
+    }
 
-		return () => {
-			try {
-				mediaListener.removeEventListener('change', checkIsMobile);
-			} catch {
-				mediaListener.removeListener(checkIsMobile);
-			}
-		};
-	}, [mobileScreenSize]);
+    return () => {
+      try {
+        mediaListener.removeEventListener('change', checkIsMobile);
+      } catch {
+        mediaListener.removeListener(checkIsMobile);
+      }
+    };
+  }, [mobileScreenSize]);
 
-	return isMobile;
+  return isMobile;
 };
 
 export default useIsMobile;
