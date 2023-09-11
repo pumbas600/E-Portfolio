@@ -7,7 +7,7 @@ export default function ProjectHighlights() {
   return (
     <section>
       <Title name="Projects" />
-      <div className="grid mt-5 lg:grid-cols-2 grid-cols-1 md:gap-8 gap-5 pb-5">
+      <div className="grid mt-5 lg:grid-cols-2 grid-cols-1 md:gap-8 gap-5">
         <GitHubContributionsCard />
         <ProjectCard
           name="Quiz Bot"

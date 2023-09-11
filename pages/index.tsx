@@ -49,7 +49,6 @@ export default function Home() {
         <Header
           toggleTheme={toggleTheme}
           sections={[
-            ['About Me', ''],
             ['Contributions', 'contributions'],
             ['Projects', 'projects'],
             ['Contact Me', 'contact-me'],
