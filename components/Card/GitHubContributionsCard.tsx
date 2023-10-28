@@ -18,11 +18,13 @@ export default function GitHubContributionsCard() {
   function fetchMetrics() {
     fetch('https://github.pumbas.net/api/metrics')
       .then((response) => response.json())
-      .then(({ count }) => setTotalCalls(count));
+      .then(({ count }) => setTotalCalls(count))
+      .catch(console.error);
 
     fetch('https://github.pumbas.net/api/metrics?days=7')
       .then((response) => response.json())
-      .then(({ count }) => setPastWeekCalls(count));
+      .then(({ count }) => setPastWeekCalls(count))
+      .catch(console.error);
   }
 
   return (
