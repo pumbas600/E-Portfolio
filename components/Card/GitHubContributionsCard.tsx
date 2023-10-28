@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
-import { getPastWeekApiCalls, getTotalApiCalls } from '../../firebase';
 
 function formatMetric(metric: number): string {
   if (metric === -1) return '-';
@@ -13,9 +12,18 @@ export default function GitHubContributionsCard() {
   const [pastWeekCalls, setPastWeekCalls] = useState(-1);
 
   useEffect(() => {
-    getTotalApiCalls().then(setTotalCalls);
-    getPastWeekApiCalls().then(setPastWeekCalls);
+    fetchMetrics();
   }, []);
+
+  function fetchMetrics() {
+    fetch('https://github.pumbas.net/api/metrics')
+      .then((response) => response.json())
+      .then(({ count }) => setTotalCalls(count));
+
+    fetch('https://github.pumbas.net/api/metrics?days=7')
+      .then((response) => response.json())
+      .then(({ count }) => setPastWeekCalls(count));
+  }
 
   return (
     <ProjectCard
