@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Title from '../../Title';
 import { Theme } from '../../../pages';
 import Card from '../../Card';
@@ -32,7 +31,7 @@ export default function Contributions({ theme }: ContributionsProps) {
     <section>
       <Title name="Contributions" />
       <Card>
-        <Image
+        <img
           className="-ml-1"
           width={width}
           height={height}
