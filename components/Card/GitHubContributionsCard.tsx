@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
-import { getPastWeekApiCalls, getTotalApiCalls } from '../../firebase';
+import AnimatedLink from '../Links/AnimatedLink';
 
 function formatMetric(metric: number): string {
   if (metric === -1) return '-';
@@ -13,9 +13,20 @@ export default function GitHubContributionsCard() {
   const [pastWeekCalls, setPastWeekCalls] = useState(-1);
 
   useEffect(() => {
-    getTotalApiCalls().then(setTotalCalls);
-    getPastWeekApiCalls().then(setPastWeekCalls);
+    fetchMetrics();
   }, []);
+
+  function fetchMetrics(): void {
+    fetch('https://github.pumbas.net/api/metrics')
+      .then((response) => response.json())
+      .then(({ count }) => setTotalCalls(count))
+      .catch(console.error);
+
+    fetch('https://github.pumbas.net/api/metrics?days=7')
+      .then((response) => response.json())
+      .then(({ count }) => setPastWeekCalls(count))
+      .catch(console.error);
+  }
 
   return (
     <ProjectCard
@@ -28,10 +39,12 @@ export default function GitHubContributionsCard() {
             API supports a number of query parameters which allow the style of the graph to be completely customised to
             suit the user&apos;s desires.
           </p>
-          <p>
-            It uses Next.JS for the API, React for rendering the contribution graph, Firestore for tracking usage
-            metrics, and is hosted on an Oracle Cloud Infastructure compute instance.
-          </p>
+          <div>
+            It uses Next.JS for the API and{' '}
+            <AnimatedLink href="https://github.pumbas.net">interactive playground</AnimatedLink>, React for rendering
+            the contribution graph, Firestore for tracking usage metrics, and is hosted on an Oracle Cloud Infastructure
+            compute instance.
+          </div>
           <div className="flex flex-col">
             <div>
               <b className="text-xl dark:text-teal-200 text-sky-600">{formatMetric(pastWeekCalls)}</b>
