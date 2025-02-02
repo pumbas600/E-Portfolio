@@ -22,8 +22,11 @@ export const HeroSection = styled.div`
 `;
 
 export const HeroContent = styled.div`
+  display: grid;
+  grid-row-gap: 4rem;
+
   align-content: center;
-  margin-block-end: 20%;
+  margin-block-end: 25%;
 `;
 
 export const HeroTitle = styled.h1`
