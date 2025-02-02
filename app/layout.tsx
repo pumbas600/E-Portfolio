@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import StyledComponentsRegistry from '../lib/StyledComponentsRegistry';
 import '../styles/app.scss';
 import Noise from '../components/Noise';
+import MainLayout from '../components/Layout/MainLayout';
 
 export const metadata: Metadata = {
   title: 'Josh Jeffers',
@@ -18,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
-          {children}
+          <MainLayout>{children}</MainLayout>
           <Noise />
         </StyledComponentsRegistry>
       </body>
