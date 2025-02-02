@@ -29,13 +29,9 @@ const StyledLink = styled(Link)`
   text-decoration-color: transparent;
   transition: color 150ms ease-in-out, text-decoration-color 200ms ease-in-out;
 
-  &:hover {
-    text-decoration-color: var(--primary-accent-contrast-text-color);
-  }
-
+  &:hover,
   &:active {
-    color: var(--primary-accent-contrast-secondary-text-color);
-    text-decoration-color: var(--primary-accent-contrast-secondary-text-color);
+    text-decoration-color: var(--primary-accent-contrast-text-color);
   }
 `;
 

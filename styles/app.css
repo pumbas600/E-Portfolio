@@ -3,8 +3,8 @@
 :root {
   --primary-accent-color: #fff312;
   --primary-background-color: #0f1115;
+  --primary-accent-contrast-secondary-text-color: #27262a;
   --primary-accent-contrast-text-color: #0f1115;
-  --primary-accent-contrast-secondary-text-color: #000000;
   --primary-text-color: #f5f5f5;
   --secondary-text-color: #5d6575;
   --font-family: 'Gabarito', sans-serif;

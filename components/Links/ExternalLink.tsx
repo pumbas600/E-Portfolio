@@ -10,12 +10,12 @@ const PrimaryContrastLink = styled(Link)`
   column-gap: 0.5rem;
   align-items: center;
 
-  color: var(--primary-accent-contrast-text-color);
+  color: var(--primary-accent-contrast-secondary-text-color);
   text-decoration: none;
   transition: color 150ms ease-in-out;
 
   &:hover {
-    color: var(--primary-accent-contrast-secondary-text-color);
+    color: var(--primary-accent-contrast-text-color);
   }
 `;
 
@@ -27,7 +27,7 @@ export default function ExteralLink({ children, ...props }: ExternalLinkProps) {
   return (
     <PrimaryContrastLink {...props} target="_blank" rel="noreferrer">
       {children}
-      <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
     </PrimaryContrastLink>
   );
 }
