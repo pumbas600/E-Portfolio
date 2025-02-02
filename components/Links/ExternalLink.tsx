@@ -10,12 +10,21 @@ const PrimaryContrastLink = styled(Link)`
   column-gap: 0.5rem;
   align-items: center;
 
-  color: var(--primary-accent-contrast-secondary-text-color);
-  text-decoration: none;
-  transition: color 150ms ease-in-out;
+  color: var(--primary-accent-contrast-text-color);
+  text-decoration-color: transparent;
+  transition: text-decoration-color 150ms ease-in-out;
+
+  & > .external-anchor {
+    margin-bottom: 0;
+    transition: margin-bottom 100ms ease-in-out;
+  }
 
   &:hover {
-    color: var(--primary-accent-contrast-text-color);
+    text-decoration-color: var(--primary-accent-contrast-text-color);
+
+    > .external-anchor {
+      margin-bottom: 0.5rem;
+    }
   }
 `;
 
@@ -27,7 +36,7 @@ export default function ExteralLink({ children, ...props }: ExternalLinkProps) {
   return (
     <PrimaryContrastLink {...props} target="_blank" rel="noreferrer">
       {children}
-      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
+      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="external-anchor" />
     </PrimaryContrastLink>
   );
 }
