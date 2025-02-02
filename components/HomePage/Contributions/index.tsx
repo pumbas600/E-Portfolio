@@ -3,7 +3,7 @@
 import useIsMobile from '../../../hooks/useIsMobile';
 import Card from '../../Card';
 import LinkBase from '../../Links/LinkBase';
-import { Caption } from '../../Typography';
+import { SecondaryText } from '../../Typography';
 import styled from 'styled-components';
 
 const ContributionsGraph = styled.img`
@@ -31,10 +31,10 @@ export default function Contributions() {
         src={`https://github.pumbas.net/api/contributions/pumbas600?days=${days}&colour=${colour}&dotColour=FFFFFF`}
         alt={`My GitHub contributions over the past ${days} days`}
       />
-      <Caption>
+      <SecondaryText>
         This graph has been dynamically generated from my recent GitHub contributions using my{' '}
         <LinkBase href="/projects#github-contributions">GitHub Contributions API</LinkBase> ✨.
-      </Caption>
+      </SecondaryText>
     </Card>
   );
 }

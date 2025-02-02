@@ -8,6 +8,7 @@ import LinkContainer from '../components/HomePage/LinkContainer';
 import { ContentTitle, MainContent } from '../components/Layout/MainContent';
 import LinkBase from '../components/Links/LinkBase';
 import Contributions from '../components/HomePage/Contributions';
+import GitHubContributionsCard from '../components/Card/GitHubContributionsCard';
 
 const NavLinks: HeaderLink[] = [
   {
@@ -55,6 +56,7 @@ export default function Home() {
         <ContentTitle>Contributions</ContentTitle>
         <Contributions />
         <ContentTitle>Project Highlight</ContentTitle>
+        <GitHubContributionsCard />
       </MainContent>
     </MainLayout>
   );

@@ -1,6 +1,23 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
-import AnimatedLink from '../Links/AnimatedLink';
+import LinkBase from '../Links/LinkBase';
+import styled from 'styled-components';
+
+const MetricWrapper = styled.p`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  margin-block: 1rem;
+`;
+
+const Metric = styled.h4`
+  font-size: 1.5rem;
+  color: var(--primary-accent-color);
+  display: inline-block;
+  margin-inline-end: 0.5rem;
+`;
 
 function formatMetric(metric: number): string {
   if (metric === -1) return '-';
@@ -39,22 +56,19 @@ export default function GitHubContributionsCard() {
             API supports a number of query parameters which allow the style of the graph to be completely customised to
             suit the user&apos;s desires.
           </p>
-          <div>
-            It uses Next.JS for the API and{' '}
-            <AnimatedLink href="https://github.pumbas.net">interactive playground</AnimatedLink>, React for rendering
-            the contribution graph, Firestore for tracking usage metrics, and is hosted on an Oracle Cloud Infastructure
-            compute instance.
-          </div>
-          <div className="flex flex-col">
-            <div>
-              <b className="text-xl dark:text-teal-200 text-sky-600">{formatMetric(pastWeekCalls)}</b>
-              &nbsp;graphs rendered in the past week.
-            </div>
-            <div>
-              <b className="text-xl dark:text-teal-200 text-sky-600">{formatMetric(totalCalls)}</b>
-              &nbsp;graphs rendered in total.
-            </div>
-          </div>
+          <p>
+            It uses Next.JS for the API and <LinkBase href="https://github.pumbas.net">interactive playground</LinkBase>
+            , React for rendering the contribution graph, Firestore for tracking usage metrics, and is hosted on an
+            Oracle Cloud Infastructure compute instance.
+          </p>
+          <MetricWrapper>
+            <p>
+              <Metric>{formatMetric(pastWeekCalls)}</Metric>&nbsp;graphs rendered in the past week.
+            </p>
+            <p>
+              <Metric>{formatMetric(totalCalls)}</Metric>&nbsp;graphs rendered in total.
+            </p>
+          </MetricWrapper>
         </>
       }
       date="April 2023"

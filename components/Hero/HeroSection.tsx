@@ -45,6 +45,7 @@ export const HeroContent = styled.div`
 
 export const HeroTitle = styled.h1`
   font-size: 6rem;
+  font-weight: 600;
   letter-spacing: 0.03em;
   line-height: 1.2;
 
@@ -55,6 +56,7 @@ export const HeroTitle = styled.h1`
 
 export const HeroSubtitle = styled.h2`
   font-size: 2rem;
+  font-weight: 600;
 
   @media screen and (max-width: 40rem) {
     font-size: 1.4rem;

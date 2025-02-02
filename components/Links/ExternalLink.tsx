@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link, { LinkProps } from 'next/link';
 import styled from 'styled-components';
 
-const PrimaryContrastLink = styled(Link)`
+const BaseLink = styled(Link)`
   display: inline-flex;
   column-gap: 0.5rem;
   align-items: center;
 
-  color: var(--primary-accent-contrast-text-color);
+  color: var(--color);
   text-decoration-color: transparent;
   transition: text-decoration-color 150ms ease-in-out;
 
@@ -20,23 +20,34 @@ const PrimaryContrastLink = styled(Link)`
   }
 
   &:hover {
-    text-decoration-color: var(--primary-accent-contrast-text-color);
+    text-decoration-color: var(--color);
 
-    > .external-anchor {
+    & > .external-anchor {
       margin-bottom: 0.5rem;
     }
   }
 `;
 
+const PrimaryContrastLink = styled(BaseLink)`
+  --color: var(--primary-accent-contrast-text-color);
+`;
+
+const SecondaryAccentLink = styled(BaseLink)`
+  --color: var(--secondary-accent-color);
+`;
+
 export interface ExternalLinkProps extends LinkProps {
   children: React.ReactNode;
+  variant?: 'primaryContrast' | 'secondary';
 }
 
-export default function ExteralLink({ children, ...props }: ExternalLinkProps) {
+export default function ExteralLink({ children, variant = 'primaryContrast', ...props }: ExternalLinkProps) {
+  const Wrapper = variant === 'primaryContrast' ? PrimaryContrastLink : SecondaryAccentLink;
+
   return (
-    <PrimaryContrastLink {...props} target="_blank" rel="noreferrer">
+    <Wrapper {...props} target="_blank" rel="noreferrer">
       {children}
       <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="external-anchor" />
-    </PrimaryContrastLink>
+    </Wrapper>
   );
 }

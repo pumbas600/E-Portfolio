@@ -19,8 +19,6 @@ export const MainContent = styled.div`
 `;
 
 export const ContentTitle = styled.h2`
-  font-weight: 500;
-  letter-spacing: 0.02em;
   margin-block-start: 2rem;
   margin-block-end: 0.75rem;
 `;
