@@ -5,6 +5,9 @@ import MainLayout from '../components/Layout/MainLayout';
 import ExteralLink from '../components/Links/ExternalLink';
 import Links from '../data/Links';
 import Spaced from '../components/Layout/Spaced';
+import { ContentTitle, MainContent } from '../components/Layout/MainContent';
+import Link from 'next/link';
+import LinkBase from '../components/Links/LinkBase';
 
 const NavLinks: HeaderLink[] = [
   {
@@ -37,7 +40,13 @@ export default function Home() {
           </Spaced>
         </HeroContent>
       </HeroSection>
-      <h3>About Me</h3>
+      <MainContent>
+        <ContentTitle>About Me</ContentTitle>
+        <p>
+          Hi, I'm Josh 👋, a Software Engineer at <LinkBase href="https://letterboxd.com/">Letterboxd</LinkBase> and
+          recent University of Auckland graduate.
+        </p>
+      </MainContent>
     </MainLayout>
   );
 }

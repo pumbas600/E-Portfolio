@@ -6,7 +6,7 @@ const NoiseContainer = styled.div`
   pointer-events: none;
   z-index: 10;
   inset: 0;
-  position: absolute;
+  position: fixed;
 `;
 
 const NoiseFilter = styled.div`

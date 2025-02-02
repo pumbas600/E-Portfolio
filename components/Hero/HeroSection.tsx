@@ -24,6 +24,8 @@ export const HeroSection = styled.div`
 export const HeroContent = styled.div`
   display: grid;
   grid-row-gap: 4rem;
+  grid-column-start: content-start;
+  grid-column-end: content-end;
 
   align-content: center;
   margin-block-end: 25%;

@@ -2,6 +2,7 @@
 
 :root {
   --primary-accent-color: #fff312;
+  --secondary-accent-color: #31a6fa;
   --primary-background-color: #0f1115;
   --primary-accent-contrast-secondary-text-color: #27262a;
   --primary-accent-contrast-text-color: #0f1115;
@@ -37,6 +38,15 @@ h6 {
 h1 {
   font-size: 3rem;
   letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--secondary-accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Prevent chrome autocomplete changing the background when it's transparent
