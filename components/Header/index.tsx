@@ -1,13 +1,42 @@
 'use client';
 
 import styled from 'styled-components';
-import AnimatedLink from '../Links/AnimatedLink';
+import Link from 'next/link';
+import { SmallProfilePictureLink } from '../ProfilePicture';
 
 const HeaderWrapper = styled.header`
-  width: 100%;
-  padding-block: 1rem;
-  position: fixed;
-  top: 0;
+  padding-block: 1.5rem;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > ul {
+    display: flex;
+    column-gap: 1.5rem;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    list-style-type: none;
+    padding-inline: 0;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: var(--primary-accent-contrast-text-color);
+  text-decoration-color: transparent;
+  transition: color 150ms ease-in-out, text-decoration-color 200ms ease-in-out;
+
+  &:hover {
+    text-decoration-color: var(--primary-accent-contrast-text-color);
+  }
+
+  &:active {
+    color: var(--primary-accent-contrast-secondary-text-color);
+    text-decoration-color: var(--primary-accent-contrast-secondary-text-color);
+  }
 `;
 
 export interface HeaderLink {
@@ -22,15 +51,18 @@ export interface HeaderProps {
 export default function Header({ links }: HeaderProps) {
   return (
     <HeaderWrapper>
-      <nav>
+      <Nav>
+        <Link href="/">
+          <SmallProfilePictureLink />
+        </Link>
         <ul>
           {links.map((link) => (
             <li key={link.link}>
-              <AnimatedLink href={link.link}>{link.label}</AnimatedLink>
+              <StyledLink href={link.link}>{link.label}</StyledLink>
             </li>
           ))}
         </ul>
-      </nav>
+      </Nav>
     </HeaderWrapper>
   );
 }

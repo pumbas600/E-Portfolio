@@ -2,9 +2,10 @@
 
 import styled from 'styled-components';
 
-const HeroWrapper = styled.div`
+export const HeroSection = styled.div`
   display: grid;
   grid-template-columns: subgrid;
+  grid-template-rows: auto 1fr;
   grid-column-start: 1;
   grid-column-end: -1;
 
@@ -13,7 +14,6 @@ const HeroWrapper = styled.div`
   background-color: var(--primary-accent-color);
   color: var(--primary-accent-contrast-text-color);
   height: 100dvh;
-  padding-block-end: 3rem;
 
   & > * {
     grid-column-start: margin-start;
@@ -21,9 +21,10 @@ const HeroWrapper = styled.div`
   }
 `;
 
-export default function HeroSection({ children }: { children: React.ReactNode }) {
-  return <HeroWrapper>{children}</HeroWrapper>;
-}
+export const HeroContent = styled.div`
+  align-content: center;
+  margin-block-end: 20%;
+`;
 
 export const HeroTitle = styled.h1`
   font-size: 6rem;

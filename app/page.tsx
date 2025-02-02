@@ -1,5 +1,5 @@
 import Header, { HeaderLink } from '../components/Header';
-import HeroSection, { HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
+import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
 import MainLayout from '../components/Layout/MainLayout';
 
 const Links: HeaderLink[] = [
@@ -16,12 +16,12 @@ const Links: HeaderLink[] = [
 export default function Home() {
   return (
     <MainLayout>
-      <Header links={Links} />
       <HeroSection>
-        <div>
+        <Header links={Links} />
+        <HeroContent>
           <HeroTitle>Josh Jeffers</HeroTitle>
           <HeroSubtitle>Full Stack Software Engineer</HeroSubtitle>
-        </div>
+        </HeroContent>
       </HeroSection>
       <h3>About Me</h3>
     </MainLayout>
