@@ -1,5 +1,5 @@
 import Title from '../../Title';
-import { Theme } from '../../../pages';
+import { Theme } from '../../../pages/v1';
 import Card from '../../Card';
 import AnimatedLink from '../../Links/AnimatedLink';
 import useIsMobile from '../../../hooks/useIsMobile';

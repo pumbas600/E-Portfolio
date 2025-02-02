@@ -4,7 +4,7 @@ import AnimatedLink from '../Links/AnimatedLink';
 
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Theme } from '../../pages';
+import { Theme } from '../../pages/v1';
 import { useMemo } from 'react';
 
 interface HeaderProps {
