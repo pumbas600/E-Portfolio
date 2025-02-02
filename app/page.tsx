@@ -4,7 +4,7 @@ import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components
 import MainLayout from '../components/Layout/MainLayout';
 import ExteralLink from '../components/Links/ExternalLink';
 import Links from '../data/Links';
-import Spaced from '../components/Layout/Spaced';
+import LinkContainer from '../components/HomePage/LinkContainer';
 import { ContentTitle, MainContent } from '../components/Layout/MainContent';
 import LinkBase from '../components/Links/LinkBase';
 import Contributions from '../components/HomePage/Contributions';
@@ -30,14 +30,14 @@ export default function Home() {
             <HeroTitle>Josh Jeffers</HeroTitle>
             <HeroSubtitle>Full Stack Software Engineer</HeroSubtitle>
           </div>
-          <Spaced>
+          <LinkContainer>
             {Links.map((link) => (
               <ExteralLink key={link.href} href={link.href}>
                 <FontAwesomeIcon icon={link.icon} />
                 {link.name}
               </ExteralLink>
             ))}
-          </Spaced>
+          </LinkContainer>
         </HeroContent>
       </HeroSection>
       <MainContent>
@@ -49,8 +49,9 @@ export default function Home() {
         <p>
           I love building software that provides value to users. This has been the motivation behind a number of my
           personal projects, a selection of which can be seen on my <LinkBase href="/projects">projects page</LinkBase>.
-          I'm also obsessed with type safety… static typing for the win!.
+          I'm also obsessed with type safety… static typing for the win!
         </p>
+        <p>When I'm not coding, I enjoy watching movies, playing video games, and reading books.</p>
         <ContentTitle>Contributions</ContentTitle>
         <Contributions />
         <ContentTitle>Project Highlight</ContentTitle>

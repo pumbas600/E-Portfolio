@@ -12,11 +12,14 @@ const Card = styled.div`
   padding-block: 3.5rem;
   border-radius: 0.5rem;
   background-color: var(--secondary-background-color);
-  opacity: 0.9;
 
   & > * {
     grid-column-start: content-start;
     grid-column-end: content-end;
+  }
+
+  @media screen and (max-width: 40rem) {
+    padding-block: 1.85rem;
   }
 `;
 

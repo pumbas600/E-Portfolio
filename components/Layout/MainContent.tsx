@@ -12,6 +12,10 @@ export const MainContent = styled.div`
     grid-column-start: content-start;
     grid-column-end: content-end;
   }
+
+  @media screen and (max-width: 40rem) {
+    padding-block: 4rem;
+  }
 `;
 
 export const ContentTitle = styled.h2`

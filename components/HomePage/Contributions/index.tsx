@@ -12,6 +12,11 @@ const ContributionsGraph = styled.img`
 
   padding-inline-start: 2.5rem;
   padding-inline-end: 3rem;
+
+  @media screen and (max-width: 40rem) {
+    padding-inline-start: 1.25rem;
+    padding-inline-end: 1.75rem;
+  }
 `;
 
 export default function Contributions() {
