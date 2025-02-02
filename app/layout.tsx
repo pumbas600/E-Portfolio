@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import StyledComponentsRegistry from '../lib/StyledComponentsRegistry';
-import '../styles/app.scss';
 import Noise from '../components/Noise';
-import MainLayout from '../components/Layout/MainLayout';
+
+import '../styles/normalize.css';
+import '../styles/app.css';
 
 export const metadata: Metadata = {
   title: 'Josh Jeffers',
@@ -19,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
-          <MainLayout>{children}</MainLayout>
+          {children}
           <Noise />
         </StyledComponentsRegistry>
       </body>
