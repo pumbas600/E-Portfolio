@@ -15,9 +15,14 @@ export const HeroSection = styled.div`
   color: var(--primary-accent-contrast-text-color);
   height: 100dvh;
 
-  & > * {
+  & > header {
     grid-column-start: margin-start;
     grid-column-end: margin-end;
+  }
+
+  & > * {
+    grid-column-start: content-start;
+    grid-column-end: content-end;
   }
 `;
 

@@ -1,19 +1,23 @@
-import { ReactNode } from 'react';
+'use client';
 
-interface CardProps {
-  id?: string;
-  className?: string;
-  children?: ReactNode;
-}
+import styled from 'styled-components';
 
-export default function Card({ id, className, children }: CardProps) {
-  return (
-    <article
-      className={`dark:border-0 border border-gray-200 justify-between bg-gradient-to-r rounded-lg dark:from-gray-700 dark:to-slate-600
-                  shadow-xl md:py-5 py-4 md:px-8 px-5 md:text-base text-sm ${className ?? ''}`}
-      id={id}
-    >
-      {children}
-    </article>
-  );
-}
+const Card = styled.div`
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column-start: margin-start;
+  grid-column-end: margin-end;
+  grid-row-gap: inherit;
+
+  padding-block: 3.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--secondary-background-color);
+  opacity: 0.9;
+
+  & > * {
+    grid-column-start: content-start;
+    grid-column-end: content-end;
+  }
+`;
+
+export default Card;

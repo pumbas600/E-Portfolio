@@ -1,33 +1,35 @@
-import Title from '../../Title';
-import { Theme } from '../../../pages/v1';
-import Card from '../../Card';
-import AnimatedLink from '../../Links/AnimatedLink';
+'use client';
+
 import useIsMobile from '../../../hooks/useIsMobile';
+import Card from '../../Card';
+import LinkBase from '../../Links/LinkBase';
+import { Caption } from '../../Typography';
+import styled from 'styled-components';
 
-interface ContributionsProps {
-  theme: Theme;
-}
+const ContributionsGraph = styled.img`
+  grid-column-start: margin-start;
+  grid-column-end: margin-end;
 
-export default function Contributions({ theme }: ContributionsProps) {
+  padding-inline-start: 2.5rem;
+  padding-inline-end: 3rem;
+`;
+
+export default function Contributions() {
   const isMobile = useIsMobile();
 
   const days = isMobile ? 15 : 30;
-  const colour = theme === 'dark' ? '99F6E4' : '0284C7';
+  const colour = '31a6fa';
 
   return (
-    <section>
-      <Title name="Contributions" />
-      <Card>
-        <img
-          className="-ml-1"
-          src={`https://github.pumbas.net/api/contributions/pumbas600?days=${days}&colour=${colour}&dotColour=FFFFFF`}
-          alt={`My GitHub contributions over the past ${days} days`}
-        />
-        <div>
-          This graph has been dynamically generated from my recent GitHub contributions using my{' '}
-          <AnimatedLink href="#github-contributions">GitHub Contributions</AnimatedLink> API.
-        </div>
-      </Card>
-    </section>
+    <Card>
+      <ContributionsGraph
+        src={`https://github.pumbas.net/api/contributions/pumbas600?days=${days}&colour=${colour}&dotColour=FFFFFF`}
+        alt={`My GitHub contributions over the past ${days} days`}
+      />
+      <Caption>
+        This graph has been dynamically generated from my recent GitHub contributions using my{' '}
+        <LinkBase href="/projects#github-contributions">GitHub Contributions API</LinkBase> ✨.
+      </Caption>
+    </Card>
   );
 }
