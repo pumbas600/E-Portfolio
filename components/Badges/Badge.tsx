@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const BadgeWrapper = styled.p<{ $hoverColor?: string }>`
+const BadgeWrapper = styled.p<{ $hoverBackground?: string; $hoverColor?: string }>`
   background-color: var(--primary-background-color);
   border-radius: 0.25rem;
   padding-inline: 1rem;
@@ -20,19 +20,21 @@ const BadgeWrapper = styled.p<{ $hoverColor?: string }>`
   letter-spacing: 0.05em;
 
   &:hover {
-    background-color: ${({ $hoverColor }) => $hoverColor};
+    background-color: ${({ $hoverBackground }) => $hoverBackground};
+    color: ${({ $hoverColor }) => $hoverColor};
   }
 `;
 
 export interface BadgeProps {
   icon: ReactNode;
   name: string;
+  hoverBackground?: string;
   hoverColor?: string;
 }
 
-export default function Badge({ icon, name, hoverColor }: BadgeProps) {
+export default function Badge({ icon, name, hoverColor, hoverBackground }: BadgeProps) {
   return (
-    <BadgeWrapper $hoverColor={hoverColor}>
+    <BadgeWrapper $hoverBackground={hoverBackground} $hoverColor={hoverColor}>
       {icon} {name}
     </BadgeWrapper>
   );

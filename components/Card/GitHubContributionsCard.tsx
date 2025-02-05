@@ -67,7 +67,7 @@ export default function GitHubContributionsCard() {
       }
       date="April 2023"
       githubUrl="https://github.com/pumbas600/github-contributions"
-      technologies={[Badges.NextJs, Badges.TypeScript]}
+      technologies={[Badges.NextJs, Badges.React, Badges.TypeScript, Badges.Firestore, Badges.OracleCloud]}
     />
   );
 }
