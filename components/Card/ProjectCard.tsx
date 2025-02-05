@@ -1,5 +1,4 @@
-import AnimatedLink from '../Links/AnimatedLink';
-import Badges from '../Badges';
+import { BadgeContainer } from '../Badges';
 import Card from './index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +8,7 @@ import { ReactNode } from 'react';
 import { SecondaryText } from '../Typography';
 import ExteralLink from '../Links/ExternalLink';
 import styled from 'styled-components';
+import Badge, { BadgeProps } from '../Badges/Badge';
 
 const Description = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ interface ProjectCardProps {
   description: ReactNode;
   date: string;
   githubUrl: string;
-  technologies: string[];
+  technologies: BadgeProps[];
 }
 
 export default function ProjectCard({ wip, name, description, date, githubUrl, technologies }: ProjectCardProps) {
@@ -36,7 +36,11 @@ export default function ProjectCard({ wip, name, description, date, githubUrl, t
         </ExteralLink>
       </h3>
       <Description>{description}</Description>
-      <Badges badges={technologies} className="flex-wrap-reverse justify-end" />
+      <BadgeContainer>
+        {technologies.map((props) => (
+          <Badge {...props} />
+        ))}
+      </BadgeContainer>
     </Card>
   );
 }
