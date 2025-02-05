@@ -23,6 +23,13 @@ const BadgeWrapper = styled.p<{ $hoverBackground?: string; $hoverColor?: string 
     background-color: ${({ $hoverBackground }) => $hoverBackground};
     color: ${({ $hoverColor }) => $hoverColor};
   }
+
+  @media screen and (max-width: 40rem) {
+    padding-inline: 0.75rem;
+    padding-block: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
 `;
 
 export interface BadgeProps {

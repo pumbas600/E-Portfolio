@@ -4,13 +4,16 @@ import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
 import styled from 'styled-components';
-import SparklesIcon from '../Icons/SparklesIcon';
 import { Badges } from '../Badges';
 
 const Metric = styled.h4`
   font-size: 1.5rem;
   color: var(--secondary-accent-color);
   display: inline-block;
+
+  @media screen and (max-width: 40rem) {
+    font-size: 1.15rem;
+  }
 `;
 
 function formatMetric(metric: number): string {
