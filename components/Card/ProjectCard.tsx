@@ -11,10 +11,9 @@ import ExteralLink from '../Links/ExternalLink';
 import styled from 'styled-components';
 
 const Description = styled.div`
-  & > p {
-    margin-block-start: 0.25rem;
-    margin-block-end: 0.75rem;
-  }
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
 `;
 
 interface ProjectCardProps {

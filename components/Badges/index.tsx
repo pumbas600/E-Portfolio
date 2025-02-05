@@ -1,4 +1,14 @@
+'use client';
+
+import styled from 'styled-components';
 import Badge from './Badge';
+
+const BadgeWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
+  row-gap: 0.5rem;
+`;
 
 interface BadgesProps {
   badges: string[];
@@ -6,12 +16,11 @@ interface BadgesProps {
 }
 
 export default function Badges({ badges, className }: BadgesProps) {
-  function renderBadges() {
-    if (badges.length === 0) {
-      return <p>There are no technologies used for this project yet.</p>;
-    }
-    return badges.map((name) => <Badge key={name} name={name} />);
-  }
-
-  return <div className={`${className ?? ''} flex flex-row flex-wrap gap-1.5`}>{renderBadges()}</div>;
+  return (
+    <BadgeWrapper>
+      {badges.map((name) => (
+        <Badge key={name}>{name}</Badge>
+      ))}
+    </BadgeWrapper>
+  );
 }

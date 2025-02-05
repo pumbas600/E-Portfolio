@@ -1,17 +1,16 @@
-import BadgeUrls from '../../data/BadgeUrls';
+'use client';
 
-interface BadgeProps {
-  name: string;
-  className?: string;
-}
+import styled from 'styled-components';
 
-export default function Badge({ name, className }: BadgeProps) {
-  const url = BadgeUrls[name];
+const Badge = styled.p`
+  background-color: var(--primary-background-color);
+  border-radius: 0.25rem;
+  padding-inline: 1.25rem;
+  padding-block: 0.5rem;
 
-  return (
-    <picture>
-      <source srcSet={url} type="image/svg" />
-      <img alt={name} src={url} className={`${className ?? ''} md:h-auto sm:h-6 h-5 md:rounded-xl rounded-lg`} />
-    </picture>
-  );
-}
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+`;
+
+export default Badge;

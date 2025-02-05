@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
 import styled from 'styled-components';
+import SparklesIcon from '../Icons/SparklesIcon';
 
 const Metric = styled.h4`
   font-size: 1.5rem;
@@ -65,7 +66,7 @@ export default function GitHubContributionsCard() {
       }
       date="April 2023"
       githubUrl="https://github.com/pumbas600/github-contributions"
-      technologies={['nextjs', 'react', 'typescript', 'firestore', 'oraclecloud']}
+      technologies={['Next.js', 'React', 'TypeScript', 'Firestore', 'Oracle Cloud']}
     />
   );
 }
