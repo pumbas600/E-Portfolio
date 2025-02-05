@@ -11,24 +11,24 @@ interface LinkItems {
 
 const Links: LinkItems[] = [
   {
-    name: 'GitHub',
-    href: 'https://github.com/pumbas600',
-    icon: faGithub,
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/josh-jeffers/',
-    icon: faLinkedin,
-  },
-  {
     name: 'Email',
     href: 'mailto:joshjeffers600@gmail.com',
     icon: faEnvelope,
   },
   {
+    name: 'GitHub',
+    href: 'https://github.com/pumbas600',
+    icon: faGithub,
+  },
+  {
     name: 'Resume',
     href: './JoshJeffersCVPublic.pdf',
     icon: faFilePdf,
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/josh-jeffers/',
+    icon: faLinkedin,
   },
 ];
 
