@@ -10,6 +10,13 @@ import { SecondaryText } from '../Typography';
 import ExteralLink from '../Links/ExternalLink';
 import styled from 'styled-components';
 
+const Description = styled.div`
+  & > p {
+    margin-block-start: 0.25rem;
+    margin-block-end: 0.75rem;
+  }
+`;
+
 interface ProjectCardProps {
   wip?: boolean;
   name: string;
@@ -29,7 +36,7 @@ export default function ProjectCard({ wip, name, description, date, githubUrl, t
           {name}
         </ExteralLink>
       </h3>
-      <div>{description}</div>
+      <Description>{description}</Description>
       <Badges badges={technologies} className="flex-wrap-reverse justify-end" />
     </Card>
   );

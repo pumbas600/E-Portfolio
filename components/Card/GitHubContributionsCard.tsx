@@ -5,18 +5,10 @@ import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
 import styled from 'styled-components';
 
-const MetricWrapper = styled.p`
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
-  margin-block: 1rem;
-`;
-
 const Metric = styled.h4`
   font-size: 1.5rem;
-  color: var(--primary-accent-color);
+  color: var(--secondary-accent-color);
   display: inline-block;
-  margin-inline-end: 0.5rem;
 `;
 
 function formatMetric(metric: number): string {
@@ -61,14 +53,14 @@ export default function GitHubContributionsCard() {
             , React for rendering the contribution graph, Firestore for tracking usage metrics, and is hosted on an
             Oracle Cloud Infastructure compute instance.
           </p>
-          <MetricWrapper>
+          <p>
             <p>
               <Metric>{formatMetric(pastWeekCalls)}</Metric>&nbsp;graphs rendered in the past week.
             </p>
             <p>
               <Metric>{formatMetric(totalCalls)}</Metric>&nbsp;graphs rendered in total.
             </p>
-          </MetricWrapper>
+          </p>
         </>
       }
       date="April 2023"
