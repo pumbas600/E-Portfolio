@@ -38,7 +38,7 @@ export default function ProjectCard({ wip, name, description, date, githubUrl, t
       <Description>{description}</Description>
       <BadgeContainer>
         {technologies.map((props) => (
-          <Badge {...props} />
+          <Badge key={props.name} {...props} />
         ))}
       </BadgeContainer>
     </Card>

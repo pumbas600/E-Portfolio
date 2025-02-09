@@ -6,10 +6,11 @@ import LinkBase from '../Links/LinkBase';
 import styled from 'styled-components';
 import { Badges } from '../Badges';
 
-const Metric = styled.h4`
-  font-size: var(--type-1_5);
+const Metric = styled.span`
   color: var(--secondary-accent-color);
   display: inline-block;
+  font-size: var(--type-1_5);
+  font-weight: 500;
 `;
 
 function formatMetric(metric: number): string {
@@ -54,14 +55,14 @@ export default function GitHubContributionsCard() {
             , React for rendering the contribution graph, Firestore for tracking usage metrics, and is hosted on an
             Oracle Cloud Infastructure compute instance.
           </p>
-          <p>
+          <div>
             <p>
               <Metric>{formatMetric(pastWeekCalls)}</Metric>&nbsp;graphs rendered in the past week.
             </p>
             <p>
               <Metric>{formatMetric(totalCalls)}</Metric>&nbsp;graphs rendered in total.
             </p>
-          </p>
+          </div>
         </>
       }
       date="April 2023"
