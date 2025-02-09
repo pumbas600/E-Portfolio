@@ -15,17 +15,13 @@ const BadgeWrapper = styled.p<{ $hoverBackground?: string; $hoverColor?: string 
   flex-direction: row;
 
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: var(--type-0_75);
   font-weight: 600;
   letter-spacing: 0.05em;
 
   &:hover {
     background-color: ${({ $hoverBackground }) => $hoverBackground};
     color: ${({ $hoverColor }) => $hoverColor};
-  }
-
-  @media screen and (max-width: 40rem) {
-    font-weight: 500;
   }
 `;
 

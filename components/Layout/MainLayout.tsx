@@ -3,7 +3,8 @@
 import styled from 'styled-components';
 
 const MainLayout = styled.div`
-  --layout-gutter: minmax(var(--min-layout-gutter), 1fr);
+  --layout-gutter: minmax(0.5rem, 1fr);
+  --layout-margin: clamp(1.5rem, 9vw + -0.3rem, 6rem);
 
   display: grid;
   grid-template-columns:

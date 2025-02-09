@@ -7,13 +7,9 @@ import styled from 'styled-components';
 import { Badges } from '../Badges';
 
 const Metric = styled.h4`
-  font-size: 1.5rem;
+  font-size: var(--type-1_5);
   color: var(--secondary-accent-color);
   display: inline-block;
-
-  @media screen and (max-width: 40rem) {
-    font-size: 1.15rem;
-  }
 `;
 
 function formatMetric(metric: number): string {

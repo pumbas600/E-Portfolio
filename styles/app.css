@@ -11,34 +11,37 @@
   --secondary-text-color: #7c7d80;
   --font-family: 'Gabarito', sans-serif;
 
-  --min-layout-gutter: 1rem;
-  --layout-margin: 6rem;
-
-  --font-xs: clamp(0.65rem, 0.27vi + 0.6rem, 0.85rem);
-  --font-sm: clamp(0.78rem, 0.4vi + 0.7rem, 1.1rem);
-  --font-base: clamp(0.94rem, 0.57vi + 0.8rem, 1.25rem);
-  --font-md: clamp(1.13rem, 0.8vi + 0.93rem, 1.56rem);
-  --font-lg: clamp(1.35rem, 1.1vi + 1.08rem, 1.95rem);
-  --font-xl: clamp(1.62rem, 1.49vi + 1.25rem, 2.44rem);
-  --font-xxl: clamp(1.94rem, 2.01vi + 1.44rem, 3.05rem);
-  --font-xxxl: clamp(2.33rem, 2.69vi + 1.66rem, 3.81rem);
+  --type-0_5: clamp(0.47rem, 0.06vw + 0.458rem, 0.5rem);
+  --type-0_75: clamp(0.62rem, 0.26vw + 0.568rem, 0.75rem);
+  --type-1: clamp(0.77rem, 0.46vw + 0.678rem, 1rem);
+  --type-1_125: clamp(0.845rem, 0.56vw + 0.733rem, 1.125rem);
+  --type-1_25: clamp(0.92rem, 0.66vw + 0.788rem, 1.25rem);
+  --type-1_5: clamp(1.07rem, 0.86vw + 0.898rem, 1.5rem);
+  --type-1_75: clamp(1.22rem, 1.06vw + 1.008rem, 1.75rem);
+  --type-2: clamp(1.37rem, 1.26vw + 1.118rem, 2rem);
+  --type-2_5: clamp(1.67rem, 1.66vw + 1.338rem, 2.5rem);
+  --type-3: clamp(1.97rem, 2.06vw + 1.558rem, 3rem);
+  --type-3_5: clamp(2.27rem, 2.46vw + 1.778rem, 3.5rem);
+  --type-4: clamp(2.57rem, 2.86vw + 1.998rem, 4rem);
+  --type-5: clamp(3.17rem, 3.66vw + 2.438rem, 5rem);
+  --type-6: clamp(3.77rem, 4.46vw + 2.878rem, 6rem);
 
   --space-0_25: clamp(0.25rem, 0vw + 0.25rem, 0.25rem);
-  --space-0_5: clamp(0.375rem, 0.521vw + 0.271rem, 0.5rem);
-  --space-0_75: clamp(0.5rem, 1.042vw + 0.292rem, 0.75rem);
-  --space-1: clamp(0.625rem, 1.563vw + 0.313rem, 1rem);
-  --space-1_25: clamp(0.75rem, 2.083vw + 0.333rem, 1.25rem);
-  --space-1_5: clamp(0.875rem, 2.604vw + 0.354rem, 1.5rem);
-  --space-1_75: clamp(1rem, 3.125vw + 0.375rem, 1.75rem);
-  --space-2: clamp(1.125rem, 3.646vw + 0.396rem, 2rem);
-  --space-2_5: clamp(1.375rem, 4.688vw + 0.438rem, 2.5rem);
-  --space-3: clamp(1.625rem, 5.729vw + 0.479rem, 3rem);
-  --space-3_5: clamp(1.875rem, 6.771vw + 0.521rem, 3.5rem);
-  --space-4: clamp(2.125rem, 7.813vw + 0.563rem, 4rem);
-  --space-5: clamp(2.625rem, 9.896vw + 0.646rem, 5rem);
-  --space-6: clamp(3.125rem, 11.979vw + 0.729rem, 6rem);
-  --space-7: clamp(3.625rem, 14.063vw + 0.813rem, 7rem);
-  --space-8: clamp(4.125rem, 16.146vw + 0.896rem, 8rem);
+  --space-0_5: clamp(0.375rem, 0.25vw + 0.325rem, 0.5rem);
+  --space-0_75: clamp(0.5rem, 0.5vw + 0.4rem, 0.75rem);
+  --space-1: clamp(0.625rem, 0.75vw + 0.475rem, 1rem);
+  --space-1_25: clamp(0.75rem, 1vw + 0.55rem, 1.25rem);
+  --space-1_5: clamp(0.875rem, 1.25vw + 0.625rem, 1.5rem);
+  --space-1_75: clamp(1rem, 1.5vw + 0.7rem, 1.75rem);
+  --space-2: clamp(1.125rem, 1.75vw + 0.775rem, 2rem);
+  --space-2_5: clamp(1.375rem, 2.25vw + 0.925rem, 2.5rem);
+  --space-3: clamp(1.625rem, 2.75vw + 1.075rem, 3rem);
+  --space-3_5: clamp(1.875rem, 3.25vw + 1.225rem, 3.5rem);
+  --space-4: clamp(2.125rem, 3.75vw + 1.375rem, 4rem);
+  --space-5: clamp(2.625rem, 4.75vw + 1.675rem, 5rem);
+  --space-6: clamp(3.125rem, 5.75vw + 1.975rem, 6rem);
+  --space-7: clamp(3.625rem, 6.75vw + 2.275rem, 7rem);
+  --space-8: clamp(4.125rem, 7.75vw + 2.575rem, 8rem);
 
   color-scheme: dark;
   font-family: var(--font-family);
@@ -61,33 +64,28 @@ h6 {
 }
 
 h1 {
-  font-size: var(--font-xxl);
+  font-size: var(--type-4);
 }
 
 h2 {
-  font-size: var(--font-xl);
+  font-size: var(--type-2_5);
 }
 
 h3 {
-  font-size: var(--font-lg);
+  font-size: var(--type-1_75);
 }
 
-a,
+body,
 p {
-  font-size: var(--font-base);
+  font-size: var(--type-1_25);
 }
 
 a {
   color: var(--secondary-accent-color);
+  font-size: inherit;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-}
-
-@media screen and (max-width: 40rem) {
-  :root {
-    --layout-margin: 1rem;
-  }
 }
