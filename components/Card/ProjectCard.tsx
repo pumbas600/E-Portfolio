@@ -13,7 +13,7 @@ import Badge, { BadgeProps } from '../Badges/Badge';
 const Description = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 0.75rem;
+  row-gap: var(--space-0_75);
 `;
 
 interface ProjectCardProps {

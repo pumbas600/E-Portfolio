@@ -14,20 +14,40 @@
   --min-layout-gutter: 1rem;
   --layout-margin: 6rem;
 
+  --font-xs: clamp(0.65rem, 0.27vi + 0.6rem, 0.85rem);
+  --font-sm: clamp(0.78rem, 0.4vi + 0.7rem, 1.1rem);
+  --font-base: clamp(0.94rem, 0.57vi + 0.8rem, 1.25rem);
+  --font-md: clamp(1.13rem, 0.8vi + 0.93rem, 1.56rem);
+  --font-lg: clamp(1.35rem, 1.1vi + 1.08rem, 1.95rem);
+  --font-xl: clamp(1.62rem, 1.49vi + 1.25rem, 2.44rem);
+  --font-xxl: clamp(1.94rem, 2.01vi + 1.44rem, 3.05rem);
+  --font-xxxl: clamp(2.33rem, 2.69vi + 1.66rem, 3.81rem);
+
+  --space-0_25: clamp(0.25rem, 0vw + 0.25rem, 0.25rem);
+  --space-0_5: clamp(0.375rem, 0.521vw + 0.271rem, 0.5rem);
+  --space-0_75: clamp(0.5rem, 1.042vw + 0.292rem, 0.75rem);
+  --space-1: clamp(0.625rem, 1.563vw + 0.313rem, 1rem);
+  --space-1_25: clamp(0.75rem, 2.083vw + 0.333rem, 1.25rem);
+  --space-1_5: clamp(0.875rem, 2.604vw + 0.354rem, 1.5rem);
+  --space-1_75: clamp(1rem, 3.125vw + 0.375rem, 1.75rem);
+  --space-2: clamp(1.125rem, 3.646vw + 0.396rem, 2rem);
+  --space-2_5: clamp(1.375rem, 4.688vw + 0.438rem, 2.5rem);
+  --space-3: clamp(1.625rem, 5.729vw + 0.479rem, 3rem);
+  --space-3_5: clamp(1.875rem, 6.771vw + 0.521rem, 3.5rem);
+  --space-4: clamp(2.125rem, 7.813vw + 0.563rem, 4rem);
+  --space-5: clamp(2.625rem, 9.896vw + 0.646rem, 5rem);
+  --space-6: clamp(3.125rem, 11.979vw + 0.729rem, 6rem);
+  --space-7: clamp(3.625rem, 14.063vw + 0.813rem, 7rem);
+  --space-8: clamp(4.125rem, 16.146vw + 0.896rem, 8rem);
+
   color-scheme: dark;
   font-family: var(--font-family);
   scrollbar-color: var(--secondary-text-color) transparent;
 }
 
 html {
-  /* @apply scroll-smooth; */
-
   background-color: var(--primary-background-color);
   color: var(--primary-text-color);
-}
-
-body {
-  font-size: 1.3rem;
 }
 
 h1,
@@ -41,7 +61,20 @@ h6 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: var(--font-xxl);
+}
+
+h2 {
+  font-size: var(--font-xl);
+}
+
+h3 {
+  font-size: var(--font-lg);
+}
+
+a,
+p {
+  font-size: var(--font-base);
 }
 
 a {
@@ -56,9 +89,5 @@ a:hover {
 @media screen and (max-width: 40rem) {
   :root {
     --layout-margin: 1rem;
-  }
-
-  body {
-    font-size: 0.95rem;
   }
 }

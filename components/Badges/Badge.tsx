@@ -6,8 +6,8 @@ import styled from 'styled-components';
 const BadgeWrapper = styled.p<{ $hoverBackground?: string; $hoverColor?: string }>`
   background-color: var(--primary-background-color);
   border-radius: 0.25rem;
-  padding-inline: 1rem;
-  padding-block: 0.5rem;
+  padding-inline: var(--space-1);
+  padding-block: var(--space-0_5);
 
   align-items: center;
   column-gap: 0.5em;
@@ -25,9 +25,6 @@ const BadgeWrapper = styled.p<{ $hoverBackground?: string; $hoverColor?: string 
   }
 
   @media screen and (max-width: 40rem) {
-    padding-inline: 0.75rem;
-    padding-block: 0.3rem;
-    font-size: 0.75rem;
     font-weight: 500;
   }
 `;

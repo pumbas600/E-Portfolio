@@ -41,13 +41,7 @@ export const Badges = {
 export const BadgeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 0.75rem;
-  row-gap: 0.5rem;
-  margin-block-start: 0.5rem;
-
-  @media screen and (max-width: 40rem) {
-    column-gap: 0.5rem;
-    row-gap: 0.4rem;
-    margin-block-start: 0.25rem;
-  }
+  column-gap: var(--space-0_75);
+  row-gap: var(--space-0_5);
+  margin-block-start: var(--space-0_5);
 `;

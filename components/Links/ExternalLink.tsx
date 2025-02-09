@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 const BaseLink = styled(Link)`
   display: inline-flex;
-  column-gap: 0.5rem;
+  column-gap: var(--space-0_5);
   align-items: center;
 
   color: var(--color);
@@ -23,7 +23,7 @@ const BaseLink = styled(Link)`
     text-decoration-color: var(--color);
 
     & > .external-anchor {
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--space-0_5);
     }
   }
 `;

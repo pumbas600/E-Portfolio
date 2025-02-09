@@ -9,17 +9,13 @@ const Card = styled.div`
   grid-column-end: margin-end;
   grid-row-gap: inherit;
 
-  padding-block: 3.5rem;
+  padding-block: var(--space-3_5);
   border-radius: 0.5rem;
   background-color: var(--secondary-background-color);
 
   & > * {
     grid-column-start: content-start;
     grid-column-end: content-end;
-  }
-
-  @media screen and (max-width: 40rem) {
-    padding-block: 1.85rem;
   }
 `;
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { SmallProfilePictureLink } from '../ProfilePicture';
 
 const HeaderWrapper = styled.header`
-  padding-block: 1.5rem;
+  padding-block: var(--space-1_5);
 `;
 
 const Nav = styled.nav`
@@ -15,7 +15,7 @@ const Nav = styled.nav`
 
   & > ul {
     display: flex;
-    column-gap: 1.5rem;
+    column-gap: var(--space-1_5);
     flex-direction: row;
     justify-content: flex-end;
 

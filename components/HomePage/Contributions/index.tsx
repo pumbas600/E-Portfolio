@@ -7,16 +7,12 @@ import { SecondaryText } from '../../Typography';
 import styled from 'styled-components';
 
 const ContributionsGraph = styled.img`
+  width: 100%;
   grid-column-start: margin-start;
   grid-column-end: margin-end;
 
-  padding-inline-start: 2.5rem;
-  padding-inline-end: 3rem;
-
-  @media screen and (max-width: 40rem) {
-    padding-inline-start: 1.25rem;
-    padding-inline-end: 1.75rem;
-  }
+  padding-inline-start: var(--space-2_5);
+  padding-inline-end: var(--space-3);
 `;
 
 export default function Contributions() {

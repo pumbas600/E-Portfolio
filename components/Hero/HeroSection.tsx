@@ -31,7 +31,7 @@ export const HeroSection = styled.div`
 
 export const HeroContent = styled.div`
   display: grid;
-  grid-row-gap: 4rem;
+  grid-row-gap: var(--space-4);
   grid-column-start: content-start;
   grid-column-end: content-end;
 
@@ -44,13 +44,13 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   line-height: 1.2;
 
   @media screen and (max-width: 40rem) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 `;
 

@@ -5,20 +5,16 @@ import styled from 'styled-components';
 export const MainContent = styled.div`
   display: grid;
   grid-template-columns: subgrid;
-  grid-row-gap: 1rem;
-  padding-block: 8rem;
+  grid-row-gap: var(--space-1);
+  padding-block: var(--space-8);
 
   & > * {
     grid-column-start: content-start;
     grid-column-end: content-end;
   }
-
-  @media screen and (max-width: 40rem) {
-    padding-block: 4rem;
-  }
 `;
 
 export const ContentTitle = styled.h2`
-  margin-block-start: 2rem;
-  margin-block-end: 0.75rem;
+  margin-block-start: var(--space-2);
+  margin-block-end: var(--space-0_75);
 `;

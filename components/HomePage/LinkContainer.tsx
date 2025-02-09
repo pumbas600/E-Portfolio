@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  column-gap: 2rem;
-  row-gap: 0.25rem;
+  column-gap: var(--space-2);
+  row-gap: var(--space-0_25);
 
   @media screen and (max-width: 40rem) {
     flex-direction: column;
