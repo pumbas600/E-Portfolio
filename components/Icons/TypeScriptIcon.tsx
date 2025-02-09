@@ -1,6 +1,8 @@
-export default function TypeScriptIcon() {
+import { IconProps } from './IconProps';
+
+export default function TypeScriptIcon(props: IconProps) {
   return (
-    <svg height="1em" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg height="1em" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g clipPath="url(#clip0_1_5)">
         <path
           fillRule="evenodd"

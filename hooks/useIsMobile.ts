@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
  * This has been taken from https://github.com/tufantunc/useIsMobile/tree/main and slightly modified to be
  * typescript compatible and to handle window being initially undefined.
  */
-const useIsMobile = (mobileScreenSize = 768) => {
+const useIsMobile = (mobileScreenSize = 40) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const checkIsMobile = useCallback((event: MediaQueryListEvent) => {
@@ -16,7 +16,7 @@ const useIsMobile = (mobileScreenSize = 768) => {
       return;
     }
 
-    const mediaListener = window.matchMedia(`(max-width: ${mobileScreenSize}px)`);
+    const mediaListener = window.matchMedia(`(max-width: ${mobileScreenSize}rem)`);
     setIsMobile(mediaListener.matches);
 
     // try catch used to fallback for browser compatibility

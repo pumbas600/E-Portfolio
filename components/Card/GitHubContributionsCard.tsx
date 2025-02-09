@@ -41,6 +41,7 @@ export default function GitHubContributionsCard() {
 
   return (
     <ProjectCard
+      highlighted
       name="GitHub Contributions"
       description={
         <>

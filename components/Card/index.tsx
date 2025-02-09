@@ -2,13 +2,15 @@
 
 import styled from 'styled-components';
 
-const Card = styled.div`
+export const CardLayout = styled.div`
   display: grid;
   grid-template-columns: subgrid;
   grid-column-start: margin-start;
   grid-column-end: margin-end;
   grid-row-gap: inherit;
+`;
 
+const Card = styled(CardLayout)`
   padding-block: var(--space-3_5);
   border-radius: 0.5rem;
   background-color: var(--secondary-background-color);
