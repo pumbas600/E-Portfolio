@@ -51,6 +51,8 @@
 html {
   background-color: var(--primary-background-color);
   color: var(--primary-text-color);
+
+  scroll-behavior: smooth;
 }
 
 h1,

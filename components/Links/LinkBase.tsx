@@ -13,18 +13,15 @@ export default function LinkBase({ href, children }: LinkBaseProps) {
   const isInternal = !href.startsWith('http');
   const isAnchor = href.startsWith('#');
 
-  function smoothScrollToAnchor() {
+  const smoothScrollToAnchor = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
     const element = document.getElementById(href.substring(1));
     element?.scrollIntoView();
-  }
+  };
 
   if (isAnchor) {
-    // Can't use a normal <a> tag because Next.JS doesn't smoothly scroll to it
-    return (
-      <div className="cursor-pointer" onClick={smoothScrollToAnchor}>
-        {children}
-      </div>
-    );
+    return <a onClick={smoothScrollToAnchor}>{children}</a>;
   }
 
   return (

@@ -29,7 +29,7 @@ export default function Contributions() {
       />
       <SecondaryText>
         This graph has been dynamically generated from my recent GitHub contributions using my{' '}
-        <LinkBase href="/projects#github-contributions">GitHub Contributions API</LinkBase> ✨.
+        <LinkBase href="#github-contributions">GitHub Contributions API</LinkBase> ✨.
       </SecondaryText>
     </Card>
   );
