@@ -45,7 +45,7 @@ export default function ProjectHighlights() {
           }
           date="September 2021"
           githubUrl="https://github.com/pumbas600/Halpbot-v1"
-          technologies={['jquery', 'thymeleaf', 'springboot', 'javascript', 'java', 'derby']}
+          technologies={[]}
         />
         <ProjectCard
           name="Cornercutter"
@@ -87,7 +87,7 @@ export default function ProjectHighlights() {
           }
           date="August 2022"
           githubUrl="https://github.com/franomai/cornercutter"
-          technologies={['rust', 'react', 'redux', 'typescript', 'c#']}
+          technologies={[]}
         />
         <ProjectCard
           name="Portfolio"
@@ -101,7 +101,7 @@ export default function ProjectHighlights() {
           }
           date="November 2021"
           githubUrl="https://github.com/pumbas600/E-Portfolio"
-          technologies={['nextjs', 'react', 'typescript', 'tailwindcss']}
+          technologies={[]}
         />
       </div>
     </section>

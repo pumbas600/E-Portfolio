@@ -47,18 +47,16 @@ export default function Home() {
       </Head>
       <header>
         <Header
-          toggleTheme={toggleTheme}
-          sections={[
-            ['Contributions', 'contributions'],
-            ['Projects', 'projects'],
-            ['Contact Me', 'contact-me'],
+          links={[
+            { label: 'Contributions', link: '#contributions' },
+            { label: 'Projects', link: '#projects' },
+            { label: 'Contact Me', link: '#contact-me' },
           ]}
-          currentTheme={theme}
         />
       </header>
       <div className="container dark:text-gray-200 text-gray-800 pb-16">
         <AboutMe />
-        <Contributions theme={theme} />
+        <Contributions />
         <ProjectHighlights />
         <ContactMe />
       </div>
