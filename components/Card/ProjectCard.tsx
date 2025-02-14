@@ -24,13 +24,13 @@ const HighlightedIcon = styled(SparklesIcon)`
 const TopRightHighightedIcon = styled(HighlightedIcon)`
   top: 0;
   right: 0;
-  transform: translate(40%, -40%);
+  transform: translate(20%, -20%);
 `;
 
 const BottomLeftHighlightedIcon = styled(HighlightedIcon)`
   left: 0;
   bottom: 0;
-  transform: translate(-40%, 40%);
+  transform: translate(-20%, 20%);
 `;
 
 const Description = styled.div`
