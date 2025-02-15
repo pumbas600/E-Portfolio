@@ -19,7 +19,7 @@ export default function Contributions() {
   const isMobile = useIsMobile();
 
   const days = isMobile ? 15 : 30;
-  const colour = '31a6fa';
+  const colour = '63fd8b'; // Secondary accent colour
 
   return (
     <Card>

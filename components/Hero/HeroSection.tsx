@@ -10,7 +10,8 @@ export const HeroSection = styled.div`
   grid-column-end: -1;
   align-content: center;
 
-  background-color: var(--primary-accent-color);
+  background: var(--primary-accent-color);
+  background: radial-gradient(at left bottom, var(--primary-accent-color), var(--secondary-accent-color));
   color: var(--primary-accent-contrast-text-color);
   height: 100lvh;
 
