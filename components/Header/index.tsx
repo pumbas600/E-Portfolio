@@ -2,7 +2,6 @@
 
 import styled from 'styled-components';
 import Link from 'next/link';
-import { SmallProfilePictureLink } from '../ProfilePicture';
 
 const HeaderWrapper = styled.header`
   padding-block: var(--space-1_5);
@@ -26,6 +25,7 @@ const Nav = styled.nav`
 
 const StyledLink = styled(Link)`
   color: var(--primary-accent-contrast-text-color);
+  font-size: var(--type-1_5);
   text-decoration-color: transparent;
   transition: color 150ms ease-in-out, text-decoration-color 200ms ease-in-out;
 
@@ -33,6 +33,12 @@ const StyledLink = styled(Link)`
   &:active {
     text-decoration-color: var(--primary-accent-contrast-text-color);
   }
+`;
+
+const HomeLink = styled(StyledLink)`
+  font-size: var(--type-1_25);
+  line-height: 1;
+  text-transform: uppercase;
 `;
 
 export interface HeaderLink {
@@ -48,9 +54,11 @@ export default function Header({ links }: HeaderProps) {
   return (
     <HeaderWrapper>
       <Nav>
-        <Link href="/">
-          <SmallProfilePictureLink />
-        </Link>
+        <HomeLink href="/">
+          Josh
+          <br />
+          Jeffers
+        </HomeLink>
         <ul>
           {links.map((link) => (
             <li key={link.link}>
