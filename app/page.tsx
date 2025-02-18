@@ -3,12 +3,13 @@ import Header, { HeaderLink } from '../components/Header';
 import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
 import MainLayout from '../components/Layout/MainLayout';
 import ExteralLink from '../components/Links/ExternalLink';
-import Links from '../data/Links';
+import PersonalLinks from '../data/Links';
 import LinkContainer from '../components/HomePage/LinkContainer';
 import { ContentTitle, MainContent } from '../components/Layout/MainContent';
 import LinkBase from '../components/Links/LinkBase';
 import Contributions from '../components/HomePage/Contributions';
 import GitHubContributionsCard from '../components/Card/GitHubContributionsCard';
+import Footer from '../components/Footer';
 
 const NavLinks: HeaderLink[] = [
   {
@@ -32,7 +33,7 @@ export default function Home() {
             <HeroSubtitle>Full Stack Software Engineer</HeroSubtitle>
           </div>
           <LinkContainer>
-            {Links.map((link) => (
+            {PersonalLinks.map((link) => (
               <ExteralLink key={link.href} href={link.href}>
                 <FontAwesomeIcon icon={link.icon} />
                 {link.name}
@@ -58,6 +59,7 @@ export default function Home() {
         <ContentTitle>Project Highlight</ContentTitle>
         <GitHubContributionsCard />
       </MainContent>
+      <Footer />
     </MainLayout>
   );
 }

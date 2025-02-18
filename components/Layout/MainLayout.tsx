@@ -9,8 +9,8 @@ const MainLayout = styled.div`
 
   display: grid;
   grid-template-columns:
-    var(--layout-gutter) [margin-start] var(--layout-margin) [content-start] minmax(auto, 40rem) [content-end]
-    var(--layout-margin) [margin-end] var(--layout-gutter);
+    [full-start] var(--layout-gutter) [margin-start] var(--layout-margin) [content-start] minmax(auto, 40rem) [content-end]
+    var(--layout-margin) [margin-end] var(--layout-gutter) [full-end];
   overflow-x: hidden;
 
   & > * {

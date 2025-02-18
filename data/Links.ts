@@ -9,7 +9,7 @@ interface LinkItems {
   icon: IconProp;
 }
 
-const Links: LinkItems[] = [
+const PersonalLinks: LinkItems[] = [
   {
     name: 'Email',
     href: 'mailto:joshjeffers600@gmail.com',
@@ -32,4 +32,4 @@ const Links: LinkItems[] = [
   },
 ];
 
-export default Links;
+export default PersonalLinks;

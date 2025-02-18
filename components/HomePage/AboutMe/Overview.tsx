@@ -1,6 +1,6 @@
 import selfie from '../../../assets/Selfie.jpg';
 import IconLink from '../../Links/IconLink';
-import Links from '../../../data/Links';
+import PersonalLinks from '../../../data/Links';
 import Image from 'next/image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,7 @@ import { ReactNode } from 'react';
 
 export default function Overview() {
   function renderLinks(): ReactNode {
-    return Links.map((link) => {
+    return PersonalLinks.map((link) => {
       return (
         <IconLink key={link.name} href={link.href}>
           <FontAwesomeIcon icon={link.icon} />

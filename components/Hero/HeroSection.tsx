@@ -2,27 +2,31 @@
 
 import styled from 'styled-components';
 
-export const HeroSection = styled.div`
+export const BaseHeroContent = styled.div`
   display: grid;
   grid-template-columns: subgrid;
-  grid-template-rows: auto 1fr;
-  grid-column-start: 1;
-  grid-column-end: -1;
-  align-content: center;
+  grid-column-start: full-start;
+  grid-column-end: full-end;
 
   background: var(--primary-accent-color);
   background: radial-gradient(at left bottom, var(--primary-accent-color), var(--secondary-accent-color));
   color: var(--primary-accent-contrast-text-color);
+
+  & > * {
+    grid-column-start: content-start;
+    grid-column-end: content-end;
+  }
+`;
+
+export const HeroSection = styled(BaseHeroContent)`
+  grid-template-rows: auto 1fr;
+  align-content: center;
+
   height: 100lvh;
 
   & > header {
     grid-column-start: margin-start;
     grid-column-end: margin-end;
-  }
-
-  & > * {
-    grid-column-start: content-start;
-    grid-column-end: content-end;
   }
 `;
 

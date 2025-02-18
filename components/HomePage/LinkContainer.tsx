@@ -2,9 +2,10 @@
 
 import styled from 'styled-components';
 
-const LinkContainer = styled.div`
+const LinkContainer = styled.address`
   display: flex;
   flex-direction: row;
+  font-style: normal;
   column-gap: var(--space-2);
   row-gap: var(--space-0_25);
 
