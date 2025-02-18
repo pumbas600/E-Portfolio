@@ -2,8 +2,7 @@
 
 import styled from 'styled-components';
 import { BaseHeroContent } from '../Hero/HeroSection';
-import ExteralLink from '../Links/ExternalLink';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ExternalIconLink } from '../Links/ExternalLink';
 import PersonalLinks from '../../data/Links';
 
 const FooterWrapper = styled(BaseHeroContent).attrs({ as: 'footer' })`
@@ -20,8 +19,8 @@ const AddressContainer = styled.address`
 
 const LinkContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: var(--space-0_5);
+  flex-direction: row;
+  gap: var(--space-1_5);
 `;
 
 export default function Footer() {
@@ -32,10 +31,7 @@ export default function Footer() {
       <AddressContainer>
         <LinkContainer>
           {PersonalLinks.map((link) => (
-            <ExteralLink key={link.href} href={link.href}>
-              <FontAwesomeIcon icon={link.icon} />
-              {link.name}
-            </ExteralLink>
+            <ExternalIconLink key={link.href} href={link.href} icon={link.icon} />
           ))}
         </LinkContainer>
         <p>Copyright {year} Joshua Alex Jeffers</p>

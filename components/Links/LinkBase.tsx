@@ -6,10 +6,11 @@ import { ReactNode } from 'react';
 
 interface LinkBaseProps {
   href: string;
+  className?: string;
   children?: ReactNode;
 }
 
-export default function LinkBase({ href, children }: LinkBaseProps) {
+export default function LinkBase({ href, className, children }: LinkBaseProps) {
   const isInternal = !href.startsWith('http');
   const isAnchor = href.startsWith('#');
 
@@ -21,11 +22,15 @@ export default function LinkBase({ href, children }: LinkBaseProps) {
   };
 
   if (isAnchor) {
-    return <a onClick={smoothScrollToAnchor}>{children}</a>;
+    return (
+      <a onClick={smoothScrollToAnchor} className={className}>
+        {children}
+      </a>
+    );
   }
 
   return (
-    <Link target={isInternal ? undefined : '_blank'} rel="noreferrer" href={href} className="inline-block">
+    <Link target={isInternal ? undefined : '_blank'} rel="noreferrer" href={href} className={className}>
       {children}
     </Link>
   );

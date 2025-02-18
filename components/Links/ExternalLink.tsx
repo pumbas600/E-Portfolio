@@ -1,5 +1,6 @@
 'use client';
 
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link, { LinkProps } from 'next/link';
@@ -14,17 +15,8 @@ const BaseLink = styled(Link)`
   text-decoration-color: transparent;
   transition: text-decoration-color 150ms ease-in-out;
 
-  & > .external-anchor {
-    margin-bottom: 0;
-    transition: margin-bottom 100ms ease-in-out;
-  }
-
   &:hover {
     text-decoration-color: var(--color);
-
-    & > .external-anchor {
-      margin-bottom: var(--space-0_5);
-    }
   }
 `;
 
@@ -36,18 +28,57 @@ const SecondaryAccentLink = styled(BaseLink)`
   --color: var(--secondary-accent-color);
 `;
 
-export interface ExternalLinkProps extends LinkProps {
+const ExternalLinkWrapper = styled(CommonExternalLink)`
+  & > .external-anchor {
+    margin-bottom: 0;
+    transition: margin-bottom 100ms ease-in-out;
+  }
+
+  &:hover > .external-anchor {
+    margin-bottom: var(--space-0_5);
+  }
+`;
+
+const ExternalIconLinkWrapper = styled(CommonExternalLink)`
+  transition: transform 100ms ease-in-out;
+
+  &:hover {
+    transform: translateY(calc(-1 * var(--space-0_25)));
+  }
+`;
+
+export interface CommonExternalLinkProps extends LinkProps {
   children: React.ReactNode;
   variant?: 'primaryContrast' | 'secondary';
 }
 
-export default function ExteralLink({ children, variant = 'primaryContrast', ...props }: ExternalLinkProps) {
+function CommonExternalLink({ children, variant = 'primaryContrast', ...props }: CommonExternalLinkProps) {
   const Wrapper = variant === 'primaryContrast' ? PrimaryContrastLink : SecondaryAccentLink;
 
   return (
     <Wrapper {...props} target="_blank" rel="noreferrer">
       {children}
-      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="external-anchor" />
     </Wrapper>
+  );
+}
+
+export default function ExteralLink({ children, ...props }: CommonExternalLinkProps) {
+  return (
+    <ExternalLinkWrapper {...props}>
+      {children}
+      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="external-anchor" />
+    </ExternalLinkWrapper>
+  );
+}
+
+export interface ExternalIconLinkProps extends Omit<CommonExternalLinkProps, 'children'> {
+  icon: IconProp;
+}
+
+export function ExternalIconLink({ icon, ...props }: ExternalIconLinkProps) {
+  return (
+    <ExternalIconLinkWrapper {...props}>
+      <FontAwesomeIcon icon={icon} size="lg" />
+    </ExternalIconLinkWrapper>
   );
 }
