@@ -11,6 +11,8 @@ import Contributions from '../components/HomePage/Contributions';
 import GitHubContributionsCard from '../components/Card/GitHubContributionsCard';
 import Footer from '../components/Footer';
 import { fetchLastWatched } from '../lib/letterboxdApi';
+import LogEntry from '../components/Letterboxd/LogEntry';
+import LastFourWatched from '../components/Letterboxd/LastFourWatched';
 
 export const revalidate = 60 * 60 * 5; // Regenerate page every 5 hours.
 
@@ -25,8 +27,8 @@ const NavLinks: HeaderLink[] = [
   },
 ];
 
-export default function Home() {
-  fetchLastWatched().then(console.log);
+export default async function Home() {
+  const logEntries = await fetchLastWatched();
 
   return (
     <MainLayout>
@@ -59,6 +61,7 @@ export default function Home() {
           I&apos;m also obsessed with type safety… static typing for the win!
         </p>
         <p>When I&apos;m not coding, I enjoy watching movies, playing video games, and reading books.</p>
+        <LastFourWatched logEntries={logEntries} />
         <ContentTitle>Contributions</ContentTitle>
         <Contributions />
         <ContentTitle>Project Highlight</ContentTitle>
