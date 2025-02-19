@@ -1,6 +1,6 @@
 'use client';
 
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link, { LinkProps } from 'next/link';
@@ -73,12 +73,13 @@ export default function ExteralLink({ children, ...props }: CommonExternalLinkPr
 
 export interface ExternalIconLinkProps extends Omit<CommonExternalLinkProps, 'children'> {
   icon: IconProp;
+  size: SizeProp;
 }
 
-export function ExternalIconLink({ icon, ...props }: ExternalIconLinkProps) {
+export function ExternalIconLink({ icon, size, ...props }: ExternalIconLinkProps) {
   return (
     <ExternalIconLinkWrapper {...props}>
-      <FontAwesomeIcon icon={icon} size="lg" />
+      <FontAwesomeIcon icon={icon} size={size} />
     </ExternalIconLinkWrapper>
   );
 }

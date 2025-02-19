@@ -43,6 +43,8 @@
   --space-7: clamp(3.625rem, 6.75vw + 2.275rem, 7rem);
   --space-8: clamp(4.125rem, 7.75vw + 2.575rem, 8rem);
 
+  --hairline: max(0.0625rem, 1px)
+
   color-scheme: dark;
   font-family: var(--font-family);
   scrollbar-color: var(--secondary-text-color) transparent;
