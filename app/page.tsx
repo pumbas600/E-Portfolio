@@ -10,6 +10,9 @@ import LinkBase from '../components/Links/LinkBase';
 import Contributions from '../components/HomePage/Contributions';
 import GitHubContributionsCard from '../components/Card/GitHubContributionsCard';
 import Footer from '../components/Footer';
+import { fetchLastWatched } from '../lib/letterboxdApi';
+
+export const revalidate = 60 * 60 * 5; // Regenerate page every 5 hours.
 
 const NavLinks: HeaderLink[] = [
   {
@@ -23,6 +26,8 @@ const NavLinks: HeaderLink[] = [
 ];
 
 export default function Home() {
+  fetchLastWatched().then(console.log);
+
   return (
     <MainLayout>
       <HeroSection>
