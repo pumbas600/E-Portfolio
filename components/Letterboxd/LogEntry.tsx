@@ -20,8 +20,8 @@ const LinkWrapper = styled(Link)`
   border: var(--hairline) solid var(--border-color);
 
   &:hover {
-    border-color: var(--primary-text-color);
-    outline: calc(2 * var(--hairline)) solid var(--primary-text-color);
+    border-color: var(--secondary-accent-color);
+    outline: var(--hairline) solid var(--secondary-accent-color);
   }
 `;
 

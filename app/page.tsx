@@ -60,7 +60,10 @@ export default async function Home() {
           personal projects, a selection of which can be seen on my <LinkBase href="/projects">projects page</LinkBase>.
           I&apos;m also obsessed with type safety… static typing for the win!
         </p>
-        <p>When I&apos;m not coding, I enjoy watching movies, playing video games, and reading books.</p>
+        <p>
+          When I&apos;m not coding, I enjoy watching movies, playing video games, and reading books. Check out my last
+          four watched movies below!
+        </p>
         <LastFourWatched logEntries={logEntries} />
         <ContentTitle>Contributions</ContentTitle>
         <Contributions />
