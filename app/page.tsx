@@ -61,8 +61,8 @@ export default async function Home() {
           I&apos;m also obsessed with type safety… static typing for the win!
         </p>
         <p>
-          When I&apos;m not coding, I enjoy watching movies, playing video games, and reading books. Check out my last
-          four watched movies below!
+          When I&apos;m not coding, I enjoy watching movies, playing video games, and reading books. Check out the last
+          four movies I watched below!
         </p>
         <LastFourWatched logEntries={logEntries} />
         <ContentTitle>Contributions</ContentTitle>
