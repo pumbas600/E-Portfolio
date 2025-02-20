@@ -26,7 +26,7 @@ export interface RssData {
 }
 
 async function fetchRssFeed(): Promise<string> {
-  const response = await fetch('http://localhost:3000/rss.xml');
+  const response = await fetch('https://letterboxd.com/pumbas600/rss/');
   return await response.text();
 }
 
