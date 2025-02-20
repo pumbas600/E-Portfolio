@@ -7,6 +7,9 @@ const LinkWrapper = styled(Link)`
   position: relative;
   width: 100%;
   aspect-ratio: 2/3;
+  border-radius: min(4%, var(--space-0_25));
+  overflow: hidden;
+  border: var(--hairline) solid var(--border-color);
 `;
 
 export interface LogEntryProps {
