@@ -11,7 +11,6 @@ import Contributions from '../components/HomePage/Contributions';
 import GitHubContributionsCard from '../components/Card/GitHubContributionsCard';
 import Footer from '../components/Footer';
 import { fetchLastWatched } from '../lib/letterboxdApi';
-import LogEntry from '../components/Letterboxd/LogEntry';
 import LastFourWatched from '../components/Letterboxd/LastFourWatched';
 
 export const revalidate = 60 * 60 * 5; // Regenerate page every 5 hours.
@@ -20,6 +19,10 @@ const NavLinks: HeaderLink[] = [
   {
     label: 'Employment',
     link: '/employment',
+  },
+  {
+    label: 'Projects',
+    link: '/projects',
   },
   {
     label: 'Education',
