@@ -1,17 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Header, { HeaderLink } from '../components/Header';
+import Header, { HeaderLink } from '@/components/Header';
 import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
-import MainLayout from '../components/Layout/MainLayout';
-import ExteralLink from '../components/Links/ExternalLink';
-import PersonalLinks from '../data/Links';
-import LinkContainer from '../components/HomePage/LinkContainer';
-import { ContentTitle, MainContent } from '../components/Layout/MainContent';
-import LinkBase from '../components/Links/LinkBase';
-import Contributions from '../components/HomePage/Contributions';
-import GitHubContributionsCard from '../components/Card/GitHubContributionsCard';
-import Footer from '../components/Footer';
-import { fetchLastWatched } from '../lib/letterboxdApi';
-import LastFourWatched from '../components/Letterboxd/LastFourWatched';
+import MainLayout from '@/components/Layout/MainLayout';
+import ExteralLink from '@/components/Links/ExternalLink';
+import PersonalLinks from '@/data/Links';
+import LinkContainer from '@/components/HomePage/LinkContainer';
+import { ContentTitle, MainContent } from '@/components/Layout/MainContent';
+import LinkBase from '@/components/Links/LinkBase';
+import Contributions from '@/components/HomePage/Contributions';
+import GitHubContributionsCard from '@/components/Card/GitHubContributionsCard';
+import Footer from '@/components/Footer';
+import { fetchLastWatched } from '@/lib/letterboxdApi';
+import LastFourWatched from '@/components/Letterboxd/LastFourWatched';
 
 export const revalidate = 60 * 60 * 5; // Regenerate page every 5 hours.
 
@@ -55,17 +55,17 @@ export default async function Home() {
       <MainContent>
         <ContentTitle>About Me</ContentTitle>
         <p>
-          Hi, I&apos;m Josh 👋, a software engineer at <LinkBase href="https://letterboxd.com/">Letterboxd</LinkBase>{' '}
-          and recent University of Auckland graduate.
+          Hi, I'm Josh 👋, a software engineer at <LinkBase href="https://letterboxd.com/">Letterboxd</LinkBase> and
+          recent University of Auckland graduate.
         </p>
         <p>
           I love building software that provides value to users. This has been the motivation behind a number of my
           personal projects, a selection of which can be seen on my <LinkBase href="/projects">projects page</LinkBase>.
-          I&apos;m also obsessed with type safety… static typing for the win!
+          I'm also obsessed with type safety… static typing for the win!
         </p>
         <p>
-          When I&apos;m not coding, I enjoy watching movies, playing video games, and reading books. Check out my last
-          four watched movies below, or my profile on{' '}
+          When I'm not coding, I enjoy watching movies, playing video games, and reading books. Check out my last four
+          watched movies below, or my profile on{' '}
           <LinkBase href="https://letterboxd.com/pumbas600/">Letterboxd</LinkBase>!
         </p>
         <LastFourWatched logEntries={logEntries} />

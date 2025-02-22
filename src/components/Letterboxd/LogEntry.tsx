@@ -52,7 +52,7 @@ export default function LogEntry({ logEntry }: LogEntryProps) {
             <FontAwesomeIcon icon={faStar} key={index} size="1x" />
           ))}
         {hasHalfStar && <FontAwesomeIcon icon={faStarHalfStroke} size="1x" />}
-        {logEntry.rewatched && <FontAwesomeIcon icon={faRetweet} size="1x" />}
+        {logEntry.rewatched && <FontAwesomeIcon icon={faRetweet} size="1x" title="I've watched this before" />}
       </IconWrapper>
     </LogEntryWrapper>
   );
