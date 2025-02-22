@@ -1,5 +1,6 @@
 'use client';
 
+import { Badges } from '../Badges';
 import LinkBase from '../Links/LinkBase';
 import Metric from '../Metric';
 import ProjectCard from './ProjectCard';
@@ -30,7 +31,7 @@ export default function QuizBotCard() {
       }
       date="September 2021"
       githubUrl="https://github.com/pumbas600/Halpbot-v1"
-      technologies={[]}
+      technologies={[Badges.Java, Badges.SprintBoot, Badges.JavaScript]}
     />
   );
 }

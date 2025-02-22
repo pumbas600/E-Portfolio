@@ -7,6 +7,9 @@ import NextJsIcon from '../Icons/NextJsIcon';
 import ReactIcon from '../Icons/ReactIcon';
 import FirestoreIcon from '../Icons/FirestoreIcon';
 import OracleIcon from '../Icons/OracleIcon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faJava, faJs } from '@fortawesome/free-brands-svg-icons';
+import SprintBootIcon from '../Icons/SprintBootIcon';
 
 export const Badges = {
   TypeScript: {
@@ -35,6 +38,22 @@ export const Badges = {
     name: 'Oracle Cloud',
     icon: <OracleIcon />,
     hoverBackground: '#EA1B22',
+  },
+  Java: {
+    name: 'Java',
+    icon: <FontAwesomeIcon icon={faJava} size="1x" />,
+    hoverBackground: '#ED8B00',
+  },
+  JavaScript: {
+    name: 'JavaScript',
+    icon: <FontAwesomeIcon icon={faJs} size="1x" />,
+    hoverColor: '#000000',
+    hoverBackground: '#F7DF1E',
+  },
+  SprintBoot: {
+    name: 'Spring Boot',
+    icon: <SprintBootIcon />,
+    hoverBackground: '#70AD51',
   },
 } satisfies Record<string, BadgeProps>;
 
