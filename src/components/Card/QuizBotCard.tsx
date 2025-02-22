@@ -31,7 +31,7 @@ export default function QuizBotCard() {
       }
       date="September 2021"
       githubUrl="https://github.com/pumbas600/Halpbot-v1"
-      technologies={[Badges.Java, Badges.SprintBoot, Badges.JavaScript]}
+      technologies={[Badges.Java, Badges.SprintBoot, Badges.Thymeleaf, Badges.JavaScript]}
     />
   );
 }

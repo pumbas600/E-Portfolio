@@ -10,6 +10,7 @@ import OracleIcon from '../Icons/OracleIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJava, faJs } from '@fortawesome/free-brands-svg-icons';
 import SprintBootIcon from '../Icons/SprintBootIcon';
+import ThymeleafIcon from '../Icons/ThymeleafIcon';
 
 export const Badges = {
   TypeScript: {
@@ -54,6 +55,11 @@ export const Badges = {
     name: 'Spring Boot',
     icon: <SprintBootIcon />,
     hoverBackground: '#70AD51',
+  },
+  Thymeleaf: {
+    name: 'Thymeleaf',
+    icon: <ThymeleafIcon />,
+    hoverBackground: '#005F0F',
   },
 } satisfies Record<string, BadgeProps>;
 
