@@ -1,3 +1,5 @@
+'use client';
+
 import { BadgeContainer } from '../Badges';
 import Card, { CardLayout } from './index';
 
