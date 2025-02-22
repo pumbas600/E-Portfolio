@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJava, faJs } from '@fortawesome/free-brands-svg-icons';
 import SprintBootIcon from '../Icons/SprintBootIcon';
 import ThymeleafIcon from '../Icons/ThymeleafIcon';
+import DerbyIcon from '../Icons/DerbyIcon';
 
 export const Badges = {
   TypeScript: {
@@ -60,6 +61,12 @@ export const Badges = {
     name: 'Thymeleaf',
     icon: <ThymeleafIcon />,
     hoverBackground: '#005F0F',
+  },
+  Derby: {
+    name: 'Derby',
+    icon: <DerbyIcon />,
+    hoverColor: '#000000',
+    hoverBackground: '#ffffff',
   },
 } satisfies Record<string, BadgeProps>;
 

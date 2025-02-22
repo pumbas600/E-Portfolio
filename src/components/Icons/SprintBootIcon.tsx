@@ -3,7 +3,7 @@ import { IconProps } from './IconProps';
 export default function SprintBootIcon(props: IconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 32 32" {...props}>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path d="M0 0h32v32H0z" />
 
         <path
