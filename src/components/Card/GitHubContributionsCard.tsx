@@ -3,25 +3,12 @@
 import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
-import styled from 'styled-components';
 import { Badges } from '../Badges';
-
-const Metric = styled.span`
-  color: var(--secondary-accent-color);
-  display: inline-block;
-  font-size: var(--type-1_5);
-  font-weight: 500;
-`;
-
-function formatMetric(metric: number): string {
-  if (metric === -1) return '-';
-  if (metric < 1000) return metric.toString();
-  return `${(metric / 1000).toFixed(1)}k`;
-}
+import Metric from '../Metric';
 
 export default function GitHubContributionsCard() {
-  const [totalCalls, setTotalCalls] = useState(-1);
-  const [pastWeekCalls, setPastWeekCalls] = useState(-1);
+  const [totalCalls, setTotalCalls] = useState<number | undefined>(undefined);
+  const [pastWeekCalls, setPastWeekCalls] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     fetchMetrics();
@@ -57,12 +44,8 @@ export default function GitHubContributionsCard() {
             Oracle Cloud Infastructure compute instance.
           </p>
           <div>
-            <p>
-              <Metric>{formatMetric(pastWeekCalls)}</Metric>&nbsp;graphs rendered in the past week.
-            </p>
-            <p>
-              <Metric>{formatMetric(totalCalls)}</Metric>&nbsp;graphs rendered in total.
-            </p>
+            <Metric value={pastWeekCalls} label="graphs rendered in the past week." />
+            <Metric value={totalCalls} label="graphs rendered in total." />
           </div>
         </>
       }
