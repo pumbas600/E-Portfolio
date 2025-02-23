@@ -55,7 +55,7 @@ export const Badges = {
   SprintBoot: {
     name: 'Spring Boot',
     icon: <SprintBootIcon />,
-    hoverBackground: '#70AD51',
+    hoverBackground: '#6db33f',
   },
   Thymeleaf: {
     name: 'Thymeleaf',

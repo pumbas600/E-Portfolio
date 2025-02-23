@@ -1,38 +1,52 @@
 'use client';
 
 import { BadgeContainer } from '../Badges';
-import Card, { CardLayout } from './index';
+import Card from './index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { generateId } from '../Utils';
-import { Fragment, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { SecondaryText } from '../Typography';
 import ExteralLink from '../Links/ExternalLink';
 import styled from 'styled-components';
 import Badge, { BadgeProps } from '../Badges/Badge';
-import SparklesIcon from '../Icons/SparklesIcon';
 
-const HighlightedProjectWrapper = styled(CardLayout)`
-  position: relative;
-`;
+const HighlightedProjectCard = styled(Card)`
+  // Modified from: https://codepen.io/michellebarker/pen/gOMBPQj
 
-const HighlightedIcon = styled(SparklesIcon)`
-  position: absolute;
-  height: var(--space-4);
-  color: var(--primary-accent-color);
-`;
+  @property --angle {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0deg;
+  }
 
-const TopRightHighightedIcon = styled(HighlightedIcon)`
-  top: 0;
-  right: 0;
-  transform: translate(20%, -20%);
-`;
+  --highlight: var(--primary-accent-color);
+  --highlight-transparent: rgb(from var(--highlight) r g b / 0.1);
 
-const BottomLeftHighlightedIcon = styled(HighlightedIcon)`
-  left: 0;
-  bottom: 0;
-  transform: translate(-20%, 20%);
+  --main-background: linear-gradient(var(--secondary-background-color), var(--secondary-background-color));
+  --gradient-border: conic-gradient(
+    from var(--angle),
+    transparent,
+    var(--highlight) 0.1turn,
+    var(--highlight) 0.15turn,
+    transparent 0.25turn,
+    transparent 0.5turn,
+    var(--highlight) 0.6turn,
+    var(--highlight) 0.65turn,
+    transparent 0.75turn
+  );
+
+  animation: borderRotate 4000ms linear infinite forwards;
+  background: var(--main-background) padding-box, var(--gradient-border) border-box, var(--main-background) border-box;
+  border: var(--space-0_25) solid transparent;
+  box-shadow: 0 0 var(--space-1_25) var(--space-0_25) var(--highlight-transparent);
+
+  @keyframes borderRotate {
+    100% {
+      --angle: 360deg;
+    }
+  }
 `;
 
 const Description = styled.div`
@@ -58,27 +72,23 @@ export default function ProjectCard({
   githubUrl,
   technologies,
 }: ProjectCardProps) {
-  const Wrapper = highlighted ? HighlightedProjectWrapper : Fragment;
+  const CardComponent = highlighted ? HighlightedProjectCard : Card;
 
   return (
-    <Wrapper>
-      {highlighted && <TopRightHighightedIcon />}
-      {highlighted && <BottomLeftHighlightedIcon />}
-      <Card id={generateId(name)}>
-        <SecondaryText>{date}</SecondaryText>
-        <h3>
-          <ExteralLink href={githubUrl} variant="secondary">
-            <FontAwesomeIcon icon={faGithub} />
-            {name}
-          </ExteralLink>
-        </h3>
-        <Description>{description}</Description>
-        <BadgeContainer>
-          {technologies.map((props) => (
-            <Badge key={props.name} {...props} />
-          ))}
-        </BadgeContainer>
-      </Card>
-    </Wrapper>
+    <CardComponent id={generateId(name)}>
+      <SecondaryText>{date}</SecondaryText>
+      <h3>
+        <ExteralLink href={githubUrl} variant="secondary">
+          <FontAwesomeIcon icon={faGithub} />
+          {name}
+        </ExteralLink>
+      </h3>
+      <Description>{description}</Description>
+      <BadgeContainer>
+        {technologies.map((props) => (
+          <Badge key={props.name} {...props} />
+        ))}
+      </BadgeContainer>
+    </CardComponent>
   );
 }
