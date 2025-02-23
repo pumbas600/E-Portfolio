@@ -46,13 +46,7 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
       <header>
-        <Header
-          links={[
-            { label: 'Contributions', link: '#contributions' },
-            { label: 'Projects', link: '#projects' },
-            { label: 'Contact Me', link: '#contact-me' },
-          ]}
-        />
+        <Header />
       </header>
       <div className="container dark:text-gray-200 text-gray-800 pb-16">
         <AboutMe />
