@@ -24,15 +24,10 @@ const Nav = styled.nav`
 `;
 
 const StyledLink = styled(Link)`
-  color: var(--primary-accent-contrast-text-color);
+  color: inherit;
   font-size: var(--type-1_5);
   text-decoration-color: transparent;
   transition: color 150ms ease-in-out, text-decoration-color 200ms ease-in-out;
-
-  &:hover,
-  &:active {
-    text-decoration-color: var(--primary-accent-contrast-text-color);
-  }
 `;
 
 const HomeLink = styled(StyledLink)`
@@ -46,11 +41,22 @@ export interface HeaderLink {
   link: string;
 }
 
-export interface HeaderProps {
-  links: HeaderLink[];
-}
+const NavLinks: HeaderLink[] = [
+  {
+    label: 'Employment',
+    link: '/employment',
+  },
+  {
+    label: 'Projects',
+    link: '/projects',
+  },
+  {
+    label: 'Education',
+    link: '/education',
+  },
+];
 
-export default function Header({ links }: HeaderProps) {
+export default function Header() {
   return (
     <HeaderWrapper>
       <Nav>
@@ -60,7 +66,7 @@ export default function Header({ links }: HeaderProps) {
           Jeffers
         </HomeLink>
         <ul>
-          {links.map((link) => (
+          {NavLinks.map((link) => (
             <li key={link.link}>
               <StyledLink href={link.link}>{link.label}</StyledLink>
             </li>

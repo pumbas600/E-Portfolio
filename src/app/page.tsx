@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Header, { HeaderLink } from '@/components/Header';
+import Header from '@/components/Header';
 import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
 import MainLayout from '@/components/Layout/MainLayout';
 import ExteralLink from '@/components/Links/ExternalLink';
@@ -15,28 +15,13 @@ import LastFourWatched from '@/components/Letterboxd/LastFourWatched';
 
 export const revalidate = 60 * 60 * 5; // Regenerate page every 5 hours.
 
-const NavLinks: HeaderLink[] = [
-  {
-    label: 'Employment',
-    link: '/employment',
-  },
-  {
-    label: 'Projects',
-    link: '/projects',
-  },
-  {
-    label: 'Education',
-    link: '/education',
-  },
-];
-
 export default async function Home() {
   const logEntries = await fetchLastWatched();
 
   return (
     <MainLayout>
       <HeroSection>
-        <Header links={NavLinks} />
+        <Header />
         <HeroContent>
           <div>
             <HeroTitle>Josh Jeffers</HeroTitle>
