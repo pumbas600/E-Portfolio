@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import { BadgeProps } from './TechnologyBadge';
+import { TechnologyBadgeProps } from './TechnologyBadge';
 import TypeScriptIcon from '../Icons/TypeScriptIcon';
 import NextJsIcon from '../Icons/NextJsIcon';
 import ReactIcon from '../Icons/ReactIcon';
@@ -15,60 +15,60 @@ import DerbyIcon from '../Icons/DerbyIcon';
 
 export const TechnologyBadges = {
   TypeScript: {
-    name: 'TypeScript',
+    label: 'TypeScript',
     icon: <TypeScriptIcon />,
     hoverBackground: '#007ACC',
   },
   NextJs: {
-    name: 'Next.js',
+    label: 'Next.js',
     icon: <NextJsIcon />,
     hoverBackground: '#000000',
   },
   React: {
-    name: 'React',
+    label: 'React',
     icon: <ReactIcon />,
     hoverColor: '#62dbee',
     hoverBackground: '#20232a',
   },
   Firestore: {
-    name: 'Firestore',
+    label: 'Firestore',
     icon: <FirestoreIcon />,
     hoverColor: '#000000',
     hoverBackground: '#FFCA28',
   },
   OracleCloud: {
-    name: 'Oracle Cloud',
+    label: 'Oracle Cloud',
     icon: <OracleIcon />,
     hoverBackground: '#EA1B22',
   },
   Java: {
-    name: 'Java',
+    label: 'Java',
     icon: <FontAwesomeIcon icon={faJava} size="1x" />,
     hoverBackground: '#ED8B00',
   },
   JavaScript: {
-    name: 'JavaScript',
+    label: 'JavaScript',
     icon: <FontAwesomeIcon icon={faJs} size="1x" />,
     hoverColor: '#000000',
     hoverBackground: '#F7DF1E',
   },
   SprintBoot: {
-    name: 'Spring Boot',
+    label: 'Spring Boot',
     icon: <SprintBootIcon />,
     hoverBackground: '#6db33f',
   },
   Thymeleaf: {
-    name: 'Thymeleaf',
+    label: 'Thymeleaf',
     icon: <ThymeleafIcon />,
     hoverBackground: '#005F0F',
   },
   Derby: {
-    name: 'Derby',
+    label: 'Derby',
     icon: <DerbyIcon />,
     hoverColor: '#000000',
     hoverBackground: '#ffffff',
   },
-} satisfies Record<string, BadgeProps>;
+} satisfies Record<string, TechnologyBadgeProps>;
 
 export const BadgeContainer = styled.div`
   display: flex;

@@ -10,7 +10,9 @@ import { ReactNode } from 'react';
 import { SecondaryText } from '../Typography';
 import ExteralLink from '../Links/ExternalLink';
 import styled from 'styled-components';
-import Badge, { BadgeProps } from '../Badges/TechnologyBadge';
+import TechnologyBadge, { TechnologyBadgeProps } from '../Badges/TechnologyBadge';
+import Badge from '../Badges/Badge';
+import SparklesIcon from '../Icons/SparklesIcon';
 
 const HighlightedProjectCard = styled(Card)`
   // Modified from: https://codepen.io/michellebarker/pen/gOMBPQj
@@ -55,13 +57,18 @@ const Description = styled.div`
   row-gap: var(--space-0_75);
 `;
 
+const SecondaryWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 interface ProjectCardProps {
   highlighted?: boolean;
   name: string;
   description: ReactNode;
   date: string;
   githubUrl: string;
-  technologies: BadgeProps[];
+  technologies: TechnologyBadgeProps[];
 }
 
 export default function ProjectCard({
@@ -76,7 +83,10 @@ export default function ProjectCard({
 
   return (
     <CardComponent id={generateId(name)}>
-      <SecondaryText>{date}</SecondaryText>
+      <SecondaryWrapper>
+        <SecondaryText>{date}</SecondaryText>
+        {highlighted && <Badge label="Highlight" icon={<SparklesIcon />} />}
+      </SecondaryWrapper>
       <h3>
         <ExteralLink href={githubUrl} variant="secondary">
           <FontAwesomeIcon icon={faGithub} />
@@ -86,7 +96,7 @@ export default function ProjectCard({
       <Description>{description}</Description>
       <BadgeContainer>
         {technologies.map((props) => (
-          <Badge key={props.name} {...props} />
+          <TechnologyBadge key={props.label} {...props} />
         ))}
       </BadgeContainer>
     </CardComponent>
