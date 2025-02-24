@@ -1,6 +1,6 @@
 'use client';
 
-import { Badges } from '../Badges';
+import { TechnologyBadges } from '../Badges/TechnologyBadges';
 import LinkBase from '../Links/LinkBase';
 import ProjectCard from './ProjectCard';
 
@@ -20,7 +20,7 @@ export default function PortfolioCard() {
       }
       date="February 2025"
       githubUrl="https://github.com/pumbas600/E-Portfolio"
-      technologies={[Badges.NextJs, Badges.React, Badges.TypeScript]}
+      technologies={[TechnologyBadges.NextJs, TechnologyBadges.React, TechnologyBadges.TypeScript]}
     />
   );
 }

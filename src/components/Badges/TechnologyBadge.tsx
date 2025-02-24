@@ -32,7 +32,7 @@ export interface BadgeProps {
   hoverColor?: string;
 }
 
-export default function Badge({ icon, name, hoverColor, hoverBackground }: BadgeProps) {
+export default function TechnologyBadge({ icon, name, hoverColor, hoverBackground }: BadgeProps) {
   return (
     <BadgeWrapper $hoverBackground={hoverBackground} $hoverColor={hoverColor}>
       {icon} {name}

@@ -1,6 +1,6 @@
 'use client';
 
-import { BadgeContainer } from '../Badges';
+import { BadgeContainer } from '../Badges/TechnologyBadges';
 import Card from './index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ import { ReactNode } from 'react';
 import { SecondaryText } from '../Typography';
 import ExteralLink from '../Links/ExternalLink';
 import styled from 'styled-components';
-import Badge, { BadgeProps } from '../Badges/Badge';
+import Badge, { BadgeProps } from '../Badges/TechnologyBadge';
 
 const HighlightedProjectCard = styled(Card)`
   // Modified from: https://codepen.io/michellebarker/pen/gOMBPQj

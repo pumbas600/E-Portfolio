@@ -1,6 +1,6 @@
 'use client';
 
-import { Badges } from '../Badges';
+import { TechnologyBadges } from '../Badges/TechnologyBadges';
 import LinkBase from '../Links/LinkBase';
 import Metric from '../Metric';
 import ProjectCard from './ProjectCard';
@@ -31,7 +31,13 @@ export default function QuizBotCard() {
       }
       date="September 2021"
       githubUrl="https://github.com/pumbas600/Halpbot-v1"
-      technologies={[Badges.Java, Badges.SprintBoot, Badges.Thymeleaf, Badges.JavaScript, Badges.Derby]}
+      technologies={[
+        TechnologyBadges.Java,
+        TechnologyBadges.SprintBoot,
+        TechnologyBadges.Thymeleaf,
+        TechnologyBadges.JavaScript,
+        TechnologyBadges.Derby,
+      ]}
     />
   );
 }

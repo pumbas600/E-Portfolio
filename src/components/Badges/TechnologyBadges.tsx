@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import { BadgeProps } from './Badge';
+import { BadgeProps } from './TechnologyBadge';
 import TypeScriptIcon from '../Icons/TypeScriptIcon';
 import NextJsIcon from '../Icons/NextJsIcon';
 import ReactIcon from '../Icons/ReactIcon';
@@ -13,7 +13,7 @@ import SprintBootIcon from '../Icons/SprintBootIcon';
 import ThymeleafIcon from '../Icons/ThymeleafIcon';
 import DerbyIcon from '../Icons/DerbyIcon';
 
-export const Badges = {
+export const TechnologyBadges = {
   TypeScript: {
     name: 'TypeScript',
     icon: <TypeScriptIcon />,

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
-import { Badges } from '../Badges';
+import { TechnologyBadges } from '../Badges/TechnologyBadges';
 import Metric from '../Metric';
 
 export default function GitHubContributionsCard() {
@@ -51,7 +51,13 @@ export default function GitHubContributionsCard() {
       }
       date="April 2023"
       githubUrl="https://github.com/pumbas600/github-contributions"
-      technologies={[Badges.NextJs, Badges.React, Badges.TypeScript, Badges.Firestore, Badges.OracleCloud]}
+      technologies={[
+        TechnologyBadges.NextJs,
+        TechnologyBadges.React,
+        TechnologyBadges.TypeScript,
+        TechnologyBadges.Firestore,
+        TechnologyBadges.OracleCloud,
+      ]}
     />
   );
 }
