@@ -2,6 +2,10 @@
 
 import styled from 'styled-components';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import IconButton from '../Buttons/IconButton';
+import BurgerMenuButton from '../Buttons/BurgerMenuButton';
 
 const HeaderWrapper = styled.header`
   padding-block: var(--space-1_5);
@@ -20,6 +24,12 @@ const Nav = styled.nav`
 
     list-style-type: none;
     padding-inline: 0;
+  }
+
+  @media (max-width: 32rem) {
+    & > ul {
+      display: none;
+    }
   }
 `;
 
@@ -65,6 +75,7 @@ export default function Header() {
           <br />
           Jeffers
         </HomeLink>
+        <BurgerMenuButton />
         <ul>
           {NavLinks.map((link) => (
             <li key={link.link}>
