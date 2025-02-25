@@ -2,47 +2,47 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const MenuButton = styled.button`
-  --width: 2.85rem;
+  --width: 1.75rem;
 
-  border: var(--hairline) solid var(--border-color);
+  border: none;
   background-color: transparent;
   position: relative;
-  width: var(--width);
-  height: var(--width);
+  padding: var(--space-0_25);
+  cursor: pointer;
+  color: inherit;
 
-  & > span {
-    --line-width: calc(0.6 * var(--width));
-    --offset: calc((var(--width) - var(--line-width)) / 2);
+  & > div {
+    position: relative;
+    width: var(--width);
+    height: var(--width);
 
-    display: block;
-    position: absolute;
-    height: var(--hairline);
-    left: var(--offset);
-    width: var(--line-width);
-    background: #ffffff;
-    transition: all 200ms ease;
-    transform: rotate(0deg);
+    & > span {
+      height: calc(2 * var(--hairline));
+      width: 100%;
+      background: currentColor;
+      position: absolute;
+      transition: all 200ms ease-in-out;
+      left: 0;
+      top: 50%;
+
+      &:first-child {
+        transform: translateY(0.3rem);
+      }
+
+      &:last-child {
+        transform: translateY(-0.3rem);
+      }
+    }
   }
 
-  & > span:first-child {
-    top: 0.85rem;
-  }
+  & > div[aria-expanded='true'] > span {
+    &:first-child {
+      transform: rotate(45deg);
+    }
 
-  & > span:last-child {
-    bottom: 0.85rem;
-  }
-
-  &[aria-expanded='true'] span {
-    top: initial;
-    bottom: initial;
-  }
-
-  &[aria-expanded='true'] > span:first-child {
-    transform: rotate(45deg);
-  }
-
-  &[aria-expanded='true'] > span:last-child {
-    transform: rotate(-45deg);
+    &:last-child {
+      transform: rotate(-45deg);
+    }
   }
 `;
 
@@ -54,14 +54,11 @@ export default function BurgerMenuButton() {
   };
 
   return (
-    <MenuButton
-      className="mobile-menu"
-      title="Open navigation menu"
-      aria-expanded={isExpanded}
-      onClick={toggleExpanded}
-    >
-      <span />
-      <span />
+    <MenuButton className="mobile-menu" title="Open navigation menu" onClick={toggleExpanded}>
+      <div aria-expanded={isExpanded}>
+        <span />
+        <span />
+      </div>
     </MenuButton>
   );
 }
