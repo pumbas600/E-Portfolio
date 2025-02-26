@@ -21,16 +21,16 @@ const HomeLink = styled(NavigationLink)`
 
 const NavLinks: NavigationLink[] = [
   {
-    label: 'Employment',
-    link: '/employment',
-  },
-  {
     label: 'Projects',
     link: '/projects',
   },
   {
     label: 'Education',
     link: '/education',
+  },
+  {
+    label: 'Employment',
+    link: '/employment',
   },
 ];
 

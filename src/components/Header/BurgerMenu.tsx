@@ -16,59 +16,8 @@ const MenuButton = styled.button`
     opacity: 80%;
   }
 
-  &[aria-expanded='true'] > div > span {
-    &:first-child {
-      transform: rotate(45deg);
-    }
-
-    &:last-child {
-      transform: rotate(-45deg);
-    }
-  }
-`;
-
-const Wrapper = styled.div`
-  & > .overlay,
-  & > .mobile-menu {
-    display: none;
-  }
-
-  & > ul {
-    display: flex;
-    column-gap: var(--space-1_5);
-    flex-direction: row;
-    justify-content: flex-end;
-
-    list-style-type: none;
-    padding-inline: 0;
-  }
-
   @media (max-width: 32rem) {
-    & > .mobile-menu {
-      display: block;
-    }
-
-    & > ul {
-      display: none;
-    }
-
-    & > .mobile-menu[aria-expanded='true'] ~ ul {
-      inset: 0;
-      padding-block: calc(2 * var(--space-8));
-      padding-inline: var(--space-2);
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: flex-start;
-      row-gap: var(--space-1);
-      backdrop-filter: blur(8px);
-      background-color: rgb(0 0 0 / 40%);
-
-      & > li > a {
-        font-size: var(--type-2);
-      }
-    }
+    display: block;
   }
 `;
 
@@ -94,6 +43,47 @@ const BurgerLine = styled.span`
 
   &:last-child {
     transform: translateY(-0.3rem);
+  }
+
+  [aria-expanded='true'] > div > & {
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+`;
+
+const NavigationWrapper = styled.ul`
+  display: flex;
+  column-gap: var(--space-1_5);
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding-inline: 0;
+
+  [aria-expanded='true'] ~ & {
+    inset: 0;
+    padding-block: calc(2 * var(--space-8));
+    padding-inline: var(--space-2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    row-gap: var(--space-1);
+    backdrop-filter: blur(10px);
+    background-color: rgb(0 0 0 / 25%);
+
+    & > li > a {
+      font-size: var(--type-2);
+    }
+  }
+
+  @media (max-width: 32rem) {
+    display: none;
   }
 `;
 
@@ -121,25 +111,20 @@ export default function BurgerMenu({ links }: BurgerMenuProps) {
   };
 
   return (
-    <Wrapper>
-      <MenuButton
-        className="mobile-menu"
-        title="Open navigation menu"
-        onClick={toggleExpanded}
-        aria-expanded={isExpanded}
-      >
+    <div>
+      <MenuButton title="Open navigation menu" onClick={toggleExpanded} aria-expanded={isExpanded}>
         <BurgerMenuContainer>
           <BurgerLine />
           <BurgerLine />
         </BurgerMenuContainer>
       </MenuButton>
-      <ul>
+      <NavigationWrapper>
         {links.map((link) => (
           <li key={link.link}>
             <NavigationLink href={link.link}>{link.label}</NavigationLink>
           </li>
         ))}
-      </ul>
-    </Wrapper>
+      </NavigationWrapper>
+    </div>
   );
 }
