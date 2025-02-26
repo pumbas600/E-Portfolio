@@ -1,3 +1,4 @@
+import { disableMobileScrolling, enableMobileScrolling } from '@/lib/scrollHelpers';
 import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -16,7 +17,7 @@ const MenuButton = styled.button`
     opacity: 80%;
   }
 
-  @media (max-width: 32rem) {
+  @media screen and (max-width: 32rem) {
     display: block;
   }
 `;
@@ -82,7 +83,7 @@ const NavigationWrapper = styled.ul`
     }
   }
 
-  @media (max-width: 32rem) {
+  @media screen and (max-width: 32rem) {
     display: none;
   }
 `;
@@ -107,7 +108,17 @@ export default function BurgerMenu({ links }: BurgerMenuProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpanded = () => {
-    setIsExpanded((isExpanded) => !isExpanded);
+    setIsExpanded((isExpanded) => {
+      const newIsExpanded = !isExpanded;
+      if (newIsExpanded) {
+        disableMobileScrolling();
+        document.documentElement.scrollTop = 0; /* Scroll to top in case the burger menu is only half visible. */
+      } else {
+        enableMobileScrolling();
+      }
+
+      return newIsExpanded;
+    });
   };
 
   return (

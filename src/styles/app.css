@@ -59,6 +59,12 @@ html {
   scroll-behavior: smooth;
 }
 
+body[data-mobile-scrolling='false'] {
+  @media screen and (max-width: 32rem) {
+    overflow: hidden;
+  }
+}
+
 h1,
 h2,
 h3,
