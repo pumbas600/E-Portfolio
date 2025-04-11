@@ -27,6 +27,11 @@ export const HeroSection = styled(BaseHeroContent)`
   & > header {
     grid-column-start: margin-start;
     grid-column-end: margin-end;
+
+    @media screen and (max-width: 40rem) {
+      grid-column-start: content-start;
+      grid-column-end: content-end;
+    }
   }
 `;
 
