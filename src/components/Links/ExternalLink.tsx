@@ -29,13 +29,14 @@ const SecondaryAccentLink = styled(BaseLink)`
 `;
 
 const ExternalLinkWrapper = styled(CommonExternalLink)`
-  & > .external-anchor {
-    margin-bottom: 0;
-    transition: margin-bottom 100ms ease-in-out;
+  > .external-anchor > .icon {
+    opacity: 0.9;
+    transition: all 100ms ease-in-out;
   }
 
-  &:hover > .external-anchor {
-    margin-bottom: var(--space-0_5);
+  &:hover > .external-anchor > .icon {
+    opacity: 1;
+    transform: translate(var(--space-0_125), calc(-1 * var(--space-0_125)));
   }
 `;
 
@@ -56,7 +57,7 @@ function CommonExternalLink({ children, variant = 'primaryContrast', ...props }:
   const Wrapper = variant === 'primaryContrast' ? PrimaryContrastLink : SecondaryAccentLink;
 
   return (
-    <Wrapper {...props} target="_blank" rel="noreferrer">
+    <Wrapper {...props} target="_blank" rel="noreferrer external">
       {children}
     </Wrapper>
   );
@@ -66,7 +67,9 @@ export default function ExteralLink({ children, ...props }: CommonExternalLinkPr
   return (
     <ExternalLinkWrapper {...props}>
       {children}
-      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="external-anchor" />
+      <span className="external-anchor">
+        <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="icon" />
+      </span>
     </ExternalLinkWrapper>
   );
 }
