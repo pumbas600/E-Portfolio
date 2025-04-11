@@ -11,11 +11,6 @@ interface LinkItems {
 
 const PersonalLinks: LinkItems[] = [
   {
-    name: 'Email',
-    href: 'mailto:joshjeffers600@gmail.com',
-    icon: faEnvelope,
-  },
-  {
     name: 'GitHub',
     href: 'https://github.com/pumbas600',
     icon: faGithub,
@@ -29,6 +24,11 @@ const PersonalLinks: LinkItems[] = [
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/josh-jeffers/',
     icon: faLinkedin,
+  },
+  {
+    name: 'joshjeffers600@gmail.com',
+    href: 'mailto:joshjeffers600@gmail.com',
+    icon: faEnvelope,
   },
 ];
 
