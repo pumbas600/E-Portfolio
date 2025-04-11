@@ -23,8 +23,8 @@ const HighlightedProjectCard = styled(Card)`
     initial-value: 0deg;
   }
 
-  --highlight: var(--primary-accent-color);
-  --highlight-transparent: rgb(from var(--highlight) r g b / 0.1);
+  --highlight: rgb(from var(--primary-accent-color) r g b / 0.2);
+  --highlight-transparent: rgb(from var(--highlight) r g b / 0.05);
 
   --main-background: linear-gradient(var(--secondary-background-color), var(--secondary-background-color));
   --gradient-border: conic-gradient(
