@@ -29,12 +29,12 @@ const SecondaryAccentLink = styled(BaseLink)`
 `;
 
 const ExternalLinkWrapper = styled(CommonExternalLink)`
-  > .external-anchor > .icon {
+  > .external-anchor {
     opacity: 0.9;
     transition: all 100ms ease-in-out;
   }
 
-  &:hover > .external-anchor > .icon {
+  &:hover > .external-anchor {
     opacity: 1;
     transform: translate(var(--space-0_125), calc(-1 * var(--space-0_125)));
   }
@@ -67,9 +67,7 @@ export default function ExteralLink({ children, ...props }: CommonExternalLinkPr
   return (
     <ExternalLinkWrapper {...props}>
       {children}
-      <span className="external-anchor">
-        <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="icon" />
-      </span>
+      <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" className="external-anchor" />
     </ExternalLinkWrapper>
   );
 }

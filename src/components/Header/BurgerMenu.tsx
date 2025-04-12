@@ -11,7 +11,7 @@ const MenuButton = styled.button`
   padding: var(--space-0_25);
   cursor: pointer;
   color: inherit;
-  z-index: 1;
+  z-index: 2;
 
   &:hover {
     opacity: 80%;
@@ -34,7 +34,7 @@ const BurgerLine = styled.span`
   width: 100%;
   background: currentColor;
   position: absolute;
-  transition: all 150ms ease-in-out;
+  transition: all 150ms cubic-bezier(0.79, 0.14, 0.15, 0.86);
   left: 0;
   top: 50%;
 
@@ -68,7 +68,7 @@ const NavigationWrapper = styled.ul`
   [aria-expanded='true'] ~ & {
     inset: 0;
     padding-block: calc(2 * var(--space-8));
-    padding-inline: var(--space-2);
+    padding-inline: var(--space-5);
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -77,6 +77,7 @@ const NavigationWrapper = styled.ul`
     row-gap: var(--space-1);
     backdrop-filter: blur(10px);
     background-color: rgb(0 0 0 / 25%);
+    z-index: 1;
 
     & > li > a {
       font-size: var(--type-2);
