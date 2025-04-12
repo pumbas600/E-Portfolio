@@ -36,7 +36,7 @@ const ExternalLinkWrapper = styled(CommonExternalLink)`
 
   &:hover > .external-anchor {
     opacity: 1;
-    transform: translate(var(--space-0_125), calc(-1 * var(--space-0_125)));
+    transform: translate(0.15em, -0.15em);
   }
 `;
 

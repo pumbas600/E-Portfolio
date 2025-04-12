@@ -15,11 +15,11 @@ const PersonalLinks: LinkItems[] = [
     href: 'https://github.com/pumbas600',
     icon: faGithub,
   },
-  {
-    name: 'Resume',
-    href: './JoshJeffersCVPublic.pdf',
-    icon: faFilePdf,
-  },
+  // {
+  //   name: 'Resume',
+  //   href: './JoshJeffersCVPublic.pdf',
+  //   icon: faFilePdf,
+  // },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/josh-jeffers/',
