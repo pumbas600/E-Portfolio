@@ -44,6 +44,10 @@
   --space-6: clamp(3.058rem, 5.884vw + 1.881rem, 6rem);
   --space-7: clamp(3.549rem, 6.902vw + 2.169rem, 7rem);
   --space-8: clamp(4.04rem, 7.92vw + 2.456rem, 8rem);
+  --space-9: clamp(4.531rem, 8.938vw + 2.743rem, 9rem);
+  --space-10: clamp(5.022rem, 9.956vw + 3.031rem, 10rem);
+  --space-11: clamp(5.513rem, 10.974vw + 3.318rem, 11rem);
+  --space-12: clamp(6.004rem, 11.992vw + 3.606rem, 12rem);
 
   --hairline: max(0.0625rem, 1px);
 

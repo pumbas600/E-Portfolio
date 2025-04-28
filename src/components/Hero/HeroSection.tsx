@@ -22,7 +22,7 @@ export const HeroSection = styled(BaseHeroContent)`
   grid-template-rows: auto 1fr;
   align-content: center;
 
-  height: 100lvh;
+  min-height: 75dvh;
 
   & > header {
     grid-column-start: margin-start;
@@ -38,13 +38,10 @@ export const HeroSection = styled(BaseHeroContent)`
 export const HeroContent = styled.div`
   display: grid;
   grid-row-gap: var(--space-4);
-
   align-content: center;
-  margin-block-end: 25%;
 
-  @media screen and (max-width: 40rem) {
-    margin-block-end: 0;
-  }
+  padding-block-start: var(--space-6);
+  padding-block-end: var(--space-12);
 `;
 
 export const HeroTitle = styled.h1`
@@ -55,4 +52,5 @@ export const HeroTitle = styled.h1`
 
 export const HeroSubtitle = styled.h2`
   font-weight: 600;
+  line-height: 1.2;
 `;
