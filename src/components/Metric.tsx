@@ -7,6 +7,7 @@ const MetricWrapper = styled.span`
   display: inline-block;
   font-size: var(--type-1_5);
   font-weight: 500;
+  letter-spacing: 0.05em;
 `;
 
 function formatMetric(metric?: number): string {
