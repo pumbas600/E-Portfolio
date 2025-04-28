@@ -23,6 +23,7 @@ export const HeroSection = styled(BaseHeroContent)`
   align-content: center;
 
   min-height: 75dvh;
+  margin-block-end: var(--space-8);
 
   & > header {
     grid-column-start: margin-start;

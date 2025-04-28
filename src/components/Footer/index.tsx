@@ -6,6 +6,7 @@ import { ExternalIconLink } from '../Links/ExternalLink';
 import PersonalLinks from '../../data/Links';
 
 const FooterWrapper = styled(BaseHeroContent).attrs({ as: 'footer' })`
+  margin-block-start: var(--space-8);
   padding-block: var(--space-4);
   row-gap: var(--space-2);
 `;

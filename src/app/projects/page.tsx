@@ -3,15 +3,16 @@ import PortfolioCard from '@/components/Card/PortfolioCard';
 import QuizBotCard from '@/components/Card/QuizBotCard';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import { MainContent } from '@/components/Layout/MainContent';
+import { ContentTitle, MainContent } from '@/components/Layout/MainContent';
 import MainLayout from '@/components/Layout/MainLayout';
 
 export default function Projects() {
   return (
     <MainLayout>
       <Header />
-      <h1>Hi</h1>
       <MainContent>
+        <ContentTitle>Projects</ContentTitle>
+        <p>A collection of some of the many projects I've worked on over the past few years.</p>
         <GitHubContributionsCard />
         <PortfolioCard />
         <QuizBotCard />
