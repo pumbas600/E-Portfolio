@@ -65,27 +65,27 @@ const NavigationWrapper = styled.ul`
   list-style-type: none;
   padding-inline: 0;
 
-  [aria-expanded='true'] ~ & {
-    inset: 0;
-    padding-block: calc(2 * var(--space-8));
-    padding-inline: var(--space-5);
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    row-gap: var(--space-1);
-    backdrop-filter: blur(10px);
-    background-color: rgb(0 0 0 / 25%);
-    z-index: 1;
-
-    & > li > a {
-      font-size: var(--type-2);
-    }
-  }
-
   @media screen and (max-width: 32rem) {
     display: none;
+
+    [aria-expanded='true'] ~ & {
+      inset: 0;
+      padding-block: calc(2 * var(--space-8));
+      padding-inline: var(--space-5);
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      row-gap: var(--space-1);
+      backdrop-filter: blur(10px);
+      background-color: rgb(0 0 0 / 25%);
+      z-index: 1;
+
+      & > li > a {
+        font-size: var(--type-2);
+      }
+    }
   }
 `;
 
