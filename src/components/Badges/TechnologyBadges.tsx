@@ -1,6 +1,3 @@
-'use client';
-
-import styled from 'styled-components';
 import { TechnologyBadgeProps } from './TechnologyBadge';
 import TypeScriptIcon from '../Icons/TypeScriptIcon';
 import NextJsIcon from '../Icons/NextJsIcon';
@@ -12,6 +9,9 @@ import { faJava, faJs } from '@fortawesome/free-brands-svg-icons';
 import SprintBootIcon from '../Icons/SprintBootIcon';
 import ThymeleafIcon from '../Icons/ThymeleafIcon';
 import DerbyIcon from '../Icons/DerbyIcon';
+import { HTMLDivProps } from '@/types/props';
+import { classes } from '@/utils/classes';
+import styles from './TechnologyBadges.module.css';
 
 export const TechnologyBadges = {
   TypeScript: {
@@ -70,10 +70,6 @@ export const TechnologyBadges = {
   },
 } satisfies Record<string, TechnologyBadgeProps>;
 
-export const BadgeContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: var(--space-0_75);
-  row-gap: var(--space-0_5);
-  margin-block-start: var(--space-0_5);
-`;
+export function BadgeContainer({ className, ...props }: HTMLDivProps) {
+  return <div className={classes(styles.container, className)} {...props} />;
+}

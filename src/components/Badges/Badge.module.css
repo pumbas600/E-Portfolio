@@ -1,0 +1,21 @@
+.badge {
+  border-radius: 0.25rem;
+  padding-inline: var(--space-0_75);
+  padding-block: var(--space-0_25);
+
+  align-items: center;
+  column-gap: 0.5em;
+  display: flex;
+  flex-direction: row;
+
+  text-transform: uppercase;
+  font-size: var(--type-0_75);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
+  &.-primary {
+    background-color: var(--primary-accent-color);
+    color: var(--primary-accent-contrast-text-color);
+    font-weight: 700;
+  }
+}

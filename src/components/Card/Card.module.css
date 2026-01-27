@@ -1,0 +1,14 @@
+.card {
+  display: grid;
+  grid-template-columns: subgrid;
+  padding-block: var(--space-3_5);
+  border-radius: 0.5rem;
+  background-color: var(--secondary-background-color);
+  --block-space: var(--space-3);
+
+  & > * {
+    grid-column-start: content-start;
+    grid-column-end: content-end;
+    --block-space: var(--space-1_5);
+  }
+}

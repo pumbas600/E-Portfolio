@@ -1,31 +1,24 @@
-'use client';
-
-import styled from 'styled-components';
-import { BadgeProps, BadgeWrapper } from './Badge';
-
-const TechnologyBadgeWrapper = styled(BadgeWrapper)<{ $hoverBackground?: string; $hoverColor?: string }>`
-  transition-property: color, background-color;
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-  background-color: var(--primary-background-color);
-  padding-inline: var(--space-1);
-  padding-block: var(--space-0_5);
-
-  &:hover {
-    background-color: ${({ $hoverBackground }) => $hoverBackground};
-    color: ${({ $hoverColor }) => $hoverColor};
-  }
-`;
+import Badge, { BadgeProps } from './Badge';
+import styles from './TechnologyBadge.module.css';
+import { classes } from '@/utils/classes';
 
 export interface TechnologyBadgeProps extends BadgeProps {
   hoverBackground?: string;
   hoverColor?: string;
 }
 
-export default function TechnologyBadge({ icon, label, hoverColor, hoverBackground }: TechnologyBadgeProps) {
+export default function TechnologyBadge({
+  hoverColor,
+  hoverBackground,
+  className,
+  style,
+  ...badgeProps
+}: TechnologyBadgeProps) {
   return (
-    <TechnologyBadgeWrapper $hoverBackground={hoverBackground} $hoverColor={hoverColor}>
-      {icon} {label}
-    </TechnologyBadgeWrapper>
+    <Badge
+      {...badgeProps}
+      className={classes(styles.technologyBadge, className)}
+      style={{ '--background-color-hover': hoverBackground, '--color-hover': hoverColor, ...style }}
+    />
   );
 }

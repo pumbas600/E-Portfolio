@@ -105,3 +105,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.block-space > * + * {
+  margin-block-start: var(--block-space);
+}

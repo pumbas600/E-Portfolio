@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Header from '@/components/Header';
 import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
-import { Layout, Content, ContentTitle } from '@/components/Layout/MainLayout';
+import { Layout, ContentTitle } from '@/components/Layout/MainLayout';
 import ExteralLink from '@/components/Links/ExternalLink';
 import PersonalLinks from '@/data/Links';
 import LinkContainer from '@/components/HomePage/LinkContainer';
@@ -36,28 +36,25 @@ export default async function Home() {
           </LinkContainer>
         </HeroContent>
       </HeroSection>
-      <Content>
-        <ContentTitle>About Me</ContentTitle>
-        <p>
-          Hi, I'm Josh 👋, a software engineer at <LinkBase href="https://letterboxd.com/">Letterboxd</LinkBase> and
-          recent University of Auckland graduate.
-        </p>
-        <p>
-          I love building software that provides value to users. This has been the motivation behind a number of my
-          personal projects, a selection of which can be seen on my <LinkBase href="/projects">projects page</LinkBase>.
-          I'm also obsessed with type safety… static typing for the win!
-        </p>
-        <p>
-          When I'm not coding, I enjoy watching movies, playing video games, and reading books. Check out my last four
-          watched movies below, or my profile on{' '}
-          <LinkBase href="https://letterboxd.com/pumbas600/">Letterboxd</LinkBase>!
-        </p>
-        <LastFourWatched logEntries={logEntries} />
-        <ContentTitle>Contributions</ContentTitle>
-        <Contributions />
-        <ContentTitle>Project Highlight</ContentTitle>
-        <GitHubContributionsCard />
-      </Content>
+      <ContentTitle>About Me</ContentTitle>
+      <p>
+        Hi, I'm Josh 👋, a software engineer at <LinkBase href="https://letterboxd.com/">Letterboxd</LinkBase> and
+        recent University of Auckland graduate.
+      </p>
+      <p>
+        I love building software that provides value to users. This has been the motivation behind a number of my
+        personal projects, a selection of which can be seen on my <LinkBase href="/projects">projects page</LinkBase>.
+        I'm also obsessed with type safety… static typing for the win!
+      </p>
+      <p>
+        When I'm not coding, I enjoy watching movies, playing video games, and reading books. Check out my last four
+        watched movies below, or my profile on <LinkBase href="https://letterboxd.com/pumbas600/">Letterboxd</LinkBase>!
+      </p>
+      <LastFourWatched logEntries={logEntries} />
+      <ContentTitle>Contributions</ContentTitle>
+      <Contributions />
+      <ContentTitle>Project Highlight</ContentTitle>
+      <GitHubContributionsCard />
       <Footer />
     </Layout>
   );

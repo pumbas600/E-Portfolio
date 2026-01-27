@@ -1,42 +1,27 @@
-'use client';
-
+import { classes } from '@/utils/classes';
 import { ReactNode } from 'react';
-import styled from 'styled-components';
+import styles from './Badge.module.css';
+import { HTMLDivProps } from '@/types/props';
 
-export const BadgeWrapper = styled.p`
-  border-radius: 0.25rem;
-  padding-inline: var(--space-0_75);
-  padding-block: var(--space-0_25);
-
-  align-items: center;
-  column-gap: 0.5em;
-  display: flex;
-  flex-direction: row;
-
-  text-transform: uppercase;
-  font-size: var(--type-0_75);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-`;
-
-const PrimaryBadgeWrapper = styled(BadgeWrapper)`
-  background-color: var(--primary-accent-color);
-  color: var(--primary-accent-contrast-text-color);
-  font-weight: 700;
-`;
-
-export interface BadgeProps {
+export interface BadgeProps extends HTMLDivProps {
   label: string;
   icon?: ReactNode;
   variant?: 'primary';
 }
 
-export default function Badge({ label, icon, variant = 'primary' }: BadgeProps) {
-  const BadgeComponent = variant === 'primary' ? PrimaryBadgeWrapper : BadgeWrapper;
-
+export default function Badge({
+  label,
+  icon,
+  variant = 'primary',
+  className,
+  ...props
+}: BadgeProps) {
   return (
-    <BadgeComponent>
-      {icon} {label}
-    </BadgeComponent>
+    <div
+      className={classes(styles.badge, className, variant === 'primary' && styles['-primary'])}
+      {...props}
+    >
+      {icon} <span>{label}</span>
+    </div>
   );
 }

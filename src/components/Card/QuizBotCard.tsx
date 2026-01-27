@@ -1,5 +1,3 @@
-'use client';
-
 import { TechnologyBadges } from '../Badges/TechnologyBadges';
 import LinkBase from '../Links/LinkBase';
 import Metric from '../Metric';

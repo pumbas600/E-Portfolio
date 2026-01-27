@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-0_75);
+  row-gap: var(--space-0_5);
+  --block-space: var(--space-2_5);
+}

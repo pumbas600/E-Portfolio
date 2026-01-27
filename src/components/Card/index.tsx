@@ -1,24 +1,7 @@
-'use client';
+import { HTMLDivProps } from '@/types/props';
+import { classes } from '@/utils/classes';
+import styles from './Card.module.css';
 
-import styled from 'styled-components';
-
-export const CardLayout = styled.div`
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column-start: margin-start;
-  grid-column-end: margin-end;
-  grid-row-gap: inherit;
-`;
-
-const Card = styled(CardLayout)`
-  padding-block: var(--space-3_5);
-  border-radius: 0.5rem;
-  background-color: var(--secondary-background-color);
-
-  & > * {
-    grid-column-start: content-start;
-    grid-column-end: content-end;
-  }
-`;
-
-export default Card;
+export default function Card({ className, ...props }: HTMLDivProps) {
+  return <article className={classes(styles.card, 'block-space', className)} {...props} data-layout="wide" />;
+}

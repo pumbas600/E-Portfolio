@@ -1,0 +1,49 @@
+.highlightedProjectCard {
+  /* Modified from: https://codepen.io/michellebarker/pen/gOMBPQj */
+  @property --angle {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0deg;
+  }
+
+  --highlight: rgb(from var(--primary-accent-color) r g b / 0.2);
+  --highlight-transparent: rgb(from var(--highlight) r g b / 0.05);
+
+  --main-background: linear-gradient(var(--secondary-background-color), var(--secondary-background-color));
+  --gradient-border: conic-gradient(
+    from var(--angle),
+    transparent,
+    var(--highlight) 0.1turn,
+    var(--highlight) 0.15turn,
+    transparent 0.25turn,
+    transparent 0.5turn,
+    var(--highlight) 0.6turn,
+    var(--highlight) 0.65turn,
+    transparent 0.75turn
+  );
+
+  animation: borderRotate 4000ms linear infinite forwards;
+  background:
+    var(--main-background) padding-box,
+    var(--gradient-border) border-box,
+    var(--main-background) border-box;
+  border: var(--space-0_25) solid transparent;
+  box-shadow: 0 0 var(--space-1_25) var(--space-0_25) var(--highlight-transparent);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-0_75);
+}
+
+.metadata {
+  display: flex;
+  justify-content: space-between;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 360deg;
+  }
+}
