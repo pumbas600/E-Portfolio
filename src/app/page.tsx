@@ -13,7 +13,7 @@ import Footer from '@/components/Footer';
 import { fetchLastWatched } from '@/lib/letterboxdApi';
 import LastFourWatched from '@/components/Letterboxd/LastFourWatched';
 
-export const revalidate = 60 * 60 * 5; // Regenerate page every 5 hours.
+export const revalidate = 18000; // Regenerate page every 5 hours.
 
 export default async function Home() {
   const logEntries = await fetchLastWatched();
