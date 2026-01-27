@@ -1,0 +1,9 @@
+.graph {
+  width: 100%;
+  min-height: 220px;
+  grid-column-start: margin-start;
+  grid-column-end: margin-end;
+
+  padding-inline-start: var(--space-2);
+  padding-inline-end: var(--space-3);
+}
