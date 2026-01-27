@@ -33,7 +33,7 @@ export default function ProjectCard({
     <Card id={generateId(name)} className={classes(highlighted && styles.highlightedProjectCard)}>
       <div className={styles.metadata}>
         <SecondaryText>{date}</SecondaryText>
-        {highlighted && <Badge label="Highlight" icon={<SparklesIcon />} />}
+        {highlighted && <Badge variant="primary" label="Highlight" icon={<SparklesIcon />} />}
       </div>
       <h3>
         <ExteralLink href={githubUrl} variant="secondary">

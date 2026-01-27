@@ -9,13 +9,7 @@ export interface BadgeProps extends HTMLDivProps {
   variant?: 'primary';
 }
 
-export default function Badge({
-  label,
-  icon,
-  variant = 'primary',
-  className,
-  ...props
-}: BadgeProps) {
+export default function Badge({ label, icon, variant, className, ...props }: BadgeProps) {
   return (
     <div
       className={classes(styles.badge, className, variant === 'primary' && styles['-primary'])}
