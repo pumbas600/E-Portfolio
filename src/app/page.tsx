@@ -1,11 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Header from '@/components/Header';
 import { HeroContent, HeroSection, HeroSubtitle, HeroTitle } from '../components/Hero/HeroSection';
-import MainLayout from '@/components/Layout/MainLayout';
+import { Layout, Content, ContentTitle } from '@/components/Layout/MainLayout';
 import ExteralLink from '@/components/Links/ExternalLink';
 import PersonalLinks from '@/data/Links';
 import LinkContainer from '@/components/HomePage/LinkContainer';
-import { ContentTitle, MainContent } from '@/components/Layout/MainContent';
 import LinkBase from '@/components/Links/LinkBase';
 import Contributions from '@/components/HomePage/Contributions';
 import GitHubContributionsCard from '@/components/Card/GitHubContributionsCard';
@@ -19,7 +18,7 @@ export default async function Home() {
   const logEntries = await fetchLastWatched();
 
   return (
-    <MainLayout>
+    <Layout>
       <HeroSection>
         <Header />
         <HeroContent>
@@ -37,7 +36,7 @@ export default async function Home() {
           </LinkContainer>
         </HeroContent>
       </HeroSection>
-      <MainContent>
+      <Content>
         <ContentTitle>About Me</ContentTitle>
         <p>
           Hi, I'm Josh 👋, a software engineer at <LinkBase href="https://letterboxd.com/">Letterboxd</LinkBase> and
@@ -58,8 +57,8 @@ export default async function Home() {
         <Contributions />
         <ContentTitle>Project Highlight</ContentTitle>
         <GitHubContributionsCard />
-      </MainContent>
+      </Content>
       <Footer />
-    </MainLayout>
+    </Layout>
   );
 }

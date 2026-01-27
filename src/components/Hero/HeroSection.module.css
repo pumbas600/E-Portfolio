@@ -1,0 +1,48 @@
+.heroSection {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: auto 1fr;
+  align-content: center;
+
+  min-height: 75dvh;
+  margin-block-end: var(--space-8);
+
+  background: var(--primary-accent-color);
+  background: radial-gradient(at left bottom, var(--primary-accent-color), var(--secondary-accent-color));
+  color: var(--primary-accent-contrast-text-color);
+
+  & > * {
+    grid-column-start: content-start;
+    grid-column-end: content-end;
+  }
+
+  & > header {
+    grid-column-start: margin-start;
+    grid-column-end: margin-end;
+
+    @media screen and (max-width: 40rem) {
+      grid-column-start: content-start;
+      grid-column-end: content-end;
+    }
+  }
+}
+
+.heroContent {
+  display: grid;
+  grid-row-gap: var(--space-4);
+  align-content: center;
+
+  padding-block-start: var(--space-6);
+  padding-block-end: var(--space-12);
+}
+
+.heroTitle {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-weight: 600;
+  line-height: 1.2;
+}

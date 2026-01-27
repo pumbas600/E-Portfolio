@@ -1,0 +1,15 @@
+.header {
+  padding-block: var(--space-1_5);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.homeLink {
+  font-size: var(--type-1_25);
+  line-height: 1;
+  text-transform: uppercase;
+}

@@ -1,11 +1,10 @@
 'use client';
 
 import styled from 'styled-components';
-import { BaseHeroContent } from '../Hero/HeroSection';
 import { ExternalIconLink } from '../Links/ExternalLink';
 import PersonalLinks from '../../data/Links';
 
-const FooterWrapper = styled(BaseHeroContent).attrs({ as: 'footer' })`
+const FooterWrapper = styled.footer`
   margin-block-start: var(--space-8);
   padding-block: var(--space-4);
   row-gap: var(--space-2);

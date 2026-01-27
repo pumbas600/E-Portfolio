@@ -1,23 +1,5 @@
-'use client';
-
-import styled from 'styled-components';
 import BurgerMenu, { NavigationLink } from './BurgerMenu';
-
-const HeaderWrapper = styled.header`
-  padding-block: var(--space-1_5);
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const HomeLink = styled(NavigationLink)`
-  font-size: var(--type-1_25);
-  line-height: 1;
-  text-transform: uppercase;
-`;
+import styles from './Header.module.css';
 
 const NavLinks: NavigationLink[] = [
   {
@@ -36,15 +18,15 @@ const NavLinks: NavigationLink[] = [
 
 export default function Header() {
   return (
-    <HeaderWrapper>
-      <Nav>
-        <HomeLink href="/">
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <NavigationLink className={styles.homeLink} href="/">
           Josh
           <br />
           Jeffers
-        </HomeLink>
+        </NavigationLink>
         <BurgerMenu links={NavLinks} />
-      </Nav>
-    </HeaderWrapper>
+      </nav>
+    </header>
   );
 }

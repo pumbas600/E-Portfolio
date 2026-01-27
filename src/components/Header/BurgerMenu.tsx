@@ -1,3 +1,5 @@
+'use client';
+
 import { disableMobileScrolling, enableMobileScrolling } from '@/lib/scrollHelpers';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -93,7 +95,9 @@ export const NavigationLink = styled(Link)`
   color: inherit;
   font-size: var(--type-1_5);
   text-decoration-color: transparent;
-  transition: color 150ms ease-in-out, text-decoration-color 200ms ease-in-out;
+  transition:
+    color 150ms ease-in-out,
+    text-decoration-color 200ms ease-in-out;
 `;
 
 export interface NavigationLink {
