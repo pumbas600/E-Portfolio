@@ -1,7 +1,7 @@
 import { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
 import StyledComponentsRegistry from '../lib/StyledComponentsRegistry';
-import Noise from '../components/Noise';
+import Noise from '../components/Layout/Noise';
 import Head from 'next/head';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
