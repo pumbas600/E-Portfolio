@@ -1,4 +1,4 @@
-import { generateId } from '../Utils';
+import { generateId } from '../../utils/utils';
 
 interface TitleProps {
   name: string;
