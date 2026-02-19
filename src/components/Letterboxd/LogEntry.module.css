@@ -1,0 +1,41 @@
+.logEntry {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0_5);
+}
+
+.link {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: min(4%, var(--space-0_25));
+  overflow: hidden;
+  border: var(--hairline) solid var(--border-color);
+
+  --outline-width: calc(2 * var(--hairline));
+
+  &:focus-visible {
+    border-color: var(--secondary-accent-color);
+    outline: var(--outline-width) solid var(--secondary-accent-color);
+    outline-offset: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: var(--secondary-accent-color);
+      outline: var(--outline-width) solid var(--secondary-accent-color);
+    }
+  }
+}
+
+.reactions {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 2%;
+  color: var(--secondary-text-color);
+
+  > .icon {
+    width: 100%;
+    height: auto;
+  }
+}

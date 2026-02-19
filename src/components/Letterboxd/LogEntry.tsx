@@ -1,36 +1,9 @@
 import Link from 'next/link';
 import { LetterboxdLogEntry } from '../../lib/letterboxdApi';
 import Image from 'next/image';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRetweet, faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
-
-const LogEntryWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-0_5);
-`;
-
-const LinkWrapper = styled(Link)`
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2/3;
-  border-radius: min(4%, var(--space-0_25));
-  overflow: hidden;
-  border: var(--hairline) solid var(--border-color);
-
-  &:hover {
-    border-color: var(--secondary-accent-color);
-    outline: var(--hairline) solid var(--secondary-accent-color);
-  }
-`;
-
-const IconWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: var(--space-0_125);
-  color: var(--secondary-text-color);
-`;
+import styles from './LogEntry.module.css';
 
 export interface LogEntryProps {
   logEntry: LetterboxdLogEntry;
@@ -41,19 +14,33 @@ export default function LogEntry({ logEntry }: LogEntryProps) {
   const hasHalfStar = logEntry.rating !== undefined && logEntry.rating !== stars;
 
   return (
-    <LogEntryWrapper>
-      <LinkWrapper href={logEntry.link} target="_blank" rel="noreferrer">
-        <Image src={logEntry.imageUrl} alt={`${logEntry.title}'s poster`} fill sizes="(max-width: 45rem) 22vw, 150px" />
-      </LinkWrapper>
-      <IconWrapper>
+    <div className={styles.logEntry}>
+      <Link className={styles.link} href={logEntry.link} target="_blank" rel="noreferrer">
+        <Image
+          src={logEntry.imageUrl}
+          alt={`${logEntry.title}’s poster`}
+          fill
+          sizes="(max-width: 45rem) 22vw, 150px"
+        />
+      </Link>
+      <div className={styles.reactions}>
         {Array(stars)
           .fill(null)
           .map((_, index) => (
-            <FontAwesomeIcon icon={faStar} key={index} size="1x" />
+            <FontAwesomeIcon className={styles.icon} icon={faStar} key={index} size="1x" />
           ))}
-        {hasHalfStar && <FontAwesomeIcon icon={faStarHalfStroke} size="1x" />}
-        {logEntry.rewatched && <FontAwesomeIcon icon={faRetweet} size="1x" title="I've watched this before" />}
-      </IconWrapper>
-    </LogEntryWrapper>
+        {hasHalfStar && (
+          <FontAwesomeIcon className={styles.icon} icon={faStarHalfStroke} size="1x" />
+        )}
+        {logEntry.rewatched && (
+          <FontAwesomeIcon
+            className={styles.icon}
+            icon={faRetweet}
+            size="1x"
+            title="I've watched this before"
+          />
+        )}
+      </div>
+    </div>
   );
 }
