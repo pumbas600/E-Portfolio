@@ -1,14 +1,4 @@
-'use client';
-
-import styled from 'styled-components';
-
-const MetricWrapper = styled.span`
-  color: var(--secondary-accent-color);
-  display: inline-block;
-  font-size: var(--type-1_5);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-`;
+import styles from './Metric.module.css';
 
 function formatMetric(metric?: number): string {
   if (metric === undefined) return '-';
@@ -24,7 +14,7 @@ export interface MetricProps {
 export default function Metric({ value, label }: MetricProps) {
   return (
     <p>
-      <MetricWrapper>{formatMetric(value)}</MetricWrapper>&nbsp;{label}
+      <span className={styles.metric}>{formatMetric(value)}</span>&nbsp;{label}
     </p>
   );
 }

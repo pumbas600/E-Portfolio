@@ -1,0 +1,4 @@
+.secondaryText {
+  color: var(--secondary-text-color);
+  font-size: var(--type-1_125);
+}

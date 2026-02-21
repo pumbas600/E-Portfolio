@@ -1,6 +1,6 @@
 import { TechnologyBadges } from '../Badges/TechnologyBadges';
 import LinkBase from '../Links/LinkBase';
-import Metric from '../Metric';
+import Metric from '../Typography/Metric';
 import ProjectCard from './ProjectCard';
 
 export default function QuizBotCard() {
@@ -10,13 +10,16 @@ export default function QuizBotCard() {
       description={
         <>
           <p>
-            A discord bot I made using <LinkBase href={'https://github.com/pumbas600/Halpbot-v1'}>Halpbot</LinkBase>, my
-            custom annotation-based discord bot framework for JDA. The bot allowed users to quiz themselves on
-            CHEMMAT&nbsp;121; a Part&nbsp;I Engineering course. The bot included a vast range of questions, answer
-            streaks, leaderboards and helpful explanations. It also consisted of a separate{' '}
-            <LinkBase href="https://github.com/pumbas600/HalpbotDashboard">dashboard</LinkBase> built using Spring Boot
-            and Thymeleaf which allowed users to easily add questions to the database. According to feedback collected
-            from users, they found the bot to be an extremely useful and accessible studying mechanism.
+            A discord bot I made using{' '}
+            <LinkBase href={'https://github.com/pumbas600/Halpbot-v1'}>Halpbot</LinkBase>, my custom
+            annotation-based discord bot framework for JDA. The bot allowed users to quiz themselves
+            on CHEMMAT&nbsp;121; a Part&nbsp;I Engineering course. The bot included a vast range of
+            questions, answer streaks, leaderboards and helpful explanations. It also consisted of a
+            separate{' '}
+            <LinkBase href="https://github.com/pumbas600/HalpbotDashboard">dashboard</LinkBase>{' '}
+            built using Spring Boot and Thymeleaf which allowed users to easily add questions to the
+            database. According to feedback collected from users, they found the bot to be an
+            extremely useful and accessible studying mechanism.
           </p>
           <p>As of November 2021, there were:</p>
           <div>

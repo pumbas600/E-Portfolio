@@ -1,6 +1,6 @@
 import Card from '../../Card';
 import LinkBase from '../../Links/LinkBase';
-import { SecondaryText } from '../../Typography';
+import { SecondaryText } from '../../Typography/Typography';
 import styles from './Contributions.module.css';
 
 export default function Contributions() {

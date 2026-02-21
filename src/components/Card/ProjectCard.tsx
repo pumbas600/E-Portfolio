@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { generateId } from '../../utils/utils';
 import { ReactNode } from 'react';
-import { SecondaryText } from '../Typography';
+import { SecondaryText } from '../Typography/Typography';
 import ExteralLink from '../Links/ExternalLink';
 import TechnologyBadge, { TechnologyBadgeProps } from '../Badges/TechnologyBadge';
 import Badge from '../Badges/Badge';

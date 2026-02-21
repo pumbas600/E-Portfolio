@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
 import { TechnologyBadges } from '../Badges/TechnologyBadges';
-import Metric from '../Metric';
+import Metric from '../Typography/Metric';
 
 export default function GitHubContributionsCard() {
   const [totalCalls, setTotalCalls] = useState<number | undefined>(undefined);
@@ -33,15 +33,16 @@ export default function GitHubContributionsCard() {
       description={
         <>
           <p>
-            GitHub Contributions is a simple API I made that can generated dynamic graphs of your recent GitHub
-            contributions which can be used as image URLs in markdown files (Such as your public profile README). The
-            API supports a number of query parameters which allow the style of the graph to be completely customised to
-            suit the user&apos;s desires.
+            GitHub Contributions is a simple API I made that can generated dynamic graphs of your
+            recent GitHub contributions which can be used as image URLs in markdown files (Such as
+            your public profile README). The API supports a number of query parameters which allow
+            the style of the graph to be completely customised to suit the user&apos;s desires.
           </p>
           <p>
-            It uses Next.JS for the API and <LinkBase href="https://github.pumbas.net">interactive playground</LinkBase>
-            , React for rendering the contribution graph, Firestore for tracking usage metrics, and is hosted on an
-            Oracle Cloud Infastructure compute instance.
+            It uses Next.JS for the API and{' '}
+            <LinkBase href="https://github.pumbas.net">interactive playground</LinkBase>, React for
+            rendering the contribution graph, Firestore for tracking usage metrics, and is hosted on
+            an Oracle Cloud Infastructure compute instance.
           </p>
           <div>
             <Metric value={pastWeekCalls} label="graphs rendered in the past week." />
