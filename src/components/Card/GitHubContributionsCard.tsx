@@ -1,30 +1,33 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import LinkBase from '../Links/LinkBase';
 import { TechnologyBadges } from '../Badges/TechnologyBadges';
 import Metric from '../Typography/Metric';
+import { fail, ok, Result } from '@/utils/result';
 
-export default function GitHubContributionsCard() {
-  const [totalCalls, setTotalCalls] = useState<number | undefined>(undefined);
-  const [pastWeekCalls, setPastWeekCalls] = useState<number | undefined>(undefined);
+async function fetchMetrics(): Promise<Result<{ totalCalls: number; pastWeekCalls: number }>> {
+  try {
+    const [totalResponse, pastWeekResponse] = await Promise.all([
+      fetch('https://github.pumbas.net/api/metrics'),
+      fetch('https://github.pumbas.net/api/metrics?days=7'),
+    ]);
 
-  useEffect(() => {
-    fetchMetrics();
-  }, []);
+    if (totalResponse.ok && pastWeekResponse.ok) {
+      const [{ count: totalCalls }, { count: pastWeekCalls }] = await Promise.all([
+        totalResponse.json(),
+        pastWeekResponse.json(),
+      ]);
 
-  function fetchMetrics(): void {
-    fetch('https://github.pumbas.net/api/metrics')
-      .then((response) => response.json())
-      .then(({ count }) => setTotalCalls(count))
-      .catch(console.error);
-
-    fetch('https://github.pumbas.net/api/metrics?days=7')
-      .then((response) => response.json())
-      .then(({ count }) => setPastWeekCalls(count))
-      .catch(console.error);
+      return ok({ totalCalls, pastWeekCalls });
+    }
+  } catch (error) {
+    console.error(error);
   }
+
+  return fail('There was an unexpected error retrieving the metrics');
+}
+
+export default async function GitHubContributionsCard() {
+  const metricsResult = await fetchMetrics();
 
   return (
     <ProjectCard
@@ -44,10 +47,15 @@ export default function GitHubContributionsCard() {
             rendering the contribution graph, Firestore for tracking usage metrics, and is hosted on
             an Oracle Cloud Infastructure compute instance.
           </p>
-          <div>
-            <Metric value={pastWeekCalls} label="graphs rendered in the past week." />
-            <Metric value={totalCalls} label="graphs rendered in total." />
-          </div>
+          {metricsResult.success && (
+            <div>
+              <Metric
+                value={metricsResult.data.pastWeekCalls}
+                label="graphs rendered in the past week."
+              />
+              <Metric value={metricsResult.data.totalCalls} label="graphs rendered in total." />
+            </div>
+          )}
         </>
       }
       date="April 2023"
