@@ -5,7 +5,11 @@ import InputField from '../../Forms/InputField';
 import Title from '../../Title';
 import Card from '../../Card';
 
-import { faCircleNotch, faEnvelopeCircleCheck, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleNotch,
+  faEnvelopeCircleCheck,
+  faPaperPlane,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSSTransition } from 'react-transition-group';
 import { useState } from 'react';
@@ -106,15 +110,19 @@ export default function ContactMe() {
       } else {
         const formResponse: { errors?: FormError[] } = await response.json();
         // Allows you to set the errors using newState[field] without it complaining
-        let newState = { ...state } as any;
+        const newState = { ...state };
 
         if (formResponse.errors) {
-          formResponse['errors']
-            ?.filter((error) => error.field)
-            .forEach((error) => {
-              newState[error.field!] = error.message;
-            });
+          const errorMap = formResponse.errors.reduce((acc: Record<string, string>, error) => {
+            acc[error.field ?? 'general'] = error.message;
+            return acc;
+          }, {});
+
+          newState.emailError = errorMap['email'] ?? '';
+          newState.nameError = errorMap['name'] ?? '';
+          newState.generalError = errorMap['general'] ?? '';
         }
+
         setState({ ...newState, sendingState: 'UNSENT' });
       }
     } catch (e) {
@@ -127,7 +135,7 @@ export default function ContactMe() {
     }
   }
 
-  function renderSendText(): JSX.Element {
+  function renderSendText(): React.ReactNode {
     switch (state.sendingState) {
       case 'UNSENT':
         return (
@@ -148,7 +156,7 @@ export default function ContactMe() {
     }
   }
 
-  function renderSubmitButton(): JSX.Element {
+  function renderSubmitButton(): React.ReactNode {
     return (
       <>
         {showButton && (
@@ -216,7 +224,9 @@ export default function ContactMe() {
                 onChange={updateMessage}
                 value={state.message}
               />
-              {state.generalError.length !== 0 && <div className="text-base text-red-500">{state.generalError}</div>}
+              {state.generalError.length !== 0 && (
+                <div className="text-base text-red-500">{state.generalError}</div>
+              )}
             </LabelledInput>
             {renderSubmitButton()}
           </div>

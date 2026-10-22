@@ -48,7 +48,7 @@ const ExternalIconLinkWrapper = styled(CommonExternalLink)`
   }
 `;
 
-export interface CommonExternalLinkProps extends LinkProps {
+export interface CommonExternalLinkProps extends Omit<LinkProps, 'as'> {
   children: React.ReactNode;
   variant?: 'primaryContrast' | 'secondary';
 }
