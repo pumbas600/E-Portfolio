@@ -9,14 +9,9 @@ const LinkContainer = styled.address`
   column-gap: var(--space-2);
   row-gap: var(--space-0_25);
 
-  @media screen and (max-width: 40rem) {
+  @media (max-width: 40rem) {
     flex-direction: column;
     align-items: flex-start;
-
-    & > a {
-      display: grid;
-      grid-template-columns: 1.1rem auto auto;
-    }
   }
 `;
 

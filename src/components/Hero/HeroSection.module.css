@@ -7,7 +7,11 @@
   min-height: 75dvh;
 
   background: var(--primary-accent-color);
-  background: radial-gradient(at left bottom, var(--primary-accent-color), var(--secondary-accent-color));
+  background: radial-gradient(
+    at left bottom,
+    var(--primary-accent-color),
+    var(--secondary-accent-color)
+  );
   color: var(--primary-accent-contrast-text-color);
 
   & > * {
@@ -19,7 +23,7 @@
     grid-column-start: margin-start;
     grid-column-end: margin-end;
 
-    @media screen and (max-width: 40rem) {
+    @media (max-width: 40rem) {
       grid-column-start: content-start;
       grid-column-end: content-end;
     }

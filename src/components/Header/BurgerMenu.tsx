@@ -19,7 +19,7 @@ const MenuButton = styled.button`
     opacity: 80%;
   }
 
-  @media screen and (max-width: 32rem) {
+  @media (max-width: 32rem) {
     display: block;
   }
 `;
@@ -67,7 +67,7 @@ const NavigationWrapper = styled.ul`
   list-style-type: none;
   padding-inline: 0;
 
-  @media screen and (max-width: 32rem) {
+  @media (max-width: 32rem) {
     display: none;
 
     [aria-expanded='true'] ~ & {

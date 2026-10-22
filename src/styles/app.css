@@ -64,7 +64,7 @@ html {
 }
 
 body[data-mobile-scrolling='false'] {
-  @media screen and (max-width: 32rem) {
+  @media (max-width: 32rem) {
     overflow: hidden;
   }
 }
