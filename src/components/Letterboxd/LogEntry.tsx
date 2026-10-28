@@ -23,7 +23,12 @@ export default function LogEntry({ logEntry }: LogEntryProps) {
           sizes="(max-width: 45rem) 22vw, 150px"
         />
       </Link>
-      <div className={styles.reactions}>
+      <div
+        className={styles.reactions}
+        aria-label={
+          logEntry.rating === undefined ? undefined : `I rated this ${logEntry.rating}/5 stars`
+        }
+      >
         {Array(stars)
           .fill(null)
           .map((_, index) => (
