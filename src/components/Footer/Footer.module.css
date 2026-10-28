@@ -1,0 +1,19 @@
+.footerLayout {
+  margin-block-start: var(--space-8);
+  padding-block: var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: var(--space-1);
+  align-items: end;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0_25);
+}
+
+.copyrightText {
+  font-size: var(--type-1_125);
+  color: var(--secondary-text-color);
+}

@@ -1,41 +1,20 @@
-'use client';
-
-import styled from 'styled-components';
-import ExternalLink, { ExternalIconLink } from '../Links/ExternalLink';
 import PersonalLinks from '../../data/Links';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const FooterWrapper = styled.footer`
-  margin-block-start: var(--space-8);
-  padding-block: var(--space-4);
-  row-gap: var(--space-2);
-`;
-
-const LinkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: var(--space-1_5);
-`;
-
-const CopyrightText = styled.p`
-  font-size: var(--type-1_125);
-  color: var(--secondary-text-color);
-`;
+import FooterLink from './FooterLink';
+import styles from './Footer.module.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <FooterWrapper>
-      <LinkContainer>
+    <footer className={styles.footerLayout}>
+      <div className={styles.links}>
         {PersonalLinks.map((link) => (
-          <ExternalLink key={link.href} href={link.href}>
-            <FontAwesomeIcon icon={link.icon} size="lg" />
-            <span>{link.name}</span>
-          </ExternalLink>
+          <FooterLink key={link.href} href={link.href}>
+            {link.name}
+          </FooterLink>
         ))}
-      </LinkContainer>
-      <CopyrightText>©{year} Josh Jeffers</CopyrightText>
-    </FooterWrapper>
+      </div>
+      <div className={styles.copyrightText}>©{year} Josh Jeffers</div>
+    </footer>
   );
 }

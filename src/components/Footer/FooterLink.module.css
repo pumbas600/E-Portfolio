@@ -1,0 +1,24 @@
+.footerLink {
+  color: var(--secondary-text-color);
+  transition: color var(--transition-duration, var(--transition-duration-out)) var(--default-easing);
+
+  @media (hover: hover) {
+    &:hover {
+      --transition-duration: var(--transition-duration-in);
+      color: var(--secondary-text-hover-color);
+      text-decoration: none;
+    }
+  }
+
+  &:active {
+    --transition-duration: 0ms;
+    color: var(--secondary-text-active-color);
+  }
+
+  &:focus-visible {
+    --transition-duration: var(--transition-duration-in);
+    color: var(--secondary-text-hover-color);
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset-medium);
+  }
+}
