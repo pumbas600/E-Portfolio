@@ -18,7 +18,7 @@ export default function LogEntry({ logEntry }: LogEntryProps) {
       <Link className={styles.link} href={logEntry.link} target="_blank" rel="noreferrer">
         <Image
           src={logEntry.imageUrl}
-          alt={`${logEntry.title}’s poster`}
+          alt={logEntry.title}
           fill
           sizes="(max-width: 45rem) 22vw, 150px"
         />
