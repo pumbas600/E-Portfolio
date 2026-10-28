@@ -1,8 +1,9 @@
 'use client';
 
 import styled from 'styled-components';
-import { ExternalIconLink } from '../Links/ExternalLink';
+import ExternalLink, { ExternalIconLink } from '../Links/ExternalLink';
 import PersonalLinks from '../../data/Links';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const FooterWrapper = styled.footer`
   margin-block-start: var(--space-8);
@@ -18,6 +19,7 @@ const LinkContainer = styled.div`
 
 const CopyrightText = styled.p`
   font-size: var(--type-1_125);
+  color: var(--secondary-text-color);
 `;
 
 export default function Footer() {
@@ -27,10 +29,13 @@ export default function Footer() {
     <FooterWrapper>
       <LinkContainer>
         {PersonalLinks.map((link) => (
-          <ExternalIconLink key={link.href} href={link.href} icon={link.icon} size="lg" />
+          <ExternalLink key={link.href} href={link.href}>
+            <FontAwesomeIcon icon={link.icon} size="lg" />
+            <span>{link.name}</span>
+          </ExternalLink>
         ))}
       </LinkContainer>
-      <CopyrightText>©{year} Joshua Alex Jeffers</CopyrightText>
+      <CopyrightText>©{year} Josh Jeffers</CopyrightText>
     </FooterWrapper>
   );
 }
