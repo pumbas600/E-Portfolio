@@ -2,7 +2,6 @@ import { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
 import StyledComponentsRegistry from '../lib/StyledComponentsRegistry';
 import Noise from '../components/Layout/Noise';
-import Head from 'next/head';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -13,7 +12,7 @@ import '../styles/app.css';
 
 export const metadata: Metadata = {
   title: 'Josh Jeffers',
-  description: "Josh Jeffers’ digital portfolio",
+  description: 'Josh Jeffers’ digital portfolio',
 };
 
 export const viewport: Viewport = {
