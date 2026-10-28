@@ -1,23 +1,33 @@
 .footerLink {
   width: fit-content;
   color: var(--secondary-text-color);
-  transition: color var(--transition-duration, var(--transition-duration-out)) var(--default-easing);
+  text-decoration: underline;
+  text-decoration-color: rgb(
+    from var(--primary-accent-color) r g b / var(--link-underline-opacity, 0)
+  );
+  text-underline-offset: 0.125em;
+
+  transition-duration: var(--transition-duration, var(--transition-duration-out));
+  transition-timing-function: var(--default-easing);
+  transition-property: color, text-decoration-color;
 
   @media (hover: hover) {
     &:hover {
       --transition-duration: var(--transition-duration-in);
+      --link-underline-opacity: 1;
       color: var(--secondary-text-hover-color);
-      text-decoration: none;
     }
   }
 
   &:active {
     --transition-duration: 0ms;
+    --link-underline-opacity: calc(2 / 3);
     color: var(--secondary-text-active-color);
   }
 
   &:focus-visible {
     --transition-duration: var(--transition-duration-in);
+    --link-underline-opacity: 0;
     color: var(--secondary-text-hover-color);
     outline: var(--focus-outline);
     outline-offset: var(--focus-offset-medium);
