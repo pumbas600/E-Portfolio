@@ -1,4 +1,5 @@
 .footerLink {
+  width: fit-content;
   color: var(--secondary-text-color);
   transition: color var(--transition-duration, var(--transition-duration-out)) var(--default-easing);
 
