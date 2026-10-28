@@ -6,14 +6,6 @@ const NavLinks: NavigationLink[] = [
     label: 'Projects',
     link: '/projects',
   },
-  {
-    label: 'Education',
-    link: '/education',
-  },
-  {
-    label: 'Employment',
-    link: '/employment',
-  },
 ];
 
 export default function Header() {
