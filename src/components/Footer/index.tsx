@@ -16,13 +16,6 @@ const LinkContainer = styled.div`
   gap: var(--space-1_5);
 `;
 
-const Divider = styled.hr`
-  border-style: dotted;
-  border-block-start: var(--hairline);
-  grid-column-start: margin-start;
-  grid-column-end: margin-end;
-`;
-
 const CopyrightText = styled.p`
   font-size: var(--type-1_125);
 `;
@@ -37,7 +30,6 @@ export default function Footer() {
           <ExternalIconLink key={link.href} href={link.href} icon={link.icon} size="lg" />
         ))}
       </LinkContainer>
-      <Divider />
       <CopyrightText>©{year} Joshua Alex Jeffers</CopyrightText>
     </FooterWrapper>
   );

@@ -93,7 +93,7 @@ const NavigationWrapper = styled.ul`
 
 export const NavigationLink = styled(Link)`
   color: inherit;
-  font-size: var(--type-1_5);
+  font-size: var(--font-size, var(--type-1_5));
   text-decoration-color: transparent;
   transition:
     color 150ms ease-in-out,

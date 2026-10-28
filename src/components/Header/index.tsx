@@ -1,12 +1,5 @@
-import BurgerMenu, { NavigationLink } from './BurgerMenu';
+import { NavigationLink } from './BurgerMenu';
 import styles from './Header.module.css';
-
-const NavLinks: NavigationLink[] = [
-  {
-    label: 'Projects',
-    link: '/projects',
-  },
-];
 
 export default function Header() {
   return (
@@ -17,7 +10,6 @@ export default function Header() {
           <br />
           Jeffers
         </NavigationLink>
-        <BurgerMenu links={NavLinks} />
       </nav>
     </header>
   );
