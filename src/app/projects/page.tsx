@@ -10,7 +10,7 @@ export default function Projects() {
     <Layout>
       <Header />
       <ContentTitle>Projects</ContentTitle>
-      <p>A collection of some of the many projects I've worked on over the past few years.</p>
+      <p>A collection of some of the many projects I’ve worked on over the past few years.</p>
       <GitHubContributionsCard />
       <PortfolioCard />
       <QuizBotCard />

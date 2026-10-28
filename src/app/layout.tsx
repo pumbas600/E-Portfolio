@@ -13,7 +13,7 @@ import '../styles/app.css';
 
 export const metadata: Metadata = {
   title: 'Josh Jeffers',
-  description: "Josh Jeffers' digital portfolio",
+  description: "Josh Jeffers’ digital portfolio",
 };
 
 export const viewport: Viewport = {

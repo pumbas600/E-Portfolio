@@ -37,7 +37,7 @@ export default function LogEntry({ logEntry }: LogEntryProps) {
             className={styles.icon}
             icon={faRetweet}
             size="1x"
-            title="I've watched this before"
+            title="I’ve watched this before"
           />
         )}
       </div>
