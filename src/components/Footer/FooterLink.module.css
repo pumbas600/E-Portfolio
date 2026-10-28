@@ -6,6 +6,7 @@
     from var(--primary-accent-color) r g b / var(--link-underline-opacity, 0)
   );
   text-underline-offset: 0.125em;
+  letter-spacing: 0.015em;
 
   transition-duration: var(--transition-duration, var(--transition-duration-out));
   transition-timing-function: var(--default-easing);

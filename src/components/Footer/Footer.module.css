@@ -1,19 +1,25 @@
 .footerLayout {
   margin-block-start: var(--space-8);
-  padding-block: var(--space-4);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: var(--space-1);
-  align-items: end;
+  margin-block-end: var(--space-6);
 }
 
 .links {
+  width: fit-content;
   display: flex;
   flex-direction: column;
   gap: var(--space-0_25);
+
+  &::after {
+    content: '';
+    display: block;
+    margin-block: var(--space-1);
+    margin-inline-end: calc(-1 * var(--space-6));
+    margin-inline-start: calc(-1 * var(--space-1));
+    border-block-end: var(--hairline) solid var(--border-color);
+  }
 }
 
 .copyrightText {
-  font-size: var(--type-1_125);
+  font-size: var(--type-1);
   color: var(--secondary-text-color);
 }

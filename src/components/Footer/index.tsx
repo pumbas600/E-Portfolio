@@ -14,7 +14,7 @@ export default function Footer() {
           </FooterLink>
         ))}
       </div>
-      <div className={styles.copyrightText}>©{year} Josh Jeffers</div>
+      <p className={styles.copyrightText}>©{year} Josh Jeffers</p>
     </footer>
   );
 }
