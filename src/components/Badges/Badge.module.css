@@ -13,6 +13,15 @@
   font-weight: 600;
   letter-spacing: 0.05em;
 
+  svg {
+    overflow: visible;
+  }
+
+  > .label {
+    /* Make the label feel more vertically aligned with the icon. */
+    text-box-trim: trim-both;
+  }
+
   &.-primary {
     background-color: var(--primary-accent-color);
     color: var(--primary-accent-contrast-text-color);

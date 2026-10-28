@@ -15,7 +15,7 @@ export default function Badge({ label, icon, variant, className, ...props }: Bad
       className={classes(styles.badge, className, variant === 'primary' && styles['-primary'])}
       {...props}
     >
-      {icon} <span>{label}</span>
+      {icon} <span className={styles.label}>{label}</span>
     </div>
   );
 }
