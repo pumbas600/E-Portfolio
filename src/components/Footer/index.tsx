@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.footerLayout}>
-      <div className={styles.links}>
+      <div className={styles.linkGroup}>
         {PersonalLinks.map((link) => (
           <FooterLink key={link.href} href={link.href}>
             {link.name}
